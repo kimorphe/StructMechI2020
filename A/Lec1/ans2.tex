@@ -1,0 +1,133 @@
+\documentclass[10pt,a4j]{jarticle}
+\usepackage{graphicx,wrapfig}
+\setlength{\topmargin}{-1.5cm}
+\setlength{\textwidth}{16.5cm}
+\setlength{\textheight}{25.2cm}
+\newlength{\minitwocolumn}
+\setlength{\minitwocolumn}{0.5\textwidth}
+\addtolength{\minitwocolumn}{-\columnsep}
+%\addtolength{\baselineskip}{-0.1\baselineskip}
+%
+\def\Mmaru#1{{\ooalign{\hfil#1\/\hfil\crcr
+\raise.167ex\hbox{\mathhexbox 20D}}}}
+%
+\begin{document}
+\newcommand{\fat}[1]{\mbox{\boldmath $#1$}}
+\newcommand{\D}{\partial}
+\newcommand{\w}{\omega}
+\newcommand{\ga}{\alpha}
+\newcommand{\gb}{\beta}
+\newcommand{\gx}{\xi}
+\newcommand{\gz}{\zeta}
+\newcommand{\e}{\epsilon}
+\newcommand{\vhat}[1]{\hat{\fat{#1}}}
+\newcommand{\spc}{\vspace{0.7\baselineskip}}
+\newcommand{\halfspc}{\vspace{0.3\baselineskip}}
+\bibliographystyle{unsrt}
+\pagestyle{empty}
+\newcommand{\twofig}[2]
+ {
+   \begin{figure}
+     \begin{minipage}[t]{\minitwocolumn}
+         \begin{center}   #1
+         \end{center}
+     \end{minipage}
+         \hspace{\columnsep}
+     \begin{minipage}[t]{\minitwocolumn}
+         \begin{center} #2
+         \end{center}
+     \end{minipage}
+   \end{figure}
+ }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\vspace*{\baselineskip}
+\begin{center}
+{\Large \bf 2009年度 変形体力学I及び演習 第2回演習問題解答} \\
+\end{center}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{問題1の解答} 
+\begin{enumerate}
+\item 
+	変位とは着目点の変形前後での移動量であるから、
+	\[
+		u(x)=x'(x)-x=
+		\frac{x}{l_0}\left( 1-\frac{x}{l_0}\right) u_0
+	\]
+	となる。ひずみは、変位を微分すること得られ、ここでは
+	\[
+		\epsilon (x) = \frac{du}{dx}=\frac{u_0}{l_0}\left(1-\frac{2x}{l_0} \right)
+	\]
+	となる。
+\item
+	変形後の棒の長さ$l$は
+	\[
+		l=x'(l_0)-x'(0)=l_0
+	\]
+	だから、棒の伸びは
+	\[
+		\Delta l =l-l_0=0
+	\]
+	である。
+\item
+	(ひずみの最大値)\\
+	上で得られたひずみの分布は、$x$について傾きが負の1次式である。
+	従って、$x=0$で最大値をとりその値は$u_0/l_0$.
+	\\
+	(変位の最大値)\\
+	u(x)は連続関数であるから、最大値をとる可能性があるのは領域の両端部か1次の導関数(つまり,
+	ひずみ$\epsilon (x)$)がゼロになる場所である。 $\epsilon( l_0/2) =0 $だから$u(0), u(l_0), u(l_0/2)$
+	を比較すれば、$u(l_0/2)=u_0/4$が最大値であることが分かる。
+\end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{問題2の解答} 
+\begin{enumerate}
+\item
+棒の左端が固定されている($u(0)=0$)ことに注意して$\epsilon (x)$を積分すれば変位$u(x)$が得られる。
+\[
+	u(x)=u(0)+\int_{0}^{x}\epsilon (s) ds =l_0\epsilon_0 
+	\left(\frac{x}{l_0} \right)^2
+	\left( \frac{1}{2}- \frac{1}{3}\frac{x}{l_0} \right)
+	\]
+\item
+\[
+	\Delta l = u(l_0)-u(0)=\frac{\epsilon_0 l_0}{6}
+\]
+\item
+	(ひずみの最大値)\\
+	$\e (x)$は上に凸な$x$の2次関数で,極大点の位置は$x=l_0/2$である。
+	$\e (0)=\e (l_0)=0$と、$\e (l_0/2)=\e_0/4$から,ひずみは$x=l_0/2$で
+	最大値$\e_0/4$をとる。\\
+	(変位の最大値)\\
+	$\e =0$となるのは$x=0$と$x=l_0$である。
+	$u (0)=0$と$u(l_0)=\e_0l_0/6$から、後者が最大値である。
+\end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{問題3の解答} 
+\begin{enumerate}
+\item 
+	$\sigma (x)=\frac{F}{A_0}e^{-\lambda x}
+	$
+\item
+	$\e (x)=\frac{\sigma}{E}=\frac{F}{EA_0}e^{-\lambda x}$
+\item
+	棒の各点における変位$u(x)$は以下の式で与えられる。	
+	\[
+		u(x)=u(0)
+		+
+		\int_{0}^{x}\epsilon (s) ds 
+		=
+		\int_{0}^{x}
+			\frac{F}{EA_0}e^{-\lambda s}ds 
+		=
+		\frac{F}{\lambda EA_0}
+		\left( 1-e^{-\lambda x} \right) 
+	\]
+	従って、棒の伸びは
+	\[
+		\Delta l=
+		\frac{F}{\lambda EA_0}
+		\left( 1-e^{-\lambda l_0} \right) 
+	\]
+	である。
+\end{enumerate}
+\end{document}

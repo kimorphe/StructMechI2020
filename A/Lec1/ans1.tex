@@ -1,0 +1,165 @@
+\documentclass[10pt,a4j]{jarticle}
+\usepackage{graphicx,wrapfig}
+\setlength{\topmargin}{-1.5cm}
+\setlength{\textwidth}{16.5cm}
+\setlength{\textheight}{25.2cm}
+\newlength{\minitwocolumn}
+\setlength{\minitwocolumn}{0.5\textwidth}
+\addtolength{\minitwocolumn}{-\columnsep}
+%\addtolength{\baselineskip}{-0.1\baselineskip}
+%
+\def\Mmaru#1{{\ooalign{\hfil#1\/\hfil\crcr
+\raise.167ex\hbox{\mathhexbox 20D}}}}
+%
+\begin{document}
+\newcommand{\fat}[1]{\mbox{\boldmath $#1$}}
+\newcommand{\D}{\partial}
+\newcommand{\w}{\omega}
+\newcommand{\ga}{\alpha}
+\newcommand{\gb}{\beta}
+\newcommand{\gx}{\xi}
+\newcommand{\gz}{\zeta}
+\newcommand{\vhat}[1]{\hat{\fat{#1}}}
+\newcommand{\spc}{\vspace{0.7\baselineskip}}
+\newcommand{\halfspc}{\vspace{0.3\baselineskip}}
+\bibliographystyle{unsrt}
+\pagestyle{empty}
+\newcommand{\twofig}[2]
+ {
+   \begin{figure}
+     \begin{minipage}[t]{\minitwocolumn}
+         \begin{center}   #1
+         \end{center}
+     \end{minipage}
+         \hspace{\columnsep}
+     \begin{minipage}[t]{\minitwocolumn}
+         \begin{center} #2
+         \end{center}
+     \end{minipage}
+   \end{figure}
+ }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\vspace*{\baselineskip}
+%\begin{flushright}
+%	修正:2017年10月30日
+%\end{flushright}
+\begin{center}
+{\Large \bf 2019年度 構造力学I及び演習A 演習問題1解答} \\
+\end{center}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{問題1.}
+\begin{enumerate}
+\item
+変位$u(x)$とひずみ$\varepsilon(x)$の関係は
+\begin{equation}
+	u(x)-u(0)=\int_0^x \varepsilon(x')dx'
+	\label{eqn:eq1}
+\end{equation}
+で, $u(0)=0$である．
+また，
+\begin{equation}
+	\varepsilon(x) = \left\{
+	\begin{array}{cc}
+		 2\varepsilon_0 & (0<x<l/3) \\
+		-2\varepsilon_0 & (l/3<x<2l/3) \\
+		  \varepsilon_0 & (2l/3<x<l) \\
+	\end{array}
+	\right.
+\end{equation}
+であることから，
+\begin{enumerate}
+\item 
+$0<x<\frac{l}{3}$のとき, 
+\begin{equation}
+	u(x) = 
+	\int_0^x 2\varepsilon_0 dx '=2\varepsilon_0 x
+	\label{eqn:u1}
+\end{equation}
+\item
+$\frac{l}{3}<x<\frac{2l}{3}$のとき, 
+\begin{equation}
+	u(x) =
+		\int_0^{\frac{l}{3}} 2\varepsilon_0 dx '
+		+
+		\int_{\frac{l}{3}}^x (-2\varepsilon_0 )dx '
+		=
+		2\varepsilon_0 \left( l-2x \right)
+	\label{eqn:u2}
+\end{equation}
+\item
+$\frac{2l}{3}<x<l$のとき, 
+\begin{equation}
+	u(x) =
+		\int_0^{\frac{l}{3}} 2\varepsilon_0 dx '
+		+
+		\int_{\frac{l}{3}}^{\frac{2l}{3}} (-2\varepsilon_0) dx '
+		+
+		\int_{\frac{2l}{3}}^x \varepsilon_0 dx '
+	=
+		\varepsilon_0  \left( x-\frac{2l}{3}\right)
+	\label{eqn:u3}
+\end{equation}
+\end{enumerate}
+以上から，変位分布は図\ref{fig:fig1}のようなグラフとなる．
+%
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=0.6\linewidth]{fig1ans.eps} 
+	\end{center}
+	\caption{変位分布を表すグラフ.} 
+	\label{fig:fig1}
+\end{figure}
+\item
+	棒全体の伸び$\Delta l$は, 変位から$\Delta l=u(l)-u(0)=\frac{\varepsilon_0l}{3}$.
+\item
+	区間XYの伸びを$\Delta l(X,Y)$とすれば，区間AB, BC, CDにおける伸びは
+	式(\ref{eqn:u1})$\sim$(\ref{eqn:u3})を用いて，次のように与えられる.
+	\begin{eqnarray*}
+		\Delta l(A,B) 
+		&=& 
+		u\left( \frac{l}{3}\right)-u(0)=\frac{2\varepsilon_0l}{3}
+		\\
+		\Delta l(B,C)
+		&=&
+		u\left( \frac{2l}{3}\right)-u\left(\frac{l}{3}\right)
+		=-\frac{2\varepsilon_0l}{3}
+		\\	
+		\Delta l(C,D)
+		&=&u(l)-u\left( \frac{2l}{3}\right)=\frac{\varepsilon_0l}{3}
+	\end{eqnarray*}	
+\end{enumerate}
+\subsubsection*{問題2.}
+図\ref{fig:fig1}-(a)に示すような位置$a-a'$と$b-b'$において部材を仮想的に切断したときの自由物体図を描くと，
+それぞれ, 同図の(c)と(d)のようになる．
+ここに$P(a,b)=\int_a^bp(x)dx$は，分布力$p(x)$が区間$a<x<b$に加える合力を表す．
+これらの自由物体図を参照し，部材軸方向の力のつり合い式を立てれば，
+軸力$N$が, 区間毎に次のように求められる．
+\begin{eqnarray}
+	区間BC&:& 
+	P(l-y,l)-N = 0  \\ \nonumber
+	 &\Rightarrow &
+		N = \int_{s=0}^y -\frac{p_0}{l/2}s ds = -\frac{p_0}{l}y^2, \ \ 
+		\left(0< y < \frac{l}{2}\right)
+\end{eqnarray}
+\begin{eqnarray}
+	区間AB &:&
+	P(l-z,l)-N = 0 \nonumber \\
+	&\Rightarrow &
+	N=\int_{s=0}^{\frac{l}{2}}\frac{p_0}{l/2}z'dz' 
+	  \int_{s=l/2}^{z}p_0dz' 
+	=p_0l \left( \frac{z}{l}-\frac{3}{4}\right) , \ \ \left( \frac{l}{2}< z < l \right)
+\end{eqnarray}
+ただし，積分変数$s$は,図\ref{fig:fig2}-(a)に示すように，点Cを原点として左向きを正とする
+座標で，$x$とは$s=l-x$の関係にある．
+以上の結果を図示すれば，軸力図は図\ref{fig:fig2}-(b)のようになる．
+\begin{figure}[h]
+	\vspace{-3mm}
+	\begin{center}
+	\includegraphics[width=1.0\linewidth]{fig2ans.eps} 
+	\end{center}
+	\vspace{-5mm}
+	\caption{(a)自由物体図を描くための部材切断位置, (b)軸力図,
+	および(c),(d)自由物体図.} 
+	\label{fig:fig2}
+\end{figure}
+\end{document}
