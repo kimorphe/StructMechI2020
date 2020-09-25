@@ -1,0 +1,121 @@
+\documentclass[10pt,a4j]{jarticle}
+\usepackage{graphicx,wrapfig}
+\setlength{\topmargin}{-1.5cm}
+\setlength{\textwidth}{15.5cm}
+\setlength{\textheight}{25.2cm}
+\newlength{\minitwocolumn}
+\setlength{\minitwocolumn}{0.5\textwidth}
+\addtolength{\minitwocolumn}{-\columnsep}
+%\addtolength{\baselineskip}{-0.1\baselineskip}
+%
+\def\Mmaru#1{{\ooalign{\hfil#1\/\hfil\crcr
+\raise.167ex\hbox{\mathhexbox 20D}}}}
+%
+\begin{document}
+\newcommand{\fat}[1]{\mbox{\boldmath $#1$}}
+\newcommand{\D}{\partial}
+\newcommand{\w}{\omega}
+\newcommand{\ga}{\alpha}
+\newcommand{\gb}{\beta}
+\newcommand{\gx}{\xi}
+\newcommand{\gz}{\zeta}
+\newcommand{\vhat}[1]{\hat{\fat{#1}}}
+\newcommand{\spc}{\vspace{0.7\baselineskip}}
+\newcommand{\halfspc}{\vspace{0.3\baselineskip}}
+\bibliographystyle{unsrt}
+\pagestyle{empty}
+\newcommand{\twofig}[2]
+ {
+   \begin{figure}[here]
+     \begin{minipage}[t]{\minitwocolumn}
+         \begin{center}   #1
+         \end{center}
+     \end{minipage}
+         \hspace{\columnsep}
+     \begin{minipage}[t]{\minitwocolumn}
+         \begin{center} #2
+         \end{center}
+     \end{minipage}
+   \end{figure}
+ }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\vspace*{\baselineskip}
+\begin{center}
+{\Large \bf 2019年度 構造力学I及び演習A 演習問題5(11月5日)} \\
+\end{center}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{15mm}
+応力テンソル$\fat{\sigma}$が, $o-x_1x_2$直角直交座標系において
+\begin{equation}
+	\fat{\sigma}
+	=
+	\left( 
+		\begin{array}{cc}
+		-4  & 2\sqrt{3} \\
+		2\sqrt{3} & 0 
+		\end{array}
+	\right)
+	\label{eqn:sigma}
+\end{equation}
+で与えられるとき，以下の問に答えよ．
+なお，ベクトルや面の方向は，$x_1$座標から反時計回りの方向を
+正として測った角度で表すものとする.
+\begin{enumerate}
+\item
+	モールの応力円を描け．
+\item
+	式(\ref{eqn:sigma})で与えられる応力成分は，モールの応力円上
+	のどの点に相当するか答えよ．
+\end{enumerate}
+\begin{enumerate}
+\setcounter{enumi}{2}
+\item
+	最大主応力$\sigma_{max}$とその方向$\theta_{max}$を求めよ．
+\item
+	最小主応力$\sigma_{min}$とその方向$\theta_{min}$を求めよ．
+\item
+	最大せん断応力$\tau_{max}$とそれを与える面の方向$\theta_\tau$を求めよ．
+%\item
+%	$\cos\theta_{max}$と$\sin\theta_{max}$を求めよ．
+\item
+	応力テンソル$\fat{\sigma}$の二つの固有値$\lambda_1,\lambda_2$を求めよ．
+\item
+	固有値$\lambda_1,\lambda_2$に対応する固有ベクトル$\fat{n}_1, \fat{n}_2$を求めよ．
+	ただし，$\fat{n}_1,\fat{n}_2$は単位ベクトルとして表すこと．		
+\item
+	最大主応力面に発生するトラクションベクトル$\fat{t}^{(n)}$が, 
+	$o-x_1x_2$座標系でどのように表されるか答えよ．
+\end{enumerate}
+\end{document}
+%--------------------
+\subsubsection*{問題2.}
+引張力に対する強度が非常に小さな土などの材料では，せん断応力$\tau$と
+直応力$\sigma_n$が，
+\begin{equation}
+	\left| \tau \right| < -\sigma_{n} \tan \phi 
+	\label{eqn:ineq}
+\end{equation}
+の条件を満足する限り破壊しないというモデルで，材料の強度を表現すること
+ができる．このとき，式(\ref{eqn:ineq})の$\phi (>0)$は内部摩擦角
+と呼ばれる．いま，式(\ref{eqn:ineq})の破壊基準に従う材料に対して，
+ある直交座標系($o-x_1x_2$座標系)で次のように表される応力を加えたとする．
+\begin{equation}
+	\fat{\sigma} = \left( 
+	\begin{array}{cc}
+			-p+R & 0 \\
+			0  & -p-R 
+	\end{array}
+	\right)
+\end{equation}
+ただし，$p$および$R$はいずれも正で，$p$は一定, 応力は引張を正とする．
+$R$をゼロから次第に大きくしたところ, 材料は$R=\frac{1}{2}p$に
+達したときに破壊した．このとき，内部摩擦角$\phi$および破断面の方向を答えよ．
+%--------------------
+\end{document}
+\begin{figure}[here]
+	\begin{center}
+	\includegraphics[width=0.8\linewidth]{fig1.eps} 
+	\end{center}
+	\caption{(a)二つの直角直交座標系．(b)鉛直および水平方向の外力を受ける部材.} 
+	\label{fig:fig1}
+\end{figure}

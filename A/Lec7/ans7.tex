@@ -1,0 +1,184 @@
+\documentclass[10pt,a4j]{jarticle}
+\usepackage{graphicx,wrapfig}
+\setlength{\topmargin}{-1.5cm}
+\setlength{\textwidth}{15.5cm}
+\setlength{\textheight}{25.2cm}
+\newlength{\minitwocolumn}
+\setlength{\minitwocolumn}{0.5\textwidth}
+\addtolength{\minitwocolumn}{-\columnsep}
+%\addtolength{\baselineskip}{-0.1\baselineskip}
+%
+\def\Mmaru#1{{\ooalign{\hfil#1\/\hfil\crcr
+\raise.167ex\hbox{\mathhexbox 20D}}}}
+%
+\begin{document}
+\newcommand{\fat}[1]{\mbox{\boldmath $#1$}}
+\newcommand{\D}{\partial}
+\newcommand{\w}{\omega}
+\newcommand{\ga}{\alpha}
+\newcommand{\gb}{\beta}
+\newcommand{\gx}{\xi}
+\newcommand{\gz}{\zeta}
+\newcommand{\vhat}[1]{\hat{\fat{#1}}}
+\newcommand{\spc}{\vspace{0.7\baselineskip}}
+\newcommand{\halfspc}{\vspace{0.3\baselineskip}}
+\bibliographystyle{unsrt}
+\pagestyle{empty}
+\newcommand{\twofig}[2]
+ {
+   \begin{figure}[h]
+     \begin{minipage}[t]{\minitwocolumn}
+         \begin{center}   #1
+         \end{center}
+     \end{minipage}
+         \hspace{\columnsep}
+     \begin{minipage}[t]{\minitwocolumn}
+         \begin{center} #2
+         \end{center}
+     \end{minipage}
+   \end{figure}
+ }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\vspace*{\baselineskip}
+\begin{center}
+{\Large \bf 2019年度 構造力学I及び演習A 演習問題7 解答} \\
+\end{center}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{15mm}
+\begin{enumerate}
+\item
+せん断力$Q$と外力$q$の関係は,
+\begin{equation}
+	\frac{dQ(x)}{dx} = -q(x) = -\frac{q_0}{l}x
+	\label{eqn:Q_q}
+\end{equation}
+で与えられる．よって, $Q$は, $C_1$を積分定数として
+\begin{equation}
+	Q(x) =	-\frac{q_0}{2l}x^2+C_1
+	\label{eqn:Q_gen}
+\end{equation}
+と書くことができる．ここで，$Q\left(0 \right)=0$より$C=0$である．
+よって，
+\begin{equation}
+	Q(x) = -\frac{q_0}{2l}x^2
+	\label{eqn:Q_par}
+\end{equation}
+となる．
+\item
+$\frac{dM}{dx}=Q$より，曲げモーメント$M$は，積分定数を$C_2$として
+\begin{equation}
+	M(x) =
+	-\frac{q_0}{6l}x^3+C_2
+	\label{eqn:M_gen}
+\end{equation}
+と表すことができる．ここで, $M\left(0\right)=0$より$C_2=0$である．
+よって
+\begin{equation}
+	M(x) = 
+	-\frac{q_0}{6l}x^3.
+	\label{eqn:M_par}
+\end{equation}
+\item
+たわみ角$\theta$と曲げモーメント$M$の関係，$\frac{d\theta}{dx}=-\frac{M}{EI}$より，
+\begin{equation}
+	EI \theta(x) = 
+	\frac{q_0}{24l}x^4+C_3' =
+	\frac{q_0l^3}{24}\left\{
+		\left(\frac{x}{l}\right)^4+C_3
+	\right\}
+	\label{eqn:th_gen}
+\end{equation}
+と書くことができる．積分定数$C_3$は, $\theta\left(l\right)=0$より，
+$C_3=-1$となる．以上より，たわみ角は
+\begin{equation}
+	\theta(x) = 
+	\frac{q_0l^3}{24EI}\left\{
+		\left(\frac{x}{l}\right)^4-1
+	\right\}
+	\label{eqn:th_par}
+\end{equation}
+と求められる．
+\item
+たわみ$v$とたわみ角の関係$\frac{dv}{dx}=\theta$と，式(\ref{eqn:th_par})
+から，$v$は積分定数$C_4'$あるいは$C_4$を用いて
+\begin{equation}
+	EIv(x) = 
+	\frac{q_0l^3}{24}\left\{
+		\frac{1}{5}\left(\frac{x}{l}\right)^5-x + C_4'
+	\right\}
+	=
+	\frac{q_0l^4}{120}\left\{
+		\left(\frac{x}{l}\right)^5
+		-
+		5
+		\left(\frac{x}{l}\right) 
+		+ C_4
+	\right\}
+	\label{eqn:v_gen}
+\end{equation}
+と表すことができる．よって, $v\left(l \right)=0$
+を考慮すれば，積分定数は$C_4=4$となり，
+\begin{equation}
+	v(x) = 
+	\frac{q_0l^4}{120EI}\left\{
+		\left(\frac{x}{l}\right)^5
+		-
+		5
+		\left(\frac{x}{l}\right) 
+		+ 
+		4
+	\right\}
+	\label{eqn:v_par}
+\end{equation}
+と決まる．
+%--------------------
+%\begin{figure}[h]
+%	\begin{center}
+%	\includegraphics[width=0.45\linewidth]{fig1ans.eps} 
+%	\end{center}
+%	\caption{(a) せん断力図, (b)曲げモーメント図.}
+%	\label{fig:fig1}
+%\end{figure}
+%--------------------
+\item
+曲げ応力$\sigma_{xx}$は, たわみ$v$あるいは曲げモーメント$M$により
+\begin{equation}
+	\sigma_{xx}=-Ev''y= \frac{M}{I}y 
+	\label{eqn:Sxx_M}
+\end{equation}
+と表される．よって，式(\ref{eqn:Sxx_M})に，式(\ref{eqn:M_par})を代入すれば，
+\begin{equation}
+	\sigma_{xx}=
+	-\frac{q_0}{6Il}x^3y
+	\label{eqn:Sxx_xy}
+\end{equation}
+が得られる．
+\item
+応力のつり合い式に式(\ref{eqn:Sxx_xy})を代入すれば, 
+\begin{equation}
+	\frac{\partial \sigma_{xy}}{\partial y}
+	=
+	-\frac{\partial \sigma_{xx}}{\partial x}
+	=
+	\frac{q_0}{2Il}x^2y
+	\label{eqn:ODE}
+\end{equation}
+となることから，せん断応力$\sigma_{xy}$は，任意定数$C$を用いて，
+\begin{equation}
+	\sigma_{xy}=
+	\frac{q_0}{4Il}x^2(y^2+C)
+	\label{eqn:Sxy_gen}
+\end{equation}
+と表すことができる．$y=\pm \frac{h}{2}$で$\sigma_{xy}=0$
+となることを考慮すれば，この定数は$C=-\frac{h^2}{4}$と決まる．
+以上より，せん断応力分布は
+\begin{equation}
+	\sigma_{xy}(x,y) 
+	= 
+	\frac{q_0}{4Il}x^2\left( 
+		y^2 -\frac{h^2}{4}
+	\right)
+\end{equation}
+となる．
+\end{enumerate}
+\end{document}

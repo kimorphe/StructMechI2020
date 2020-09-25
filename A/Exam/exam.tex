@@ -1,0 +1,132 @@
+\documentclass[10pt,a4j]{jarticle}
+\usepackage{graphicx,wrapfig}
+\setlength{\topmargin}{-1.5cm}
+\setlength{\textwidth}{15.5cm}
+\setlength{\textheight}{25.2cm}
+\newlength{\minitwocolumn}
+\setlength{\minitwocolumn}{0.5\textwidth}
+\addtolength{\minitwocolumn}{-\columnsep}
+%\addtolength{\baselineskip}{-0.1\baselineskip}
+%
+\def\Mmaru#1{{\ooalign{\hfil#1\/\hfil\crcr
+\raise.167ex\hbox{\mathhexbox 20D}}}}
+%
+\begin{document}
+\newcommand{\fat}[1]{\mbox{\boldmath $#1$}}
+\newcommand{\D}{\partial}
+\newcommand{\w}{\omega}
+\newcommand{\ga}{\alpha}
+\newcommand{\gb}{\beta}
+\newcommand{\gx}{\xi}
+\newcommand{\gz}{\zeta}
+\newcommand{\vhat}[1]{\hat{\fat{#1}}}
+\newcommand{\spc}{\vspace{0.7\baselineskip}}
+\newcommand{\halfspc}{\vspace{0.3\baselineskip}}
+\bibliographystyle{unsrt}
+%\pagestyle{empty}
+\newcommand{\twofig}[2]
+ {
+   \begin{figure}[here]
+     \begin{minipage}[t]{\minitwocolumn}
+         \begin{center}   #1
+         \end{center}
+     \end{minipage}
+         \hspace{\columnsep}
+     \begin{minipage}[t]{\minitwocolumn}
+         \begin{center} #2
+         \end{center}
+     \end{minipage}
+   \end{figure}
+ }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{center}
+{\Large \bf 2019年度 構造力学I及び演習A 期末試験} \\
+\end{center}
+\begin{flushright}
+	2019年11月26日(火)
+\end{flushright}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+解答用紙は片面のみ使用してください(各問題2枚). 
+下書き用紙と問題用紙は, 試験終了後, 持ち帰って下さい．
+%
+%
+%
+\subsubsection*{問題1.}
+図\ref{fig:fig1}-(a)のような両端が固定された棒部材
+ACついて以下の問に答えよ．なお，棒部材の断面積$A$, ヤング率$E$は
+全断面で一定で，部材軸方向に加えられた分布荷重の大きさ$p$は図\ref{fig:fig1}-(b)に示す通りとする．
+\begin{enumerate}
+\item
+	棒部材に発生する軸方向変位を$u(x)$とするとき，$u(x)$が満足すべき
+	微分方程式(支配方程式)と境界条件(支持条件)を$E, A, l$および$p_0$を用いて表わせ．
+	ただし，座標$x$はBを原点とし，BからCの方向を正とする．
+\item
+	区間ACにおける変位分布を求めよ．
+\item	
+	区間ACにおける軸力分布を求めよ．
+\item	
+	支点AとCにおいて，棒部材が固定壁から受ける反力の大きさと方向を答えよ．
+\item
+	部材内部で伸びが最大となる区間を示し，その区間に生じる伸びを求めよ．
+\end{enumerate}
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=0.5\linewidth]{fig1.eps} 
+	\end{center}
+	\caption{分布力を受ける両端が固定された棒部材AC．}
+	\label{fig:fig1}
+\end{figure}
+%--------------------
+\newpage
+\subsubsection*{問題2.}
+以下では，$o-x_1x_2$直角直交座標において,トラクションベクトルを$\fat{t}^{(n)}$, 
+応力テンソルを$\fat{\sigma}$，単位法線ベクトルを$\fat{n}$と表す.
+物体中のある着目点$\fat{x}$において$\fat{\sigma}$が
+\[
+	\fat{\sigma}=
+	\left(
+	\begin{array}{cc}
+		q &  r \\
+		r & -q 
+	\end{array}
+	\right), \ \ (q,r \geq 0)
+\]
+で与えられるとき，以下の問に答えよ．
+ただし，$q$と$r$の間には$\tan\phi =r/q$の関係があるとし，解答には角度$\phi$を用いてよい．
+\begin{enumerate}
+\item
+	応力テンソル$\fat{\sigma}$に対するモールの応力円を描け．
+\item
+	応力テンソル$\fat{\sigma}$について, 最大および最小主応力と主応力方向を求めよ．
+\item
+	$\fat{n}=(\cos\alpha,\, \sin\alpha)^T$を法線ベクトルとする面に
+	おけるトラクションベクトル$\fat{t}^{(n)}$を求めよ．
+\item
+	問3で求めたトラクションベクトルの$\fat{n}$方向成分を$t^{(n)}_n$と表す．
+	$0\leq \alpha < 2\pi$における$t^{(n)}_n$の最大値を$t_{max}$，その時の
+	法線ベクトルの方向$\alpha$を$\alpha_{max}$とする．このとき，$t_{max}$と
+	$\alpha_{max}$を求めよ．
+\item
+	物体のヤング率を$E$, ポアソン比を$\nu$とする．物体が平面応力状態にあるとき，
+	応力$\fat{\sigma}$によって生じるひずみテンソルの，
+	直ひずみ成分$\varepsilon_{11}$と$\varepsilon_{22}$を求めよ．
+\item
+	図\ref{fig:fig2}に示すような$o-x_1'x_2'$直交座標系におけるひずみテンソルの
+	直ひずみの成分を$\varepsilon_{11}',\varepsilon_{22}'$と表す．
+	$\theta=\alpha_{max}$のときの，$\varepsilon_{11}'$と$\varepsilon_{22}'$を求めよ．
+\item
+	問6で求めた$\varepsilon_{11}'$は，$0 \leq \theta < 2\pi$における$\varepsilon_{11}'$
+		の最大値であることを示せ．
+\end{enumerate}
+%--------------------
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=0.45\linewidth]{fig2.eps} 
+	\end{center}
+	\caption{物体内部の着目点$\fat{x}$と，二つの直角直交座標系$o-x_1x_2$と$o-x_1'x_2'$.} 
+	\label{fig:fig2}
+\end{figure}
+%--------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}

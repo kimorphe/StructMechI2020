@@ -1,0 +1,76 @@
+\documentclass[10pt,a4j]{jarticle}
+\usepackage{graphicx,wrapfig}
+\setlength{\topmargin}{-1.5cm}
+\setlength{\textwidth}{16.5cm}
+\setlength{\textheight}{25.2cm}
+\newlength{\minitwocolumn}
+\setlength{\minitwocolumn}{0.5\textwidth}
+\addtolength{\minitwocolumn}{-\columnsep}
+%\addtolength{\baselineskip}{-0.1\baselineskip}
+%
+\def\Mmaru#1{{\ooalign{\hfil#1\/\hfil\crcr
+\raise.167ex\hbox{\mathhexbox 20D}}}}
+%
+\begin{document}
+\newcommand{\fat}[1]{\mbox{\boldmath $#1$}}
+\newcommand{\D}{\partial}
+\newcommand{\w}{\omega}
+\newcommand{\ga}{\alpha}
+\newcommand{\gb}{\beta}
+\newcommand{\gx}{\xi}
+\newcommand{\gz}{\zeta}
+\newcommand{\vhat}[1]{\hat{\fat{#1}}}
+\newcommand{\spc}{\vspace{0.7\baselineskip}}
+\newcommand{\halfspc}{\vspace{0.3\baselineskip}}
+\bibliographystyle{unsrt}
+\pagestyle{empty}
+\newcommand{\twofig}[2]
+ {
+   \begin{figure}
+     \begin{minipage}[t]{\minitwocolumn}
+         \begin{center}   #1
+         \end{center}
+     \end{minipage}
+         \hspace{\columnsep}
+     \begin{minipage}[t]{\minitwocolumn}
+         \begin{center} #2
+         \end{center}
+     \end{minipage}
+   \end{figure}
+ }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\vspace*{\baselineskip}
+\begin{center}
+	{\Large \bf 2019年度 構造力学I及び演習A 演習問題2 (10月8日)} \\
+\end{center}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{15mm}
+図\ref{fig:fig1}-(a)のような，ヤング率$E$と断面積$A$が一定の一次元棒部材がある．
+部材軸方向に作用する単位長さあたりの力$p$が同図(b)のように放物線の一部として与えられ,
+$p_0$は正の定数であるとするとき，以下の問に答えよ.
+なお,座標$x$の原点位置は, 計算に都合がよいよう各自で定めて良い.
+\begin{enumerate}
+\item
+	変位$u(x)$が満足すべき微分方程式(支配方程式)と，部材端における支持条件(境界条件)を答えよ. 
+\item
+	変位$u(x)$を求めよ．
+\item
+	軸力$N(x)$を求めよ．
+\item
+	軸力$N(x)$のグラフ(軸力図)を描け．
+\item
+	変位$u(x)$のグラフを描け．
+\item
+	棒部材が固定壁から受ける力(反力)の大きさと向きを答えよ．
+\end{enumerate}
+\begin{figure}[h]
+	\vspace{-3mm}
+	\begin{center}
+	\includegraphics[width=0.6\linewidth]{fig1.eps} 
+	\end{center}
+	\vspace{-5mm}
+	\caption{(a) 両端を固定壁に支持された棒部材と，(b)それに作用する分布力.} 
+	\label{fig:fig1}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}

@@ -1,0 +1,134 @@
+\documentclass[10pt,a4j]{jarticle}
+\usepackage{graphicx,wrapfig}
+\setlength{\topmargin}{-1.5cm}
+\setlength{\textwidth}{15.5cm}
+\setlength{\textheight}{25.2cm}
+\newlength{\minitwocolumn}
+\setlength{\minitwocolumn}{0.5\textwidth}
+\addtolength{\minitwocolumn}{-\columnsep}
+%\addtolength{\baselineskip}{-0.1\baselineskip}
+%
+\def\Mmaru#1{{\ooalign{\hfil#1\/\hfil\crcr
+\raise.167ex\hbox{\mathhexbox 20D}}}}
+%
+\begin{document}
+\newcommand{\fat}[1]{\mbox{\boldmath $#1$}}
+\newcommand{\D}{\partial}
+\newcommand{\w}{\omega}
+\newcommand{\ga}{\alpha}
+\newcommand{\gb}{\beta}
+\newcommand{\gx}{\xi}
+\newcommand{\gz}{\zeta}
+\newcommand{\vhat}[1]{\hat{\fat{#1}}}
+\newcommand{\spc}{\vspace{0.7\baselineskip}}
+\newcommand{\halfspc}{\vspace{0.3\baselineskip}}
+\bibliographystyle{unsrt}
+\pagestyle{empty}
+\newcommand{\twofig}[2]
+ {
+   \begin{figure}[h]
+     \begin{minipage}[t]{\minitwocolumn}
+         \begin{center}   #1
+         \end{center}
+     \end{minipage}
+         \hspace{\columnsep}
+     \begin{minipage}[t]{\minitwocolumn}
+         \begin{center} #2
+         \end{center}
+     \end{minipage}
+   \end{figure}
+ }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\vspace*{\baselineskip}
+\begin{center}
+{\Large \bf 2019年度 構造力学I及び演習A 演習問題3(10月15日)} \\
+\end{center}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{5mm}
+物体中の着目点$\fat{x}$におけるトラクション$\fat{t}^{(n)}$と応力$\fat{\sigma}$について考える．
+物体は2次元的な応力状態にあるとし,ベクトルやテンソル成分を表すために, $x_1x_2$直角直交座標系を用いる.
+また,単位法線ベクトル$\fat{n}(\theta)$の向きは，原点を中心に$x_1$軸から反時計回りの方向を
+正として測った角度$\theta$で表す.
+さらに,$\theta=\theta_1=\frac{\pi}{6}$としたときのトラクションベクトルを$\fat{t}_1$, 
+単位法線ベクトルを$\fat{n}_1$とする．同様に，$\theta=\theta_2=\frac{\pi}{3}$の場合の
+トラクションベクトルと単位法線ベクトルを, それぞれ$\fat{t}_2$および$\fat{n}_2$と表す. 
+トラクションベクトルが以下のように与えられるとき, 以下の問に答えよ.
+\[
+	\fat{t}_1=
+	\left(
+		\begin{array}{c}
+			-\sqrt{3} \\
+			3
+		\end{array}
+	\right), \ \ 
+	\fat{t}_2=
+	\left(
+		\begin{array}{c}
+			1 \\
+			\sqrt{3}
+		\end{array}
+	\right)
+\]
+\begin{enumerate}
+\item
+	単位法線ベクトル$\fat{n}_1, \fat{n}_2$の成分を
+	\[
+	\fat{n}_1=
+	\left(
+		\begin{array}{c}
+			n_{11} \\
+			n_{12}
+		\end{array}
+	\right), \ \ 
+	\fat{n}_2=
+	\left(
+		\begin{array}{c}
+			n_{21}\\
+			n_{22}
+		\end{array}
+	\right)
+	\]
+	と表すとき,
+	\[
+		\fat{N}=\left\{ \fat{n}_1 \, \fat{n}_2 \right\} =
+		\left(
+		\begin{array}{cc}
+			n_{11} & n_{21}  \\
+			n_{12} & n_{22} 
+		\end{array}
+		\right)
+	\]
+	で与えられる行列$\fat{N}$と，その逆行列$\fat{N}^{-1}$を求めよ.
+\item
+	応力テンソル$\fat{\sigma}=\left\{\sigma_{ij}\right\}$の
+	各成分を求め，$2\times 2$行列として表せ．
+\item
+	一般の単位法線ベクトル$\fat{n}(\theta)$に対するトラクションベクトル
+	$\fat{t}^{(n)}$の，$x_1$および$x_2$方向成分を$\theta$を用いて表わせ．
+\item
+	$\fat{t}^{(n)}$の$\fat{n}$方向成分を$\sigma_n$とするとき,
+	$\sigma_n$を$\cos 2\theta$と$\sin 2\theta$を用いて表せ．
+\item
+	法線ベクトル$\fat{n}$に直交する単位ベクトル$\fat{m}$を
+	図\ref{fig:fig1}のようにとる．
+	$\fat{t}^{(n)}$の$\fat{m}$方向成分を$\tau$とするとき，
+	$\tau$を$\cos 2\theta$と$\sin 2\theta$を用いて表せ．
+\item
+	$\theta$の範囲を$0$から$\pi$とするとき，$\sigma_n$の最大値と, 
+	そのときの$\tau$を求めよ．
+\item
+	$\theta$の範囲を$0$から$\pi$するとき，横軸に$\sigma_n$，縦軸に$\tau$をとった平面上で, 点$(\sigma_n, \tau)$が描く曲線を図示せよ．
+\end{enumerate}
+%--------------------
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=0.45\linewidth]{fig1.eps} 
+	\end{center}
+	\caption{
+		2次元空間中の物体内部にとった着目点$\fat{x}$と
+		トラクション$\fat{t}^{(n)}$.
+		破線は, $\fat{t}^{(n)}$に対応する仮想的な切断面を表す．	
+	} 
+	\label{fig:fig1}
+\end{figure}
+\end{document}

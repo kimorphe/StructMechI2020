@@ -1,0 +1,119 @@
+\documentclass[10pt,a4j]{jarticle}
+\usepackage{graphicx,wrapfig}
+\setlength{\topmargin}{-1.5cm}
+\setlength{\textwidth}{16.5cm}
+\setlength{\textheight}{25.2cm}
+\newlength{\minitwocolumn}
+\setlength{\minitwocolumn}{0.5\textwidth}
+\addtolength{\minitwocolumn}{-\columnsep}
+%\addtolength{\baselineskip}{-0.1\baselineskip}
+%
+\def\Mmaru#1{{\ooalign{\hfil#1\/\hfil\crcr
+\raise.167ex\hbox{\mathhexbox 20D}}}}
+%
+\begin{document}
+\newcommand{\fat}[1]{\mbox{\boldmath $#1$}}
+\newcommand{\D}{\partial}
+\newcommand{\w}{\omega}
+\newcommand{\ga}{\alpha}
+\newcommand{\gb}{\beta}
+\newcommand{\gx}{\xi}
+\newcommand{\gz}{\zeta}
+\newcommand{\vhat}[1]{\hat{\fat{#1}}}
+\newcommand{\spc}{\vspace{0.7\baselineskip}}
+\newcommand{\halfspc}{\vspace{0.3\baselineskip}}
+\bibliographystyle{unsrt}
+\pagestyle{empty}
+\newcommand{\twofig}[2]
+ {
+   \begin{figure}
+     \begin{minipage}[t]{\minitwocolumn}
+         \begin{center}   #1
+         \end{center}
+     \end{minipage}
+         \hspace{\columnsep}
+     \begin{minipage}[t]{\minitwocolumn}
+         \begin{center} #2
+         \end{center}
+     \end{minipage}
+   \end{figure}
+ }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\vspace*{\baselineskip}
+\begin{center}
+{\Large \bf 2019年度 構造力学I及び演習A 演習問題2(解答)} \\
+\end{center}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{15mm}
+以下では,座標$x$の原点を部材左端から$l$の位置に取った場合の解答過程を示す。
+\begin{enumerate}
+\item
+部材軸方向に働く単位長さあたりの力$p(x)$は
+\begin{equation}
+	p(x)= \frac{p_0}{l^2}x^2
+	\label{eqn:body_force}
+\end{equation}
+だから，支配方程式は
+\begin{equation}
+	\frac{d}{dx  }\left( EA\frac{du}{dx}\right)
+	+
+	\frac{p_0}{l^2}x^2
+	=0
+	\label{eqn:equiv}
+\end{equation}
+と表される($EA$は一定であることから, 式(\ref{eqn:equiv})の
+第一項は, $EA\frac{d^2u}{dx^2}$としてもよい)．
+支持条件は, 両端固定のため,
+\begin{equation}
+	u(-l)=0, \ \ u(2l)=0
+	\label{eqn:bcon}
+\end{equation}
+となる．
+\item
+微分方程式(\ref{eqn:equiv})を境界条件(\ref{eqn:bcon})の元で解けば，
+\begin{equation}
+	u(x)=
+	-
+	\frac{p_0l^2}{12EA}
+	\left\{ 
+		\left(\frac{x}{l}\right)^4
+		-
+		5
+		\left(\frac{x}{l}\right)
+		-6
+	\right\}
+	\label{eqn:disp}
+\end{equation}
+となる．
+\item
+\begin{equation}
+	N(x)= A \sigma = AE\varepsilon=EA u'(x)
+	=
+	-\frac{p_0l}{12}
+		\left\{
+		4\left( \frac{x}{l} \right)^3 -5
+		\right\}
+\end{equation}
+\item
+図\ref{fig:fig1}-(a)に示す通り．
+\item
+図\ref{fig:fig1}-(b)に示す通り．
+\item
+	$N(-l)=\frac{3p_0l}{4}$より，左端点における支点反力は，左向きに大きさ
+	$\frac{3p_0l}{4}$の力であることが分かる。同様に，右端点における支点反力は
+	$N(2l)=-\frac{9p_0l}{4}$より，左向きで大きさ$\frac{9p_0l}{4}$の力となる．
+\end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[h]
+	\vspace{-3mm}
+	\begin{center}
+	\includegraphics[width=0.45\linewidth]{fig1ans.eps} 
+	\end{center}
+	\vspace{-5mm}
+	\caption{変位及び軸力分布を表すグラフ.} 
+	\label{fig:fig1}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
+
+

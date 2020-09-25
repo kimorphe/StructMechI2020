@@ -1,0 +1,250 @@
+﻿\subsubsection{解答}
+{\small
+\begin{enumerate}
+\item
+変位ベクトと位置ベクトルの関係は
+\begin{equation}
+	\left( 
+		\begin{array}{cc}
+		 u_1 \\
+		 u_2 
+		\end{array}
+	\right)
+	=
+	\frac{1}{5}
+	\left( 
+		\begin{array}{cc}
+		 0 & 1\\
+		 1 &0 
+		\end{array}
+	\right)
+	\left( 
+		\begin{array}{c}
+		 x_1 \\
+		 x_2 
+		\end{array}
+	\right)
+	=
+	\frac{1}{5}
+	\left( 
+		\begin{array}{cc}
+		 x_2 \\
+		 x_1
+		\end{array}
+	\right)
+\end{equation}
+より，ひずみテンソルの各成分は，
+\begin{eqnarray}
+	\varepsilon_{11} &=& \frac{\partial u_1}{\partial x_1} = 0 \\
+	\varepsilon_{12} &=& \varepsilon_{21} = \frac{1}{2} \left({ \frac{\partial u_1}{\partial x_2} 
+		+ \frac{\partial u_2}{\partial x_1}  }\right) 
+		= \frac{1}{5}\\
+	\varepsilon_{22} &=& \frac{\partial u_2}{\partial x_2} =0
+\end{eqnarray}
+となる．
+\item
+	正方形ABCDの各頂点の座標は，
+\begin{equation}
+	A = (0,0) ,\  B = ( 1,0) ,\  C = (1, 1) ,\  D = (0, 1)
+\end{equation}
+である．これらの点における変位ベクトルを
+$\fat{u}_A ,\  \fat{u}_B, \  \fat{u}_C, \  \fat{u}_D$とすると，
+\begin{eqnarray}
+ \left[\fat{u}_A \  \fat{u}_B \  \fat{u}_C \  \fat{u}_D \right] 
+ &=& 
+ 	\frac{1}{5}
+	\left( 
+		\begin{array}{cc}
+		 0 & 1 \\
+		 1 & 0 
+		\end{array}
+	\right)
+	\left( 
+		\begin{array}{cccc}
+		 0 &  1  &  1  &  0  \\
+		 0 &  0  &  1  &  1
+		\end{array}
+	\right) \\
+\nonumber
+	&=&
+	\frac{1}{5}
+	\left( 
+		\begin{array}{cccc}
+		 0 &  0  &  1  &  1  \\
+		 0 &  1  &  1  &  0 
+		\end{array}
+	\right)
+\end{eqnarray}
+である．よって, 変形後の各頂点の座標をA',B',C',D'とすれば，
+\begin{equation}
+	A' = \left( 0, 0\right) ,\  
+	B' = \left(1, \frac{1}{5}\right) ,\  
+	C' = \left(\frac{6}{5},\frac{6}{5} \right) ,\  
+	D' = \left(\frac{1}{5}, 1 \right)
+\end{equation}
+となる．以上より，正方形ABCDは図\ref{fig:fig1}(a)のような四辺形A'B'C'D'へ移される．
+%--------------------
+\item
+行列$\fat{F}$の固有値$\lambda$は
+\begin{equation}
+	det\ (\fat{F} - \lambda \fat{I}) =
+	\left|
+		\begin{array}{cc}
+		 -\lambda & \frac{1}{5} \\
+		 \frac{1}{5} & -\lambda 
+		\end{array}
+	\right|
+	= \left( -\lambda\right)^2- \left(\frac{1}{5}\right)^2=0
+\end{equation}
+より$\lambda=\frac{1}{5},-\frac{1}{5}$である．$\lambda=\frac{1}{5}$のときの固有ベクトル$\fat{n}$は，
+$k$を任意の実数として$\fat{n}=k(1,\,1)$と表される．
+一方$\lambda=-\frac{1}{5}$のときの固有ベクトルは$\fat{n}=k(-1,\, 1)$である．
+よって,
+\begin{equation}
+	\lambda_1=\frac{2}{5}, \ \  
+	\fat{n}_1 
+	=
+	\frac{1}{\sqrt{2}}
+	\left\{ 
+		\begin{array}{c}
+			1 \\
+			1
+		\end{array}
+	\right\}	
+\end{equation}
+\begin{equation}
+\lambda_2=-\frac{1}{5}, \ \ 
+\fat{n}_2 =
+	\frac{1}{\sqrt{2}}
+	\left\{ 
+		\begin{array}{c}
+		-1 \\
+		 1 
+		\end{array}
+	\right\}.	
+\end{equation}
+\item
+\[
+	\fat{Q} = 
+	\left( 
+		\begin{array}{cc}
+		\fat{n}_1 \cdot \fat{e}_1 & \fat{n}_1 \cdot \fat{e}_2 \\
+		\fat{n}_2 \cdot \fat{e}_1 & \fat{n}_2 \cdot \fat{e}_2
+		\end{array}
+	\right)
+	= 
+	\frac{1}{\sqrt{2}}
+	\left( 
+		\begin{array}{cc}
+		 1 & 1 \\
+		-1 & 1
+		\end{array}
+	\right)
+\]
+\item
+前問で求めた座標変換マトリクス$\fat{Q}$を用いて変位ベクトル$\fat{u}$及び位置ベクトル$\fat{x}$が，
+\begin{equation}
+	\fat{u} = \fat{Q}^T \fat{u}' ,\  \fat{x} = \fat{Q}^T \fat{x}'
+\end{equation}
+と書ける．したがって，
+\begin{equation}
+	\fat{Q}^T \fat{u}' = \fat{F} \fat{Q}^T \fat{x}'
+\end{equation}
+より，
+\begin{equation}
+	\fat{u}' = \left({ \fat{Q} \fat{F} \fat{Q}^T }\right) \fat{x}'.
+\end{equation}
+だから,$\fat{F}'=\fat{Q}\fat{F}\fat{Q}^T$となる．よって，
+\begin{eqnarray}
+ \fat{F}'=\fat{Q} \fat{F} \fat{Q}^T 
+ &=&
+\frac{1}{10}
+	\left( 
+		\begin{array}{cc}
+		 1 & 1 \\
+		-1 & 1
+		\end{array}
+	\right)
+ 	\left( 
+		\begin{array}{cc}
+		 0 & 1 \\
+		 1 & 0
+		\end{array}
+	\right)
+	\left( 
+		\begin{array}{cc}
+		 1 & -1 \\
+		 1 & 1
+		\end{array}
+	\right) \\
+ &=&
+\nonumber
+	\frac{1}{5}
+	\left( 
+		\begin{array}{cc}
+		 1 &  0 \\
+		 0 &-1
+		\end{array}
+	\right)
+\end{eqnarray}
+\item
+正方形PQRSの各頂点がP',Q',R',S'へ移動したとする．
+これらの点における変位ベクトルを$\fat{u}'_P, \  \fat{u}'_Q, \  \fat{u}'_R, \  \fat{u}'_S$とすると，
+\begin{eqnarray}
+	\left[
+		\fat{u}'_P \  \fat{u}'_Q \  \fat{u}'_R \  \fat{u}'_S 
+	\right] 
+	&=& 
+	\frac{1}{5}
+	\left( 
+		\begin{array}{cc}
+		 1 &  0 \\
+		 0 & -1 
+		\end{array}
+	\right)
+	\left( 
+		\begin{array}{cccc}
+		 0 & 1 & 1 & 0  \\
+		 0 & 0 & 1 & 1
+		\end{array}
+	\right) \\
+	&=&
+	\frac{1}{5}
+	\left( 
+		\begin{array}{cccc}
+		 0 &  1  & 1  & 0  \\
+		 0 &  0  & -1  & -1 
+		\end{array}
+	\right)
+\end{eqnarray}
+である．よって, $o-x_1'x_2'$座標系における変形後の頂点の座標は，
+\begin{equation}
+	P' = \left( 0,0 \right) ,\  Q' = \left(  \frac{6}{5},0 \right) ,\  
+	R' = \left(\frac{6}{5}, \frac{4}{5}\right) ,\  S' = \left(0,\frac{4}{5}\right)
+\end{equation}
+となる．以上より，正方形領域PQRSは, 変形後, 図\ref{fig:fig1}(b)
+に示すような長方形P'Q'R'S'に移されることがわかる．
+\item
+\begin{eqnarray}
+	\varepsilon_{11}' &=& \frac{\partial u_1'}{\partial x_1'}=\frac{1}{5} \\
+	\varepsilon_{12}' =\varepsilon_{21}' 
+	&=& \frac{1}{2}\left(
+		\frac{\partial u_1'}{\partial x_2'}
+		+
+		\frac{\partial u_2'}{\partial x_1'}
+		\right) 
+		=0
+		\\
+	\varepsilon_{22}' &=& \frac{\partial u_2'}{\partial x_2'}=-\frac{1}{5}
+\end{eqnarray}
+\end{enumerate}
+}
+%--------------------
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=0.85\linewidth]{fig1ans.eps} 
+	\end{center}
+	\vspace{-5mm}
+	\caption{正方形領域ABCDおよびPQRSの変形状況．} 
+	\label{fig:fig1}
+\end{figure}

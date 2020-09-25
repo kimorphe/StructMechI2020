@@ -1,0 +1,207 @@
+\documentclass[10pt,a4j]{jarticle}
+\usepackage{graphicx,wrapfig}
+\setlength{\topmargin}{-1.5cm}
+\setlength{\textwidth}{15.5cm}
+\setlength{\textheight}{25.2cm}
+\newlength{\minitwocolumn}
+\setlength{\minitwocolumn}{0.5\textwidth}
+\addtolength{\minitwocolumn}{-\columnsep}
+%\addtolength{\baselineskip}{-0.1\baselineskip}
+%
+\def\Mmaru#1{{\ooalign{\hfil#1\/\hfil\crcr
+\raise.167ex\hbox{\mathhexbox 20D}}}}
+%
+\begin{document}
+\newcommand{\fat}[1]{\mbox{\boldmath $#1$}}
+\newcommand{\D}{\partial}
+\newcommand{\w}{\omega}
+\newcommand{\ga}{\alpha}
+\newcommand{\gb}{\beta}
+\newcommand{\gx}{\xi}
+\newcommand{\gz}{\zeta}
+\newcommand{\vhat}[1]{\hat{\fat{#1}}}
+\newcommand{\spc}{\vspace{0.7\baselineskip}}
+\newcommand{\halfspc}{\vspace{0.3\baselineskip}}
+\bibliographystyle{unsrt}
+\pagestyle{empty}
+\newcommand{\twofig}[2]
+ {
+   \begin{figure}[h]
+     \begin{minipage}[t]{\minitwocolumn}
+         \begin{center}   #1
+         \end{center}
+     \end{minipage}
+         \hspace{\columnsep}
+     \begin{minipage}[t]{\minitwocolumn}
+         \begin{center} #2
+         \end{center}
+     \end{minipage}
+   \end{figure}
+ }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\vspace*{\baselineskip}
+\begin{center}
+{\Large \bf 2019年度 構造力学I及び演習A 演習問題5　解答} \\
+\end{center}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{15mm}
+\begin{enumerate}
+\item
+与えられた応力テンソルの成分を
+\begin{equation}
+	\fat{\sigma}
+	=
+	\left( 
+		\begin{array}{cc}
+		\sigma_{11} & \sigma_{12} \\
+		\sigma_{12} & \sigma_{22} 
+		\end{array}
+	\right)
+	=
+	\left( 
+		\begin{array}{cc}
+			-4 & 2\sqrt{3} \\
+			2\sqrt{3} & 0 
+		\end{array}
+	\right)
+	\label{eqn:sigma_given}
+\end{equation}
+と表すとき，平均応力$\bar{\sigma}$, 偏差応力$\Delta \sigma$および，
+モール円の半径$R$は以下のように求められる．
+\begin{equation}
+	\bar{\sigma} 
+	= \frac{1}{2}\left({ \sigma_{11} + \sigma_{22} }\right) = -2,
+	\quad
+	\Delta \sigma = \sigma_{11} - \sigma_{22} = -4,
+	\quad
+	R = \sqrt{\left({ \frac{\Delta \sigma}{2} }\right)^2 + \tau^2 } 
+	=4 
+\end{equation}
+となる．以上より，モールの応力円は図\ref{fig:fig1}のようになる．
+
+\item
+$\left(\sigma_{11}, \sigma_{12}\right)=\left(-4, \, 2\sqrt{3} \right)$
+は，応力円上の点Aに相当する．
+		なお,$\tan \phi = \frac{\sigma_{12}}{\Delta \sigma/2}=-\sqrt{3}$より, 
+$\phi=\frac{2\pi}{3}$である．
+\end{enumerate}
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=.50\linewidth]{fig1ans.eps} 
+	\end{center}
+	\caption{モールの応力円．} 
+	\label{fig:fig1}
+\end{figure}
+%
+
+\begin{enumerate}
+\setcounter{enumi}{2}
+\item
+最大主応力とその方向は，モールの応力円上の点Bで表される．
+従って，
+\begin{equation}
+	\sigma_{max}=\bar\sigma+R=2
+\end{equation}
+\begin{equation}
+	2\theta_{max}=\phi 
+	\ \ \Rightarrow 	
+	\theta_{max}=\frac{\phi}{2} =\frac{\pi}{3} 
+\end{equation}
+\item
+最小主応力とその方向は，モールの応力円上の点Cで表され, 
+\begin{equation}
+	\sigma_{min}=\bar\sigma-R=-6
+\end{equation}
+\begin{equation}
+	2\theta_{min}=\phi+\pi 
+	\ \ \Rightarrow 	
+	\theta_{min}=\frac{\phi+\pi}{2} =\frac{5\pi}{6} 
+\end{equation}
+となる．
+\item
+最大せん断応力とそれが作用する面の方向は, 応力円上の点Dで表され，
+\begin{equation}
+	\tau_{max}=R=4
+\end{equation}
+\begin{equation}
+	2\theta_{\tau}=\frac{\pi}{6}  \ \ \Rightarrow \ \ 
+	\theta_{\tau}=\frac{1}{12}\pi.
+\end{equation}
+である．
+\item
+応力テンソル$\fat{\sigma}$の固有値$\lambda_1,\lambda_2$は
+\begin{equation}
+	\det \left( \fat{\sigma}-\lambda I  \right) =0
+\end{equation}
+の根として求められる($\fat{I}$は単位行列を表す)．
+これを具体的に計算すれば
+\begin{equation}
+	\left| 
+		\begin{array}{cc}
+		-4-\lambda & 2\sqrt{3} \\
+		2\sqrt{3} & -\lambda 
+		\end{array}
+	\right|
+	=
+	(\lambda-2)(\lambda+6)=0
+\end{equation}
+より，
+\begin{equation}
+	\lambda_1 = 2, \ \ \lambda_2 = -6
+\end{equation}
+となり，主応力値が求められる．
+\item
+次に，$\lambda_1, \lambda_2$に対応する固有ベクトル
+$\fat{n}_1,\fat{n}_2$を, 
+\begin{equation}
+	\left( \fat{\sigma}-\lambda \fat{I} \right)=\fat{0}	
+\end{equation}
+に$\lambda=\lambda_1$あるいは$\lambda_2$を代入して求めれば，それぞれ
+\begin{equation}
+	\fat{n}_1= 
+	\pm \frac{1}{2}
+	\left( 
+		\begin{array}{c}
+			1 \\
+			\sqrt{3} 
+		\end{array}
+	\right)
+\end{equation}
+\begin{equation}
+	\fat{n}_2= 
+	\pm \frac{1}{2}
+	\left( 
+		\begin{array}{c}
+			-\sqrt{3} \\
+			1
+		\end{array}
+	\right)
+\end{equation}
+となる．
+\item
+$\fat{t}^{(n)}=\fat{\sigma}^T \fat{n}$において,  
+$\fat{n}=\fat{n}_1=(\cos\theta_{max},\,\sin\theta_{max})^T$
+とすればよい. この$\fat{n}$は,$\fat{\sigma}$の固有ベクトル
+で,対応する固有値は$\sigma_{max}$だから,
+\begin{equation}
+	\fat{t}^{(n)}=\sigma_{max}
+		\left(
+		\begin{array}{c}
+			\cos \theta_{max} \\	
+			\sin \theta_{max} 
+		\end{array}
+		\right)
+		=
+		\pm
+		\left(
+		\begin{array}{c}
+			1 \\
+			\sqrt{3}
+		\end{array}
+		\right)
+\end{equation}
+となる($+,-$の符号はどちらを選んでも良い).
+\end{enumerate}
+\end{document}
+
+

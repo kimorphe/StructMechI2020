@@ -1,0 +1,123 @@
+\documentclass[10pt,a4j]{jarticle}
+%\usepackage{graphicx,wrapfig}
+\usepackage{graphicx}
+\setlength{\topmargin}{-1.5cm}
+\setlength{\textwidth}{15.5cm}
+\setlength{\textheight}{25.2cm}
+\newlength{\minitwocolumn}
+\setlength{\minitwocolumn}{0.5\textwidth}
+\addtolength{\minitwocolumn}{-\columnsep}
+%\addtolength{\baselineskip}{-0.1\baselineskip}
+%
+\def\Mmaru#1{{\ooalign{\hfil#1\/\hfil\crcr
+\raise.167ex\hbox{\mathhexbox 20D}}}}
+%
+\begin{document}
+\newcommand{\fat}[1]{\mbox{\boldmath $#1$}}
+\newcommand{\D}{\partial}
+\newcommand{\w}{\omega}
+\newcommand{\ga}{\alpha}
+\newcommand{\gb}{\beta}
+\newcommand{\gx}{\xi}
+\newcommand{\gz}{\zeta}
+\newcommand{\vhat}[1]{\hat{\fat{#1}}}
+\newcommand{\spc}{\vspace{0.7\baselineskip}}
+\newcommand{\halfspc}{\vspace{0.3\baselineskip}}
+\bibliographystyle{unsrt}
+\pagestyle{empty}
+\newcommand{\twofig}[2]
+ {
+   \begin{figure}[here]
+     \begin{minipage}[t]{\minitwocolumn}
+         \begin{center}   #1
+         \end{center}
+     \end{minipage}
+         \hspace{\columnsep}
+     \begin{minipage}[t]{\minitwocolumn}
+         \begin{center} #2
+         \end{center}
+     \end{minipage}
+   \end{figure}
+ }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\vspace*{\baselineskip}
+\begin{center}
+{\Large \bf 2019年度 構造力学I及び演習A 演習問題4(10月29日)} \\
+\end{center}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{15mm}
+	図\ref{fig:fig1}に示すような，$o-x_1 y_1$および$o-x_1'x_2'$座標系に
+	おける応力テンソルをそれぞれ
+\[
+	\fat{\sigma}
+	=
+	\left( 
+		\begin{array}{cc}
+		\sigma_{11} & \sigma_{12} \\
+		\sigma_{12} & \sigma_{22} 
+		\end{array}
+	\right)
+	, 
+	\ \
+	\fat{\sigma}'
+	=
+	\left( 
+		\begin{array}{cc}
+		\sigma_{11}' & \sigma_{12}' \\
+		\sigma_{12}' & \sigma_{22}'
+		\end{array}
+	\right)
+\]
+	と表す．$\fat{\sigma}$が
+\begin{equation}
+	\fat{\sigma}
+	=
+	\left( 
+		\begin{array}{cc}
+		-4 & 2\sqrt{3} \\
+		2\sqrt{3} & 0 
+		\end{array}
+	\right)
+	\label{eqn:sigma}
+\end{equation}
+であるとき，以下の問に答えよ．なお，$\theta$は$0 \leq \theta < \pi$において
+任意の角度をとりうるとする.
+\begin{enumerate}
+\item
+	$\fat{\sigma}'$の各成分を求め, その結果を$2\theta$を用いて表せ．
+\item
+	$\sigma_{11}'$の最大値を$\sigma_1$, そのときの$\theta$を$\theta_1$とする。
+	このとき、$\sigma_1$と$\theta_1$を求めよ．
+\item
+	$\theta=\theta_1$となるときの$\sigma_{22}'$と$\sigma_{12}'$を求めよ．
+\item
+	$\sigma_{12}'$の最大を$\tau$,そのときの$\theta$を$\theta_\tau$とする。
+	このとき、$\tau$と$\theta_\tau$を求めよ．
+\item
+	$\theta=\theta_\tau$となるときの$\sigma_{11}'$と$\sigma_{22}'$を求めよ．
+\item
+	$o-x_1x_2$座標系において, 法線ベクトル$\fat{n}$が
+	\[
+		\fat{n}=\left( 
+		\begin{array}{c}
+			-\sin \theta \\
+			\cos \theta
+		\end{array}
+		\right)
+	\]
+	となる面，すなわち$x_2'$軸を法線とする面について考える．
+	この面に発生するトラクションベクトルが, $o-x_1'x_2'$座標系において
+	どのように表されるか答えよ．ただし，応力テンソルは式(\ref{eqn:sigma})で
+	与えられた通りとする．
+\end{enumerate}
+%--------------------
+%\begin{figure}[here]
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=0.4\linewidth]{fig1.eps} 
+	\end{center}
+	\vspace{-5mm}
+	\caption{二つの直角直交座標系．} 
+	\label{fig:fig1}
+\end{figure}
+\end{document}

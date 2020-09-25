@@ -1,0 +1,548 @@
+\documentclass[10pt,a4j]{jbook}
+%\usepackage{graphicx,wrapfig}
+\usepackage{graphicx,amsmath}
+\setlength{\topmargin}{-1.5cm}
+\setlength{\textwidth}{16.5cm}
+\setlength{\textheight}{25.2cm}
+\newlength{\minitwocolumn}
+\setlength{\minitwocolumn}{0.5\textwidth}
+\addtolength{\minitwocolumn}{-\columnsep}
+%\addtolength{\baselineskip}{-0.1\baselineskip}
+%
+\def\Mmaru#1{{\ooalign{\hfil#1\/\hfil\crcr
+\raise.167ex\hbox{\mathhexbox 20D}}}}
+%
+\begin{document}
+\newcommand{\fat}[1]{\mbox{\boldmath $#1$}}
+\newcommand{\D}{\partial}
+\newcommand{\w}{\omega}
+\newcommand{\ga}{\alpha}
+\newcommand{\gb}{\beta}
+\newcommand{\gx}{\xi}
+\newcommand{\gz}{\zeta}
+\newcommand{\vhat}[1]{\hat{\fat{#1}}}
+\newcommand{\spc}{\vspace{0.7\baselineskip}}
+\newcommand{\halfspc}{\vspace{0.3\baselineskip}}
+\bibliographystyle{unsrt}
+%\pagestyle{empty}
+\newcommand{\twofig}[2]
+ {
+   \begin{figure}
+     \begin{minipage}[t]{\minitwocolumn}
+         \begin{center}   #1
+         \end{center}
+     \end{minipage}
+         \hspace{\columnsep}
+     \begin{minipage}[t]{\minitwocolumn}
+         \begin{center} #2
+         \end{center}
+     \end{minipage}
+   \end{figure}
+ }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\vspace*{\baselineskip}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setcounter{chapter}{3}
+\chapter{梁の曲げ}
+\section{はりのたわみとたわみ角}
+モーメントを伝達する部材を梁(はり)部材とよぶ．
+梁部材にモーメントが生ずる典型的な状況は，部材長手方向に対して垂直な荷重
+が作用するときである．そこで，図\ref{fig:fig7_0}に示すような梁ABが, 
+鉛直下向きの分布荷重を受ける場合について考える．
+梁部材の断面位置を参照するために，梁の長手方向に$x=x_1$軸を，鉛直下向きに
+$y=x_2$軸を取る．梁は実際には奥行き方向にも広がりを持つため，$z=x_3$軸は
+$xyz$座標が右手系となるよう，紙面奥行き方向にとる．
+後に述べるように，座標原点位置は中立面内であればどこでもよい．
+このように設定した$xyz$座標系において，梁に加えれられた分布荷重を
+位置の関数として$q(x)$と表す．今後明らかになるように，一点に集中して
+加えられた荷重(点荷重あるいは集中荷重)も，ディラクのデルタ関数
+を用いることで，分布荷重の一種として取り扱うことができる．
+分布荷重$q(x)$は単位長さあたりの力の次元をもつものとする．
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=0.6 \linewidth]{fig7_0.eps} 
+	\end{center}
+	\caption{
+		鉛直下向きの分布荷重$q(x)$を受けて変形する梁AB.
+		載荷に伴う変形前後の様子を表す. 
+	} 
+	\label{fig:fig7_0}
+\end{figure}
+
+梁に対して垂直にに外力が加えられたときに生じる変形は，梁全体がどのように
+支持されているかにも依存する．今，梁は，その端部において回転を拘束しない
+ような方法で支持されているとする．
+梁を支持する機構や支持点のことを{\bf 支点}とよぶ．ここでは，支点が沈下する場合
+も許容すれば，鉛直力を受けた梁は図\ref{fig:fig7_0}下の図のように変形すると予想される．
+ただし，議論を簡単にするために梁に生じる変形は非常に小さいと仮定し，
+図\ref{fig:fig7_0}は変形状況をわかり易く表現するために誇張して描かれていることに注意する．
+
+
+幅$\Delta x$の微小区間abdcに着目する．当初長方形であった領域abdcは，
+変形後，図\ref{fig:fig7_1}に示すような下に凸な曲線で囲まれた形状になる．
+ここで，鉛直面acとbdは変形後も直線(平面)のままであることを仮定している．
+このような仮定のことを"{\bf 平面保持の仮定}"と言う．一方，下
+縁部abと上縁部cdは変形の結果湾曲し, それぞれ伸びと縮みを生じている．
+このことと平面保持の仮定を踏まえれば，鉛直方向のどこかで伸びも縮もしない
+中立状態を保つ位置efが存在すると考えられる．
+変形後も中立の状態を保つ点全体は，変形した状態ではある曲面を，変形前の
+状態では平面を描く．このように変形によって伸び縮みしない面を中立面と呼ぶ．
+$y$軸の原点,すなわち$y=0$は，図\ref{fig:fig7_1}-(a)に示すように変形前の
+中立面内にとる. 変形後の梁における中立面を$xy$平面に投影して得られる曲線$y=v(x)$は,
+"{\bf たわみ曲線}"と呼ばれる．
+与えられた荷重と支持条件に対してたわみ曲線が求められれば，梁の変形状態が
+くまなく分かったことになる．一方，たわみ曲線の勾配を$\theta(x)$と書き，これを
+"{\bf たわみ角}"と呼ぶ．たわみ角は，時計回りの方向が正となっていることに注意する．
+また，変形が小さいことを考慮し，たわみ角とたわみの関係は以下の近似式で
+代用する．たわみ$v$とたわみ角$\theta$の関係を図\ref{fig:fig7_2}-(a)に示す.
+\begin{equation}
+	\theta(x) \simeq \tan \theta =\frac{dv}{dx}
+	\label{eqn:th_apprx}
+\end{equation}
+\begin{figure}
+	\begin{center}
+	\includegraphics[width=0.8\linewidth]{fig7_1.eps} 
+	\end{center}
+	\caption{
+		梁の微小区間abdcの変形前後の様子．
+		(a)変形前, (b)変形後．破線efは，変形によって伸縮しない
+		面(中立面)の位置を表す．
+	} 
+	\label{fig:fig7_1}
+\end{figure}
+\begin{figure}
+	\begin{center}
+	\includegraphics[width=0.85\linewidth]{fig7_2.eps} 
+	\end{center}
+	\caption{
+	(a)梁のたわみ$v(x)$とたわみ角$\theta(x)$. 
+	(b)微小区間$\left[x, \, x+\Delta x \right]$におけるたわみと
+	たわみ角の変化，ならびに曲率半径.
+	 } 
+	\label{fig:fig7_2}
+\end{figure}
+以下ではたわみ$v(x)$を求めるための方程式系を導き，その解法について学習する．
+\section{曲げ変形におけるたわみと曲率の関係}
+以上に述べた変形状態で，梁は区分的に上あるいは下に凸な形状に曲げられている．
+そのため，このとき梁内部に生じているモーメントを"{\bf 曲げモーメント}，
+変形を"{\bf 曲げ変形}"と呼ぶ．曲げモーメントの正確な定義や計算方法は次節以後
+で順を追って説明する．
+まずはじめに，梁部材の各点に生じる曲げ変形の程度を定量的に表現する方法を考える．
+そのために，たわみ曲線$v(x)$の，位置$x$における曲率$\kappa(x)$ あるいは曲率半径
+$\rho(x)=\kappa^{-1}(x)$について調べる．
+曲率円とは，曲線の局所的な曲がり具合を最もよく近似する円のことを意味し，
+曲率半径$\rho$はそのような円の半径を, 曲率$\kappa$は$\rho$の逆数を表す．
+曲率半径が小さい程，曲線の曲がり具合は大きく，曲率半径が大きい程，曲がり具合は小さい．
+従って，局所的な変形の大小と$\rho$および$\kappa$の関係は表\ref{tbl:tbl7_1}のようになる．
+\begin{table}
+\caption{曲率，曲率半径と曲げ変形の大小}
+\begin{center}
+\begin{tabular}{c|c|c}
+小& 曲げ変形 & 大\\
+\hline\hline
+大&曲率半径$\rho$ & 小\\
+\hline
+	小& 曲率$\kappa=\rho^{-1}$& 大\\
+\end{tabular}
+\end{center}
+\label{tbl:tbl7_1}
+\end{table}
+いま，微小区間$[x,\, x+\Delta x]$におけるたわみ曲線$y=v(x)$に関する曲率
+円を図示すると図\ref{fig:fig7_2}-(b)のようになる．ここで，弧efの開き角は 
+当該区間におけるたわみ角$\theta(x)$の変化量$\Delta \theta (x)$で表すことができる．
+ただし，$v(x)$は$\Delta \theta >0$で上に凸，$\Delta \theta<0$
+で下に凸であることから，正の量となるべき開き角は$-\Delta \theta$であることに
+注意する．そこで，区間$[x,\,x+\Delta x]$におけるたわみ曲線の弧長を$\Delta s$とすれば，
+\begin{equation}
+	\Delta s(x) = \rho (x) \left(-\Delta \theta (x) \right)
+	\label{eqn:sx_of_rho}
+\end{equation}
+である．式(\ref{eqn:sx_of_rho})において$\Delta x \rightarrow 0$の極限を取れば，
+\begin{equation}
+	\kappa = \frac{1}{\rho}=-\frac{d\theta}{ds}	
+\end{equation}
+が得られ，これに式(\ref{eqn:th_apprx})と$\frac{dx}{ds}\simeq 1$を用いれば，
+\begin{equation}
+	\kappa=\frac{1}{\rho}\simeq 
+	-\frac{d}{ds}\left( \frac{dv}{dx}\right)	
+	=
+	-\frac{d}{dx}\left( \frac{dv}{dx}\right)	\frac{dx}{ds}
+	\simeq
+	-\frac{d^2 v}{dx^2}=-v''(x)
+	\label{eqn:kpp_v2}
+\end{equation}
+となり，たわみと曲率を関係づける式が得られる．目的はたわみを求めることにあるが，
+以下に見るように$\rho$や$\kappa$は着目断面に生じる曲げ変形や，それを引き起こす
+応力の分布（曲げ応力分布）を記述する上で有用である．
+なお,曲率半径とたわみの2階微分は厳密には一致しない.両者の関係の正確な導出は
+以下のようである.
+\subsubsection*{曲率$\kappa$-たわみ$v$関係の正確な導出}
+図\ref{fig:fig7_2}-(b)を参照し，
+\begin{equation}
+	\rho  \times \left( { - \Delta \theta } \right) = \Delta s
+\end{equation}
+より，曲率は
+\begin{equation}
+	\kappa  = \frac{1}{\rho } =  - \frac{{\Delta \theta }}{{\Delta s}} =  - \frac{{{{\Delta \theta } \mathord{\left/
+ {\vphantom {{\Delta \theta } {\Delta x}}} \right.
+ \kern-\nulldelimiterspace} {\Delta x}}}}{{{{\Delta s} \mathord{\left/
+ {\vphantom {{\Delta s} {\Delta x}}} \right.
+ \kern-\nulldelimiterspace} {\Delta x}}}} \to  - \frac{{\frac{{d\theta }}{{dx}}}}{{\frac{{ds}}{{dx}}}}
+	, \ \ \left(\Delta x \rightarrow 0\right)
+\end{equation}
+と書ける．ただし$\rightarrow$は$\Delta x \rightarrow 0$の極限をとること
+を表す．
+ここで，
+\begin{equation}
+	\frac{{ds}}{{dx}} = \frac{d}{{dx}}\sqrt {d{x^2} + d{y^2}}  = \sqrt {1 + {{\left( {\frac{{dy}}{{dx}}} \right)}^2}}  = \sqrt {1 + {{\left( {v'} \right)}^2}} 
+\end{equation}
+であり，$v'=\tan \theta$より
+\begin{equation}
+	v''=
+	\frac{{dv'}}{{dx}} = \frac{d}{{dx}}\tan \theta  = \frac{1}{{{{\cos }^2}\theta }}\frac{{d\theta }}{{dx}} = \left( {1 + {{\tan }^2}\theta } \right)\frac{{d\theta }}{{dx}} = \left\{ {1 + {{\left( {v'} \right)}^2}} \right\}\frac{{d\theta }}{{dx}}
+\end{equation}
+となることから，曲率$\kappa=\frac{1}{\rho}$とたわみの関係は
+\begin{equation}
+	k =  - \frac{{v''}}{{{{\sqrt {1 + {{\left( {v'} \right)}^2}} }^3}}} \approx  - v'',\quad \left( {\left| {v'} \right| \ll 1} \right)
+\end{equation}
+となることが示される．
+\section{曲げ問題における断面力}
+\subsection{断面力の定義}
+曲げ変形を受ける梁の断面には,直応力とせん断応力が発生しており，それらの分布は一般に一様でない．
+ただし，梁の奥行き方向の幅が梁の長さに比べて十分小さいとき,梁は平面応力状態にあると考えてよく，
+その場合,
+\begin{equation}
+	\sigma_{zx}(=\sigma_{31})=0, \ \ 
+	\sigma_{zy}(=\sigma_{32})=0, \ \ 
+	\sigma_{zz}(=\sigma_{33})=0
+\end{equation}
+だから，考慮すべき応力成分は
+\begin{equation}
+	\sigma_{xx}(=\sigma_{11}), \ \ 
+	\sigma_{yy}(=\sigma_{22}), \ \ 
+	\sigma_{xy}(=\sigma_{12})
+\end{equation}
+の3つである．
+このうち，$x(=x_1)$軸に垂直な断面に関する応力成分は,図\ref{fig:fig7_3}-(a)に示す通り,
+$\sigma_{xx}$と$\sigma_{xy}$の2つである．
+応力は力の釣り合い条件を満足する必要がある．釣り合い条件式を書き下すにあたり,これらの
+応力成分$\sigma_{xx},\sigma_{xy}$が断面におよぼす合力と合モーメントを求めておくと都合がよい．
+$\sigma_{xx}$に関する断面全体での合力を$N$，$\sigma_{xy}$の合力を$Q$と表す．
+$N$は{\bf 軸力},$Q$は{\bf せん断力}と呼ばれる．
+一方，$\sigma_{xx}$による，中立面位置$y=0$に関する合モーメントを$M$と書き，
+これを{\bf 曲げモーメント}と呼ぶ．$N,Q$および$M$は断面力と総称され，
+これらは以下のように定義される(図\ref{fig:fig7_3}-(b))．
+\begin{eqnarray}
+	N &=& \int_S \sigma_{xx} dS 
+	\label{eqn:def_N}\\
+	Q &=& \int_S \sigma_{xy} dS
+	\label{eqn:def_Q}\\
+	M &=& \int_S y\sigma_{xx} dS
+	\label{eqn:def_M}
+\end{eqnarray}
+ここに，$\int_S(\cdot)dS$は梁の断面$S$全体を積分範囲とする面積積分を, 
+$dS$は微小面積要素を意味する.これらの面積積分を$yz$直角直交座標系に
+おいて評価する場合,微小面積要素は$dS=dydz$である．面積積分の具体的な計算方法は,
+断面２次モーメントの計算方法に関する節で詳しく説明する．
+軸力問題では，軸力$N$から直応力を$\sigma_{xx}/S$で定義した．
+一方，応力$\sigma_{xx}$が断面内で一様に分布していない場合は，予め定義が与えられた
+直応力を用い，式(\ref{eqn:def_N})で軸力が定義される．
+\subsection{断面力の釣り合い式}
+断面力の釣り合い式は以下のように導出される．
+断面力$N,Q$および$M$を用い, 微小区間$[x,\,x+\Delta x]$の自由物体図を描くと，
+図\ref{fig:fig7_3}-(c)のようになる.
+ここで,微小区間の右側面は$x$軸の正方向,左側面は負の方向を向く面であることから,
+各々の断面に作用する断面力$N,Q$および$M$の正方向は互いに反対となるように定められ
+ていることに注意する.
+この図を参照し，水平方向，鉛直方向およびモーメントの釣り合い条件式を
+立てれば，次の結果が得られる．
+\begin{eqnarray}
+	&&-N(x)+N(x+\Delta x) =0 \label{eqn:equib_x} \\
+	&&-Q(x)+Q(x+\Delta x)+q(x)\Delta x =0 \label{eqn:equib_y} \\
+	&&-M(x)+M(x+\Delta x)-Q(x)\Delta x +q(x)\Delta x \times \frac{\Delta x}{2}=0 \label{eqn:equib_th}
+\end{eqnarray}
+ただし,モーメントの釣り合い式(\ref{eqn:equib_th})は,
+右側面の中立面位置$(x+\Delta x,\, y=0)$を基準とした場合のものである.
+これらの関係式の両辺を$\Delta x$で割り,$\Delta x \rightarrow 0$の極限を取れば，
+\begin{eqnarray}
+	\frac{dN}{dx}&=&0  \label{eqn:equib_N} \\
+	\frac{dQ}{dx}&=&-q(x) \label{eqn:equib_Q} \\
+	\frac{dM}{dx}&=&Q(x) \label{eqn:equib_M}
+\end{eqnarray}
+となる．これらの式(\ref{eqn:equib_N})$\sim$(\ref{eqn:equib_M})は，
+微分形による局所的な断面力の釣り合い条件を表す．
+\begin{figure}
+	\begin{center}
+	\includegraphics[width=0.6\linewidth]{fig7_3.eps} 
+	\end{center}
+	\caption{
+	(a)梁の断面に作用する直応力$\sigma_{xx}$と
+	せん断断応力$\sigma_{xy}$の正方向，
+	(b)断面力, 
+	(c)断面力のつり合い条件を求めるための自由物体図. 
+	 } 
+	\label{fig:fig7_3}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{たわみの支配方程式}
+\subsection{曲げひずみと，曲げ応力}
+図\ref{fig:fig7_1}-(b)のような変形状態にある梁の微小区間では，中立面から下の範囲$y(>0)$で
+部材に伸びが生じている．つまり，$x$方向の直ひずみ$\varepsilon_{xx}(=\varepsilon_{11})$
+は正になると考えられる.実際，中立面から下に$y$だけ離れた部分の変形後の長さは，
+曲率半径とたわみ角の増分$\Delta \theta$を用いて$(\rho + y )(-\Delta \theta)$で与えられる
+一方，同じ位置$y$における変形前の長さは中立面の弧長$\rho (-\Delta \theta)$に等しい．
+従って， 直ひずみ$\varepsilon_{xx}$は
+\begin{equation}
+	\varepsilon_{xx}
+	=
+	\frac{(\rho +y )(-\Delta \theta) - \rho (-\Delta \theta)}{\rho (-\Delta \theta)}
+	=
+	\frac{y}{\rho}
+\end{equation}
+となり，$y>0, \ \ \Delta \theta<0$であれば，断面内の位置$y$で$\varepsilon_{xx}>0$，
+すなわち伸びが生じていることが確かめられる．
+ここで，一般化されたフックの法則によれば， $\varepsilon_{xx}$は直応力成分と
+\begin{equation}
+	\varepsilon_{xx}=\frac{\sigma_{xx}-\nu(\sigma_{yy}+\sigma_{zz})}{E}
+\end{equation}
+の関係にある．簡単のため，ポアソン比$\nu$の効果は小さいと仮定すれば，
+$\varepsilon_{xx}=\sigma_{xx}/E$となる.この関係を仮定して直応力の分布を書けば，
+\begin{equation}
+	\sigma_{xx}=\frac{E}{\rho}y
+	\label{eqn:sxx_y}
+\end{equation}
+と，応力は$y$に関して直線的に変化するとの結果が得られる．
+このような応力分布は{\bf 曲げ応力分布}と呼ばれる．
+これは，平面保持とポアソン比による影響を無視した結果の帰結である．
+次に，式(\ref{eqn:sxx_y})を式(\ref{eqn:def_M})に代入すると，
+\begin{equation}
+	M=\int_S \frac{M}{\rho}y^2 dS=\frac{E}{\rho}I
+	\label{eqn:M_rho}
+\end{equation}
+となる．ただし，$I$は
+\begin{equation}
+	I=\int_S y^2 dS
+	\label{eqn:def_I}
+\end{equation}
+で定義される量で，中立面に関する"{\bf 断面2次モーメント}"と呼ばれる．
+ここで,式(\ref{eqn:M_rho})において曲げモーメント$M$と曲率半径$\rho$
+は$x$にのみ依存し, $y$と$z$には依らない量であることに注意する．
+次に，式(\ref{eqn:M_rho})に，曲率$\kappa$とたわみとの関係(\ref{eqn:kpp_v2})を用いれば
+\begin{equation}
+	M = EI \kappa = -EIv''
+	\label{eqn:M_kpp}
+\end{equation}
+が得られる．式(\ref{eqn:M_kpp})は，曲げモーメント$M$と曲げ変形$\kappa$が比例係数$EI$を介して
+結び付けられることを表している．$EI$は梁の"{\bf 曲げ剛性}"と呼ばれ，部材の曲げに対する
+固さを表す指標とみなすことができる．最後に，式(\ref{eqn:M_kpp})に
+式(\ref{eqn:equib_Q})と式(\ref{eqn:equib_M})を用いれば，
+\begin{equation}
+	\frac{d^2}{dx^2}\left\{ EI \left(\frac{d^2v}{dx^2}\right)\right\}=q(x)
+	\label{eqn:gveq_v}
+\end{equation}
+となり，たわみの支配微分方程式が得られる．この式を適切な支持条件の元で解くことにより，
+梁のたわみが得られる．また，たわみが得られれば，その結果を繰り返して微分することで，順次
+たわみ角$\theta$, 曲げモーメント$M$, せん断力$Q$を求めることができる．
+このことを具体的に書くと，次のようである．
+\begin{eqnarray}
+	\theta(x) &=& v'(x) \\
+	M(x) &=& -EIv '' \\
+	Q(x) &=& M'(x) = \left(-EIv''\right)' 
+\end{eqnarray}
+なお，曲げ剛性$EI$が位置に依らず一定の場合，式(\ref{eqn:gveq_v})は単に
+\begin{equation}
+	\frac{d^4v}{dx^4}=\frac{q}{EI}
+	\label{eqn:gveq_uniform}
+\end{equation}
+となり，$Q(x)=M'(x)=-EIv'''(x)$でもある．ここで，$q(x)/EI$の$x$に関する4回の不定積分を
+\[
+	\iiiint \frac{q(x)}{EI}dx^4
+\]
+と表せば，式\ref{eqn:gveq_uniform}の解は，$A_1\sim A_4$を任意の定数として
+\begin{equation}
+	v(x)= 
+	\iiiint \frac{q(x)}{EI}dx^4
+	+A_1 x^3 +A_2x^2 + A_3x + A_4
+	\label{eqn:vx_gsol}
+\end{equation}
+と表すことができる．従って，$v(x)$に関する4つの互いに独立な条件が与え
+られれば，積分定数$A_1\sim A_4$が決定でき，たわみ$v(x)$を求めることができる．
+%--------------------
+%%%%%%
+\subsection{問題}\label{prb}
+図\ref{fig:fig7_4}に示すような，長さ$l$で曲げ剛性$EI$が一定の梁を考える．
+梁に外力は作用せず，梁の両端で，たわみとたわみ角が指定された状態で固定されている．
+このとき，以下4通りの支持条件のもとで生じるたわみ分布を求めよ．
+\begin{enumerate}
+\item
+$v(0)=1,\, v(l)=0,\, v'(0)=0,\, v'(l)=0$
+\item
+$v(0)=0,\, v(l)=1,\, v'(0)=0,\, v'(l)=0$
+\item
+$v(0)=0,\, v(l)=0,\, v'(0)=1,\, v'(l)=0$
+\item
+$v(0)=0,\, v(l)=0,\, v'(0)=0,\, v'(l)=1$
+\end{enumerate}
+\subsubsection*{問題\ref{prb}-1の解答}
+梁に外力は働かないので，たわみ$v(x)$は式(\ref{eqn:vx_gsol})において$q(x)\equiv 0$とし，
+\begin{equation}
+	v(x)=A_1 x^3 +A_2x^2 + A_3x + A_4
+\end{equation}
+と表すことができる．積分定数$A_1\sim A_4$のうち$A_3$と$A_4$は, $v(0)=1$より$A_4=1$,
+$v'(0)=0$より$A_3=0$と決まる．一方，$A_1$と$A_2$は
+\[
+	v(l)=A_1l^3+A_2l^2+1=0, \ \ 
+	v'(l)=3A_1l^2+2A_2l=0
+\]
+より, 
+\[
+	A_1=\frac{2}{l^3}, \ \ A_2=-\frac{3}{l^2}
+\]
+と求まる.
+\[
+	v(x)=
+	2\left(\frac{x}{l}\right)^3
+	-
+	3\left(\frac{x}{l}\right)^2
+	+
+	1
+	=\left(\frac{x}{l}-1\right)^2\left\{ 2\left(\frac{x}{l}\right)+1\right\}
+\]
+この結果を微分することで，たわみ角，曲げモーメント，せん断力が以下のように順に求められる.
+\[
+	v'(x)=\frac{6}{l}\left\{ \left(\frac{x}{l}\right)^2-\left(\frac{x}{l} \right) \right\}
+\]
+\[
+	M(x)=-\frac{6EI}{l^2}\left\{ 2\left(\frac{x}{l}\right)-1 \right\}
+\]
+\[
+	Q(x)=-\frac{12EI}{l^3}
+\]
+以上で求めた曲げモーメント分布とせん断力分布をグラフとして示すと，
+図\ref{fig:fig7_5}のようになる．このように断面力を示すグラフを
+{\bf 断面力図}と呼ぶ．特に，曲げモーメント分布を示すグラフを"{\bf 曲げモーメント図(M-図)}"，
+せん断力を示す図を"{\bf せん断力図(Q-図)}"と呼ぶ．
+断面力図では，縦軸を下向きを正にとることが土木分野での慣例である．
+\subsubsection*{問題\ref{prb}-3の解答}
+外力が$q(x) \equiv 0$のとき，式(\ref{eqn:vx_gsol})は未定係数を含む$x$についての3次式を表す．
+そこで，たわみ$v(x)$を
+\begin{equation}
+	v(x)= l\left\{ 
+		C_1\left(\frac{x}{l}\right)^3
+		+
+		C_2\left(\frac{x}{l}\right)^2
+		+
+		C_3\left(\frac{x}{l}\right)
+		+
+		C_4
+	\right\}
+\end{equation}
+とおき，未定係数$C_1\sim C_4$を支持条件から決定することでたわみ分布を求めてみる．
+この場合，
+\begin{equation}
+	v'(x)=\left\{ 
+		3C_1\left(\frac{x}{l}\right)^2
+		+
+		2C_2\left(\frac{x}{l}\right)
+		+
+		C_3
+	\right\}
+\end{equation}
+だから，
+\begin{eqnarray}
+	v(0)=0 & \Rightarrow & C_4=0 \\
+	v'(0)=1 & \Rightarrow & C_3=1 \\
+	v(l)=0 & \Rightarrow & C_1+C_2+C_3+C_4=0 \\
+	v'(l)=0 & \Rightarrow & 3C_1+2C_2+C_3=0
+\end{eqnarray}
+より，
+\begin{equation}
+	C_1=1, \ \ C_2=-2, \ \ C_3=1, \ \ C_4=0
+\end{equation}
+となる．よって，
+\begin{eqnarray}
+	v(x) &=& l\left\{ 
+		\left(\frac{x}{l}\right)^3
+		-
+		2\left(\frac{x}{l}\right)^2
+		+
+		\left(\frac{x}{l}\right)
+	\right\}
+	\\
+	\theta(x)=v'(x) & =& 
+	3\left(\frac{x}{l}\right)^2
+	-
+	4\left(\frac{x}{l}\right)
+	+
+	1
+	\\
+	M(x)=-EIv'' &=& -\frac{2EI}{l} \left\{ 3\left(\frac{x}{l}\right)-2\right\}
+	\\
+	Q(x)=M' &=& -\frac{6EI}{l^2}
+\end{eqnarray}
+とたわみや断面力が求められる．
+\begin{figure}
+	\begin{center}
+	\includegraphics[width=0.5\linewidth]{fig7_4.eps} 
+	\end{center}
+	\caption{両端のたわみとたわみ角が固定された梁AB.} 
+	\label{fig:fig7_4}
+\end{figure}
+\begin{figure}
+	\begin{center}
+	\includegraphics[width=0.8\linewidth]{fig7_5.eps} 
+	\end{center}
+	\caption{(a)曲げモーメント図と(b)せん断力図.} 
+	\label{fig:fig7_5}
+\end{figure}
+\section{梁の支持条件}
+梁を支持する方法(支持条件)には種々のものが考えられる．その中で，
+図\ref{fig:fig8_1}に示す4種類のものが基本的である．
+この図では，左側2つの列に支持条件の名称と支持方法のイメージが示されている．
+このようなイメージを表す図は直感的には理解しやすいものの，描画に手間がかかること，
+描き方に個人差が生じうることから，各々の支持条件を図示する場合には第3列に示した
+記号が用いられる．これらの意味は以下の通りである．
+\begin{itemize}
+\item
+	{\bf (a)固定端:}
+	部材が剛体壁や床に完全に固定されている場合の支持条件．水平，鉛直，回転変位は全て拘束される．
+	部材は，固定端から鉛直および水平方向の反力と，回転を拘束するためのモーメントを受ける．
+\item
+	{\bf (b)ピン支点:}
+	部材がピン(ヒンジ)を介して壁や床に固定されている場合の支持条件．部材はピン支点部で
+	自由に回転することができるが，水平および鉛直方向には変位が拘束される．従って，
+	ピン支点から部材は水平および鉛直方向の反力を受ける．支点は回転を拘束しないため，
+	支点が部材にモーメントを加えることはない．
+\item
+	{\bf (c)ローラー支点:}
+	部材がヒンジに結合された上で，水平方向にのみ移動可能なローラーに固定された場合の支持条件．
+	支点部では回転と水平方向の移動が自由で，鉛直方向のみ変位が拘束される．ローラー支点自体は
+	部材に水平力とモーメントを加えることはなく，鉛直反力のみが発生しうる．
+\item
+	{\bf (d)自由端:}
+	部材端で一切の拘束が働かない場合の条件．外力が加えられていないため，自由端部でのせん断力，
+	曲げモーメント，軸力はいずれも0となる．
+\end{itemize}
+この中で，(b)ピン支持と(c)ローラー支持条件の記号は互いによく似ているため，
+いずれであるかを取り違えることがないよう注意が必要である．
+三角形とその下に引かれた横線の間に隙間がある場合はローラー支持を, そうでない場合
+はピン支持を意味する．なお，これらの支点において成立すべき力学的条件は，
+図\ref{fig:fig8_1}の右半分に示した通りで，変形に関してはたわみ$v$や軸変位$u$, たわみ角$\theta$が, 
+力とモーメントに関してはせん断力$Q$や曲げモーメント$M$，軸力$N$等の量が, 支点位置において
+ゼロになることが示されている.なお,$(v,\,Q)$，$(\theta,\, M)$と$(u,\, N)$のペアは互いに共役な量で,
+一方が指定されているとき他方は未知量となる．例えば，ピン支持の場合，支点上で$v=0$である
+一方$Q$は未知である．これは，たわみをゼロとするためにはその点において一般にゼロでないせん断力が
+必要とされるためである．同様に，ピン支点において, $M=0$に対して$\theta$は未知，
+$u=0$である一方，軸力$N$は未知で一般にゼロでない．
+ここで，図\ref{fig:fig8_1}に示した表において，$Q$や$M,\,N$が0と書いた部分は，支点が部材端に
+位置する場合にのみ正しいものである．例えば，ピン支点が部材中央にある場合，支点部で曲げモーメントが
+0とは限らない．そのような状況では，"{\bf ピン支点は，反力としてモーメントを梁に加えない}"，という
+のが正しい表現である．
+\begin{figure}
+	\begin{center}
+	\includegraphics[width=1.0\linewidth]{fig8_1.eps} 
+	\end{center}
+	\caption{梁端部における4種類の基本的な支持条件. $*$は，一般にゼロでない値であることを表す.}
+	\label{fig:fig8_1}
+\end{figure}
+\end{document}

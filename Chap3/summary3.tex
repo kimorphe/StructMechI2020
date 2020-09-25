@@ -1,0 +1,563 @@
+\documentclass[10pt,a4j]{jbook}
+%\usepackage{graphicx,wrapfig}
+\usepackage{graphicx}
+\setlength{\topmargin}{-1.5cm}
+\setlength{\textwidth}{16.5cm}
+\setlength{\textheight}{25.2cm}
+\newlength{\minitwocolumn}
+\setlength{\minitwocolumn}{0.5\textwidth}
+\addtolength{\minitwocolumn}{-\columnsep}
+%\addtolength{\baselineskip}{-0.1\baselineskip}
+%
+\def\Mmaru#1{{\ooalign{\hfil#1\/\hfil\crcr
+\raise.167ex\hbox{\mathhexbox 20D}}}}
+%
+\begin{document}
+\newcommand{\fat}[1]{\mbox{\boldmath $#1$}}
+\newcommand{\D}{\partial}
+\newcommand{\w}{\omega}
+\newcommand{\ga}{\alpha}
+\newcommand{\gb}{\beta}
+\newcommand{\gx}{\xi}
+\newcommand{\gz}{\zeta}
+\newcommand{\vhat}[1]{\hat{\fat{#1}}}
+\newcommand{\spc}{\vspace{0.7\baselineskip}}
+\newcommand{\halfspc}{\vspace{0.3\baselineskip}}
+\bibliographystyle{unsrt}
+%\pagestyle{empty}
+\newcommand{\twofig}[2]
+ {
+   \begin{figure}
+     \begin{minipage}[t]{\minitwocolumn}
+         \begin{center}   #1
+         \end{center}
+     \end{minipage}
+         \hspace{\columnsep}
+     \begin{minipage}[t]{\minitwocolumn}
+         \begin{center} #2
+         \end{center}
+     \end{minipage}
+   \end{figure}
+ }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\vspace*{\baselineskip}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setcounter{chapter}{2}
+\chapter{変位ベクトルとひずみテンソル}
+以下, 太字は$o-x_1x_2x_3$直角直交座標系による成分表示を前提としたベクトルあるいは行列を表す.
+また，$(\cdot)^T$は行列やベクトルの転置を表す．
+\subsection{変位ベクトル}
+物体内の点$\fat{x}=(x_1,x_2,x_3)^T$における変位を表すベクトルを
+\begin{equation}
+	\fat{u}(\fat{x})=\left( u_1, u_2, u_3 \right)^T
+	\label{eqn:uvec}
+\end{equation}
+と書く.変位ベクトルの成分$u_i,(i=1,2,3)$も位置に依存するため，
+そのことを明示する必要がある場合には
+\begin{equation}
+	u_i=u_i(\fat{x})=u_i\left(x_1, x_2, x_3\right), \ \ (i=1,2,3)
+	\label{eqn:uvec_compo}
+\end{equation}
+と表す.
+ただし，引数は特に明示する必要があるものだけを書くこととし，例えば，
+第三引数$x_3$に関する依存性を問題にしない場合は，
+式(\ref{eqn:uvec_compo})を$u_i=u_i(x_1,x_2)$と一部の引数を省略した形で書く．
+以下では,変位ベクトル成分$u_i,\,(i=1,2,3)$を用いて，ひずみテンソルを定義する．
+なお，ひずみとは物体内各点の変形量を記述する無次元の量である．
+%
+\subsection{微小ひずみテンソル}
+ここでは，3次元問題における微小ひずみテンソルを定義する．ただし，説明のための図が
+煩雑になることを避けるために，以下では2次元的な図を参照しながらひずみテンソル
+を成分毎に定義する．\\
+
+物体中の着目点$\fat{x}$を含む，幅$\Delta x_1$，高さ$\Delta x_2$の微小矩形領域をとる(図\ref{fig:fig0})．
+物体が外力を受けるとき，この微小領域の各面には，ある応力$\fat{\sigma}=\{\sigma_{ij}\}$が
+発生していると考えられる．その結果，この微小な矩形領域では応力成分$\sigma_{ij}$それぞれ
+に起因した変形が発生する．
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=0.7\linewidth]{fig0.eps} 
+	\end{center}
+	\caption{物体内部の着目点$\fat{x}$のまわりにとった微小領域．} 
+	\label{fig:fig0}
+\end{figure}
+例えば，$\sigma_{11}$が作用することにより，図\ref{fig:fig3_1}-(a)のような
+$x_1$軸方向の伸びが生じる．伸び(縮み)に対するひずみは,軸力問題の場合と同様に
+無限小領域の伸び率として与えることができる．ただし，この場合の伸びは，
+$x_1$軸方向の変位$u_1(x_1,x_2)$を用いて表されるため，ひずみは
+\begin{equation}
+	\varepsilon_{11}=\lim_{\Delta x_1,\Delta x_2 \rightarrow 0}
+	\frac{u_1(x_1+\Delta x_1,x_2)-u_1(x_1,x_2)}{\Delta x_1}
+	=\frac{\partial u_1}{\partial x_1}
+	\label{eqn:def_e11}
+\end{equation}
+と定義されることになる．ここで,$\varepsilon_{11}$のインデックスは，
+応力テンソル成分$\sigma_{11}$との対応を示すためのものである．
+$x_2$軸方向伸び縮みを表すひずみ$\varepsilon_{22}$は，図\ref{fig:fig3_1}-(b)を参照して
+同様に与えればよく，鉛直方向の変位$u_2(x_1,x_2)$により以下のように定義される．
+\begin{equation}
+	\varepsilon_{22}=\lim_{\Delta x_1,\Delta x_2 \rightarrow 0}
+	\frac{u_2(x_1,x_2+\Delta x_2)-u_2(x_1,x_2)}{\Delta x_2}
+	=\frac{\partial u_2}{\partial x_2}
+	\label{eqn:def_e22}
+\end{equation}
+一方，せん断応力成分$\sigma_{12}, \sigma_{21}$は，
+$\sigma_{12}=\sigma_{21}$であることから，一方だけが作用することは
+起き得ないが，各々に対応して図\ref{fig:fig3_1}-(c)と(d)のような
+変形が生じると予想される．このような変形のモード(様式)を"{\bf せん断変形}"
+あるいは"{\bf ずり変形}"と呼ぶ．
+せん断変形量は,図\ref{fig:fig3_1}-(c),(d)に示した角度$\alpha$と$\beta$を
+用いれば，無次元の量で数値化できる．そこで，せん断変形を表すひずみを
+$\varepsilon_{12}$あるいは$\varepsilon_{21}$と表し，これらをを$\alpha$と$\beta$の平均として
+$\varepsilon_{12}=\varepsilon_{21}=\frac{\alpha+\beta}{2}$
+で定義する．ここで，
+\begin{equation}
+	\alpha=
+	\lim_{\Delta x_1,\Delta x_2 \rightarrow 0}
+	\frac{u_2(x_1+\Delta x_1,x_2)-u_2(x_1,x_2)}{\Delta x_1}
+	=\frac{\partial u_2}{\partial x_1}
+	\label{eqn:alpha}
+\end{equation}
+\begin{equation}
+	\beta=
+	\lim_{\Delta x_1,\Delta x_2 \rightarrow 0}
+	\frac{u_1(x_1,x_2+\Delta x_2)-u_1(x_1,x_2)}{\Delta x_2}
+	=\frac{\partial u_1}{\partial x_2}
+	\label{eqn:alpha}
+\end{equation}
+だから，$\varepsilon_{12}$は，変位ベクトル成分を使って
+\begin{equation}
+	\varepsilon_{12}=
+	\varepsilon_{21}=
+	\frac{1}{2}
+	\left(
+	\frac{\partial u_2}{\partial x_1}
+	+
+	\frac{\partial u_1}{\partial x_2}
+	\right)
+	\label{eqn:def_e12}
+\end{equation}
+で与えられることとなる.
+以上の議論は，物体の$x_1-x_2$平面内における断面を考えて行ったものである．そこで，
+同様な議論を，$x_2-x_3$平面と$x_3-x_1$平面においてそれぞれ行えば,
+$\varepsilon_{33}$($x_3$軸方向の直ひずみ)や,せん断ひずみ
+$\varepsilon_{23}(=\varepsilon_{32}), \varepsilon_{31}(=\varepsilon_{13})$
+も含め，変位ベクトル成分を用いて全てのひずみ成分が次式のように定義すること
+が妥当であることが分かる．
+\begin{equation}
+	\varepsilon_{ij}=\frac{1}{2}
+	\left(
+	\frac{\partial u_i}{\partial x_j}
+	+
+	\frac{\partial u_j}{\partial x_i}
+	\right), \ \ (i,j=1,2,3)
+	\label{eqn:def_eij}
+\end{equation}
+なお，せん断ひずみ$\varepsilon_{ij},(i\neq j)$を二倍した
+\begin{equation}
+	\gamma_{ij}=2\varepsilon_{ij}
+	=
+	\left(
+	\frac{\partial u_2}{\partial x_1}
+	+
+	\frac{\partial u_1}{\partial x_2}
+	\right), \ \ (i\neq j)
+	\label{eqn:def_g12}
+\end{equation}
+は，"{\bf 工学せん断ひずみ}"と呼ばれる．
+%$\gamma_{ij}$と$\varepsilon_{ij}$の区別を明確にし$\varepsilon_{ij}$の意味でのひずみに言及したい場合は,
+%$\varepsilon_{ij}$は"テンソルひずみ"と呼ばれる.
+$\varepsilon_{ij}$の全てを$3\times 3$行列として並べた
+\begin{equation}
+	\fat{\varepsilon}=\left\{ \varepsilon_{ij}\right\}
+	=\left(
+	\begin{array}{ccc}
+		\varepsilon_{11} & \varepsilon_{12} & \varepsilon_{13}\\
+		\varepsilon_{21} & \varepsilon_{22} & \varepsilon_{23}\\
+		\varepsilon_{31} & \varepsilon_{32} & \varepsilon_{33}
+	\end{array}
+	\right)
+	\label{eqn:def_emat}
+\end{equation}
+は，"{\bf ひずみテンソル}"と呼ばれる．$\fat{\varepsilon}$は定義上対称行列となり，
+対角項成分$\varepsilon_{11},\varepsilon_{22},\varepsilon_{33}$は
+伸び縮みに関するひずみを表し，{\bf 軸ひずみ}と総称される．これに対して，
+非対角項成分$\varepsilon_{12}=\varepsilon_{21},\varepsilon_{23}=\varepsilon_{32},
+\varepsilon_{31}=\varepsilon_{13}$は{\bf せん断ひずみ}と総称される．
+また,ひずみテンソル$\fat{\varepsilon}$は，
+変位ベクトルに関する座標変換法則と偏微分に関する連鎖公式を用いて，
+応力テンソル$\fat{\sigma}$と同じ座標変換法則に従うことを証明することができる．
+%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=0.8\linewidth]{strain.eps} 
+	\end{center}
+	\caption{応力成分に応じて微小矩形領域に発生する変形の状態．破線は変形前の状態を，
+	実線は変形後の形状を表す．} 
+	\label{fig:fig3_1}
+\end{figure}
+\newpage
+\subsection{問題}
+2次元空間内において, 物体がある応力を受けて変形し, 
+そのときの変位ベクトル$\fat{u}=(u_1, \, u_2)$が, $o-x_1x_2$直交座標系で
+位置ベクトル$\fat{x}=(x_1, x_2)$の関数として次のように与えられたとする．
+\begin{equation}
+	\fat{u}
+	=
+	\fat{F}\fat{x}
+	, \ \ 
+	\fat{F}=
+	\frac{1}{5}
+	\left( 
+		\begin{array}{cc}
+		 0 & 1\\
+		 1 & 0 
+		\end{array}
+	\right)
+	\label{eqn:defo}
+\end{equation}
+このとき以下の問に答えよ．
+\begin{enumerate}
+\item
+	ひずみテンソル$\fat{\varepsilon}$の各成分を求めよ．
+\item
+	変形前に，図\ref{fig:fig6_1}-(a)に示す正方形領域ABCDにあった物体は，
+	変形後どのような領域に移るか図示せよ．
+\item
+	式(\ref{eqn:defo})における行列$\fat{F}$の固有値$\lambda_1, \lambda_2$と, 
+	それに対応する固有ベクトル$\fat{n}_1$および$\fat{n}_2$を求めよ．	
+	なお，固有ベクトルは単位ベクトルとして表し，$\fat{n}_1$は第1象限を,$\fat{n}_2$は
+	第2象限を向くように選ぶこと．
+\item
+	図\ref{fig:fig6_1}-(b)に示すように，固有ベクトル$\fat{n}_1$と$\fat{n}_2$を正方向
+	とする$o-x_1'x_2'$座標系を考える．$o-x_1x_2$から$o-x_1'x_2'$への座標変換マトリクス
+	$\fat{Q}$を求めよ．
+\item
+	$o-x_1'x_2'$座標系における変位ベクトルを$\fat{u}'$, 位置ベクトルを$\fat{x}'$とする．
+	これらのベクトルは,2$\times$2行列$\fat{F}'$を用いて
+	\[
+		\fat{u}'=\fat{F}'\fat{x}'
+	\]
+	と表すことができる．このような行列$\fat{F}'$を求めよ．
+\item
+	変形前に$o-x_1'x_2'$座標系で, 図\ref{fig:fig6_1}-(b)のように表される正方形PQRSは，
+	物体の変形に伴いどのような領域に移るか図示せよ．
+\item
+	$o-x_1'x_2'$座標系におけるひずみテンソル$\fat{\varepsilon}'$の成分
+	$\varepsilon'_{ij}, \, (i,j=1,2)$を求めよ．
+\end{enumerate}
+%--------------------
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=0.8\linewidth]{fig1.eps} 
+	\end{center}
+	\caption{(a)$o-x_1x_2$座標系と, (b)固有ベクトル$\fat{n}_1,\fat{n}_2$を基底ベクトルにもつ$o-x_1'x_2'$座標系.} 
+	\label{fig:fig6_1}
+\end{figure}
+%--------------------
+\input{ans6.tex}
+%--------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{一般化されたフック則}
+物体に発生しているひずみや応力が小さいとき，多くの材料ではひずみと応力は比例
+すると仮定できる．その際，軸ひずみ$\varepsilon_{ii}$と軸応力$\sigma_{ii}$を
+関係付ける比例係数は，軸力問題と同様ヤング率と呼ばれ$E$で表す．
+いま，物体のある点において$\sigma_{11}$のみが発生していたとする．
+このとき，$\sigma_{11}$に比例した軸ひずみ$\varepsilon_{11}$が発生し，
+両者の関係は，ヤング率を用いて
+\begin{equation}
+	\varepsilon_{11}=\frac{\sigma_{11}}{E}
+\end{equation}
+と表される．通常，物体をある方向に引張ると，それとは直角方向には
+若干の縮みが生じる．従って，$\sigma_{11}$だけが0でない状況においても
+$\varepsilon_{22}$と$\varepsilon_{33}$が同時に発生し，それらは$\varepsilon_{11}$
+とは異符号になる．よって，$\varepsilon_{22}$と$\varepsilon_{33}$は，
+ある正の定数$\nu$を用いて，$\sigma_{11}$と次のように
+関係づけることができる．
+\begin{equation}
+	\varepsilon_{22}=-\nu \frac{\sigma_{11}}{E}, \ \
+	\varepsilon_{33}=-\nu \frac{\sigma_{11}}{E}
+\end{equation}
+ここで，係数$\nu$は{\bf ポアソン比}と呼ばれる材料定数で，物理的には，
+引張軸方向のひずみ(縦ひずみ)と引張軸直角方向のひずみ(横ひずみ)の
+比を表わす係数としての意味をもつ. 次に，$\sigma_{22}$だけがゼロでない状況を想定すると，
+$\varepsilon_{22}$に加え，それとは異符号の$\varepsilon_{33}$と$\varepsilon_{11}$が
+生ずる．同様なことは$\sigma_{33}$のみ加えられた状況下でも発生する．
+従って，一般に，$\sigma_{11},\,\sigma_{22}$および$\sigma_{33}$が発生している
+場合，直ひずみと直応力の関係は次のように表されることになる．
+\begin{eqnarray}
+	\varepsilon_{11} &=& \frac{\sigma_{11}}{E}-\frac{\nu}{E}\left( \sigma_{22}+\sigma_{33} \right) \\
+	\varepsilon_{22} &=& \frac{\sigma_{22}}{E}-\frac{\nu}{E}\left( \sigma_{33}+\sigma_{11} \right) \\
+	\varepsilon_{33} &=& \frac{\sigma_{33}}{E}-\frac{\nu}{E}\left( \sigma_{11}+\sigma_{22} \right)
+	\label{eqn:eii_sjj}
+\end{eqnarray}
+これらの関係をまとめて記せば，
+\begin{equation}
+	\left\{ 
+	\begin{array}{*{20}{c}}
+	\varepsilon _{11}\\
+	\varepsilon _{22}\\
+	\varepsilon _{33}
+	\end{array}
+	\right\} 
+	= 
+	\frac{1}{E}\left( 
+	\begin{array}{*{20}{c}}
+	1& - \nu & - \nu \\
+	 - \nu &1& - \nu \\
+	 - \nu & - \nu &1
+	\end{array}
+	\right)
+	\left\{ 
+	\begin{array}{*{20}{c}}
+	\sigma _{11}\\
+	\sigma _{22}\\
+	\sigma _{33}
+	\end{array} 
+	\right\}
+	\label{eqn:eii_sjj_mat}
+\end{equation}
+と表すことができる．なお，この逆の関係を求めれば，
+\begin{equation}
+	\left\{ 
+	\begin{array}{*{20}{c}}
+		\sigma _{11}\\
+		\sigma _{22}\\
+		\sigma _{33}
+	\end{array} 
+	\right\} 
+	= 
+	\frac{E}{\left( 1 + \nu  \right)\left( 1 - 2\nu  \right)}
+	\left( 
+		\begin{array}{*{20}{c}}
+		1 - \nu & \nu &\nu \\
+		\nu & 1 - \nu &\nu \\
+		\nu &\nu &1 - \nu 
+		\end{array}
+	\right)
+	\left\{ 
+		\begin{array}{*{20}{c}}
+		\varepsilon _{11}\\
+		\varepsilon _{22}\\
+		\varepsilon _{33}
+		\end{array}
+	\right\}
+	\label{eqn:sii_ejj_mat}
+\end{equation}
+となることが示される．式(\ref{eqn:sii_ejj_mat})より,正の$\varepsilon_{11}$に
+対して正の$\sigma_{11}$が発生するためには,
+\begin{equation}
+	0< \nu < \frac{1}{2} 
+\end{equation}
+でなければならないことが分かる.
+一方，せん断ひずみ$\varepsilon_{12}$は，せん断応力$\sigma_{12}$だけに起因
+し，他の応力成分には関係しないと期待される．このことは, $\varepsilon_{23}$や
+$\varepsilon_{31}$についても同様である．そこで，せん断応力$\sigma_{ij}$
+と工学せん断ひずみ$\gamma_{ij}$を関連付ける比例係数を$G$と置けば,
+\begin{equation}
+	\left\{ 
+		\begin{array}{*{20}{c}}
+		\gamma_{23}\\
+		\gamma_{13}\\
+		\gamma_{12}
+		\end{array}
+	\right\} 
+	=
+	\left\{ 
+		\begin{array}{*{20}{c}}
+		\gamma_{32}\\
+		\gamma_{31}\\
+		\gamma_{21}
+		\end{array}
+	\right\} 
+	= \frac{1}{G}
+	\left\{
+		\begin{array}{*{20}{c}}
+		\sigma _{23}\\
+		\sigma _{13}\\
+		\sigma _{12}
+		\end{array}
+	\right\}
+	\label{eqn:gij_sij}
+\end{equation}
+あるいは,
+\begin{equation}
+	\left\{ 
+		\begin{array}{*{20}{c}}
+		\sigma_{23}\\
+		\sigma_{31}\\
+		\sigma_{12}
+		\end{array}
+	\right\} 
+	=
+	G
+	\left\{
+		\begin{array}{*{20}{c}}
+		\gamma_{23}\\
+		\gamma_{31}\\
+		\gamma_{12}
+		\end{array}
+	\right\}
+	=
+	2G
+	\left\{
+		\begin{array}{*{20}{c}}
+		\varepsilon_{23}\\
+		\varepsilon_{31}\\
+		\varepsilon_{12}
+		\end{array}
+	\right\}
+	\label{eqn:sij_gij}
+\end{equation}
+と書くことができる.
+比例係数$G$は，{\bf せん断剛性}あるいは{\bf せん断弾性係数}と呼ばれ，
+ヤング率と同様に単位面積あたりの力の次元を持つ．
+直応力-直ひずみ関係(\ref{eqn:sii_ejj_mat})
+と,せん断応力-せん断ひずみ関係(\ref{eqn:sij_gij})をまとめて,
+{\bf 一般化されたフックの法則}と呼ぶ．逆に，応力とひずみの関係が
+一般化されたフック則に従うような固体をフック固体と呼ぶ．
+\subsection{問題}
+式(\ref{eqn:eii_sjj_mat})から式(\ref{eqn:sii_ejj_mat})の関係を導く過程を示せ. 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{2次元問題}
+連続体(固体や流体)における2次元問題には，"{\bf 平面ひずみ問題}"と"{\bf 平面応力問題}"の
+2種類がある．
+\subsection{平面ひずみ問題}
+図\ref{fig:fig6_2}-(a)に示すように，一様な断面を持つ非常に長い物体があるとする．
+ここで,物体の長手方向に第３軸が向くよう$o-x_1x_2x_3$直角直交座標系を取り，
+物体に働く力や物体表面の拘束条件も$x_3$軸方向には変化しない場合を考える.
+このとき,$x_3$軸に垂直な物体断面内は,どの断面も同じ力学的な状態にあり互いに
+区別がつかない.このような力学的状態は平面ひずみ状態と呼ばれ,応力や
+ひずみ、変位等の力学量は$x_1$と$x_2$の2変数のみの関数となる.
+このとき$x_3$に関する偏微分は明らかにゼロであることから,ただちに
+$\varepsilon_{33}=\frac{\partial u_3}{\partial x_3}=0$となることが分かる.
+従って,直応力と直ひずみの関係は，式(\ref{eqn:sii_ejj_mat})より，
+\begin{equation}
+	\left\{ 
+	\begin{array}{*{20}{c}}
+		\sigma _{11}\\
+		\sigma _{22}
+	\end{array} 
+	\right\} 
+	= 
+	\frac{E}{\left( 1 + \nu  \right)\left( 1 - 2\nu  \right)}
+	\left( 
+		\begin{array}{*{20}{c}}
+		1 - \nu & \nu \\
+		\nu & 1 - \nu \\
+		\end{array}
+	\right)
+	\left\{ 
+		\begin{array}{*{20}{c}}
+		\varepsilon _{11}\\
+		\varepsilon _{22}\\
+		\end{array}
+	\right\}
+	\label{eqn:Hooke_pstrain}
+\end{equation}
+であり,この逆の関係は
+\begin{equation}
+	\left\{ 
+	\begin{array}{*{20}{c}}
+		\varepsilon _{11}\\
+		\varepsilon_{22}
+	\end{array} 
+	\right\} 
+	= 
+	\frac{1+\nu}{E}
+	\left( 
+		\begin{array}{*{20}{c}}
+		1 - \nu & -\nu \\
+		-\nu & 1 - \nu \\
+		\end{array}
+	\right)
+	\left\{ 
+		\begin{array}{*{20}{c}}
+		\sigma_{11}\\
+		\sigma_{22}\\
+		\end{array}
+	\right\}
+	\label{eqn:Hooke_pstrain}
+\end{equation}
+と与えられる.ただし, $\sigma_{33}$はゼロでなく,
+\begin{equation}
+	\sigma_{33}
+	=\nu \left(\sigma_{11}+\sigma_{22}\right)
+	=\frac{\nu E}{(1+\nu)(1-2\nu)}\left(\varepsilon_{11}+\varepsilon_{22}\right)
+	\label{eqn:s33_pstrain}
+\end{equation}
+であることが，式(\ref{eqn:eii_sjj_mat})と(\ref{eqn:sii_ejj_mat})から示される．
+\subsection{平面応力問題}
+図\ref{fig:fig6_2}-(b)のように，$x_3$軸を法線とするような平板があったとする.
+外力は平板側面において$x_1x_2$面内の方向に作用し，上下面に外力は作用しないとする．
+平板の厚みが十分に小さいとき，板厚方向に関する変位やひずみ,応力の変化は
+無視でき，これらの力学量は$x_1$と$x_2$のみに依存することとなる．
+このような意味での2次元問題は平面応力問題と呼ばれ，物体は平面応力状態にあるという．
+平面応力問題では平板上下面に作用する外力がゼロであることから, 
+\begin{equation}
+ \sigma_{31}=\sigma_{32}=\sigma_{33}=0
+\end{equation}
+としてよく, 式(\ref{eqn:gij_sij})から$\varepsilon_{32}=\varepsilon_{31}=0$が，
+式(\ref{eqn:eii_sjj_mat})から次のことが言える．
+\begin{equation}
+	\left\{ 
+	\begin{array}{*{20}{c}}
+	\varepsilon _{11}\\
+	\varepsilon _{22}
+	\end{array}
+	\right\} 
+	= 
+	\frac{1}{E}\left( 
+	\begin{array}{*{20}{c}}
+	1& - \nu \\
+	 - \nu &1
+	\end{array}
+	\right)
+	\left\{ 
+	\begin{array}{*{20}{c}}
+	\sigma _{11}\\
+	\sigma _{22}
+	\end{array} 
+	\right\}
+	\label{eqn:Cmpl_pstress}
+\end{equation}
+が従う．また，式(\ref{eqn:Cmpl_pstress})のを直ひずみ成分について解くと，
+\begin{equation}
+	\left\{ 
+	\begin{array}{*{20}{c}}
+	\sigma _{11}\\
+	\sigma _{22}
+	\end{array}
+	\right\} 
+	= 
+	\frac{E}{1-\nu^2}\left( 
+	\begin{array}{*{20}{c}}
+	1&  \nu \\
+	  \nu &1
+	\end{array}
+	\right)
+	\left\{ 
+	\begin{array}{*{20}{c}}
+	\varepsilon _{11}\\
+	\varepsilon _{22}
+	\end{array} 
+	\right\}
+	\label{eqn:Hooke_pstress}
+\end{equation}
+となる．最後に，$\sigma_{33}=0$であることから，式(\ref{eqn:eii_sjj_mat})と(\ref{eqn:sii_ejj_mat})より，
+\begin{equation}
+	\varepsilon_{33}=-\frac{\nu}{E} \left( \sigma_{11}+\sigma_{22} \right)
+	= -\frac{\nu}{1-\nu}\left(\varepsilon_{11}+\varepsilon_{22}\right)
+\end{equation}
+が言え，平面応力問題では$\varepsilon_{33}$がゼロでないことに注意が必要となる．
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=0.9 \linewidth]{2D_problems.eps} 
+	\end{center}
+	\caption{
+	(a)平面ひずみ状態と，(b)平面応力状態のイメージ．
+	 } 
+	\label{fig:fig6_2}
+\end{figure}
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%
