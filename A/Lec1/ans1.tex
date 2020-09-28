@@ -44,7 +44,7 @@
 %	修正:2017年10月30日
 %\end{flushright}
 \begin{center}
-{\Large \bf 2019年度 構造力学I及び演習A 演習問題1解答} \\
+{\Large \bf 2020年度 構造力学I及び演習A 演習問題1解答} \\
 \end{center}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{問題1.}
@@ -55,48 +55,62 @@
 	u(x)-u(0)=\int_0^x \varepsilon(x')dx'
 	\label{eqn:eq1}
 \end{equation}
-で, $u(0)=0$である．
-また，
+で, ここでは$u(0)=0$である．また，
 \begin{equation}
 	\varepsilon(x) = \left\{
 	\begin{array}{cc}
-		 2\varepsilon_0 & (0<x<l/3) \\
-		-2\varepsilon_0 & (l/3<x<2l/3) \\
-		  \varepsilon_0 & (2l/3<x<l) \\
+		\varepsilon_0 \left(1-\frac{6x}{l}\right)& (0<x<l/3) \\
+		-\varepsilon_0 & (l/3<x<2l/3) \\
+		  2\varepsilon_0 & (2l/3<x<l) \\
 	\end{array}
 	\right.
 \end{equation}
 であることから，
 \begin{enumerate}
 \item 
-$0<x<\frac{l}{3}$のとき, 
+$0<x \leq \frac{l}{3}$のとき, 
 \begin{equation}
 	u(x) = 
-	\int_0^x 2\varepsilon_0 dx '=2\varepsilon_0 x
+	\int_0^x 
+		\varepsilon_0 \left(1-\frac{6x'}{l}\right)
+	dx '=
+	\varepsilon_0 l
+	\left\{
+		\frac{x}{l}
+		+
+		3
+		\left(\frac{x}{l}\right)^2
+	\right\}
 	\label{eqn:u1}
 \end{equation}
 \item
-$\frac{l}{3}<x<\frac{2l}{3}$のとき, 
+$\frac{l}{3}<x\leq \frac{2l}{3}$のとき, 
 \begin{equation}
 	u(x) =
-		\int_0^{\frac{l}{3}} 2\varepsilon_0 dx '
+		\int_0^{\frac{l}{3}} 
+		\varepsilon_0 \left(1-\frac{6x'}{l}\right)
+		dx '
 		+
-		\int_{\frac{l}{3}}^x (-2\varepsilon_0 )dx '
+		\int_{\frac{l}{3}}^x (-\varepsilon_0 )dx '
 		=
-		2\varepsilon_0 \left( l-2x \right)
+		-\varepsilon_0 l
+		\left\{ \frac{x}{l}-\frac{1}{3}\right\}
 	\label{eqn:u2}
 \end{equation}
 \item
-$\frac{2l}{3}<x<l$のとき, 
+$\frac{2l}{3}<x\leq l$のとき, 
 \begin{equation}
 	u(x) =
-		\int_0^{\frac{l}{3}} 2\varepsilon_0 dx '
+		\int_0^{\frac{l}{3}} 
+		\varepsilon_0 \left(1-\frac{6x'}{l}\right)
+		dx '
 		+
-		\int_{\frac{l}{3}}^{\frac{2l}{3}} (-2\varepsilon_0) dx '
+		\int_{\frac{l}{3}}^x (-\varepsilon_0 )dx '
 		+
-		\int_{\frac{2l}{3}}^x \varepsilon_0 dx '
-	=
-		\varepsilon_0  \left( x-\frac{2l}{3}\right)
+		\int_{\frac{2l}{3}}^x 2\varepsilon_0 dx '
+		=
+		\varepsilon_0 l
+		\left\{ 2\left(\frac{x}{l}\right)-\frac{5}{3}\right\}
 	\label{eqn:u3}
 \end{equation}
 \end{enumerate}
@@ -117,18 +131,48 @@ $\frac{2l}{3}<x<l$のとき,
 	\begin{eqnarray*}
 		\Delta l(A,B) 
 		&=& 
-		u\left( \frac{l}{3}\right)-u(0)=\frac{2\varepsilon_0l}{3}
+		u\left( \frac{l}{3}\right)-u(0)=0
 		\\
 		\Delta l(B,C)
 		&=&
 		u\left( \frac{2l}{3}\right)-u\left(\frac{l}{3}\right)
-		=-\frac{2\varepsilon_0l}{3}
+		=-\frac{\varepsilon_0l}{3}
 		\\	
 		\Delta l(C,D)
-		&=&u(l)-u\left( \frac{2l}{3}\right)=\frac{\varepsilon_0l}{3}
+		&=&u(l)-u\left( \frac{2l}{3}\right)=\frac{2}{3}\varepsilon_0l
 	\end{eqnarray*}	
 \end{enumerate}
 \subsubsection*{問題2.}
+\begin{equation}
+	p(x)=\left\{
+		\begin{array}{cc}
+			2p_0 \frac{x}{l} & \left(0 < x \leq \frac{l}{2}\right) \\
+			p_0  & \left(\frac{l}{2}< x \leq l \right) 
+		\end{array}
+	\right.
+\end{equation}
+\begin{equation}
+	P(x,l)=
+	\int_x^{l/2} 2p_0 \frac{x'}{l}dx'
+	+
+	\int_{l/2}^l  p_0 dx'
+	=
+	-p_0l\left\{ \left( \frac{x}{l}\right)^2 -\frac{3}{4}\right\} , \ \ 
+	 \left(0 < x \leq \frac{l}{2}\right) 
+\end{equation}
+\begin{equation}
+	P(x,l)=
+	\int_{l/2}^l  p_0 dx'=p_0(l-x), \ \  \left(\frac{l}{2}< x \leq l \right) 
+\end{equation}
+\begin{equation}
+	P(x,l)-N(x)=0 \ \ \Rightarrow \ \ N(x)=P(x,l)
+\end{equation}
+\begin{eqnarray}
+	N(x) &= & -p_0l\left\{ \left( \frac{x}{l}\right)^2 -\frac{3}{4}\right\} , 
+	\ \ \left(0 < x \leq \frac{l}{2}\right)  \\
+	N(x) &= & 
+	p_0(l-x), \ \  \left(\frac{l}{2}< x \leq l \right) 
+\end{eqnarray}
 図\ref{fig:fig1}-(a)に示すような位置$a-a'$と$b-b'$において部材を仮想的に切断したときの自由物体図を描くと，
 それぞれ, 同図の(c)と(d)のようになる．
 ここに$P(a,b)=\int_a^bp(x)dx$は，分布力$p(x)$が区間$a<x<b$に加える合力を表す．

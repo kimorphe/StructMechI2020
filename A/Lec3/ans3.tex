@@ -44,7 +44,7 @@
 %	更新, 修正:2017年10月30日
 %\end{flushright}
 \begin{center}
-	{\Large \bf 2019年度 構造力学I及び演習A 演習問題3 解答} \\
+	{\Large \bf 2020年度 構造力学I及び演習A 演習問題3 解答} \\
 \end{center}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \vspace{15mm}
@@ -54,26 +54,27 @@
 \begin{equation}
 	\fat{N}=\left(	
 	\begin{array}{cc}
-		\cos\frac{\pi}{6} & \cos\frac{\pi}{3} \\
-		\sin\frac{\pi}{6} & \sin\frac{\pi}{3}
+		\cos\frac{\pi}{3} & \cos\frac{2\pi}{3} \\
+		\sin\frac{\pi}{3} & \sin\frac{2\pi}{3}
 	\end{array}
 	\right)
 	=
 	\frac{1}{2}
 	\left(
 	\begin{array}{cc}
-		\sqrt{3} & \sqrt{1} \\
-		1 & \sqrt{3}
+		1 & -1 \\
+		\sqrt{3} & \sqrt{3} 
 	\end{array}
 	\right)
 \end{equation}
 で与えられ、この逆行列を計算すると
 \begin{equation}
 	\fat{N}^{-1}=
+	\frac{1}{\sqrt{3}}
 	\left(	
 	\begin{array}{cc}
-		\sqrt{3} & -1 \\ 
-		-1 & \sqrt{3} 
+		\sqrt{3} & 1 \\ 
+		-\sqrt{3} & 1
 	\end{array}
 	\right)
 \end{equation}
@@ -90,10 +91,11 @@ $\fat{t}^{(n)}=\fat{\sigma}^T \fat{n}$より,
 \begin{equation}
 	\fat{T}=\left\{ \fat{t}_1\,\, \fat{t}_2 \right\}
 	=
+	\frac{1}{2}
 	\left(
 	\begin{array}{cc}
-		-\sqrt{3} & 1 \\
-		3 & \sqrt{3} 
+		1 & -1+2\sqrt{3} \\
+		4+\sqrt{3}  & 2+\sqrt{3} 
 	\end{array}
 	\right)
 \end{equation}
@@ -103,8 +105,8 @@ $\fat{t}^{(n)}=\fat{\sigma}^T \fat{n}$より,
 			\fat{\sigma}=\fat{T}\fat{N}^{-1}=
 			\left(
 			\begin{array}{cc}
-				-4 & 2\sqrt{3} \\
-				2\sqrt{3} & 0
+				1-\sqrt{3} & 1\\
+				1 & 1+\sqrt{3}
 			\end{array}
 			\right)
 		\end{equation}
@@ -115,8 +117,8 @@ $\fat{t}^{(n)}=\fat{\sigma}^T \fat{n}$より,
 	\fat{\sigma}^T\fat{n}(\theta)
 	=\left(
 		\begin{array}{c}
-			-4\cos\theta + 2\sqrt{3}\sin\theta \\
-			2\sqrt{3}\cos\theta
+			(1-\sqrt{3})\cos\theta + \sin\theta \\
+			\cos\theta +(1+\sqrt{3} \sin\theta
 		\end{array}
 	\right)
 \]
@@ -125,11 +127,11 @@ $\fat{t}^{(n)}=\fat{\sigma}^T \fat{n}$より,
 \begin{eqnarray}
 	\sigma_n &=& \fat{t}^{(n)}\cdot \fat{n} \\
 	&=&
-	-4\cos ^2\theta +4\sqrt{3}\sin\theta\cos\theta\\
+	1-\sqrt{3}(\cos^2\theta -\sin^2\theta) + 2\sin\theta\cos\theta \\
 	&=&
-	-2-2\cos 2\theta +2\sqrt{3}\sin 2\theta \\
+	1-\sqrt{3}\cos 2\theta + \sin 2\theta \\
 	&=& 
-	-2 + 4\cos\left(2\theta -\frac{2\pi}{3}\right)
+	1+2\cos\left( \frac{5\pi}{6}-2\theta\right)
 	\label{eqn:sign}
 \end{eqnarray}
 \item
@@ -148,27 +150,24 @@ $\fat{m}$は，
 \begin{eqnarray}
 	\tau &=& \fat{t}^{(n)} \cdot \fat{m}  \\
 	&=&
-	4\sin\theta\cos\theta
-	+
-	2\sqrt{3} ( \cos^2\theta  -\sin^2\theta ) 
-	\\
+	\cos^2\theta-\sin^2\theta +2\sqrt{3}\sin\theta\cos\theta \\
 	&=&
-	2\sin 2\theta + 2\sqrt{3} \cos 2\theta \\
+	\cos 2\theta + \sqrt{3} \sin 2\theta  \\
 	&=&
-	-4\sin \left( 2\theta -\frac{2\pi}{3}\right)
+	\sin\left( \frac{5\pi}{6} -2\theta \right)
 	\label{eqn:tau1}
 \end{eqnarray}
 となる
 \item
-式(\ref{eqn:sign})より, $\sigma_n$は$\theta=\frac{\pi}{3}$で最大値2をとり、
-このとき式(\ref{eqn:tau1})から$\tau=0$となることが分かる。
+式(\ref{eqn:sign})より, $\sigma_n$は$\theta=\frac{5\pi}{12}$で最大値3をとり、
+このとき式(\ref{eqn:tau1})から$\tau=0$となる。
 \item
 式(\ref{eqn:sign})と式(\ref{eqn:tau1})から$\theta$を消去すれば，
 \begin{equation}
-	\left( \sigma_n +2 \right)^2+\tau^2 = 4^2
+	\left( \sigma_n -1 \right)^2+\tau^2 = 2^2
 \end{equation}
-の関係が得られ，$(\sigma_n, \, \tau)$は中心$(-2,\, 0)$，
-半径$4$の円を描くことが分かる．
+の関係が得られ，$(\sigma_n, \, \tau)$は中心$(1,\, 0)$，
+半径$2$の円を描くことが分かる．
 \end{enumerate}
 
 %--------------------

@@ -41,144 +41,128 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\vspace*{\baselineskip}
 \begin{center}
-{\Large \bf 2019年度 構造力学I及び演習A 演習問題7 解答} \\
+{\Large \bf 2020年度 構造力学I及び演習A 演習問題7 解答}
 \end{center}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \vspace{15mm}
 \begin{enumerate}
 \item
-せん断力$Q$と外力$q$の関係は,
-\begin{equation}
-	\frac{dQ(x)}{dx} = -q(x) = -\frac{q_0}{l}x
-	\label{eqn:Q_q}
-\end{equation}
-で与えられる．よって, $Q$は, $C_1$を積分定数として
-\begin{equation}
-	Q(x) =	-\frac{q_0}{2l}x^2+C_1
-	\label{eqn:Q_gen}
-\end{equation}
-と書くことができる．ここで，$Q\left(0 \right)=0$より$C=0$である．
-よって，
-\begin{equation}
-	Q(x) = -\frac{q_0}{2l}x^2
-	\label{eqn:Q_par}
-\end{equation}
-となる．
+	$q(x)=\frac{q_0x}{l}$
 \item
-$\frac{dM}{dx}=Q$より，曲げモーメント$M$は，積分定数を$C_2$として
-\begin{equation}
-	M(x) =
-	-\frac{q_0}{6l}x^3+C_2
-	\label{eqn:M_gen}
-\end{equation}
-と表すことができる．ここで, $M\left(0\right)=0$より$C_2=0$である．
-よって
-\begin{equation}
-	M(x) = 
-	-\frac{q_0}{6l}x^3.
-	\label{eqn:M_par}
-\end{equation}
+	$\int q(x)dx^2 =\frac{q_0l^2}{6}\left(\frac{x}{l}\right)^3$
 \item
-たわみ角$\theta$と曲げモーメント$M$の関係，$\frac{d\theta}{dx}=-\frac{M}{EI}$より，
-\begin{equation}
-	EI \theta(x) = 
-	\frac{q_0}{24l}x^4+C_3' =
-	\frac{q_0l^3}{24}\left\{
-		\left(\frac{x}{l}\right)^4+C_3
-	\right\}
-	\label{eqn:th_gen}
-\end{equation}
-と書くことができる．積分定数$C_3$は, $\theta\left(l\right)=0$より，
-$C_3=-1$となる．以上より，たわみ角は
-\begin{equation}
-	\theta(x) = 
-	\frac{q_0l^3}{24EI}\left\{
-		\left(\frac{x}{l}\right)^4-1
-	\right\}
-	\label{eqn:th_par}
-\end{equation}
-と求められる．
+	$M''(x)=-q(x)$より，
+	\begin{equation}
+		M(x)= 
+		-\frac{q_0l^2}{6}
+		\left\{	
+		\left(\frac{x}{l}\right)^3
+		+
+		C_1
+		\left(\frac{x}{l}\right)
+		+
+		C_2
+		\right\}
+	\end{equation}
+	とすれば，$M\left(\pm\frac{l}{2}\right)=0$より，積分定数が$C_1=-\frac{1}{4},C_2=0$と決まる．
+	その結果，
+	\begin{equation}
+		M(x)= 
+		-\frac{q_0l^2}{6}
+		\left\{	
+		\left(\frac{x}{l}\right)^3
+		-
+		\frac{1}{4}	
+		\left(\frac{x}{l}\right)
+		\right\}
+		\label{eqn:Mx}
+	\end{equation}
+	となる．
 \item
-たわみ$v$とたわみ角の関係$\frac{dv}{dx}=\theta$と，式(\ref{eqn:th_par})
-から，$v$は積分定数$C_4'$あるいは$C_4$を用いて
-\begin{equation}
-	EIv(x) = 
-	\frac{q_0l^3}{24}\left\{
-		\frac{1}{5}\left(\frac{x}{l}\right)^5-x + C_4'
-	\right\}
-	=
-	\frac{q_0l^4}{120}\left\{
+	\begin{equation}
+		Q(x)=M'(x)=-\frac{q_0l}{6} \left\{ 
+		3\left(\frac{x}{l}\right)^2
+		-
+		\frac{1}{4}	
+		\right\} 
+	\end{equation}
+\item
+	式(\ref{eqn:Mx})より
+	\begin{equation}
+		\int M(x)dx^2
+		=
+		-\frac{q_0l^4}{6}
+		\left\{	
+		\frac{1}{20}
 		\left(\frac{x}{l}\right)^5
 		-
-		5
-		\left(\frac{x}{l}\right) 
-		+ C_4
-	\right\}
-	\label{eqn:v_gen}
-\end{equation}
-と表すことができる．よって, $v\left(l \right)=0$
-を考慮すれば，積分定数は$C_4=4$となり，
-\begin{equation}
-	v(x) = 
-	\frac{q_0l^4}{120EI}\left\{
-		\left(\frac{x}{l}\right)^5
-		-
-		5
-		\left(\frac{x}{l}\right) 
-		+ 
-		4
-	\right\}
-	\label{eqn:v_par}
-\end{equation}
-と決まる．
-%--------------------
-%\begin{figure}[h]
-%	\begin{center}
-%	\includegraphics[width=0.45\linewidth]{fig1ans.eps} 
-%	\end{center}
-%	\caption{(a) せん断力図, (b)曲げモーメント図.}
-%	\label{fig:fig1}
-%\end{figure}
-%--------------------
+		\frac{1}{24}	
+		\left(\frac{x}{l}\right)^3
+		\right\}
+		\label{eqn:vx0}
+	\end{equation}
+	となる．
+\item
+	$EIv''=-M$より，$v$は
+	\begin{equation}
+		v(x)=\frac{q_0l^4}{120EI}
+		\left\{
+			\left(\frac{x}{l}\right)^5
+			-
+			\frac{5}{6}
+			\left(\frac{x}{l}\right)^3
+			+
+			C_3
+			\left(\frac{x}{l}\right)
+			+
+			C_4
+		\right\}
+	\end{equation}
+	と書くことができる．ただし，$C_3，C_4$は積分定数を表す．
+	部材端におけるたわみの条件$v\left(\pm \frac{l}{2}\right)=0$より，
+	$C_3=\frac{7}{48},C_4=0$となるので，たわみは次のように決まる．
+	\begin{equation}
+		v(x)=\frac{q_0l^4}{120EI}
+		\left\{
+			\left(\frac{x}{l}\right)^5
+			-
+			\frac{5}{6}
+			\left(\frac{x}{l}\right)^3
+			+
+			\frac{7}{48}
+			\left(\frac{x}{l}\right)
+		\right\}
+	\end{equation}
+\item
+	\begin{equation}
+		\theta(x)=v'(x)=\frac{q_0l^3}{120EI}
+		\left\{
+			5
+			\left(\frac{x}{l}\right)^4
+			-
+			\frac{5}{2}
+			\left(\frac{x}{l}\right)^2
+			+
+			\frac{7}{48}
+		\right\}
+	\end{equation}
 \item
 曲げ応力$\sigma_{xx}$は, たわみ$v$あるいは曲げモーメント$M$により
 \begin{equation}
 	\sigma_{xx}=-Ev''y= \frac{M}{I}y 
 	\label{eqn:Sxx_M}
 \end{equation}
-と表される．よって，式(\ref{eqn:Sxx_M})に，式(\ref{eqn:M_par})を代入すれば，
+と表される．よって，式(\ref{eqn:Sxx_M})に，式(\ref{eqn:Mx})を代入すれば，
 \begin{equation}
 	\sigma_{xx}=
-	-\frac{q_0}{6Il}x^3y
-	\label{eqn:Sxx_xy}
+	-\frac{q_0l^2}{6I}
+	\left\{	
+	\left(\frac{x}{l}\right)^3
+	-
+	\frac{1}{4}	
+	\left(\frac{x}{l}\right)
+	\right\}y
 \end{equation}
-が得られる．
-\item
-応力のつり合い式に式(\ref{eqn:Sxx_xy})を代入すれば, 
-\begin{equation}
-	\frac{\partial \sigma_{xy}}{\partial y}
-	=
-	-\frac{\partial \sigma_{xx}}{\partial x}
-	=
-	\frac{q_0}{2Il}x^2y
-	\label{eqn:ODE}
-\end{equation}
-となることから，せん断応力$\sigma_{xy}$は，任意定数$C$を用いて，
-\begin{equation}
-	\sigma_{xy}=
-	\frac{q_0}{4Il}x^2(y^2+C)
-	\label{eqn:Sxy_gen}
-\end{equation}
-と表すことができる．$y=\pm \frac{h}{2}$で$\sigma_{xy}=0$
-となることを考慮すれば，この定数は$C=-\frac{h^2}{4}$と決まる．
-以上より，せん断応力分布は
-\begin{equation}
-	\sigma_{xy}(x,y) 
-	= 
-	\frac{q_0}{4Il}x^2\left( 
-		y^2 -\frac{h^2}{4}
-	\right)
-\end{equation}
-となる．
+	となる．
 \end{enumerate}
 \end{document}

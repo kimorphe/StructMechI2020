@@ -42,7 +42,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\vspace*{\baselineskip}
 \begin{center}
-{\Large \bf 2019年度 構造力学I及び演習A 演習問題4 解答} \\
+{\Large \bf 2020年度 構造力学I及び演習A 演習問題4 解答} 
 \end{center}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \vspace{15mm}
@@ -63,62 +63,60 @@ $o-x_1x_2$から$o-x_1'x_2'$への座標変換マトリクス$\fat{Q}$は
 	&=& 
 	\fat{Q \sigma Q}^T\\
 	&=&
-	2
  	\left( 
  	\begin{array}{cc}
-		-1- \cos 2\theta+\sqrt{3} \sin 2 \theta & 
-		\sin 2\theta +\sqrt{3} \cos 2\theta \\
-		\sin 2\theta +\sqrt{3} \cos 2\theta &
-		-1+ \cos 2\theta-\sqrt{3} \sin 2 \theta 
+		1- \sqrt{3} \cos 2\theta+ \sin 2 \theta & 
+		\cos 2\theta +\sqrt{3}\sin 2\theta  \\
+		\cos 2\theta +\sqrt{3}\sin 2\theta   &
+		1+ \sqrt{3} \cos 2\theta - \sin 2 \theta 
 	\end{array}
 	\right) \\
  &=&
- 2
  \left(
  	\begin{array}{cc}
-		-1+ 2 \cos \left( \frac{2\pi}{3} -2\theta\right) & 
-		2\sin \left(\frac{2\pi}{3} -2 \theta\right) \\
-		2\sin \left(\frac{2\pi}{3} -2 \theta\right) &
-		-1- 2 \cos \left( \frac{2\pi}{3} -2\theta\right)   \\
+		1+ 2 \cos \left( \frac{5\pi}{6} -2\theta\right) & 
+		2\sin \left(\frac{5\pi}{6} -2 \theta\right) \\
+		2\sin \left(\frac{5\pi}{6} -2 \theta\right) & 
+		1- 2 \cos \left( \frac{5\pi}{6} -2\theta\right) 
  	\end{array}
  \right)
 	\label{eqn:sigd}
 \end{eqnarray}
 \item
-	式(\ref{eqn:sigd})より，$\sigma'_{11}$は$\frac{2\pi}{3} -2\theta=0$, すなわち
-	$\theta_1=\frac{\pi}{3}$で, 最大値$\sigma_1=2$を取る.
+	式(\ref{eqn:sigd})より，$\sigma'_{11}$は$\frac{5\pi}{6} -2\theta=0$, すなわち
+	$\theta_1=\frac{5\pi}{12}$で, 最大値$\sigma_1=3$を取る.
 \item
-	$\theta=\theta_1=\frac{\pi}{3}$のとき，$\sigma_{12}'=0,\sigma_{22}'=-6$.
+	$\theta=\theta_1=\frac{5\pi}{12}$のとき，$\sigma_{12}'=0,\, \sigma_{22}'=-1$.
 \item
-	式(\ref{eqn:sigd})より，$\frac{2\pi}{3}-2\theta=\frac{\pi}{2}$, すなわち
-	$\theta_\tau=\frac{1}{6}\pi$のとき, $\sigma'_{12}$は，最大値$\tau=4$を取る．
+	式(\ref{eqn:sigd})より，$\frac{5\pi}{6}-2\theta=\frac{\pi}{2}$, すなわち
+	$\theta_\tau=\frac{1}{6}\pi$のとき, $\sigma'_{12}$は最大値$\tau=2$を取る．
 \item
-	$\theta=\theta_{\tau}=\frac{1}{6}\pi$のとき，$\sigma_{11}'=0,\sigma_{22}'=-4$.
+	$\theta=\theta_{\tau}=\frac{1}{6}\pi$のとき，$\sigma_{11}'=1,\sigma_{22}'=-1$.
 \item
 	指定された法線ベクトルは, $o-x_1'x_2'$座標系では
 	$\fat{n}'=(0,\, 1)$と表される． よって，
 	トラクションベクトル$\fat{t}^{(n')}$は, $o-x_1'x_2'$座標系において
 	\begin{equation}
-		\fat{t}^{(n')}= \fat{\sigma}' \cdot \fat{n}'
+		\fat{t}^{(n')}= \left( \fat{\sigma}'\right)^T \cdot \fat{n}'
 		= 
 		\left( 
 			\begin{array}{c} 
-				\sigma_{12}' \\ 
+				\sigma_{21}' \\ 
 				\sigma_{22}'
 			\end{array}
 		\right)
 		=
 		\left(
 			\begin{array}{c}
-				2\sin 2\theta +2\sqrt{3} \cos 2\theta \\
-				-2+ 2\cos 2\theta-2\sqrt{3} \sin 2 \theta 
+				\cos 2\theta +\sqrt{3} \sin 2\theta \\
+				1+ \sqrt{3} \cos 2\theta-\sin 2 \theta 
 			\end{array}
 		\right)
 		=
 		\left(
 			\begin{array}{c}
-			4\sin \left(\frac{2\pi}{3} -2 \theta\right)\\
-			-2- 4 \cos \left( \frac{2\pi}{3} -2\theta\right)
+			2\sin \left(\frac{5\pi}{6} -2 \theta\right)\\
+			1 2 \cos \left( \frac{5\pi}{6} -2\theta\right)
  		\end{array}
 		\right) 
 	\end{equation}

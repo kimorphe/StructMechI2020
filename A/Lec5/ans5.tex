@@ -60,8 +60,8 @@
 	=
 	\left( 
 		\begin{array}{cc}
-			-4 & 2\sqrt{3} \\
-			2\sqrt{3} & 0 
+			1-\sqrt{3} & 1\\
+			1 & 1+\sqrt{3} 
 		\end{array}
 	\right)
 	\label{eqn:sigma_given}
@@ -70,20 +70,20 @@
 モール円の半径$R$は以下のように求められる．
 \begin{equation}
 	\bar{\sigma} 
-	= \frac{1}{2}\left({ \sigma_{11} + \sigma_{22} }\right) = -2,
+	= \frac{1}{2}\left({ \sigma_{11} + \sigma_{22} }\right) = 1,
 	\quad
-	\Delta \sigma = \sigma_{11} - \sigma_{22} = -4,
+	\Delta \sigma = \sigma_{11} - \sigma_{22} = -2\sqrt{3},
 	\quad
 	R = \sqrt{\left({ \frac{\Delta \sigma}{2} }\right)^2 + \tau^2 } 
-	=4 
+	=2 
 \end{equation}
-となる．以上より，モールの応力円は図\ref{fig:fig1}のようになる．
-
+となる．以上より，モールの応力円は図\ref{fig:fig1}のように，
+中心(1,0)で半径が2の円となる．
 \item
-$\left(\sigma_{11}, \sigma_{12}\right)=\left(-4, \, 2\sqrt{3} \right)$
+	$\left(\sigma_{11}, \sigma_{12}\right)=\left(1-\sqrt{3}, \, 1 \right)$
 は，応力円上の点Aに相当する．
-		なお,$\tan \phi = \frac{\sigma_{12}}{\Delta \sigma/2}=-\sqrt{3}$より, 
-$\phi=\frac{2\pi}{3}$である．
+		なお,$\tan \phi = \frac{\sigma_{12}}{\Delta \sigma/2}=-\frac{1}{\sqrt{3}}$より, 
+$\phi=\frac{5\pi}{6}$である．
 \end{enumerate}
 \begin{figure}[h]
 	\begin{center}
@@ -93,39 +93,37 @@ $\phi=\frac{2\pi}{3}$である．
 	\label{fig:fig1}
 \end{figure}
 %
-
 \begin{enumerate}
 \setcounter{enumi}{2}
 \item
-最大主応力とその方向は，モールの応力円上の点Bで表される．
-従って，
+最大主応力とその方向は，モールの応力円上の点Bで表される． 従って，
 \begin{equation}
-	\sigma_{max}=\bar\sigma+R=2
+	\sigma_{max}=\bar\sigma+R=3
 \end{equation}
 \begin{equation}
 	2\theta_{max}=\phi 
 	\ \ \Rightarrow 	
-	\theta_{max}=\frac{\phi}{2} =\frac{\pi}{3} 
+	\theta_{max}=\frac{\phi}{2} =\frac{5\pi}{12} 
 \end{equation}
 \item
 最小主応力とその方向は，モールの応力円上の点Cで表され, 
 \begin{equation}
-	\sigma_{min}=\bar\sigma-R=-6
+	\sigma_{min}=\bar\sigma-R=-1
 \end{equation}
 \begin{equation}
 	2\theta_{min}=\phi+\pi 
 	\ \ \Rightarrow 	
-	\theta_{min}=\frac{\phi+\pi}{2} =\frac{5\pi}{6} 
+	\theta_{min}=\frac{\phi+\pi}{2} =\frac{11\pi}{12} 
 \end{equation}
 となる．
 \item
 最大せん断応力とそれが作用する面の方向は, 応力円上の点Dで表され，
 \begin{equation}
-	\tau_{max}=R=4
+	\tau_{max}=R=2
 \end{equation}
 \begin{equation}
-	2\theta_{\tau}=\frac{\pi}{6}  \ \ \Rightarrow \ \ 
-	\theta_{\tau}=\frac{1}{12}\pi.
+	2\theta_{\tau}=\frac{\pi}{3}  \ \ \Rightarrow \ \ 
+	\theta_{\tau}=\frac{\pi}{6}.
 \end{equation}
 である．
 \item
@@ -138,16 +136,17 @@ $\phi=\frac{2\pi}{3}$である．
 \begin{equation}
 	\left| 
 		\begin{array}{cc}
-		-4-\lambda & 2\sqrt{3} \\
-		2\sqrt{3} & -\lambda 
+		1-\sqrt{3}-\lambda & 1 \\
+		1 & 1+\sqrt{3}-\lambda 
 		\end{array}
 	\right|
 	=
-	(\lambda-2)(\lambda+6)=0
+		(1-\sqrt{3}-\lambda)(1+\sqrt{3}-\lambda )
+	=(1-\lambda)^2-4=0
 \end{equation}
 より，
 \begin{equation}
-	\lambda_1 = 2, \ \ \lambda_2 = -6
+	\lambda_1 = 3, \ \ \lambda_2 = -1
 \end{equation}
 となり，主応力値が求められる．
 \item
@@ -159,21 +158,21 @@ $\fat{n}_1,\fat{n}_2$を,
 に$\lambda=\lambda_1$あるいは$\lambda_2$を代入して求めれば，それぞれ
 \begin{equation}
 	\fat{n}_1= 
-	\pm \frac{1}{2}
+	\pm \frac{1}{2\sqrt{2+\sqrt{3}}}
 	\left( 
 		\begin{array}{c}
 			1 \\
-			\sqrt{3} 
+			2+\sqrt{3} 
 		\end{array}
 	\right)
 \end{equation}
 \begin{equation}
 	\fat{n}_2= 
-	\pm \frac{1}{2}
+	\pm \frac{1}{2\sqrt{2-\sqrt{3}}}
 	\left( 
 		\begin{array}{c}
-			-\sqrt{3} \\
-			1
+			-1 \\
+			2-\sqrt{3} 
 		\end{array}
 	\right)
 \end{equation}
@@ -192,11 +191,11 @@ $\fat{n}=\fat{n}_1=(\cos\theta_{max},\,\sin\theta_{max})^T$
 		\end{array}
 		\right)
 		=
-		\pm
+		\pm \frac{3}{2\sqrt{2+\sqrt{3}}}
 		\left(
 		\begin{array}{c}
 			1 \\
-			\sqrt{3}
+			2+\sqrt{3}
 		\end{array}
 		\right)
 \end{equation}
