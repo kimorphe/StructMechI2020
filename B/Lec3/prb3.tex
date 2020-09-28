@@ -1,0 +1,69 @@
+\documentclass[10pt,a4j]{jarticle}
+\usepackage{graphicx,wrapfig}
+\setlength{\topmargin}{-1.5cm}
+\setlength{\textwidth}{15.5cm}
+\setlength{\textheight}{25.2cm}
+\newlength{\minitwocolumn}
+\setlength{\minitwocolumn}{0.5\textwidth}
+\addtolength{\minitwocolumn}{-\columnsep}
+%\addtolength{\baselineskip}{-0.1\baselineskip}
+%
+\def\Mmaru#1{{\ooalign{\hfil#1\/\hfil\crcr
+\raise.167ex\hbox{\mathhexbox 20D}}}}
+%
+\begin{document}
+\newcommand{\fat}[1]{\mbox{\boldmath $#1$}}
+\newcommand{\D}{\partial}
+\newcommand{\w}{\omega}
+\newcommand{\ga}{\alpha}
+\newcommand{\gb}{\beta}
+\newcommand{\gx}{\xi}
+\newcommand{\gz}{\zeta}
+\newcommand{\vhat}[1]{\hat{\fat{#1}}}
+\newcommand{\spc}{\vspace{0.7\baselineskip}}
+\newcommand{\halfspc}{\vspace{0.3\baselineskip}}
+\bibliographystyle{unsrt}
+\pagestyle{empty}
+\newcommand{\twofig}[2]
+ {
+   \begin{figure}[h]
+     \begin{minipage}[t]{\minitwocolumn}
+         \begin{center}   #1
+         \end{center}
+     \end{minipage}
+         \hspace{\columnsep}
+     \begin{minipage}[t]{\minitwocolumn}
+         \begin{center} #2
+         \end{center}
+     \end{minipage}
+   \end{figure}
+ }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\vspace*{\baselineskip}
+\begin{center}
+{\Large \bf 2019年度 構造力学I及び演習B(12月20日) 演習問題3} \\
+\end{center}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{問題}
+図\ref{fig:fig1}に示す2種類の梁について以下の問いに答えよ．
+なお，梁の曲げ剛性$EI$は全ての断面で一定とする．
+\begin{enumerate}
+\item
+	梁(a)の点Bにおけるたわみ$v_B$を求めよ．
+\item
+    	梁(b)の支点反力を求めよ．
+%\item
+%	梁(b)の点Bにおける曲げモーメン$M_B$を求めよ．
+\item
+	梁(b)の曲げモーメント図を描け．
+\end{enumerate}
+%--------------------
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=0.55\linewidth]{fig1.eps} 
+	\end{center}
+	\caption{鉛直方向の矩形分布荷重を受ける梁．}
+	\label{fig:fig1}
+\end{figure}
+%--------------------
+\end{document}

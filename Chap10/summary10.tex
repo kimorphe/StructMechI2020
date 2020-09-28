@@ -1,0 +1,338 @@
+\documentclass[10pt,a4j]{jbook}
+%\usepackage{graphicx,wrapfig}
+\usepackage{graphicx,amsmath}
+\setlength{\topmargin}{-1.5cm}
+\setlength{\textwidth}{16.5cm}
+\setlength{\textheight}{25.2cm}
+\newlength{\minitwocolumn}
+\setlength{\minitwocolumn}{0.5\textwidth}
+\addtolength{\minitwocolumn}{-\columnsep}
+%\addtolength{\baselineskip}{-0.1\baselineskip}
+%
+\def\Mmaru#1{{\ooalign{\hfil#1\/\hfil\crcr
+\raise.167ex\hbox{\mathhexbox 20D}}}}
+%
+\begin{document}
+\newcommand{\fat}[1]{\mbox{\boldmath $#1$}}
+\newcommand{\D}{\partial}
+\newcommand{\w}{\omega}
+\newcommand{\ga}{\alpha}
+\newcommand{\gb}{\beta}
+\newcommand{\gx}{\xi}
+\newcommand{\gz}{\zeta}
+\newcommand{\vhat}[1]{\hat{\fat{#1}}}
+\newcommand{\spc}{\vspace{0.7\baselineskip}}
+\newcommand{\halfspc}{\vspace{0.3\baselineskip}}
+\bibliographystyle{unsrt}
+%\pagestyle{empty}
+\newcommand{\twofig}[2]
+ {
+   \begin{figure}
+     \begin{minipage}[t]{\minitwocolumn}
+         \begin{center}   #1
+         \end{center}
+     \end{minipage}
+         \hspace{\columnsep}
+     \begin{minipage}[t]{\minitwocolumn}
+         \begin{center} #2
+         \end{center}
+     \end{minipage}
+   \end{figure}
+ }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\vspace*{\baselineskip}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setcounter{chapter}{9}
+\chapter{影響線}
+\subsection{影響線の定義と例}
+図\ref{fig:fig13_1}に示すような鉛直方向の単位荷重$\bar P=1$を受ける
+梁について考える．単純支持された梁(a)では，荷重位置が支点Aから$a$,
+支点Cから$b$の位置にあるとき，A点およびC点での支点反力$\bar{R}_A,\bar{R}_C$
+は，次のようになる．
+\begin{equation}
+	\bar R_A =  \bar{P}\left( 1-\frac{a}{l}\right)
+	=
+	\frac{b}{l}
+	\bar{P}
+	, \ \ 
+	\bar R_C =  \bar{P}\left( 1-\frac{b}{l}\right)
+	= \frac{a}{l} \bar{P}
+	\label{eqn:Rbar_1}
+\end{equation}
+と求められる．これらの反力は荷重位置$a$(あるいは$b$)の関数
+となっているので，横軸を$a$,縦軸を反力としてグラフ化すれば，
+図\ref{fig:fig13_2}-(a)のようになる．
+このようなグラフを，支点反力$\bar{R}_A,\bar{R}_C$の"{\bf 影響線}"と呼ぶ．
+一般に，単位荷重を受ける構造に発生する変形量や反力，断面力等を，
+荷重位置の関数としてグラフ化したものや，その関数関係を指して影響線と呼ぶ．
+例えば，図\ref{fig:fig13_1}-(a)の梁において，支間中央の点Bに
+生じる曲げモーメントを求めると，
+\begin{eqnarray}
+	\bar{M}_B &=& \frac{l}{2}\times \bar{R}_C=\frac{a\bar P }{2}
+	, \ \ \left( 0 \leq a \leq \frac{l}{2} \right) \\
+	\bar{M}_B &=& \frac{l}{2}\times \bar{R}_A=\frac{b\bar P }{2}
+	, \ \ \left( 0 \leq b \leq \frac{l}{2} \right) 
+\end{eqnarray}
+となる．この結果や，これをグラフ化した図\ref{fig:fig13_2}-(a)最下段のグラフは，
+点Bにおける曲げモーメントの影響線と呼ばれる．
+
+別の例として，図\ref{fig:fig13_1}-(b)に示す片持梁の支点反力$\bar R_A$と
+$\bar M_A$を求めると，
+\begin{equation}
+	\bar{R}_A=\bar{P}, \ \ 
+	\bar{M}_A=-\bar{P} a
+	\label{eqn:Mbar_2}
+\end{equation}
+となるので，これらの影響線は図\ref{fig:fig13_2}-(b)のようになる．
+%--------------------
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=0.9\linewidth]{./fig1.eps} 
+	\end{center}
+	\caption{
+		単位荷重を受ける単純支持梁と片持梁．
+	} 
+	\label{fig:fig13_1}
+\end{figure}
+%--------------------
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=0.9\linewidth]{./fig2.eps} 
+	\end{center}
+	\caption{
+		図\ref{fig:fig13_1}に示した2つの系に関する影響線の例.
+	} 
+	\label{fig:fig13_2}
+\end{figure}
+%--------------------
+%%%%%%%%%%%%
+\subsection{一般の荷重と影響線の関係}
+影響線は，自動車や鉄道による荷重のように位置が移動する場合に，
+支点反力や特定断面の曲げモーメントといった着目量が，荷重位置に
+対してどのような変化するかを見る上で有用である．
+また，影響線が得られている場合，より一般の荷重に対する応答を
+計算するためにも利用することができる．
+例えば，単純支持梁の支点反力を例に取れば，図\ref{fig:fig13_3}-(a)
+のように，大きさ$P$の荷重を位置$a$で受けるときの支点Aの反力$R_A(a)$は，
+単位荷重を受ける場合の$P$倍であるため，
+\begin{equation}
+	R_A =  P\bar{R}_A(a) 
+\end{equation}
+である．また，図\ref{fig:fig13_3}-(b)のような2つの集中荷重を受けるときの
+支点Aの鉛直反力は，
+\begin{equation}
+	R_A =  
+	P_1 \bar{R}_A(a_1)
+	+
+	P_2 \bar{R}_A(a_2)
+	=
+	\sum_{i=1}^2
+	P_i \bar{R}_A(a_i)
+\end{equation}
+で与えられる．任意の数の集中荷重が作用する場合も同様で，
+影響線を集中荷重の数だけ加え合わせればよい．
+さらに，一般の分布荷重$q$が梁に作用するときは，位置$a$における微小区間$da$に作用する
+荷重の大きさが$q(a)da$であることを踏まえると，この場合の支点反力$R_A$は，次のような積分で評価できる．
+\begin{equation}
+	R_A=\int_{a=0}^l \bar{R}_A(a)q(a)da 
+\end{equation}
+
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=0.4\linewidth]{./fig3.eps} 
+	\end{center}
+	\caption{
+		影響線を利用して着目量の計算ができる典型的な荷重条件.
+	} 
+	\label{fig:fig13_3}
+\end{figure}
+%--------------------
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=.9\linewidth]{./fig4.eps} 
+	\end{center}
+	\caption{
+		ゲルバー梁
+	} 
+	\label{fig:fig13_4}
+\end{figure}
+%--------------------
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=0.55\linewidth]{./fig5.eps} 
+	\end{center}
+	\caption{
+		ゲルバー梁の支点反力計算に用いる自由物体図．
+	} 
+	\label{fig:fig13_5}
+\end{figure}
+%--------------------
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=0.5\linewidth]{./fig6.eps} 
+	\end{center}
+	\caption{
+		\ref{fig:fig13_4}-(a)のゲルバー梁に作用する支点反力と
+		ヒンジが伝達する鉛直力$\bar R_B$の影響線．
+	} 
+	\label{fig:fig13_6}
+\end{figure}
+\subsection{ゲルバー梁の影響線}
+図\ref{fig:fig13_4}に示すような，ヒンジによる連結部をもつ梁を"{\bf ゲルバー梁}"と呼ぶ．
+ヒンジ部では曲げモーメントが伝達されずゼロとなるため，このことを反力や断面力の計算に利用できる．
+例えば，図\ref{fig:fig13_4}に示した2つの系では，4つ支点反力が作用する．
+そのため，構造系全体に対する力とモーメントの釣り合い条件だけからは，
+全ての支点反力を決定することができない．しかしながら，ヒンジ部において
+曲げモーメントがゼロとなる条件を加えれば，全部で4つの条件が得られ，
+全ての反力を釣り合い条件から求めることが可能になる．
+従って，図\ref{fig:fig13_4}の系は，(a)，(b)とも静定系である．\\
+
+
+ヒンジ部での条件を加えて反力を求める手順を具体的に示すために，
+図\ref{fig:fig13_4}-(a)のゲルバー梁の支点反力の影響線を求めてみる．
+図\ref{fig:fig13_5}-(a)に，支点A,C,Dにおける反力の正方向と，単位荷重$\bar{P}$の位置を
+表すための変数$a$と$b$のとり方を示す．
+また，同じ図の(b),(c)および(d)には，これらの反力を求めるために，構造をヒンジBで
+切断したときの自由物体図を，単位荷重が加えられる区間毎に示したものである．
+ここでは，ヒンジBでモーメントがゼロの条件と，水平方向に外力が作用しないことから
+軸力もゼロであることを踏まえ，B点には鉛直力$\bar{R}_B$だけが加わる様子が示されている．
+その結果，区間ABに着目すると，単純支持梁の場合と同じ状況に帰着され，
+この区間の反力は簡単な釣りい条件の計算で次のように決定される．
+\begin{eqnarray}
+	載荷区間{\rm AB} &:& 
+	\bar{R}_A=\bar{P} \left( 1-\frac{2a_1}{l} \right), \ \ 
+	\bar{R}_B=\bar{P} \frac{2a_1}{l} \\ 
+	載荷区間{\rm BC} &:& 
+	\bar{R}_A=\bar{R}_B=0 \\ 
+	載荷区間{\rm CD} &:& 
+	\bar{R}_A=\bar{R}_B=0 \\ 
+\end{eqnarray}
+なお，$\bar{R}_B$は見かけ上，反力のように扱われているが，
+実際にはせん断力の符号を取り替えた内力で, 梁に外部から
+加えられる反力の一つでは無い．
+次に，単位荷重が区間BDにある場合は，区間BC, 区間CDの自由物体図を参照し，
+集中荷重を受ける張出梁と同様にして反力計算を行うことができる．
+その結果は，以下のようになる．
+\begin{eqnarray}
+	載荷区間{\rm AB} &: & 
+	\bar{R}_C=\frac{3}{2} \bar{R}_B=\frac{3a_1}{l}\bar{P}, 
+	\\
+	&&
+	\bar{R}_D=-\frac{1}{2} \bar{R}_B=-\frac{a_1}{l}\bar{P}
+	\\
+	載荷区間{\rm BC} &: & 
+	\bar{R}_C=\frac{3}{2} \bar{R}_B+\bar{P}\left(1+\frac{b_2}{l}\right)
+	=\bar{P}\left(1+\frac{b_2}{l}\right)
+	\\
+	&&
+	\bar{R}_D=-\frac{1}{2} \bar{R}_B-\frac{b_2}{l}\bar{P}
+	=-\frac{b_2}{l}\bar{P}
+	\\
+	載荷区間{\rm CD} &: & 
+	\bar{R}_C=\frac{3}{2} \bar{R}_B+\bar{P}\frac{b_3}{l}
+	=\bar{P}\frac{b_3}{l}
+	\\
+	&&
+	\bar{R}_D=-\frac{1}{2} \bar{R}_B+\left(1-\frac{b_3}{l}\right)\bar{P}
+	=
+	\left(1-\frac{b_3}{l}\right)\bar{P}
+\end{eqnarray}
+なお，各区間内で荷重位置を表すために用いた変数$a_1,b_2, b_3$の意味は
+図\ref{fig:fig13_5}に示す通りであり，$a,b$との関係は
+つぎのようである．
+\begin{equation}
+	a_1=a, \ \ b_2=b-l, \ \ b_3=b
+\end{equation}
+このようにして求められる反力$\bar R_A, \bar R_C,\bar R_D$と，
+ヒンジBが伝達する鉛直力$\bar{R}_B$の影響線を描くと，図\ref{fig:fig13_6}
+のようになる．
+\subsection{問題}
+図\ref{fig:fig13_4}-(b)に示す梁の支点反力と，ヒンジBで伝達される鉛直力の影響線を描け．
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{断面設計}
+\subsection{許容応力度に基づく断面設計}
+梁の断面力が求められれば，各点で発生する応力が分かる．
+いま，座標$x$で参照される着目断面の曲げモーメントを$M(x)$, 
+軸力を$N(x)$とすれば，その断面内での直応力$\sigma_{xx}$分布が
+\begin{equation}
+	\sigma_{xx}(x,y)=\frac{M(x)}{I(x)}y+\frac{N(x)}{A(x)}
+\end{equation}
+で与えられる．ここに，$A$は梁の断面積を，$y$は曲げ変形に関する中立軸位置から
+の距離を表し，たわみ計算に用いた鉛直下向きを正とする座標を表す．
+構造物を設計するとき，各部材が伝達する応力は，材料に過度な変形や破断が生じない
+程度であることが必要である．応力に関して言えば、安全に伝達することのできる
+上限値$\sigma_{max}$や下限値$\sigma_{min}$が，使用材料ごとに実験を行って
+調べられていることが普通である．そのため，梁や柱構造の設計では，
+予め与えられた応力の許容値に対して，全ての$(x,y)$で
+\begin{equation}
+	\sigma_{min}< \sigma_{xx}(x,y) < \sigma_{max}
+	\label{eqn:sxx_siga}
+\end{equation}
+となるようにしなければならない．このとき，$M(x)$や$N(x)$は梁に作用する
+荷重によって決まり，設計者が自由に変更できるものではない．
+一方，$A$や$I$の断面係数は，梁の材料や断面形状，寸法によって決められ，
+ある程度自由に設定する余地がある．このように，指定された条件の元で，
+断面の形状や寸法を決定する作業は"{\bf 断面設計}"と呼ばれ，
+応力の許容値$\sigma_{min}$や$\sigma_{max}$は"{\bf 許容応力}"あるいは"{\bf 許容応力度}"と呼ばれる．
+\subsection{例題}
+基本的な断面設計の手順を示すために，図\ref{fig:fig13_7}-(a)のような，
+等分布荷重を受ける片持梁の許容応力度に基づく断面寸法決定を例にとる．
+梁は鉛直力のみを受けることから，この場合，軸力とそれに起因した直応力は発生しない．
+一方，曲げ応力は
+\begin{equation}
+	M(x)=-\frac{q_0}{2}(l-x)^2, \ \ (0 \leq x \leq l)  
+\end{equation}
+となる．いま，梁の断面は一様で，幅$b$高さ$h$の長方形であるとすると，このとき
+断面2次モーメントは
+\begin{equation}
+	I=\frac{bh^3}{12}
+\end{equation}
+で，中立軸位置は断面の高さ方向で丁度，中央の位置にくる．
+よって，$x$と$y$のとりうる範囲は
+\begin{equation}
+	0 \leq  x \leq l, \ \ 
+	-\frac{h}{2} \leq  y \leq \frac{h}{2} 
+\end{equation}
+で，
+\begin{equation}
+	\sigma_{xx}=\frac{-\frac{q_0}{2}(l-x)^2}{\frac{bh^3}{12}}y
+\end{equation}
+だから，直応力の最大値(最大引張応力)と最小値(最大圧縮応力)は
+$x=0, y=\pm \frac{h}{2}$において
+\begin{equation}
+	-\frac{3q_0l^2}{bh^2}
+	\leq \sigma_{xx} \leq 
+	\frac{3q_0l^2}{bh^2}
+\end{equation}
+となる．いま，直応力$\sigma_{xx}$の許容応力度は，引張も圧縮も$\sigma_a$であるとすると，
+\begin{equation}
+	\frac{3q_0l^2}{bh^2} \leq \sigma_a
+	\label{eqn:constraint}
+\end{equation}
+が，断面寸法に課される条件となる．
+さらに，もし等分布荷重が梁自身の重量(自重)に起因したものであると考えるならば，
+梁をつくる材料の質量密度を$\rho$，重力加速度を$g$として，分布荷重の大きさが
+$q_0=\rho g A=\rho gbh$と表される．これを式(\ref{eqn:constraint})に代入すると，
+\begin{equation}
+	\frac{3\rho g l^2}{h} \leq \sigma_a \ \ 
+	\Rightarrow 
+	\ \ 
+	h \geq \frac{3\rho g l^2}{\sigma_a}
+\end{equation}
+と，桁高$h$に関する制約条件が得られる．これを満足するよう$b$と$h$を決めれば，
+安全な梁を設計できると考えることができる．
+\subsection{問題}
+図\ref{fig:fig13_7}-(b)と(c)に示す梁について，曲げ応力の絶対値が$\sigma_a$を超えないように
+断面設計を行いたい．梁の断面形状は正三角形，その寸法は一辺の長さ$b$で一定とするとき，$b$が
+満足すべき条件を求めよ．
+%--------------------
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=0.8\linewidth]{./fig7.eps} 
+	\end{center}
+	\caption{
+		簡単な断面設計計算を行うための例題．
+	} 
+	\label{fig:fig13_7}
+\end{figure}
+\end{document}

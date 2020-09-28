@@ -1,0 +1,76 @@
+\documentclass[10pt,a4j]{jarticle}
+\usepackage{graphicx,wrapfig}
+\setlength{\topmargin}{-1.5cm}
+\setlength{\textwidth}{15.5cm}
+\setlength{\textheight}{25.2cm}
+\newlength{\minitwocolumn}
+\setlength{\minitwocolumn}{0.5\textwidth}
+\addtolength{\minitwocolumn}{-\columnsep}
+%\addtolength{\baselineskip}{-0.1\baselineskip}
+%
+\def\Mmaru#1{{\ooalign{\hfil#1\/\hfil\crcr
+\raise.167ex\hbox{\mathhexbox 20D}}}}
+%
+\begin{document}
+\newcommand{\fat}[1]{\mbox{\boldmath $#1$}}
+\newcommand{\D}{\partial}
+\newcommand{\w}{\omega}
+\newcommand{\ga}{\alpha}
+\newcommand{\gb}{\beta}
+\newcommand{\gx}{\xi}
+\newcommand{\gz}{\zeta}
+\newcommand{\vhat}[1]{\hat{\fat{#1}}}
+\newcommand{\spc}{\vspace{0.7\baselineskip}}
+\newcommand{\halfspc}{\vspace{0.3\baselineskip}}
+\bibliographystyle{unsrt}
+\pagestyle{empty}
+\newcommand{\twofig}[2]
+ {
+   \begin{figure}[h]
+     \begin{minipage}[t]{\minitwocolumn}
+         \begin{center}   #1
+         \end{center}
+     \end{minipage}
+         \hspace{\columnsep}
+     \begin{minipage}[t]{\minitwocolumn}
+         \begin{center} #2
+         \end{center}
+     \end{minipage}
+   \end{figure}
+ }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\vspace*{\baselineskip}
+\begin{center}
+{\Large \bf 2019年度 構造力学I及び演習B (1月31日) 演習問題7 } \\
+\end{center}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsubsection*{問題1.}
+%図\ref{fig:fig1}に示すようなヒンジによる連結部を有する梁ADがある．
+%この梁の支点AとCにおける反力の影響線と, ヒンジ部Bにおいて伝達される鉛直力の
+%影響線をそれぞれ描け. 
+%\begin{figure}[h]
+%	\begin{center}
+%	\includegraphics[width=0.45\linewidth]{fig1.eps} 
+%	\end{center}
+%	\caption{ヒンジによる連結部を有する梁AD．} 
+%	\label{fig:fig1}
+%\end{figure}
+\subsubsection*{問題1.}
+図\ref{fig:fig2}に示すように, 3本の部材ab,cdとefが剛体壁に挟まれて
+固定されている．両端の剛体壁1と3は完全に固定，中央の剛体壁2は水平
+方向にのみ自由に移動可能で，いずれの剛体壁も回転や転倒は起こさないとする．
+また，部材abは材料1で, 部材cdは材料2, 部材efは3によって作られており，
+材料$i(=1,2,3)$のヤング率は$E_i$, 線膨張係数は$\alpha_i$であるとする．
+また，各部材の断面積と長さは，それぞれ，部材abとcdが$A$と$l$，
+部材efが$2A$と$2l$とする．
+3本の部材の温度を一様に$\Delta T(>0)$だけ上昇させるとき，中央の剛体壁が右向きに移動するための条件を導け．
+%右側の剛体壁の移動量を求めよ．
+%なお，移動量は右方向を正とする．
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=0.80\linewidth]{fig2.eps} 
+	\end{center}
+	\caption{剛体壁に固定された3本の棒部材．} 
+	\label{fig:fig2}
+\end{figure}
+\end{document}

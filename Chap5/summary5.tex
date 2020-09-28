@@ -1,0 +1,366 @@
+\documentclass[10pt,a4j]{jbook}
+%\usepackage{graphicx,wrapfig}
+\usepackage{graphicx,amsmath}
+\setlength{\topmargin}{-1.5cm}
+\setlength{\textwidth}{16.5cm}
+\setlength{\textheight}{25.2cm}
+\newlength{\minitwocolumn}
+\setlength{\minitwocolumn}{0.5\textwidth}
+\addtolength{\minitwocolumn}{-\columnsep}
+%\addtolength{\baselineskip}{-0.1\baselineskip}
+%
+\def\Mmaru#1{{\ooalign{\hfil#1\/\hfil\crcr
+\raise.167ex\hbox{\mathhexbox 20D}}}}
+%
+\begin{document}
+\newcommand{\fat}[1]{\mbox{\boldmath $#1$}}
+\newcommand{\D}{\partial}
+\newcommand{\w}{\omega}
+\newcommand{\ga}{\alpha}
+\newcommand{\gb}{\beta}
+\newcommand{\gx}{\xi}
+\newcommand{\gz}{\zeta}
+\newcommand{\vhat}[1]{\hat{\fat{#1}}}
+\newcommand{\spc}{\vspace{0.7\baselineskip}}
+\newcommand{\halfspc}{\vspace{0.3\baselineskip}}
+\bibliographystyle{unsrt}
+%\pagestyle{empty}
+\newcommand{\twofig}[2]
+ {
+   \begin{figure}
+     \begin{minipage}[t]{\minitwocolumn}
+         \begin{center}   #1
+         \end{center}
+     \end{minipage}
+         \hspace{\columnsep}
+     \begin{minipage}[t]{\minitwocolumn}
+         \begin{center} #2
+         \end{center}
+     \end{minipage}
+   \end{figure}
+ }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\vspace*{\baselineskip}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setcounter{chapter}{4}
+\chapter{集中荷重を受ける梁の解析}
+\section{ディラクのデルタ関数による集中荷重の表現}
+一点に集中して加わる荷重(集中荷重あるいは点荷重)を表現するために，次のような関数を
+導入する．
+\begin{equation}
+	\delta  (x) := \lim _ {a\rightarrow +0} U(x;a)
+	\label{eqn:delta_x}
+\end{equation}
+ただし, $U(x;a)$はパラメータ$a$をもつ，$x$に関する次の矩形関数を意味する
+(図\ref{fig:fig8_2}-(a))．
+\begin{equation}
+	U(x;a):=\left\{
+		\begin{array}{cc}
+			1/a & \left(\left| x \right| < \frac{a}{2} \right) \\
+			0 & \left(\left| x \right| > \frac{a}{2} \right) 
+		\end{array}
+		\right.
+	\label{eqn:def_U}
+\end{equation}
+$U(x;a)$の$(-\infty,\,\infty)$における積分値は1であるので，
+$\delta(x)$により，大きさ１の単位荷重を表すことができる．また，
+\begin{equation}
+	\delta(x)=\left\{
+		\begin{array}{cc}
+			0 & \left(x\neq 0\right) \\
+			\infty & \left(x=0 \right) 
+		\end{array}
+		\right.
+	\label{eqn:delta_x_val}
+\end{equation}
+であることから，$\delta(x)$は$x=0$のみに作用する単位荷重であることも分かる．
+$\delta(x)$は，$x=0$を除き至るところゼロであるにも関わらず, 
+$(-\infty,\infty)$における積分値が1になるという特異な性質を持つ関数で，
+"{\bf ディラクのデルタ関数}"と呼ばれる．
+この性質は
+\begin{equation}
+	\int _b^c \delta(x) dx = \left\{
+	\begin{array}{cc}
+		1 & \left( x \in (b,c)\right) \\ 
+		0 & \left( x \notin (b,c)\right)
+	\end{array}
+	\label{eqn:idelta_ab}
+	\right.
+\end{equation}
+と表すことができる．荷重の作用点位置が$x=s$で大きさが$F$の場合には，
+デルタ関数を$\delta(x)$を$x$座標軸上で$s$だけ平行移動して$F$倍した$F\delta (x-s)$
+で荷重を表現することができる．以下ではデルタ関数を利用して, 集中荷重を受ける梁のたわみや断面力を計算する方法について学ぶ．
+\begin{figure}
+	\begin{center}
+	\includegraphics[width=0.7\linewidth]{fig8_2.eps} 
+	\end{center}
+	\caption{
+		ディラクのデルタ関数とその積分.
+	 } 
+	\label{fig:fig8_2}
+\end{figure}
+\section{デルタ関数の積分}
+たわみの微分方程式:
+\begin{equation}
+	\left(EIv''\right)''=q(x)
+\end{equation}
+において$q(x)=F\delta(x-a)$とし，適当な支持条件の元で$v(x)$を求めれば，
+$x=a$に大きさ$F$の集中が加えられた場合のたわみを求めることができる．
+また，その結果を$x$について微分することで，たわみ角$\theta(x)$や曲げモーメント
+$M(x)$，せん断力$Q(x)$も得ることができる．
+そのためには，デルタ関数で表された外力$q(x)$を4階積分する必要がある．
+デルタ関数$\delta(x)$の4階までの積分は以下のように表される．
+\begin{eqnarray}
+	\int_{-\infty}^x \delta(y)dy &=& H(x) 
+	\label{eqn:int_dlt}
+	\\ 
+	\iint_{-\infty}^x \delta(y)dy^2 &=& \left< x\right> 
+	\label{eqn:iint_dlt}
+	\\ 
+	\iiint_{-\infty}^x \delta(y)dy^3 &=& \frac{1}{2}\left<x\right>^2
+	\label{eqn:iiint_dlt}
+	\\ 
+	\iiiint_{-\infty}^x \delta(y)dy^4 &=& \frac{1}{6}\left<x\right>^3
+	\label{eqn:iiiint_dlt}
+\end{eqnarray}
+ここで，$H(x)$は
+\begin{equation}
+	H(x)=\left\{
+	\begin{array}{cc}
+		0 & (x<0) \\
+		1 & (x>0)
+	\end{array}
+	\right.
+\end{equation}
+で与えられる単位ステップ関数を表す．また，$\left< \cdot \right>$
+は"{\bf マッコーレーの括弧}"と呼ばれ，任意の関数$f(x)$に対して，次のような
+作用を施すことを意味する．
+\begin{equation}
+	\left< f(x) \right>=
+	\left\{
+	\begin{array}{cc}
+		f(x) & ({\rm for\;} x\; {\rm s.t.} \; f(x) \ge 0) \\
+		0 & ({\rm for}\; x \; {\rm s.t.} \;  f(x) < 0)
+	\end{array}
+	\right.
+\end{equation}
+なお，"for $x$ s.t $\sim$" は，"for $x$ such that $\sim $($\sim$ であるような$x$に対して)"と読む．
+これより，マッコーレーの括弧は，例えば，
+\begin{equation}
+	\left< x-a \right>=
+	\left\{
+	\begin{array}{cc}
+		x-a & (x \ge a) \\
+		0 & (x <a)
+	\end{array}
+	\right.
+\end{equation}
+のような働きをする.式(\ref{eqn:int_dlt})の関係は，
+図\ref{fig:fig8_2}-(a)に示すように，$U(x;a)$の
+積分$\int_{-\infty}^x U(y;a)dy$を計算し，
+その極限($a\rightarrow +0$)をとることによって得られる．
+あるいは，式(\ref{eqn:idelta_ab})において，$c=x,b\rightarrow -\infty$
+としても同じ結果が得られる．なお，積分と極限操作の順序は一般に交換可能でないが，ここでは
+その点には立ち入らない．
+一方，式(\ref{eqn:iint_dlt})-(\ref{eqn:iiiint_dlt})の関係を導出するには,
+$U(x;a)$を所定の回数積分して$a\rightarrow +0$の極限をとったと考えても，
+単位ステップ関数$H(x)$や$\left< x \right>$の積分区間を$x<0$と$x>0$に
+分けて積分を実行したと考えてもよい．
+\subsection{問題}
+次の関数のグラフを描け．
+\begin{enumerate}
+\item $y=\left< x \right>^2$
+\item $y=\left< x^2 \right>$
+\item $y=\left< x^2-a^2 \right>$
+\item $y=\left< a^2-x^2 \right>$
+\item $y=-\left< x^2-a^2 \right>$
+\end{enumerate}
+\section{たわみと断面力の計算(例題)}
+図\ref{fig:fig8_3}-(a)と(b)に示す梁について，たわみと断面力を求め，
+断面力図(曲げモーメント図，せん断力図)を描く．
+\renewcommand{\labelenumi}{(\alph{enumi})}
+\begin{enumerate}
+\item
+外力項は$q(x)=q_0$(一定)で，$q(x)$の4階の不定積分は
+$\iiiint q(x)dx^4=\frac{q_0x^4}{24}$である．よって，たわみ$v$は
+積分定数$C_1,\sim C_4$を用いて
+\begin{equation}
+	v(x)= \frac{q_0l^4}{24EI}\left\{
+		\left(\frac{x}{l}\right)^4
+		+
+		C_1
+		\left(\frac{x}{l}\right)^3
+		+
+		C_2
+		\left(\frac{x}{l}\right)^2
+		+
+		C_3
+		\left(\frac{x}{l}\right)
+		+
+		C_4
+	\right\}
+	\label{eqn:vx_a}
+\end{equation}
+と表すことができる．
+梁の左端$x=0$ではたわみとたわみ角が，
+\begin{equation}
+	v(0)=0, \ \ v'(0)=0
+	\label{eqn:bcon_al}
+\end{equation}
+右端$x=l$では，曲げモーメントとたわみが，それぞれ
+\begin{equation}
+	M(l)=EIv''(l)=0, \ \ v(l)=0
+	\label{eqn:bcon_al}
+\end{equation}
+である．これらの支持条件を式(\ref{eqn:vx_a})に用いれば，
+積分定数が
+\begin{equation}
+	C_1=-\frac{5}{2}, \, 
+	C_2=\frac{3}{2}, \,
+	C_3=C_4=0
+	\label{eqn:int_cnst}
+\end{equation}
+と決まる．以上より，たわみは
+\begin{equation}
+	v(x)= \frac{q_0l^4}{24EI}\left\{
+		\left(\frac{x}{l}\right)^4
+		-
+		\frac{5}{2}
+		\left(\frac{x}{l}\right)^3
+		+
+		\frac{3}{2}
+		\left(\frac{x}{l}\right)^2
+	\right\}
+	\label{eqn:vx_a_sol}
+\end{equation}
+となる．これを微分すれば，曲げモーメントとせん断力が
+\begin{equation}
+	M(x)= 
+	-EIv''(x)
+	=
+	-\frac{q_0l^2}{8}\left\{
+		4
+		\left(\frac{x}{l}\right)^2
+		-
+		5
+		\left(\frac{x}{l}\right)
+		+
+		1
+	\right\}
+	\label{eqn:Mx_a}
+\end{equation}
+\begin{equation}
+	Q(x)= 
+	-\left(EIv''(x)\right)'
+	=
+	-\frac{q_0l}{8}\left\{
+		8
+		\left(\frac{x}{l}\right)
+		-
+		5
+	\right\}
+	\label{eqn:Qx_a}
+\end{equation}
+と得られる．式(\ref{eqn:Mx_a})と式(\ref{eqn:Qx_a})より
+曲げモーメント図とせん断力図を描けば，図\ref{fig:fig8_4}-(a)のようになる．
+土木分野では，断面力図の縦軸を慣例的に下向きを正方向にとる．
+\item
+外力項はデルタ関数を用いて$q(x)=F\delta\left(x-\frac{l}{2}\right)$
+と表される．$\delta\left(x-\frac{l}{2}\right)$の4階の不定積分は
+$\frac{1}{6}\left<x-\frac{l}{2}\right>^3=\frac{l^3}{6}\left<\frac{x}{l}-\frac{1}{2}\right>^3$
+であるから，たわみ$v(x)$は
+\begin{equation}
+	v(x)= \frac{Pl^3}{6EI}\left\{
+		\left<\frac{x}{l}-\frac{1}{2}\right>^3
+		+
+		C_1
+		\left(\frac{x}{l}\right)^3
+		+
+		C_2
+		\left(\frac{x}{l}\right)^2
+		+
+		C_3
+		\left(\frac{x}{l}\right)
+		+
+		C_4
+	\right\}
+	\label{eqn:vx_b}
+\end{equation}
+と表すことができる．ここに,$C_1\sim C_4$は積分定数を表す．
+支持条件は
+\begin{equation}
+	v(0)=0, \ \ M(0)=0
+	\label{eqn:bcon_bl}
+\end{equation}
+と
+\begin{equation}
+	M(l)=EIv''(l)=0, \ \ v(l)=0
+	\label{eqn:bcon_bl}
+\end{equation}
+であるから，これらを式(\ref{eqn:vx_b})に用いれば，
+積分定数が
+\begin{equation}
+	C_1=-\frac{1}{2}, \, 
+	C_2=0, \,
+	C_3=\frac{3}{8}, C_4=0
+\end{equation}
+となる．よって，たわみは
+\begin{equation}
+	v(x)= \frac{Pl^3}{6EI}\left\{
+		\left<\frac{x}{l}-\frac{1}{2}\right>^3
+		-
+		\frac{1}{2}
+		\left(\frac{x}{l}\right)^3
+		+
+		\frac{3}{8}
+		\left(\frac{x}{l}\right)
+	\right\}
+	\label{eqn:vx_b_sol}
+\end{equation}
+で，式(\ref{eqn:vx_b_sol})の2階と3階の導関数を求めることで，
+曲げモーメントとせん断力が次のように得られる．
+\begin{equation}
+	M(x)= 
+	-\frac{Pl}{2}\left\{
+		2
+		\left<\frac{x}{l}-\frac{1}{2}\right>
+		-
+		\left(\frac{x}{l}\right)
+	\right\}
+	\label{eqn:Mx_b}
+\end{equation}
+\begin{equation}
+	Q(x)= 
+	-\frac{P}{2}\left\{
+		2H\left(\frac{x}{l}-\frac{1}{2}\right)
+		-
+		1
+	\right\}
+	\label{eqn:Qx_b}
+\end{equation}
+式(\ref{eqn:Mx_b})と(\ref{eqn:Qx_b})を断面力図として示すと，
+図\ref{fig:fig8_4}-(b)のようになる．
+\end{enumerate}
+\subsection{問題}
+図\ref{fig:fig8_3}-(c)と(d)の梁について，たわみと曲げモーメントおよび
+せん断力を求め，曲げモーメント図とせん断力図を描け．
+\begin{figure}
+	\begin{center}
+	\includegraphics[width=0.8\linewidth]{fig8_3.eps} 
+	\end{center}
+	\caption{
+		荷重および支持条件の異なる4種類の単径間梁.
+		曲げ剛性$EI$は場所に依らず一定とする．
+	 } 
+	\label{fig:fig8_3}
+\end{figure}
+\begin{figure}
+	\begin{center}
+	\includegraphics[width=0.8\linewidth]{fig8_4.eps} 
+	\end{center}
+	\caption{
+		断面力図.
+	 } 
+	\label{fig:fig8_4}
+\end{figure}
+\end{document}

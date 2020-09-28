@@ -1,0 +1,86 @@
+\documentclass[10pt,a4j]{jarticle}
+\usepackage{graphicx,wrapfig}
+\setlength{\topmargin}{-1.5cm}
+\setlength{\textwidth}{15.5cm}
+\setlength{\textheight}{25.2cm}
+\newlength{\minitwocolumn}
+\setlength{\minitwocolumn}{0.5\textwidth}
+\addtolength{\minitwocolumn}{-\columnsep}
+%\addtolength{\baselineskip}{-0.1\baselineskip}
+%
+\def\Mmaru#1{{\ooalign{\hfil#1\/\hfil\crcr
+\raise.167ex\hbox{\mathhexbox 20D}}}}
+%
+\begin{document}
+\newcommand{\fat}[1]{\mbox{\boldmath $#1$}}
+\newcommand{\D}{\partial}
+\newcommand{\w}{\omega}
+\newcommand{\ga}{\alpha}
+\newcommand{\gb}{\beta}
+\newcommand{\gx}{\xi}
+\newcommand{\gz}{\zeta}
+\newcommand{\vhat}[1]{\hat{\fat{#1}}}
+\newcommand{\spc}{\vspace{0.7\baselineskip}}
+\newcommand{\halfspc}{\vspace{0.3\baselineskip}}
+\bibliographystyle{unsrt}
+\pagestyle{empty}
+\newcommand{\twofig}[2]
+ {
+   \begin{figure}[h]
+     \begin{minipage}[t]{\minitwocolumn}
+         \begin{center}   #1
+         \end{center}
+     \end{minipage}
+         \hspace{\columnsep}
+     \begin{minipage}[t]{\minitwocolumn}
+         \begin{center} #2
+         \end{center}
+     \end{minipage}
+   \end{figure}
+ }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\vspace*{\baselineskip}
+\begin{center}
+{\Large \bf 2019年度 構造力学I及び演習B 演習問題1(12月6日)} \\
+\end{center}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{問題1. }
+図\ref{fig:fig1}に示したような，直線的に変化する分布荷重を受ける梁を考える．
+梁の曲げ剛性$EI$は全断面で一定とするとき，以下の問いに答えよ．
+\begin{enumerate}
+\item
+	たわみ$v(x)$を求めよ．
+\item
+	曲げモーメント図とせん断力図を描け．
+\item
+	支点Aにおける支点反力を求めよ．
+	解答には支点反力の正方向を明記すること．
+\end{enumerate}
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=0.5\linewidth]{fig1.eps} 
+	\end{center}
+	\vspace{-5mm}
+	\caption{左半分の区間に等分布荷重を受ける梁.}
+	\label{fig:fig1}
+\end{figure}
+\subsubsection*{問題2. }
+図\ref{fig:fig2}に示したような大きさ$P$の集中荷重を受ける梁ACを考える．
+梁の曲げ剛性$EI$は全断面で一定とするとき以下の問いに答えよ．
+\begin{enumerate}
+\item
+	たわみ$v(x)$を求めよ．		
+\item
+	曲げモーメント図とせん断力図を描け．
+\item
+	支点AとCにおける支点反力を求めよ．解答には支点反力の正方向を明記すること)．
+\end{enumerate}
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=0.5\linewidth]{fig2.eps} 
+	\end{center}
+	\vspace{-5mm}
+	\caption{大きさ$P$の集中荷重を受ける梁AC.}
+	\label{fig:fig2}
+\end{figure}
+\end{document}

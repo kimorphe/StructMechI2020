@@ -1,0 +1,73 @@
+\documentclass[10pt,a4j]{jarticle}
+\usepackage{graphicx,wrapfig}
+\setlength{\topmargin}{-1.5cm}
+\setlength{\textwidth}{15.5cm}
+\setlength{\textheight}{25.2cm}
+\newlength{\minitwocolumn}
+\setlength{\minitwocolumn}{0.5\textwidth}
+\addtolength{\minitwocolumn}{-\columnsep}
+%\addtolength{\baselineskip}{-0.1\baselineskip}
+%
+\def\Mmaru#1{{\ooalign{\hfil#1\/\hfil\crcr
+\raise.167ex\hbox{\mathhexbox 20D}}}}
+%
+\begin{document}
+\newcommand{\fat}[1]{\mbox{\boldmath $#1$}}
+\newcommand{\D}{\partial}
+\newcommand{\w}{\omega}
+\newcommand{\ga}{\alpha}
+\newcommand{\gb}{\beta}
+\newcommand{\gx}{\xi}
+\newcommand{\gz}{\zeta}
+\newcommand{\vhat}[1]{\hat{\fat{#1}}}
+\newcommand{\spc}{\vspace{0.7\baselineskip}}
+\newcommand{\halfspc}{\vspace{0.3\baselineskip}}
+\bibliographystyle{unsrt}
+\pagestyle{empty}
+\newcommand{\twofig}[2]
+ {
+   \begin{figure}[h]
+     \begin{minipage}[t]{\minitwocolumn}
+         \begin{center}   #1
+         \end{center}
+     \end{minipage}
+         \hspace{\columnsep}
+     \begin{minipage}[t]{\minitwocolumn}
+         \begin{center} #2
+         \end{center}
+     \end{minipage}
+   \end{figure}
+ }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\vspace*{\baselineskip}
+\begin{flushright}
+	2020/02/04
+\end{flushright}
+\begin{center}
+	{\Large \bf 2019年度 構造力学I及び演習B (1月31日) 演習問題7 (差替え版)} \\
+\end{center}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{問題}
+図\ref{fig:fig1}のように, それぞれ，固定壁と床に固定された水平部材ABと
+鉛直部材BCが，点Bにおいて互いにピンで結合されている．
+2つの部材は同じ材料で作られており，ヤング率は$E$，熱膨張率は$\alpha$とする．
+部材の断面形状は正方形で，その一辺の長さは部材1で$a_1$，部材2で$a_2$とする．
+いま，部材1の温度だけが一様に$\Delta T(>0)$だけ上昇し，
+部材2の長さと断面寸法の比が$\frac{l}{a_2}=\frac{50}{3}$であるとき，以下2つの問に答えよ．
+\begin{enumerate}
+\item
+	部材1の温度上昇に伴い，部材1には軸応力が，部材2には曲げ応力が発生する．
+	これら軸応力と曲げ応力の，絶対値としての最大値が一致するよう各々の
+	部材断面寸法を決める．このとき，$a_2/a_1$を求めよ．
+\item
+	部材1と2の許容応力が，ともに$\sigma_a$であるとき，構造ABCが許容しうる最大の上昇温度
+	(許される$\Delta T$の最大値)を求めよ．ただし，$a_2/a_1$には前問で求めた値を用いること．
+\end{enumerate}
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=0.60\linewidth]{fig1.eps} 
+	\end{center}
+	\caption{ピンで結合された2つの部材からなる構造ABC．} 
+	\label{fig:fig1}
+\end{figure}
+\end{document}

@@ -1,0 +1,95 @@
+\documentclass[10pt,a4j]{jarticle}
+\usepackage{graphicx,wrapfig}
+\setlength{\topmargin}{-1.5cm}
+\setlength{\textwidth}{15.5cm}
+\setlength{\textheight}{25.2cm}
+\newlength{\minitwocolumn}
+\setlength{\minitwocolumn}{0.5\textwidth}
+\addtolength{\minitwocolumn}{-\columnsep}
+%\addtolength{\baselineskip}{-0.1\baselineskip}
+%
+\def\Mmaru#1{{\ooalign{\hfil#1\/\hfil\crcr
+\raise.167ex\hbox{\mathhexbox 20D}}}}
+%
+\begin{document}
+\newcommand{\fat}[1]{\mbox{\boldmath $#1$}}
+\newcommand{\D}{\partial}
+\newcommand{\w}{\omega}
+\newcommand{\ga}{\alpha}
+\newcommand{\gb}{\beta}
+\newcommand{\gx}{\xi}
+\newcommand{\gz}{\zeta}
+\newcommand{\vhat}[1]{\hat{\fat{#1}}}
+\newcommand{\spc}{\vspace{0.7\baselineskip}}
+\newcommand{\halfspc}{\vspace{0.3\baselineskip}}
+\bibliographystyle{unsrt}
+\pagestyle{empty}
+\newcommand{\twofig}[2]
+ {
+   \begin{figure}[h]
+     \begin{minipage}[t]{\minitwocolumn}
+         \begin{center}   #1
+         \end{center}
+     \end{minipage}
+         \hspace{\columnsep}
+     \begin{minipage}[t]{\minitwocolumn}
+         \begin{center} #2
+         \end{center}
+     \end{minipage}
+   \end{figure}
+ }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\vspace*{\baselineskip}
+\begin{center}
+{\Large \bf 2019年度 構造力学I及び演習B (1月24日) 演習問題6} \\
+\end{center}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{問題1.}
+図\ref{fig:fig1}に示すような片端が固定された梁の，支点Bにおける
+鉛直反力の影響線を描け．
+%--------------------
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=0.55\linewidth]{fig1.eps} 
+	\end{center}
+	\caption{部材中央でローラー支持された片端固定梁．} 
+	\label{fig:fig1}
+\end{figure}
+%
+\subsubsection*{問題2.}
+図\ref{fig:fig2}のような梁について以下の問に答えよ．
+なお，梁の曲げ剛性$EI$は全断面で一定とし, 以下で言う"最大値"とは, 
+絶対値としての最大値を意味する．
+\begin{enumerate}
+\item
+	ヒンジBとDで伝達される鉛直方向の力の大きさを答えよ．
+\item
+	支点AとEにおける反力を求めよ．
+\item
+	曲げモーメント図を描け．
+\item
+	曲げモーメントの最大値$M_{max}$とそれを与える断面位置を求めよ．
+\end{enumerate}
+梁の断面が半径$a$の円であるとして以下の問に答えよ．
+\begin{enumerate}
+\setcounter{enumi}{4}
+\item
+	曲げ応力の最大値$\sigma_{max}$を求めよ．
+\item
+	曲げ応力の最大値が$\sigma_a$を超えないように梁を設計したい．
+	すなわち
+	\[
+		\sigma_{max} \leq \sigma_a
+	\]
+	となるように断面寸法を決定する．このとき，
+	許容される断面半径$a$の最小値を求めよ．
+\end{enumerate}
+%--------------------
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=0.8\linewidth]{fig2.eps} 
+	\end{center}
+	\caption{区間ACに等分布荷重を受ける梁.} 
+	\label{fig:fig2}
+\end{figure}
+\end{document}

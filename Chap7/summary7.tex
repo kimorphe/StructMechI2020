@@ -1,0 +1,370 @@
+\documentclass[10pt,a4j]{jbook}
+%\usepackage{graphicx,wrapfig}
+\usepackage{graphicx,amsmath}
+\setlength{\topmargin}{-1.5cm}
+\setlength{\textwidth}{16.5cm}
+\setlength{\textheight}{25.2cm}
+\newlength{\minitwocolumn}
+\setlength{\minitwocolumn}{0.5\textwidth}
+\addtolength{\minitwocolumn}{-\columnsep}
+%\addtolength{\baselineskip}{-0.1\baselineskip}
+%
+\def\Mmaru#1{{\ooalign{\hfil#1\/\hfil\crcr
+\raise.167ex\hbox{\mathhexbox 20D}}}}
+%
+\begin{document}
+\newcommand{\fat}[1]{\mbox{\boldmath $#1$}}
+\newcommand{\D}{\partial}
+\newcommand{\w}{\omega}
+\newcommand{\ga}{\alpha}
+\newcommand{\gb}{\beta}
+\newcommand{\gx}{\xi}
+\newcommand{\gz}{\zeta}
+\newcommand{\vhat}[1]{\hat{\fat{#1}}}
+\newcommand{\spc}{\vspace{0.7\baselineskip}}
+\newcommand{\halfspc}{\vspace{0.3\baselineskip}}
+\bibliographystyle{unsrt}
+%\pagestyle{empty}
+\newcommand{\twofig}[2]
+ {
+   \begin{figure}
+     \begin{minipage}[t]{\minitwocolumn}
+         \begin{center}   #1
+         \end{center}
+     \end{minipage}
+         \hspace{\columnsep}
+     \begin{minipage}[t]{\minitwocolumn}
+         \begin{center} #2
+         \end{center}
+     \end{minipage}
+   \end{figure}
+ }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\vspace*{\baselineskip}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setcounter{chapter}{6}
+\chapter{複数径間に渡る梁の曲げ問題}
+\section{張出し梁のたわみと断面力}
+図\ref{fig:fig10_1}に示すような，支点から張出した部分を持つ梁を，"{\bf 張出し梁}"と呼ぶ．
+張出し梁のたわみ，たわみ角，断面力は，これまでに学んだ方法を用いて求めることができる．
+その手順を例題を用いて以下に説明する．
+\subsection{例題}
+図\ref{fig:fig10_1}-(a)に示す張出し梁のたわみと断面力を求める．
+点Aを原点として右向きを正とする座標$x$を用いるとき，たわみを求めるべき
+区間は，$0<x<l$である．この区間において梁に作用する外力は，等分布荷重と
+支点Bから加えられる未知の支点反力$R_B$である．従って，図\ref{fig:fig10_1_1}のように
+支点反力の正方向をとれば，外力項$q(x)$は
+\begin{equation}
+	q(x)=q_0-R_B\delta\left(x-\frac{l}{2}\right)
+	\label{eqn:qx}
+\end{equation}
+と表される．この4回の不定積分は
+\begin{equation}
+	\iiiint q(x) dx^4= \frac{q_0}{24}x^4-\frac{R_B}{6}\left<x-\frac{l}{2}\right>^3
+	\label{eqn:int_qx4}
+\end{equation}
+だから，$\xi=x/\l$として，たわみを
+\begin{equation}
+	v(x)=\frac{q_0l^4}{24EI}\left( \xi^4+C_1\xi^3 +C_2\xi^2+C_3\xi+C_4\right)
+	-
+	\frac{R_Bl^3}{6EI}\left< \xi-\frac{1}{2}\right>^3
+	\label{eqn:vx_gen}
+\end{equation}
+と書くことができる．これに，支点A,BおよびCにおける条件:
+\begin{eqnarray}
+	x=0 &;& v(0)=0, \, M(0)=0 
+	\\
+	x=\frac{l}{2} &;& v\left( \frac{l}{2} \right)=0
+	\\
+	x=l &;& M(l)=0,\, Q(l)=0
+\end{eqnarray}
+を考慮することで，積分定数$C_1\sim C_4$と，支点反力$R_B$が
+以下のように求められる．
+\begin{equation}
+	R_B=q_0l, \ \ C_1=C_2=C_4=0, \ \ C_3=-\frac{1}{8}
+\end{equation}
+このようにして求めたたわみ:
+\begin{equation}
+	v(x)=\frac{q_0l^4}{24EI}\left( \xi^4-\frac{1}{8}\xi\right)
+	-
+	\frac{q_0l^4}{6EI}\left< \xi-\frac{1}{2}\right>^3
+	\label{eqn:vx}
+\end{equation}
+を微分すれば，曲げモーメントとせん断力が次のように得られる．
+その結果を，せん断力図，曲げモーメント図として示せば，図\ref{fig:fig10_1_1}-(b)と(c)
+のようになる．
+\begin{eqnarray}
+	M(x)&=&
+	q_0l^2 \left\{ -\frac{1}{2}\xi^2 + \left< \xi -\frac{1}{2}\right> \right\}
+	\\
+	Q(x)&=&
+	q_0l \left\{-\xi+H\left(\xi-\frac{1}{2}\right)\right\}
+\end{eqnarray}
+なお，ここで考えている問題は静定問題であり，釣り合い条件から支点反力を求め，
+その結果($R_A=0,\, R_B=q_0l$)から断面力を決定することもできる．
+たわみを求める必要が無い場合，断面力を釣り合い条件から直接求める方が，多くの場合容易である．
+また，たわみを求める必要がある場合も，支点反力$R_B$を釣り合い条件から最初に決定し，
+式(\ref{eqn:vx_gen})にその結果を予め代入しておけば，残る作業は4つの積分定数を決定することに
+なり，計算の手間は軽減できる．
+\subsection{問題}
+図\ref{fig:fig10_1}-(b)$\sim$(f)に示した張出し梁について，たわみと断面力，支点反力を求めよ．
+%--------------------
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=0.7\linewidth]{fig10_1.eps} 
+	\end{center}
+	\caption{
+	鉛直荷重を受ける張出梁(a)$\sim$(f).
+	} 
+	\label{fig:fig10_1}
+\end{figure}
+%--------------------
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=0.4\linewidth]{fig10_1_1.eps} 
+	\end{center}
+	\caption{
+	(a)支点反力の正方向と(b),(c)断面力図．
+	} 
+	\label{fig:fig10_1_1}
+\end{figure}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+\section{連続梁のたわみと断面力}
+互いに隣接した支点間のことを"{\bf 径間}"あるいは"{\bf 支間}"と呼ぶ．例えば，
+図\ref{fig:fig10_2}-(a)に示す梁は，径間ABと径間BCの2径間で構成される構造で，
+2つの径間は連続した単一の梁で架橋されている．そのため，このような構造は
+"{\bf 2径間連続梁}"と呼ばれる．同様に，2つ以上の径間からなる連続した梁による
+架橋構造は，多径間連続梁と呼ばれる．多径間連続梁は不静定構造だが，前節に示した
+張出し梁の曲げ問題と同様にして，たわみや断面力，支点反力を求めることができる．
+以下に，そのことを例題の解答を通じて示す．
+\subsection{例題}
+図\ref{fig:fig10_2}-(a)に示すような，等分布荷重を受ける2径間連続梁が受ける支点反力と，
+断面力分布を求め，断面力図を描く．
+\begin{enumerate}
+\item
+荷重条件は，前節の例題と同じであることから，たわみは式(\ref{eqn:vx_gen})のように
+表すことができる．ただしこの場合，\underline{力とモーメントの釣り合いから予め反力$R_B$を
+決めておくことはできない}．支持条件は
+\begin{eqnarray}
+	x=0 &;& v(0)=0, \, M(0)=0 
+	\label{eqn:BC_0}
+	\\
+	x=\frac{l}{2} &;& v\left( \frac{l}{2} \right)=0
+	\label{eqn:BC_l2}
+	\\
+	x=l &;& v(l)=0, \, M(l)=0
+	\label{eqn:BC_l}
+\end{eqnarray}
+であるから，これら5つの条件から$R_B$と積分定数を決定すれば，
+\begin{equation}
+	R_B=\frac{5}{8}q_0l, \ \ C_1=-\frac{3}{4}, \ \ C_2=C_4=0, \ \ C_3=\frac{1}{16}
+\end{equation}
+となる．これを式(\ref{eqn:vx_gen})に代入すると，たわみは
+\begin{equation}
+	v(x)=\frac{q_0l^4}{24EI}\left( \xi^4-\frac{3}{4}\xi^3 +\frac{1}{16}\xi \right)
+	-
+	\frac{5q_0l^4}{48EI}\left< \xi-\frac{1}{2}\right>^3
+\end{equation}
+となる．よって，曲げモーメントとせん断力は
+\begin{eqnarray}
+	M(x) &= & 
+		-\frac{q_0l^2}{8}\left(4\xi^2 -\frac{3}{2}\xi \right)
+		+
+		\frac{5}{8}q_0l^2\left< \xi-\frac{1}{2}\right>
+	\\
+	Q(x) &= & 
+		-\frac{q_0l}{8}\left(8\xi -\frac{3}{2} \right)
+		+
+		\frac{5}{8}q_0lH\left( \xi-\frac{1}{2}\right)
+\end{eqnarray}
+と得られ，これらを断面力図として示すと図\ref{fig:fig10_2_1}のようになる．
+\item
+{\bf (別解)}
+本質的には上の解法と同じだが，以下のようにして反力やたわみの計算をしてもよい．
+
+図\ref{fig:fig10_2_2}に示すように，与えられた梁(a)を，２つの静定梁(b)と(c)の重ね合わせで表現する．
+すなわち，梁(a),(b),(c)のたわみをそれぞれ，$v_a(x),\,v_b(x),\,v_c(x)$と書くとき,
+\begin{equation}
+	v_a(x)=v_b(x)+v_c(x)
+	\label{eqn:v_sum}
+\end{equation}
+と表すことができるとする．ここで，$R_B$は，梁(a)の支点Bによって生じる鉛直上向きの支点反力
+		を表し,式(\ref{eqn:BC_l2})で与えられる拘束条件を満足するように決まると考える．
+$v_b$や$v_c$は,基本的な単径間梁のたわみであり，比較的簡単に求めることができ，
+実際に計算を行うと
+\begin{eqnarray}
+	v_b&= & 
+		\frac{q_0l^4}{24EI} \left( \xi^4-2\xi^3 +\xi \right)
+	\label{eqn:vbx}
+	\\
+	v_c&= & 
+		-\frac{R_Bl^3}{6EI} \left\{ \left< \xi-\frac{1}{2}\right>^3 
+		-\frac{1}{2}\xi^3 +\frac{3}{8}\xi \right\}
+	\label{eqn:vcx}
+\end{eqnarray}
+となる．
+そこで，予め求めておいた$v_b(x)$と$v_c(x)$を利用して，$v_a(x)=v_b(x)+v_c(x)$が梁(a)が満足すべき
+支持条件(\ref{eqn:BC_0})-(\ref{eqn:BC_l})を満たすよう$R_B$を決定する．
+梁(b)と梁(c)は，支点AとCにおける支持条件は梁(a)と同様たわみと曲げモーメントがゼロであることから，
+$x=0$と$x=l$における条件は自動的に満足される
+一方,支点Bにおける条件は，自動的には満足されないため，
+\begin{equation}
+	v_a\left(\frac{l}{2}\right)
+	=
+	v_b\left(\frac{l}{2}\right)
+	+
+	v_c\left(\frac{l}{2}\right)
+	=0
+	\label{eqn:constraint}
+\end{equation}
+となるように，$R_B$を決める必要がある．そこで，この式に，式(\ref{eqn:vbx})と(\ref{eqn:vcx})
+から与えられる$v_b\left(\frac{l}{2}\right)$と$v_c\left(\frac{l}{2}\right)$を代入
+すると，$R_B$は，
+\begin{equation}
+	R_B=\frac{5}{8}q_0l
+\end{equation}
+と，上で求めた結果と一致する．この結果を$v_c$の$R_B$に代入して，$v_b$と$v_c$の
+和をとれば，求めるべきたわみ$v_a(x)$得られる．
+なお，$R_B$が既知であれば，他の反力$R_A,R_C$は釣り合い式から求められる
+ため，断面力も釣り合い式から直接計算する方が，マッコーレーの括弧を含む式を
+解釈して断面力図を描くよりも容易な場合があることを覚えておくとよい．
+\end{enumerate}
+\subsection{問題}
+図\ref{fig:fig10_2}-(b)$\sim$(d)に示す構造について，全ての支点反力を求めるとともに，
+断面力図を描け．
+%--------------------
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=0.75\linewidth]{fig10_2.eps} 
+	\end{center}
+	\caption{
+		2径間連続梁を始めとする単純な不静定梁.
+	} 
+	\label{fig:fig10_2}
+\end{figure}
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=0.45\linewidth]{fig10_2_1.eps} 
+	\end{center}
+	\caption{
+		等分布荷重を受ける2径間連続梁の断面力図.
+	} 
+	\label{fig:fig10_2_1}
+\end{figure}
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=0.45\linewidth]{fig10_2_2.eps} 
+	\end{center}
+	\caption{
+		静定系の重ね合わせによる，2径間連続梁の表現.
+	} 
+	\label{fig:fig10_2_2}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{集中モーメント}
+図\ref{fig:fig10_4}のように，大きさが等しく向きが反対の集中荷重の対(偶力)について考える．
+各々の集中荷重の大きさ$F$は等しく，作用点は$x=a$の位置を中心として互いに$\varepsilon$だけ
+離れているとする．このとき偶力は，合力が零だが時計周りの方向に$M_0=F\varepsilon$のモーメント
+を生じさせる．ここで，$M_0$を一定に保ちながら$\varepsilon \rightarrow 0$の極限をとる．
+そのような極限では，2つの大きさ無限大の力が同じ位置に作用することから, 集中荷重を個別に
+区別して扱うことはできない．ただし，2つの力が対になって作用した結果，位置$x=a$に
+有限のモーメント$M_0$を生じさせることは分かる．このようにして加えられたモーメントのことを，
+"{\bf 集中モーメント}"と呼ぶ．集中荷重はディラクのデルタ関数を使って表すことができるので, 
+偶力を構成する力を，大きさ$M_0/\varepsilon$，作用点位置$x=a\pm\frac{\varepsilon}{2}$の
+デルタ関数で表し$\varepsilon \rightarrow 0$の極限をとれば，
+\begin{equation}
+	\lim_{\varepsilon \rightarrow 0} 
+	\left\{
+	M_0\frac{
+		\delta\left(x-a+\frac{\varepsilon}{2}\right)
+		-
+		\delta\left(x-a-\frac{\varepsilon}{2}\right)
+	}{\varepsilon}
+	\right\}
+	=M_0 \delta '\left( x-a \right)
+\end{equation}
+と，集中モーメントをデルタ関数の微分で表現できることが分かる．従って，梁の曲げ問題において外力項を
+$q(x)=M_0\delta'\left(x-a\right)$と置けば，$x=a$に大きさ$M_0$の集中モーメントが
+加えられたときのたわみや断面力について調べることができる．
+\subsection{例題}
+図\ref{fig:fig10_3}-(a)に示すような，支間中央部で集中モーメントを受ける単純支持梁について支点反力と，
+断面力分布を求め，断面力図を描く．外力は
+\begin{equation}
+	q(x)=M_0\delta'\left(x-\frac{l}{2}\right)
+\end{equation}
+と表され，その４回の積分は
+\begin{equation}
+	\iiiint q(x)dx^4 =\frac{1}{2}\left< x-\frac{l}{2}\right>^2
+\end{equation}
+であることから，たわみを
+\begin{equation}
+	v(x)=\frac{q_0l^2}{2EI}\left\{ \left< \xi -\frac{1}{2} \right>^2+C_1\xi^3 +C_2\xi^2+C_3\xi+C_4\right\}, \ \ 
+	\left(\xi=\frac{x}{l}\right)
+\end{equation}
+と表すことができる．これに単純支持条件：
+\begin{equation}
+	v(0)=v(l)=0, \ \ M(0)=M(l)=0
+\end{equation}
+を課せば，積分定数が
+\begin{equation}
+	C_1=-\frac{1}{3}, \ \ C_2=C_4=0, \ \ C_3=\frac{1}{12}
+\end{equation}
+と決まり，たわみ$v(x)$が次のように求められる．
+\begin{equation}
+	v(x)=\frac{q_0l^2}{2EI}\left\{ \left< \xi -\frac{1}{2} \right>^2-\frac{1}{3}\xi^3 +\frac{1}{12}\xi \right\}
+\end{equation}
+いま，梁は単純支持されているため，反力，断面力とも力とモーメントの釣り合いから決定する
+ことができるが，ここでは，上で求めたたわみを微分して，曲げモーメントとせん断力を
+求めると，次に示すようになる．
+\begin{eqnarray}
+	M(x) &= & 
+		M_0\left\{ \xi -H \left(\xi-\frac{1}{2}\right) \right\} \\
+	Q(x) &= & 
+		\frac{M_0}{l}\left\{1 -\delta\left(\xi-\frac{1}{2}\right)  \right\}
+\end{eqnarray}
+せん断力の表現にはデルタ関数が含まているが，
+この場合$x=\frac{l}{2}$では関数値は定義されず，$x\neq \frac{l}{2}$ではゼロである．
+また，このような点が生じるのは，曲げモーメント分布が$x=\frac{l}{2}$において不連続
+となり，微分できないためである．以上のことに注意して，断面力図を描くと，その結果は図\ref{fig:fig10_3_1}
+のようになる．
+\subsection{問題}
+\begin{enumerate}
+\item
+図\ref{fig:fig10_3}-(b)$\sim$(d)に示す構造について，たわみ，断面力および支点反力を求めよ．
+断面力図を描け．
+\item
+図\ref{fig:fig10_3}-(e)$\sim$(f)に示す構造について，点Aと点Bにおけるたわみ角を求めよ.
+\end{enumerate}
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=0.4\linewidth]{fig10_4.eps} 
+	\end{center}
+	\caption{
+		大きさ$M_0$の偶力．$\varepsilon\rightarrow 0$の極限において
+		大きさ$M_0$の集中モーメントの生成する.
+	} 
+	\label{fig:fig10_4}
+\end{figure}
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=0.7\linewidth]{fig10_3.eps} 
+	\end{center}
+	\caption{
+		集中モーメントを受ける単径間梁.
+	} 
+	\label{fig:fig10_3}
+\end{figure}
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=0.5\linewidth]{fig10_3_1.eps} 
+	\end{center}
+	\caption{
+		支間中央の点において集中モーメントを受ける単純支持梁の断面力図.
+	} 
+	\label{fig:fig10_3_1}
+\end{figure}
+%--------------------
+\end{document}

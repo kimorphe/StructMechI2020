@@ -1,0 +1,427 @@
+\documentclass[10pt,a4j]{jbook}
+%\usepackage{graphicx,wrapfig}
+\usepackage{graphicx,amsmath}
+\setlength{\topmargin}{-1.5cm}
+\setlength{\textwidth}{16.5cm}
+\setlength{\textheight}{25.2cm}
+\newlength{\minitwocolumn}
+\setlength{\minitwocolumn}{0.5\textwidth}
+\addtolength{\minitwocolumn}{-\columnsep}
+%\addtolength{\baselineskip}{-0.1\baselineskip}
+%
+\def\Mmaru#1{{\ooalign{\hfil#1\/\hfil\crcr
+\raise.167ex\hbox{\mathhexbox 20D}}}}
+%
+\begin{document}
+\newcommand{\fat}[1]{\mbox{\boldmath $#1$}}
+\newcommand{\D}{\partial}
+\newcommand{\w}{\omega}
+\newcommand{\ga}{\alpha}
+\newcommand{\gb}{\beta}
+\newcommand{\gx}{\xi}
+\newcommand{\gz}{\zeta}
+\newcommand{\vhat}[1]{\hat{\fat{#1}}}
+\newcommand{\spc}{\vspace{0.7\baselineskip}}
+\newcommand{\halfspc}{\vspace{0.3\baselineskip}}
+\bibliographystyle{unsrt}
+%\pagestyle{empty}
+\newcommand{\twofig}[2]
+ {
+   \begin{figure}
+     \begin{minipage}[t]{\minitwocolumn}
+         \begin{center}   #1
+         \end{center}
+     \end{minipage}
+         \hspace{\columnsep}
+     \begin{minipage}[t]{\minitwocolumn}
+         \begin{center} #2
+         \end{center}
+     \end{minipage}
+   \end{figure}
+ }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\vspace*{\baselineskip}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setcounter{chapter}{8}
+\chapter{静定骨組み構造}
+\section{はじめに}
+複数の部材を平面的あるいは立体的に結合して作られた構造は"{\bf 骨組み構造}"と呼ばれる．
+これまでに学んだ軸力問題と曲げ問題に関する知識は，骨組み構造の解析にも適用することができる．
+骨組み構造では，互いに向きのことなる部材同士が連結されていることと，
+部材軸に対して斜め方向に外力が作用することに起因し，曲げモーメントと軸力が
+同時に発生する．そのため，変形量や断面力を計算する際， 曲げと軸力が同時に
+発生する曲げ-軸力問題として考える必要がある．
+骨組み構造の変形解析は，部材数の増加に伴い計算が非常に煩雑となり，
+手計算で解くことのできる問題はかなり限定されてしまう．
+一方，静帝構造の断面力計算に関しては，骨組み構造の場合もこれまでとほとんど同じ
+方法で行うことができる．以下では，その手順を具体的に示すために，単径間梁の曲げ-
+軸力問題について述べ，次に，平面骨組み構造の断面力計算を具体的な例題を用いて
+説明する．最後に，静定トラスの軸力計算方法について，例題を用いて説明する．
+\section{曲げ-軸力問題}
+\subsection{例１}
+図\ref{fig:fig12_1}-(a)に示すような，単純支持された梁ACが，支間中央の点B
+で大きさ$P$の集中荷重を受けるとする．
+荷重の向きは，梁の長手方向から反時計回りの方向に$\theta$であるとする．
+ここで，支点反力の正方向を図\ref{fig:fig12_1}-(b)のように定め，
+構造全体の釣り合い条件式を立てれば，
+\begin{eqnarray}
+	P\cos\theta-H_A=0 & \Rightarrow & H_A=P\cos\theta \\
+	P\sin\theta \times \frac{l}{2}-R_C\times l =0 & \Rightarrow & R_C=\frac{P}{2}\sin\theta \\
+	R_A+R_C=P\sin\theta & \Rightarrow & R_A=\frac{P}{2}\sin\theta
+\end{eqnarray}
+となり，水平反力$H_A$と鉛直反力$R_A,R_C$が求められる．
+そこで，図\ref{fig:fig12_1}-(b)のa-a'の位置で梁を切断して
+自由物体図を描くと，同図(c)のようになる．これより，区間ABにおける
+軸力$N(x)$, せん断力$Q(x)$, 曲げモーメント$M(x)$が, 次のように求められる．
+\begin{eqnarray}
+	N(x)+P\cos\theta=0 & \Rightarrow & N(x)=-P\cos\theta \\
+	Q(x)-\frac{P}{2}\sin\theta=0 & \Rightarrow & Q(x)=\frac{P}{2}\sin\theta \\
+	M(x)-\frac{P}{2}\sin\theta\times x =0 & \Rightarrow & M(x)=\frac{P}{2}x\sin\theta
+\end{eqnarray}
+このように，水平反力$H_A$がゼロでないことに起因して，区間AB
+では，せん断力と曲げモーメントに加え，軸力が同時に発生する．
+一方，右半分の区間BCは，図\ref{fig:fig12_1}-(c)の自由物体図をもとに
+水平力，鉛直力，モーメントの釣り合いを考えることで，断面力が次のように求まる．
+\begin{eqnarray}
+	N(s)&=& 0 \\
+	Q(s)&=&-\frac{P}{2}\sin\theta \\
+	M(s)&=&\frac{P}{2}s \sin\theta
+\end{eqnarray}
+以上の結果を断面力図として示すと，図\ref{fig:fig12_1_1}のようになる．
+
+\subsection{例2}
+単径間梁における曲げ-軸力問題のもう一つの例として，図\ref{fig:fig12_1}-(d)に示すような
+鉛直方向の等布荷重を受ける梁ABを考える．
+ここで，等分布荷重の大きさは，梁長手方向の単位長さあたり$q_0$，
+梁は水平方向から$\theta$だけ傾いた状態で単純支持されているとする．
+支点Aはピン支点のため，水平，鉛直方向に変位が拘束されることから，
+水平反力$H_A$,鉛直反力$R_A$が発生する．一方，支点Bは，ローラー支点で，
+水平方向と回転に関する変位の拘束がなく，鉛直変位のみが拘束される．
+よって，支点Bでは鉛直反力$R_B$のみが生じる．
+これらの反力と外力に対して，水平力，鉛直力，モーメントの釣り合い条件を
+立てれば，3つの反力が次のように決まる．
+\begin{equation}
+	R_A=R_B=\frac{q_0l}{2}, \ \ H_A=0
+\end{equation}
+と求まる．
+次に，図\ref{fig:fig12_1}-(d)のa-a'の位置で梁を長手方向に垂直に切断して
+自由物体図を描くと，図\ref{fig:fig12_1}-(e)のようになる．
+そこで，梁の長手方向($N$方向)，長手直角方向($Q$方向)の力の釣り合い式を立てると，
+\begin{eqnarray}
+	N(x)+H_A\cos\theta +R_A\sin\theta - q_0x\sin \theta =0 
+	& \Rightarrow  & 
+	N(x)=q_0\left(x-\frac{l}{2}\right)\sin\theta
+	%N(x)=-\frac{q_0l}{2}\sin\theta -q_0x \sin \theta
+	\\
+	Q(x)+H_A\sin\theta -R_A\cos\theta +q_0x\cos \theta =0 
+	& \Rightarrow  &  
+	Q(x)=-q_0\left(x-\frac{l}{2}\right) \cos\theta	
+	%Q(x)=\frac{q_0l}{2}\cos\theta -q_0x \cos \theta
+\end{eqnarray}
+と，軸力$N$，せん断力$Q$が求められ，a-a'断面に関するモーメントの釣り合い式からは，
+\begin{equation}
+	M(x)+H_Ax\sin\theta -R_Ax\cos\theta +q_0x\times \frac{x}{2}\cos \theta =0 
+	\Rightarrow    
+	%M(x)=\frac{q_0lx}{2}\cos\theta -\frac{q_0x^2}{2} \cos \theta
+	M(x)=-\frac{q_0x}{2}\left(x-l\right)\cos\theta
+\end{equation}
+と曲げモーメントが求められる．以上の結果を断面力図として示すと，図\ref{fig:fig12_1_2}のようになる．
+%--------------------
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=0.85\linewidth]{./fig1.eps} 
+	\end{center}
+	\caption{
+		単径間梁に関する曲げ-軸力問題.
+	} 
+	\label{fig:fig12_1}
+\end{figure}
+%--------------------
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=1.00\linewidth]{./fig11.eps} 
+	\end{center}
+	\caption{
+		単径間梁の曲げ-軸力問題に対する断面力図(例1).
+	} 
+	\label{fig:fig12_1_1}
+\end{figure}
+%--------------------
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=1.00\linewidth]{./fig10.eps} 
+	\end{center}
+	\caption{
+		単径間梁の曲げ-軸力問題に対する断面力図(例2).
+	} 
+	\label{fig:fig12_1_2}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{静定骨組み構造の断面力計算}
+\subsection{例題 1}
+図\ref{fig:fig12_2}-(a)に示すように，2つの部材ABとBCを直角に剛結して作られた
+平面骨組み構造が単純支持された状態で，水平方向の等分布荷重を部材ABに受けるとする．
+以下ではABを部材1, BCを部材2と呼ぶ．
+
+はじめに，支点AとCにおける支点反力の正方向を図\ref{fig:fig12_3}-(a)のように定める．
+この図を元に，構造全体の力とモーメントの釣り合い式を立てれば，支点反力が次のように求められる．
+\begin{eqnarray}
+	q_0l-H_A=0 & \Rightarrow & H_A=q_0l \\ 
+	R_C\times l -q_0l \times \frac{l}{2}
+	 & \Rightarrow & R_C=\frac{q_0l}{2} \\ 
+	R_A+R_C=0 &\Rightarrow& R_A=-\frac{q_0l}{2}
+\end{eqnarray}
+次に，a-a'の位置で部材1を，b-b'の位置で部材2をそれぞれ切断して断面力を求める．
+ここで，部材$i(=1,2)$の軸力を$N_i$，せん断力を$Q_i$，曲げモーメント$M_i$と表し，
+これらの正方向を図\ref{fig:fig12_3}-(b)および(c)のように定める．
+断面力の正方向は，軸力は引張が正となるようにとる．せん断力と曲げモーメントの
+の正方向は任意に定めてよいが，ここでは，A$\rightarrow$B$\rightarrow$Cの方向を
+正断面と考え，正断面における曲げモーメントは反時計周りを正方向とするようにした．
+また，正断面におけるせん断力の正方向は，軸力の正方向を時計回りに90度回転させた方向としている．
+これらの図\ref{fig:fig12_3}-(c)と(d)に示された自由物体図を参照して力とモーメントの
+釣り合いを考えれば，部材1と2の断面力は，以下に示すように求められる．
+\begin{eqnarray}
+	N_1(x_1) &= & \frac{q_0l}{2}  
+	\\
+	Q_1(x_1) &= & q_0(l-x_1)
+	\\
+	M_1(x_1) &= & q_0x_1\left(l-\frac{x_1}{2}\right)
+\end{eqnarray}
+\begin{eqnarray}
+	N_2(s_2) &= & 0
+	\\
+	Q_2(s_2) &= & -\frac{q_0l}{2}
+	\\
+	M_2(s_2) &= & \frac{1}{2}q_0ls_2
+\end{eqnarray}
+図\ref{fig:fig12_3}-(c)から(e)は，以上の結果を断面力図として示したものである．
+骨組み構造の断面力計算では，断面力の正方向を各自で定義し，断面力図には
+断面力の正負を明記することが必要である．
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=1.0\linewidth]{./fig2.eps} 
+	\end{center}
+	\caption{
+		剛結された２つの部材から構成される静定平面骨組み構造(a)〜(e). 
+		分布荷重の大きさは，梁の単位長さあたり$q_0$で，図中の数字1と2は部材番号を表す．
+	} 
+	\label{fig:fig12_2}
+\end{figure}
+%%%%%%
+%--------------------
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=0.9\linewidth]{./fig3.eps} 
+	\end{center}
+	\caption{
+		図\ref{fig:fig12_2}-(a)の構造の断面力計算に用いる自由物体図(a)-(c)と，
+		断面力図(d)-(f).
+	} 
+	\label{fig:fig12_3}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{例題 2}
+図\ref{fig:fig12_2}-(d)に示した骨組み構造の断面力を求める．
+はじめに，構造全体の釣り合い条件から支点反力を求める．
+次に，部材毎に構造を切断して自由物体図を描き，部分構造毎にたてた
+釣り合い条件式から断面力を決定する．以下では，
+図\ref{fig:fig12_4}-(a)に示すように支点反力$R_A,H_A,M_A$の正方向をとり，
+部材$i$の断面力を$N_i, Q_i, M_i$と書く．
+
+この問題では，水平方向に作用する外力は存在しないため$H_A=0$は明らかである．
+また，鉛直方向の力の釣り合いと点Aに関するモーメントの釣り合いより，
+\begin{equation}
+	R_A=q_0l, \ \ M_A=-\frac{3}{2}q_0l^2
+\end{equation}
+と残りの支点反力も決定できる．
+以上を踏まえ，a-a'の箇所で構造を切断して自由物体図を描けば，図\ref{fig:fig12_4}-(b)のようになる．
+そこで，支点反力を部材軸方向と部材軸直角方向の力に分解し，それぞれの方向で釣り合い条件式を立てれば，
+部材1の断面力が次のように求められる．
+\begin{eqnarray}
+	N_1(x_1) &= & -\frac{q_0l}{\sqrt{2}} 
+	\\
+	Q_1(x_1) &= & \frac{q_0l}{\sqrt{2}} 
+	\\
+	M_1(x_1) &= & q_0l \left( \frac{x_1}{\sqrt{2}}-\frac{3}{2}l\right) 
+\end{eqnarray}
+部材2の断面力については，図\ref{fig:fig12_4}-(a)のb-b'において構造を切断して
+自由物体図を描けば，同図(c)のようになる．この場合，水平に支持された片持梁
+と同様にして断面力を得ることができる．その結果は次の通りで，
+一連の結果を断面力図として示せば，図\ref{fig:fig12_5}のようになる．
+\begin{eqnarray}
+	N_2(s_2) &= & 0
+	\\
+	Q_2(s_2) &= & q_0s_2
+	\\
+	M_2(s_2) &= & -\frac{q_0}{2}s_2^2
+\end{eqnarray}
+%--------------------
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=0.9\linewidth]{./fig4.eps} 
+	\end{center}
+	\caption{
+		図\ref{fig:fig12_2}-(d)の構造の断面力計算に用いる自由物体図．
+	} 
+	\label{fig:fig12_4}
+\end{figure}
+%--------------------
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=1.0\linewidth]{./fig5.eps} 
+	\end{center}
+	\caption{
+		図\ref{fig:fig12_2}-(d)の構造の断面力図.
+	} 
+	\label{fig:fig12_5}
+\end{figure}
+\subsection{問題}
+図\ref{fig:fig12_2}-(b),(c),(e)に示された構造の断面力図を描け．
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+\section{静定トラス構造の軸力計算}
+\subsection{トラス構造の部材力}
+図\ref{fig:fig12_9}-(a)に示すような，三角形の部材組を基本単位とした構造を"{\bf トラス構造}"と呼ぶ．
+トラス構造を構成する部材の中で，構造の上側，下側に位置する水平材はそれぞれ"{\bf 上弦材}"，
+"{\bf 下弦材}"と呼ばれ，斜めに配置された部材は斜材と呼ばれる．
+部材どうしの結合部は，"{\bf 節点}"あるいは格点と呼ばれ，節点では複数の部材がピンで結合されていると考える．
+トラス構造では，部材が外力を直接受けることはなく，トラス構造上に設置された床版や桁を介して，
+間接的に節点へ集中荷重が加えられる．従って，各トラス部材に作用する力は部材端部にのみ働く．
+従って，単一のトラス部材の自由物体図を描くと，図\ref{fig:fig12_9}-(b)のようになる．
+ここで，部材端部は，他の部材や支点にピンで結合されていることから曲げモーメントは加わらない．
+また，力とモーメントの釣り合いを考えれば，
+\begin{equation}
+	N_a=N_b, \ \ Q_a=Q_b=0
+\end{equation}
+でなければならない．さらに，軸力が部材内部で一定値をとることも，軸力の釣り合い条件から容易に示される．
+以上より，ピン結合で作られたトラス構造は，各部材が軸力だけを伝達する構造となっており，
+断面力計算では，部材毎に一定となる軸力値を求めればよいことになる．
+%--------------------
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=0.9\linewidth]{./fig9.eps} 
+	\end{center}
+	\caption{
+		(a)トラス構造の一例(ワーレントラス), (b)トラス部材に作用する力. 
+	} 
+	\label{fig:fig12_9}
+\end{figure}
+%--------------------
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=0.9\linewidth]{./fig6.eps} 
+	\end{center}
+	\caption{
+		分布荷重を受ける骨組み構造.数字は部材番号を表す.
+	} 
+	\label{fig:fig12_6}
+\end{figure}
+%--------------------
+\subsection{例題1}
+図\ref{fig:fig12_6}-(a)に示すような，水平荷重を受ける正三角形の部材組について
+部材1から3に生じる軸力を求める．はじめに，支点反力の正方向を図
+\ref{fig:fig12_7}-(a)のように定める．これらは，構造全体の釣り合い条件から
+\begin{equation}
+	H_A=F, \ \ 
+	R_A=-\frac{\sqrt{3}}{2}F, \ \ 
+	R_B= \frac{\sqrt{3}}{2}F
+\end{equation}
+と求まる．次に，図\ref{fig:fig12_7}-(a)のa-a'にそって構造を切断し，
+節点Cに加わる力を描き込むと，同図(b)のようになる．
+ここで，$N_i$は部材$i(=1,2,3)$の軸力を意味し，$N_i>0$は引張，
+$N_i<0$は圧縮の軸力を表す．$N_2$と$N_3$は，節点Cに作用する力の釣り合いより，
+\begin{equation}
+	N_2=F, \ \ N_3=-F
+\end{equation}
+決まる.  残る$N_1$は節点AあるいはBにおける力の釣り合いから
+求めることができる．あるいは，図\ref{fig:fig12_7}-(a)のb-b'の位置で
+構造を切断した結果として得られる部分構造を利用して$N_1$を決めることもできる
+(図\ref{fig:fig12_7}-(c))．この場合，力の釣り合いだけでなく，
+モーメントの釣り合い条件を利用することができる．
+例えば，点Cに関するモーメントの釣り合い式を立てれば，
+\begin{equation}
+	N_1\times \frac{\sqrt{3}}{2}l -R_B\times \frac{l}{2}=0 \Rightarrow
+	N_1=\frac{F}{2}
+\end{equation}
+となり，軸力$N_2$が未知でも$N_1$を直接求めることができる．
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=0.9\linewidth]{./fig7.eps} 
+	\end{center}
+	\caption{
+		図\ref{fig:fig12_6}-(a)の構造に対する軸力計算に用いた自由物体図.
+	} 
+	\label{fig:fig12_7}
+\end{figure}
+%--------------------
+\subsection{例題2}
+図\ref{fig:fig12_6}-(b)のようなワーレントラスに発生する軸力を, 
+図\ref{fig:fig12_8}に示す自由物体図を用いて求める．
+図\ref{fig:fig12_8}-(a)は，支点反力の正方向と，軸力計算に用いる自由物体図(b)$\sim$(e)を
+描くための切断位置を示したものである．
+これらの図を参照し，はじめに構造全体の釣り合い条件を用いれば
+\begin{equation}
+	H_A=0, \ \ R_A=R_C=\frac{F}{2}
+\end{equation}
+と反力が求まる．次に，a-a'で切断を行い，節点Aに関する力の釣り合いを考えれば，軸力$N_1,N_3$が
+\begin{eqnarray}
+	N_3\sin\frac{\pi}{3}+\frac{F}{2}=0 
+	&\Rightarrow  & 
+	N_3=-\frac{F}{\sqrt{3}} \\
+	N_3\cos\frac{\pi}{3}+N_1=0
+	&\Rightarrow  & 
+	N_1=\frac{F}{2\sqrt{3}} 
+\end{eqnarray}
+と求められる．c-c'での切断に基づき，節点Cにおける力の釣り合いを考えれば，
+ほとんど同じ計算で$N_2$と$N_6$が
+%\end{document}
+\begin{equation}
+	N_6=-\frac{F}{\sqrt{3}}, \ \ N_2=\frac{F}{2\sqrt{3}} 
+	\label{eqn:}
+\end{equation}
+と求まる．次に，切断b-b'によって得られる部分構造(図\ref{fig:fig12_8}-(d))に
+着目すれば，節点Bに関するモーメントの釣り合いから
+\begin{equation}
+	N_7 \times l\sin\frac{\pi}{3}+\frac{F}{2}\times l =0 \Rightarrow 
+	N_7=-\frac{F}{\sqrt{3}}
+\end{equation}
+と$N_7$が求まる．続いて，節点Cに関するモーメントの釣り合いを考えると，
+\begin{equation}
+	N_4 \times l\sin\frac{\pi}{3}- N_7 \times l\sin\frac{\pi}{3} - F\times l =0 \Rightarrow 
+	N_4=\frac{F}{\sqrt{3}}
+\end{equation}
+となり，$N_4$が求められる．
+最後に，d-d'での切断では，構造と載荷条件の対称性より，$N_4$と$N_7$を求めた直前の計算とほとんど同じ
+計算により，$N_7$と$N_5$が次のように求められる．
+\begin{equation}
+	N_7=-\frac{F}{\sqrt{3}}
+	, \ \ 
+	N_5=\frac{F}{\sqrt{3}}
+	\label{eqn:}
+\end{equation}
+勿論，ここで得られた$N_7$は，切断b-b'で既に明らかになった結果と一致する．\\
+
+節点に作用する力の釣り合い条件は，水平方向と鉛直方向の2つの条件式を与える，
+従って，その節点に作用する未知の荷重が2つ以下であれば，
+節点に関する釣り合いからそれらの未知荷重を決定できる．
+このことを踏まえて節点DとEを見ると，これらの節点には3本の部材が，
+節点Bには4本の部材が結合されている．そのため，最初にこれらの節点の釣り合い式を
+立てるだけでは未知の軸力を決定できない．
+一方，切断b-b'やd-d'の結果として得られる部分構造では，力の釣り合い式に
+モーメントの釣り合い式を加えた，合計3つの条件式が得られる．
+従って，切断の結果として現れる未知の軸力の数が3以下であればそれらの軸力を決定できる．
+さらに，モーメントの基準点を適切に選べば，いくつかの未知の軸力が
+つりあい方程式に含まれないようにすることができる．その結果，未知数の合計
+を3以下にすることができれば，切断面に現れる軸力の一部が決定できる．
+上で示した軸力$N_7$の求め方は，このような方針に基づいて選択したものである．
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=0.9\linewidth]{./fig8.eps} 
+	\end{center}
+	\caption{
+	図\ref{fig:fig12_6}-(b)の構造に対する軸力計算に用いた自由物体図.
+	} 
+	\label{fig:fig12_8}
+\end{figure}
+\subsection{問題}
+図\ref{fig:fig12_6}-(c)と(d)のトラス構造において発生する軸力を全てを求めよ．
+\end{document}

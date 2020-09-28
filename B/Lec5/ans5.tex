@@ -1,0 +1,203 @@
+\documentclass[10pt,a4j]{jarticle}
+\usepackage{graphicx,wrapfig}
+\setlength{\topmargin}{-1.5cm}
+\setlength{\textwidth}{15.5cm}
+\setlength{\textheight}{25.2cm}
+\newlength{\minitwocolumn}
+\setlength{\minitwocolumn}{0.5\textwidth}
+\addtolength{\minitwocolumn}{-\columnsep}
+%\addtolength{\baselineskip}{-0.1\baselineskip}
+%
+\def\Mmaru#1{{\ooalign{\hfil#1\/\hfil\crcr
+\raise.167ex\hbox{\mathhexbox 20D}}}}
+%
+\begin{document}
+\newcommand{\fat}[1]{\mbox{\boldmath $#1$}}
+\newcommand{\D}{\partial}
+\newcommand{\w}{\omega}
+\newcommand{\ga}{\alpha}
+\newcommand{\gb}{\beta}
+\newcommand{\gx}{\xi}
+\newcommand{\gz}{\zeta}
+\newcommand{\vhat}[1]{\hat{\fat{#1}}}
+\newcommand{\spc}{\vspace{0.7\baselineskip}}
+\newcommand{\halfspc}{\vspace{0.3\baselineskip}}
+\bibliographystyle{unsrt}
+\pagestyle{empty}
+\newcommand{\twofig}[2]
+ {
+   \begin{figure}[h]
+     \begin{minipage}[t]{\minitwocolumn}
+         \begin{center}   #1
+         \end{center}
+     \end{minipage}
+         \hspace{\columnsep}
+     \begin{minipage}[t]{\minitwocolumn}
+         \begin{center} #2
+         \end{center}
+     \end{minipage}
+   \end{figure}
+ }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\vspace*{\baselineskip}
+\begin{center}
+{\Large \bf 2019年度 構造力学I及び演習B 演習問題5 解答} \\
+\end{center}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{問題1.}
+\begin{itemize}
+\item
+	{\rm 反力:}\\
+	支点反力の正方向を図\ref{fig:fig1}-(a)のようにとる．これらの支点反力は，
+	力とモーメントの釣り合い式:
+	\begin{eqnarray*}
+		水平 &:& H_A=0 \\
+		鉛直 &:& R_A+R_E-\frac{q_0l}{2}=0 \\
+		モーメント(基準点A) &:& R_E \times \frac{l}{2}-
+		\frac{q_0l}{2}\times \left(\frac{3}{2}+\frac{1}{4}\right)l
+	\end{eqnarray*}
+	より，
+	\[
+		H_D=0, \ \ 
+		R_A=-\frac{5}{4}q_0l, \ \
+		R_E=\frac{7}{4}q_0l
+	\]	
+	と求められる．\\
+
+	以上を元に断面力計算を行うにあたり，部材AB,BC,CDおよびECをそれぞれ部材1，2，3および4と呼ぶ．
+	また, 部材$i,\,(i=1\sim 4)$の軸力，せん断力，曲げモーメントをそれぞれ$N_i, \, Q_i,\, M_i$と表す．
+	これらの断面力は，図\ref{fig:fig1}-(a)に示した，a-a', b-b', c-c'とd-d'において
+	構造を仮想的に切断したときの自由物体図について釣り合い式を立てることによって決定できる．
+\item
+	{\rm 部材1:} \\
+	図\ref{fig:fig1}-(b)の自由物体図について, 部材軸および部材軸直角方向の力と, 
+	モーメントのつり合い式を立てればよい．その結果として，
+	\begin{eqnarray}
+		N_1(x_1) & =& -R_A=\frac{5}{4}q_0l \\
+		Q_1(x_1) & =& -H_A=0\\
+		M_1(x_1) & =& -H_Ax_1=0
+	\end{eqnarray}
+	が得られる．
+\item
+	{\rm 部材2:} \\
+	部材2の断面力計算には図\ref{fig:fig1}-(c)の自由物体図を用いることができる．この自由物体図に対する
+	釣り合い条件から, 断面力は
+	\begin{eqnarray}
+		N_2(x_2) 
+			&=& 
+			-H_A=0\\
+		Q_2(x_2) 
+			&=&
+			R_A= -\frac{5}{4}q_0l \\
+		M_2(x_2) 
+			&=&
+			=-H_Al+R_Ax_2
+			=-\frac{5}{4}q_0lx_2
+	\end{eqnarray}
+	と求められる．
+\item
+	{\rm 部材3:} \\
+	部材3の断面力計算には図\ref{fig:fig1}-(d)の自由物体図を用いることができる．この自由物体図に対する
+	釣り合い条件から, 断面力は次のように求められる．
+	\begin{eqnarray}
+		N_3(s_3) 
+			&=&  0 \\
+		Q_3(s_3) 
+			&=&
+			q_0s_3 \\
+		M_3(s_3) 
+			&=&
+			=-\frac{q_0}{2}(s_3)^2
+	\end{eqnarray}
+\item
+	{\rm 部材4:} \\
+	図\ref{fig:fig1}-(e)に示す自由物体図を用い，部材4の断面力はは次のように求められる．
+	\begin{eqnarray}
+		N_4(x_4) 
+			&=&  -R_E\cos\frac{\pi}{4}=-\frac{7}{4\sqrt{2}}q_0l \\
+		Q_4(x_4) 
+			&=&  R_E\cos\frac{\pi}{4}=\frac{7}{4\sqrt{2}}q_0l \\
+		M_4(x_4) 
+			&=&  R_E\cos\frac{\pi}{4}x_4 =\frac{7}{4\sqrt{2}}q_0lx_4 
+	\end{eqnarray}
+\end{itemize}
+以上の結果を断面力図として図示すれば，図\ref{fig:fig2}のようになる．
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=0.7\linewidth]{fig1ans.eps} 
+	\end{center}
+	\caption{骨組み構造ABCDEの断面力の計算に用いた自由物体図．} 
+	\label{fig:fig1}
+\end{figure}
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=0.5\linewidth]{fig2_2ans.eps} 
+	\end{center}
+	\caption{骨組み構造ABCDEの断面力図．} 
+	\label{fig:fig2}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{問題2.}
+支点反力の正方向を図\ref{fig:fig3}-(a)のようにとれば，
+トラス全体のつり合い条件:
+\begin{eqnarray}
+	&& P-H_A=0  \\
+	&& R_A+R_B=0 \\  
+	&& -R_B\times l + P \times 3l=0 
+\end{eqnarray}
+より
+\begin{equation}
+	H_A=P, \ \ 
+	R_A=-3P, \ \ 
+	R_B=3P
+\end{equation}
+となる．\\
+
+次に，a-a'でトラス構造を仮想的に切断し，上側の部分構造について自由物体図を描くと，
+図\ref{fig:fig3}-(b)のようになる．これに対して，点Eに関するモーメントのつり合い式を
+立てれば，$N_5$が
+\begin{equation}
+	P\times l +N_5\times l=0
+	\; \Rightarrow \;
+	N_5=-P
+\end{equation}
+と求まる．次に，点Gに関するモーメントのつり合いより，
+\begin{equation}
+	N_5\times l -N_4\times \frac{l}{\sqrt{2}}=0
+	\; \Rightarrow \;
+	N_4=-\sqrt{2}P
+\end{equation}
+と$N_4$が求められる.さらに，部分構造全体の鉛直方向への力の釣り合いを考えれば，
+\begin{equation}
+	N_3+\frac{N_4}{\sqrt{2}}+N_5=0 
+	\; \Rightarrow \;
+	N_3=-\frac{N_4}{\sqrt{2}}-N_5=2P 
+\end{equation}
+が得られる．\\
+
+次に，図\ref{fig:fig3}-(c)を参照して節点Gに関する水平力の釣り合い条件を用いれば，
+\begin{equation}
+	N_6=-N_4\times \frac{1}{\sqrt{2}}=P
+\end{equation}
+と$N_6$が求められる．\\
+
+最後に，c-c'の位置で構造を切断して得られる部分構造について自由物体図を描き(図\ref{fig:fig3}-(d))，$N_1$と$N_2$を求める．
+このとき，鉛直方向の力の釣り合い式より，
+\begin{equation}
+	N_3-N_1\frac{1}{\sqrt{2}}+R_A=0 \; \Rightarrow \; N_1=-\sqrt{2}P
+\end{equation}
+が，点Aに関するモーメントの釣り合い式より
+\begin{equation}
+	N_2l+\frac{N_1}{\sqrt{2}}l =0 \; \Rightarrow \; N_2=-\frac{N_1}{\sqrt{2}}=P
+\end{equation}
+と$N_1$と$N_2$を得ることができる．
+%--------------------
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=1.0\linewidth]{fig3ans.eps} 
+	\end{center}
+	\caption{トラス構造の軸力計算に用いた部分構造と自由物体図.} 
+	\label{fig:fig3}
+\end{figure}
+\end{document}

@@ -1,0 +1,134 @@
+\documentclass[10pt,a4j]{jarticle}
+\usepackage{graphicx,wrapfig}
+\setlength{\topmargin}{-1.5cm}
+\setlength{\textwidth}{15.5cm}
+\setlength{\textheight}{25.2cm}
+\newlength{\minitwocolumn}
+\setlength{\minitwocolumn}{0.5\textwidth}
+\addtolength{\minitwocolumn}{-\columnsep}
+%\addtolength{\baselineskip}{-0.1\baselineskip}
+%
+\def\Mmaru#1{{\ooalign{\hfil#1\/\hfil\crcr
+\raise.167ex\hbox{\mathhexbox 20D}}}}
+%
+\begin{document}
+\newcommand{\fat}[1]{\mbox{\boldmath $#1$}}
+\newcommand{\D}{\partial}
+\newcommand{\w}{\omega}
+\newcommand{\ga}{\alpha}
+\newcommand{\gb}{\beta}
+\newcommand{\gx}{\xi}
+\newcommand{\gz}{\zeta}
+\newcommand{\vhat}[1]{\hat{\fat{#1}}}
+\newcommand{\spc}{\vspace{0.7\baselineskip}}
+\newcommand{\halfspc}{\vspace{0.3\baselineskip}}
+\bibliographystyle{unsrt}
+%\pagestyle{empty}
+\newcommand{\twofig}[2]
+ {
+   \begin{figure}[h]
+     \begin{minipage}[t]{\minitwocolumn}
+         \begin{center}   #1
+         \end{center}
+     \end{minipage}
+         \hspace{\columnsep}
+     \begin{minipage}[t]{\minitwocolumn}
+         \begin{center} #2
+         \end{center}
+     \end{minipage}
+   \end{figure}
+ }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{center}
+{\Large \bf 2019年度 構造力学I及び演習B 期末試験} \\
+\end{center}
+\begin{flushright}
+	2019年2月7日(金)
+\end{flushright}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+問題毎に解答用紙を分け，片面のみ使用すること．
+下書き用紙, 問題用紙は試験終了後, 持ち帰って下さい．
+%
+%
+%
+\subsubsection*{問題1.}
+図\ref{fig:fig1}のような4種類の梁について, 以下の問に答えよ．
+なお，梁の曲げ剛性$EI$は全断面一定とし，$x$は点Aを原点とし
+右方向を正とする座標を表す. 
+\begin{enumerate}
+\item
+	梁(a)の受ける支点反力を全て求めよ．
+	解答には支点反力の正方向を明記すること．
+\item
+	梁(a)のせん断力図と曲げモーメント図を描け．
+\item
+	梁(a)のたわみ分布を求めよ．
+\item
+	梁(b)のたわみを求めよ．
+\item
+	梁(c)の受ける支点反力を全て求めよ．
+\item
+	梁(c)の曲げモーメント図を描け．
+\item
+	梁(d)の受ける支点反力を全て求めよ．
+\item
+	梁(d)の曲げモーメント図を描け．
+\end{enumerate}
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=0.5\linewidth]{fig1.eps} 
+	\end{center}
+	\caption{鉛直下向きの集中荷重を受ける4種類の梁．} 
+	\label{fig:fig1}
+\end{figure}
+%--------------------
+\newpage
+\subsubsection*{問題2.}
+図\ref{fig:fig2}のような骨組み構造ABCDについて以下の問に答えよ．
+なお．部材1は水平方向に等分布荷重が作用し，
+その大きさは部材の単位長さあたり$q_0$であるとする．
+\begin{enumerate}
+\item
+	支点反力を求めよ．解答には支点反力の正方向を明記すること．
+\item	
+	部材1の断面力図(軸力，せん断力, および曲げモーメント図)を描け．
+\item	
+	部材2の断面力図(軸力，せん断力, および曲げモーメント図)を描け．
+\item	
+	部材3の断面力図(軸力，せん断力, および曲げモーメント図)を描け．
+\item	
+	部材の断面は, いずれも幅$b$高さ$h$の長方形で$\frac{l}{h}=10$とする．
+	このとき，骨組み構造に生じる引張応力の最大値を求めよ．
+\end{enumerate}
+%--------------------
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=0.45\linewidth]{fig2.eps} 
+	\end{center}
+	\caption{
+		部材1において水平方向に等分布荷重を受ける骨組み構造．
+	} 
+	\label{fig:fig2}
+\end{figure}
+%--------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
+\twofig{
+	\includegraphics[width=0.9\linewidth]{tri_elem.eps} 
+	\caption{微小三角形領域ABCと, 各辺に作用する応力および表面力.} 
+	\label{fig:tri_elem}
+}
+{
+	\includegraphics[width=0.9\linewidth]{N_plane.eps} 
+	\caption{点$\fat{x}$を通り, $x$軸に対して$\theta$だけ傾いた面とその法線$\fat{N}(\theta)$および接線ベクトル$\fat{T}(\theta)$.} 
+	\label{fig:N_plane}
+}
+\begin{figure}[h]
+	\vspace{10mm}
+	\begin{center}
+	\includegraphics[width=0.5\linewidth]{fig1.eps} 
+	\end{center}
+	\caption{問題1で用いる座標系.(i)$xy$および$x'y'$座標系, (ii)$xy$座標系と$xy''$座標系. } 
+	\label{fig:fig1}
+\end{figure}

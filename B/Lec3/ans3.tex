@@ -1,0 +1,237 @@
+\documentclass[10pt,a4j]{jarticle}
+\usepackage{graphicx,wrapfig}
+\setlength{\topmargin}{-1.5cm}
+\setlength{\textwidth}{15.5cm}
+\setlength{\textheight}{25.2cm}
+\newlength{\minitwocolumn}
+\setlength{\minitwocolumn}{0.5\textwidth}
+\addtolength{\minitwocolumn}{-\columnsep}
+%\addtolength{\baselineskip}{-0.1\baselineskip}
+%
+\def\Mmaru#1{{\ooalign{\hfil#1\/\hfil\crcr
+\raise.167ex\hbox{\mathhexbox 20D}}}}
+%
+\begin{document}
+\newcommand{\fat}[1]{\mbox{\boldmath $#1$}}
+\newcommand{\D}{\partial}
+\newcommand{\w}{\omega}
+\newcommand{\ga}{\alpha}
+\newcommand{\gb}{\beta}
+\newcommand{\gx}{\xi}
+\newcommand{\gz}{\zeta}
+\newcommand{\vhat}[1]{\hat{\fat{#1}}}
+\newcommand{\spc}{\vspace{0.7\baselineskip}}
+\newcommand{\halfspc}{\vspace{0.3\baselineskip}}
+\bibliographystyle{unsrt}
+\pagestyle{empty}
+\newcommand{\twofig}[2]
+ {
+   \begin{figure}[h]
+     \begin{minipage}[t]{\minitwocolumn}
+         \begin{center}   #1
+         \end{center}
+     \end{minipage}
+         \hspace{\columnsep}
+     \begin{minipage}[t]{\minitwocolumn}
+         \begin{center} #2
+         \end{center}
+     \end{minipage}
+   \end{figure}
+ }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\vspace*{\baselineskip}
+\begin{center}
+{\Large \bf 2019年度 構造力学I及び演習B 演習問題3 解答} \\
+\end{center}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{問題}
+\begin{enumerate}
+\item
+図\ref{fig:fig1}-(b$_1$)のように$x$座標をとると，分布荷重$q(x)$は
+$q(x)=q_0H\left(x-l\right)$と表すことができる．
+$q(x)$の4階の不定積分は
+\begin{equation}
+	\int q(x) dx^4
+	= 
+	\frac{q_0l^4}{24}
+	\left< \frac{x}{l} -1\right> ^4
+\end{equation}
+と書けるので，梁(b$_1$)のたわみ$v_1(x)$は，$C_1\sim C_4$を積分定数として
+次のように表すことができる．
+	\begin{equation}
+	v_1(x)=\frac{q_0l^4}{24EI}\left\{
+		\left< \frac{x}{l} -1 \right> ^4
+		+
+		C_1
+		\left(\frac{x}{l} \right)^3
+		+
+		C_2
+		\left(\frac{x}{l} \right)^2
+		+
+		C_3
+		\left(\frac{x}{l} \right)
+		+
+		C_4,
+	\right\}
+	\end{equation}
+積分定数$C_3$と$C_4$は，$x=0$における支持条件:$v(0)=0,\, v'(0)=0$より$C_3=C_4=0$と決まる．
+一方，$C_1,C_2$は，$x=2l$における支持条件
+$v(2l)=0,\, v'(2l)=0$より，$C_1=-\frac{3}{4},\, C_2=\frac{5}{4}$
+となる．以上より，たわみは
+	\begin{equation}
+	v_1(x)=\frac{q_0l^4}{24EI}\left\{
+		\left< \frac{x}{l} -1\right> ^4
+		-
+		\frac{3}{4}
+		\left(\frac{x}{l} \right)^3
+		+
+		\frac{5}{4}
+		\left(\frac{x}{l} \right)^2
+	\right\}
+	\label{eqn:vx1}
+	\end{equation}
+となる．これより，点Bのたわみは
+\begin{equation}
+	v_B=v\left( l \right) 
+	= \frac{1}{48}\frac{q_0l^4}{EI}
+	\label{eqn:vc_q}
+\end{equation}
+と求められる．
+%%%%%%%%%%%%%%
+\item
+問題で与えられた梁(b)に作用する鉛直方向の支点反力を図\ref{fig:fig1}-(b)に示すようにとる．
+この梁を同図(b$_1$)と(b$_2$)のような2つの系の重ね合わせとして表現する．
+このとき，梁(b$_1)$のB点におけるたわみは式(\ref{eqn:vc_q})で与えられる．
+一方，梁(b$_2$)のたわみ分布$v_2$は，荷重項を
+\begin{equation}
+	q(x)=-R_B\delta\left(x-l\right)
+\end{equation}
+とし，たわみの方程式を両端固定条件の元で解くことにより，
+\begin{equation}
+	v_2(x)=\frac{(-R_B)l^3}{6EI}\left\{
+		\left< \frac{x}{l}-1\right>^3
+		-
+		\frac{1}{2}
+		\left(\frac{x}{l} \right)^3
+		+
+		\frac{3}{4}
+		\left(\frac{x}{l} \right)^2
+	\right\}
+	\label{eqn:vx2}
+\end{equation}
+と与えられる．よって，点Bにおけるたわみは
+\begin{equation}
+	v_2\left( l \right) 
+	= -\frac{R_Bl^3}{24EI}.
+	\label{eqn:vc_P}
+\end{equation}
+である．$v_B$と$v_2(l)$は相殺すべきものであることから，
+\begin{equation}
+	v_B+v_2(l)=0 \ \ \Rightarrow \ \ R_B=\frac{1}{2}q_0l
+	\label{eqn:RB}
+\end{equation}
+と，点Bにおける鉛直反力が求められる．\\
+
+一方，支点AとCにおける反力は，曲げモーメントおよびせん断力分布に，式(\ref{eqn:RB})を代入して求めることができる．
+図\ref{fig:fig1}-(b)の梁のたわみ$v(x)$は$v(x)=v_1(x)+v_2(x)$と表されるので，
+\begin{equation}
+	M_1=-EIv_1'', \ \ M_2=-EIv_2''
+\end{equation}
+および
+\begin{equation}
+	Q_1=-(EIv_1'')', \ \ Q_2=-(EIv_2'')',
+\end{equation}
+と書けば，求めるべき曲げモーメント$M$とせん断力$Q$を
+\begin{equation}
+	M(x)=M_1(x)+M_2(x),  \  \
+	Q(x)=Q_1(x)+Q_2(x)
+\end{equation}
+と表すことができる．これらは，式(\ref{eqn:vx1})と式(\ref{eqn:vx2})を微分して
+\begin{eqnarray}
+	M_1(x) & =& 
+	-\frac{q_0l^2}{24}\left\{ 
+	12\left<\frac{x}{l}-1\right>^2 - \frac{9}{2}\left(\frac{x}{l}\right) + \frac{5}{2}
+	\right\}
+	\label{eqn:M1}
+	\\
+	Q_1(x) & =& 
+	-\frac{q_0l}{8}\left\{ 
+	8\left<\frac{x}{l}-1\right> - \frac{3}{2}
+	\right\}
+	\label{eqn:Q1}
+\end{eqnarray}
+\begin{eqnarray}
+	M_2(x) & =& 
+	\frac{R_Bl}{2}\left\{ 
+	2\left<\frac{x}{l} - 1\right> -\frac{x}{l} + \frac{1}{2}
+	\right\}
+	\label{eqn:M2}
+	\\
+	Q_2(x) & =& 
+	\frac{R_B}{2}\left\{ 
+	2H\left(\frac{x}{l}-1\right)-1
+	\right\}
+	\label{eqn:Q2}
+\end{eqnarray}
+と求められる．これより，
+\begin{equation}
+	M_1(0)=-\frac{5}{48}q_0l^2, \ \ M_2(0)=\frac{R_Bl}{4}=\frac{q_0l^2}{8}
+\end{equation}
+\begin{equation}
+	M_1(2l)=-\frac{11}{48}q_0l^2, \ \ M_2(2l)=\frac{R_Bl}{4}=\frac{q_0l^2}{8}
+\end{equation}
+\begin{equation}
+	Q_1(0)=\frac{3}{16}q_0l, \ \ Q_2(0)=-\frac{R_B}{2}=-\frac{q_0l}{4}
+\end{equation}
+\begin{equation}
+	Q_1(2l)=-\frac{13}{16}q_0l, \ \ Q_2(2l)=\frac{R_B}{2}=\frac{q_0l}{4}
+\end{equation}
+となることから，部材端でのせん断力と曲げモーメントが以下のように決まる．
+\begin{equation}
+	R_A=Q_1(0)+Q_2(0)= -\frac{1}{16}q_0l, \ \ R_C=-Q_1(2l)-Q_2(2l)=-\frac{9}{16}q_0l
+\end{equation}
+\begin{equation}
+	M_A=M_1(0)+M_2(0)= \frac{1}{48}q_0l^2, \ \ M_C=M_1(2l)+M_2(2l)=-\frac{5}{48}q_0l^2
+\end{equation}
+\item
+曲げモーメント$M=M_1+M_2$は，式(\ref{eqn:M1})と式(\ref{eqn:M2})より，
+\begin{itemize}
+\item
+	$x<l$のとき:
+	\begin{equation}
+		M(x)=\frac{q_0l^2}{48}( -3 \xi +1), \ \ \left( \xi=\frac{x}{l}\right)
+		\label{eqn:M_left}
+	\end{equation}
+\item
+	$x>l$のとき:
+	\begin{equation}
+		M(x)=\frac{q_0l^2}{2}\left( -\eta^2 +\frac{7}{8}\eta - \frac{1}{12}\right), \ \ 
+		\left( \eta=\frac{x}{l}-1\right)
+		\label{eqn:M_right}
+	\end{equation}
+\end{itemize}
+である．これを曲げモーメント図として表すと，図\ref{fig:fig2}のようになる．
+なお，支点反力が求められた時点で，断面力は全て釣り合い条件から決定することができるので，
+たわみを微分する以外にも，区間毎に釣り合い式を立てて断面力を求めてもよい．
+%--------------------
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=0.6\linewidth]{fig1ans.eps} 
+	\end{center}
+	\caption{2つの系$(b_1)$と$(b_2)$による梁(b)の表現．}
+	\label{fig:fig1}
+\end{figure}
+%--------------------
+%--------------------
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=0.6\linewidth]{fig2ans.eps} 
+	\end{center}
+	\caption{曲げモーメント図．}
+	\label{fig:fig2}
+\end{figure}
+%--------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{enumerate}
+\end{document}
+x

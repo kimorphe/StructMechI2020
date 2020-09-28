@@ -1,0 +1,202 @@
+\documentclass[10pt,a4j]{jarticle}
+\usepackage{graphicx,wrapfig}
+\setlength{\topmargin}{-1.5cm}
+\setlength{\textwidth}{15.5cm}
+\setlength{\textheight}{25.2cm}
+\newlength{\minitwocolumn}
+\setlength{\minitwocolumn}{0.5\textwidth}
+\addtolength{\minitwocolumn}{-\columnsep}
+%\addtolength{\baselineskip}{-0.1\baselineskip}
+%
+\def\Mmaru#1{{\ooalign{\hfil#1\/\hfil\crcr
+\raise.167ex\hbox{\mathhexbox 20D}}}}
+%
+\begin{document}
+\newcommand{\fat}[1]{\mbox{\boldmath $#1$}}
+\newcommand{\D}{\partial}
+\newcommand{\w}{\omega}
+\newcommand{\ga}{\alpha}
+\newcommand{\gb}{\beta}
+\newcommand{\gx}{\xi}
+\newcommand{\gz}{\zeta}
+\newcommand{\vhat}[1]{\hat{\fat{#1}}}
+\newcommand{\spc}{\vspace{0.7\baselineskip}}
+\newcommand{\halfspc}{\vspace{0.3\baselineskip}}
+\bibliographystyle{unsrt}
+\pagestyle{empty}
+\newcommand{\twofig}[2]
+ {
+   \begin{figure}[h]
+     \begin{minipage}[t]{\minitwocolumn}
+         \begin{center}   #1
+         \end{center}
+     \end{minipage}
+         \hspace{\columnsep}
+     \begin{minipage}[t]{\minitwocolumn}
+         \begin{center} #2
+         \end{center}
+     \end{minipage}
+   \end{figure}
+ }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\vspace*{\baselineskip}
+\begin{center}
+{\Large \bf 2019年度 構造力学I及び演習B 演習問題4　解答} \\
+\end{center}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{問題1}
+断面$S$の面積$\left| S \right|$は， 
+\begin{eqnarray}
+	\left| S\right| &= & 
+	\int _{y=-h/2}^{h/2}\int _{x=0}^{b\cos\left(\frac{\pi y}{h}\right) } dxdy
+	\nonumber
+	\\
+	&=& 
+	2\int_{0}^{h/2} b\cos \left( \frac{\pi y}{h}\right) dy 
+	\nonumber
+	\\
+	&=& 
+	\frac{2bh}{\pi}\left[ \sin \left( \frac{\pi y}{h} \right)\right]_0^{h/2}
+	\nonumber
+	\\
+	&=&
+	\frac{2bh}{\pi}
+\end{eqnarray}
+となる．一方，$x$軸に関する断面１次モーメント$G$は
+\begin{eqnarray}
+	G &=& 
+	\int _{y=-h/2}^{h/2}\int_{x=0}^{b\cos\left(\frac{\pi y}{h}\right) } ydxdy \\
+	 &=& 
+	\int_{-h/2}^{h/2} by\cos \left( \frac{\pi y}{h}\right) dy 
+\end{eqnarray}
+だが，$y\cos\left(\frac{\pi y}{h}\right)$は$y$に関する奇関数だから$G=0$となる．
+よって，中立軸位置$\bar Y$は，$\bar Y=0$となる．
+従って，$x$軸に関する断面2次モーメント$I_x$は中立軸に関する断面2次モーメント$I$でもあり，それは
+以下のように求められる．
+\begin{eqnarray}
+	I=I_x &= & 
+	\int _{y=-h/2}^{h/2} \int _{x=0}^{b\cos \left(\frac{\pi y }{h}\right)} y^2dxdy   
+	\nonumber \\
+	&=& 
+	2\int _{y=0}^{h/2} b y^2\cos \left(\frac{\pi y }{h}\right) dxdy   
+	\nonumber \\
+	&=& 
+	\frac{2bh^3}{\pi^3}\int_0^{\pi/2}	
+	Y^2 \cos Y dY, \ \ \left(Y=\frac{\pi}{h}y\right)
+	\nonumber \\
+	&=& 
+	\frac{2bh^3}{\pi^3}
+	\left[ \left(Y^2-2\right)\sin Y +2 Y\cos Y \right]_{0}^{\pi/2}
+	\nonumber \\
+	&=& 
+	\frac{bh^3}{\pi^3}\left( \frac{\pi^2}{2}-4 \right)
+\end{eqnarray}
+なお，上の計算では，部分積分によって導かれる次の関係を利用した．
+\begin{equation}
+	\int x^2 \cos x dx = (x^2-2)\sin x +2x\cos x
+	\label{eqn:int_idt}
+\end{equation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{問題2}
+部分断面$S_1$自体の中立軸は，$S_1$の形状が上下対称であることから
+図\ref{fig:fig1}-(b)の$X$軸に一致する．そのため，$S_1$の中立軸に関する
+断面2次モーメント$I(S_1)$は，図\ref{fig:fig1}-(a)の$X$軸に関する断面2次モーメント
+を$b=\frac{a}{2},\,h=\frac{\sqrt{3}}{2}a$として，4倍することで
+\begin{equation}
+	I(S_1) =  4\times \left. \frac{1}{12}bh^3 \right|_{b=\frac{a}{2},h=\frac{\sqrt{3}}{2}a}=\frac{\sqrt{3}}{16}a^4
+	\label{eqn:eq_lbl}
+\end{equation}
+と求められる．
+一方，部分断面$S_2$の中立軸位置は，図\ref{fig:fig1}-(c)の$X$軸に一致し，
+$S_2$の中立軸に関する断面2次モーメント$I(S_2)$は，
+\begin{equation}
+	I(S_2)= 
+		\frac{a}{12} \times \left( \frac{\sqrt{3}}{2}a \right)^3=\frac{\sqrt{3}}{32}a^4
+	\label{eqn:eq_lbl}
+\end{equation}
+以上のことと，$S_2$と$S_3$の中立軸位置と中立軸に関する断面2次モーメントが互いに一致することを踏まえれば，
+表\ref{tbl:tbl2}に示すような計算過程を経て，複合断面$S=S_1\cup S_2 \cup S_3$の中立軸位置$\bar Y$と
+断面2次モーメント$I(S)$が，次のように求められる．
+\begin{equation}
+	\bar Y = \sum_{i=1}^3 \frac{\left|S_i\right|}{\left| S \right|}\bar{Y}_i=0
+	\label{eqn:Yb2}
+\end{equation}
+\begin{equation}
+	I(S)=\sum_{i=1}^3\left\{
+		I(S_i)+\left( \bar Y_i -\bar Y\right)^2\left| S_i \right|
+	\right\}
+		=\frac{11\sqrt{3}}{16}a^4
+	\label{eqn:Iz_2}
+\end{equation}
+\begin{table}
+\begin{center}
+	\caption{部分断面への分割に基づく断面係数計算の過程}
+	\begin{tabular}{c||c|c|c|c|c|c|c}
+		&
+		$\left| S_i \right|$ & 
+		$ \xi_i=\frac{\left| S_i \right|}{\left| S\right|} $  &
+		$ \bar{Y}_i $ & 
+		$ \xi_i\bar{Y}_i $ & 
+		$\bar{Y}_i -\bar Y$ & 
+		$ \left(\bar{Y}_i -\bar Y\right)^2\left| S_i \right|$ & 
+		$ I(S_i)$  
+		\\
+		\hline 
+		\hline 
+		断面1&	
+		$\frac{\sqrt{3}}{2}a^2$ & 
+		$\frac{1}{3}$  &
+		$\frac{\sqrt{3}}{2}a$ & 
+		$\frac{\sqrt{3}}{6}a$ & 
+		$\frac{\sqrt{3}}{2}a$ & 
+		$\frac{3\sqrt{3}}{8}a^4$ &
+		$\frac{\sqrt{3}}{16}a^4$ 
+		\\
+		\hline
+		断面2&	
+		$\frac{\sqrt{3}}{2}a^2$ & 
+		$\frac{1}{3}$  &
+		$-\frac{\sqrt{3}}{4}a$ & 
+		$-\frac{\sqrt{3}}{12}a $ & 
+		$-\frac{\sqrt{3}}{4}a$ & 
+		$\frac{3\sqrt{3}}{32}a^4$ &
+		$\frac{\sqrt{3}}{32}a^4$ 
+		\\
+		\hline 
+		断面3&	
+		$\frac{\sqrt{3}}{2}a^2$ & 
+		$\frac{1}{3}$  &
+		$-\frac{\sqrt{3}}{4}a$ & 
+		$-\frac{\sqrt{3}}{12}a $ & 
+		$-\frac{\sqrt{3}}{4}a$ & 
+		$\frac{3\sqrt{3}}{32}a^4$ &
+		$\frac{\sqrt{3}}{32}a^4$ 
+		\\
+		\hline 
+		\hline 
+		合計&	
+		$\frac{3\sqrt{3}}{2}a^2$ & 
+		$1$  &
+		$-$ & 
+		$\bar Y=0 $ & 
+		$-$ & 
+		$\frac{9\sqrt{3}}{16}a^4$ & 
+		$\frac{\sqrt{3}}{8}a^4$ 
+	\end{tabular}
+\label{tbl:tbl2}
+\end{center}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%--------------------
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=0.8\linewidth]{fig1ans.eps} 
+	\end{center}
+	\caption{断面2次モーメントの計算に用いた部分断面.} 
+	\label{fig:fig1}
+\end{figure}
+%--------------------
+\end{document}
+%--------------------

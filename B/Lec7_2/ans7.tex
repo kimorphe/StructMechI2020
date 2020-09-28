@@ -1,0 +1,103 @@
+﻿\documentclass[10pt,a4j]{jarticle}
+\usepackage{graphicx,wrapfig}
+\setlength{\topmargin}{-1.5cm}
+\setlength{\textwidth}{15.5cm}
+\setlength{\textheight}{25.2cm}
+\newlength{\minitwocolumn}
+\setlength{\minitwocolumn}{0.5\textwidth}
+\addtolength{\minitwocolumn}{-\columnsep}
+%\addtolength{\baselineskip}{-0.1\baselineskip}
+%
+\def\Mmaru#1{{\ooalign{\hfil#1\/\hfil\crcr
+\raise.167ex\hbox{\mathhexbox 20D}}}}
+%
+\begin{document}
+\newcommand{\fat}[1]{\mbox{\boldmath $#1$}}
+\newcommand{\D}{\partial}
+\newcommand{\w}{\omega}
+\newcommand{\ga}{\alpha}
+\newcommand{\gb}{\beta}
+\newcommand{\gx}{\xi}
+\newcommand{\gz}{\zeta}
+\newcommand{\vhat}[1]{\hat{\fat{#1}}}
+\newcommand{\spc}{\vspace{0.7\baselineskip}}
+\newcommand{\halfspc}{\vspace{0.3\baselineskip}}
+\bibliographystyle{unsrt}
+\pagestyle{empty}
+\newcommand{\twofig}[2]
+ {
+   \begin{figure}[h]
+     \begin{minipage}[t]{\minitwocolumn}
+         \begin{center}   #1
+         \end{center}
+     \end{minipage}
+         \hspace{\columnsep}
+     \begin{minipage}[t]{\minitwocolumn}
+         \begin{center} #2
+         \end{center}
+     \end{minipage}
+   \end{figure}
+ }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\vspace*{\baselineskip}
+\begin{center}
+	{\Large \bf 2019年度 構造力学I及び演習B 演習問題7(差替え版) 解答} \\
+\end{center}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{問題}
+\begin{enumerate}
+\item
+	部材1の温度上昇によって，部材1には圧縮の軸力が発生し，部材2はそれと
+	同じ大きさの水平力を点Bに受ける．部材1の軸力の大きさを$P$とすれば，
+	部材1の軸応力$\sigma_1$は
+	\begin{equation}
+		\sigma_1=-\frac{P}{A_1}
+		\label{eqn:sig1}
+	\end{equation}
+	で与えられる．ここに，$A_1=a_1^2$は部材1の断面積を表す．
+	一方，部材2は大きさ$P$の力を，点Bで水平右向きに受け，曲げモーメントと曲げ変形を生ずる．
+	曲げモーメントは，点Cで最大値$M_C=Pl$をとることから，最大
+	曲げ応力$\sigma_2$は
+	\begin{equation}
+		\sigma_2=\frac{M_C}{I_2}\times\frac{a_2}{2}
+		\label{eqn:sig2}
+	\end{equation}
+	となる．
+	ここに$I_2$は，部材2の断面2次モーメント$I_2=\frac{a_2^4}{12}$
+	である．
+		$\left| \sigma_1\right|=\sigma_2$とすれば，式(\ref{eqn:sig1})と式(\ref{eqn:sig2})より，
+	\begin{equation}
+		\frac{a_2}{a_1}=\sqrt{\frac{6l}{a_2}}=10
+	\end{equation}
+	が得られる．
+\item
+	部材1の伸び$\Delta l$は，熱による伸びと軸力による伸びの和として，
+	\begin{equation}
+		\Delta l= \alpha \Delta T l - \frac{Pl}{EA_1}
+		\label{eqn:del_l}
+	\end{equation}
+	と与えられる．
+	一方，部材2の点Bにおけるたわみ(水平変位)$\delta_B$は，右方向に
+	\begin{equation}
+		\delta_B=\frac{Pl^3}{3EI_2}
+		\label{eqn:del_B}
+	\end{equation}
+	である．
+	２つの部材は点Bで結合されているため，$\delta_B=\Delta l$
+	でなければならず，
+	\begin{equation}
+		\left| \sigma_1 \right|
+		=
+		\frac{P}{A_1}
+		=
+		\frac{\alpha E\Delta T}{1+\frac{4a_1^2l^2}{a_2^4}}
+		=\frac{9}{109}\alpha E \Delta T 
+	\end{equation}
+	となることが示される．よって，
+	\begin{equation}
+		\Delta T  < \frac{109}{9}\frac{\sigma_a}{\alpha E}		
+	\end{equation}
+	となる必要があることが言える．
+\end{enumerate}
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
