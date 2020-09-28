@@ -45,7 +45,7 @@
 \end{center}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 以下で，$(\cdot)^T$は$(\cdot)$の転置を意味する．例えば，横ベクトル$(a,b)$の
-転置$(a,b)^T$は次のように縦ベクトルであると解釈する．
+転置$(a,b)^T$は次のような縦ベクトルと解釈する．
 \begin{equation}
 	(a,b)^T=\left(
 	\begin{array}{c}
@@ -56,15 +56,14 @@
 	\nonumber
 \end{equation}
 \subsubsection*{問題}
-2次元空間内中の物体が外力を受けて変形し, 変形前に$\fat{x}$にあった点が
-変形後$\fat{y}$に移動したとする．ここで，変形後の位置$\fat{y}$が，
+2次元空間内の物体が外力を受けて変形し, 当初$\fat{x}$にあった点が
+変形後に$\fat{y}$へ移動したとする．ここで$\fat{y}$が，
 \begin{equation}
 	\fat{y}=\fat{A}\fat{x}
-	%\label{eqn:x2y}
 	\label{eqn:disp_fld}
 \end{equation}
-のように$\fat{x}$の関数として与えられる場合について考える．
-ただし，$\fat{x}=(x_1,\, x_2)^T, \fat{y}=(y_1, y_2)^T$で，$\fat{A}$は次のような
+のように$\fat{x}$の関数として与えられる場合を考える．
+ただし，$\fat{x}=(x_1,\, x_2)^T, \fat{y}=(y_1, y_2)^T$で，$\fat{A}$は次の
 2$\times$2行列
 \begin{equation}
 	\fat{A}=
@@ -76,7 +75,7 @@
 	\label{eqn:Amat}
 	\right)
 \end{equation}
-であるとする．このとき物体に発生している変位$\fat{u}$と，ひずみ$\fat{\varepsilon}$を，
+とする．このとき物体に発生している変位$\fat{u}$とひずみ$\fat{\varepsilon}$を，
 それぞれ
 \begin{equation}
 	\fat{u}=\left( 
@@ -95,11 +94,10 @@
 	\end{array}
 	\right)
 \end{equation}
-と表す．ただし，以上は全て$o-x_1x_2$直交座標系による表現であるとする．
-このとき，以下の問1$\sim$6に答えよ．
+と表す．以上は全て$o-x_1x_2$直交座標系による表現とするとき，以下の問1$\sim$5に答えよ．
 \begin{enumerate}
 \item
-	変形前に$(1,0)^T$と$(0,1)^T$にあった2点が，それぞれ変形後に居る位置を答えよ．
+	変形前に$(1,0)^T$と$(0,1)^T$にあった2点が，変形後に移る位置をそれぞれ答えよ．
 \item
 	$o-x_1x_2$座標系において，
 	\[
@@ -112,24 +110,25 @@
 	で表される正方形領域が，変形後$o-x_1x_2$平面内でどのような領域を占めるか調べ，
 	その結果を図示せよ．
 \item
-	変位ベクトル$\fat{u}$の成分$u_1,u_2$を求めよ．
+	変位ベクトル成分$u_1,u_2$を求めよ．
 \item
-	ひずみテンソル$\fat{\varepsilon}$の成分
+	ひずみテンソルの成分
 	$\varepsilon_{11},\varepsilon_{12}(=\varepsilon_{21}), \varepsilon_{22}$
 	を求めよ．
 \item
 	ひずみテンソルは，行列$\fat{A}$と次の関係にあることを示せ．
-	\[
+	\begin{equation}
 		\fat{\varepsilon}=\frac{\fat{A}+\fat{A}^T}{2}-\fat{I}
-	\]
+		\label{eqn:def_eps}
+	\end{equation}
 	ただし，$\fat{I}$は$2\times 2$の単位行列を意味する。
 \end{enumerate}
 
 次に，$o-x_1x_2$座標系を原点を中心に$\theta$だけ反時計回りの方向へ
 回転させて得られる直交座標系$o-x_1'x_2'$を導入する．
 $o-x_1'x_2'$座標系では，式(\ref{eqn:disp_fld})の関係を表すときに，
-ベクトルやマトリクスとその成分に$(\cdot)'$をつけることで，
-それらが依拠する座標系を区別する．
+ベクトルやマトリクスとその成分に$(\cdot)'$をつけ，
+それらの諸量が依拠する座標系を区別する．
 すなわち，$o-x_1'x_2'$座標系では，式(\ref{eqn:disp_fld})の関係を
 \begin{equation}
 	\fat{y}'=\fat{A}'\fat{x}'
@@ -143,28 +142,34 @@ $o-x_1'x_2'$座標系では，式(\ref{eqn:disp_fld})の関係を表すときに
 \begin{equation}
 	\fat{x}'=(x_1',\, x_2')^T, \ \ \fat{y}'=(y_1',\, y_2')^T
 \end{equation}
-は位置ベクトルを表し，$\fat{A}'$は，式(\ref{eqn:disp_fld})と同じ変形状態を
-$o-x_1'x_2'$座標系で記述するための行列である．
-このとき，以下，6$\sim$9の問に答えよ．
+は位置ベクトルを表す．$\fat{A}'$は，$o-x_1'x_2'$座標系で式(\ref{eqn:disp_fld})と
+同じ変形状態を記述する行列である．
+いま，$o-x_1x_2$から$o-x_1'x_2'$への座標変換マトリクスを$\fat{Q}$とすれば，
+$\fat{A}$と$\fat{A}'$の間には
+\begin{equation}
+	\fat{A}'=\fat{Q}\fat{A}\fat{Q}^T
+	\label{eqn:QAQ}
+\end{equation}
+の関係が成り立つ．なぜなら，
+\[
+	\fat{x}'=\fat{Qx}, \ \ \fat{y}'=\fat{Qy}
+\]
+だから，これらを式(\ref{eqn:disp_fld})に代入し，その結果を式(\ref{eqn:disp_fld2})と比べれば，
+式(\ref{eqn:QAQ})が成り立たなければならないことが示されるためでる．
+このことを踏まえれば，$o-x_1'x_2'$座標系におけるひずみテンソルを
+\begin{equation}
+	\fat{\varepsilon}'=\frac{\fat{A}'+\left(\fat{A}'\right)^T}{2}-\fat{I}
+	\label{eqn:epsd_def}
+\end{equation}
+に対する座標変換則は
+\begin{equation}
+	\fat{\varepsilon}'=\fat{Q}\fat{\varepsilon}\fat{Q}^T
+	\label{eqn:QeQ}
+\end{equation}
+となることが分かる．
+以上の結果を用いて，下記，6,7の問に答えよ．
 \begin{enumerate}
 \setcounter{enumi}{5}
-\item
-	$\fat{A}$と$\fat{A}'$の間には
-	\[
-		\fat{A}'=\fat{Q}\fat{A}\fat{Q}^T
-	\]
-	の関係があることを示せ．
-	ただし、$\fat{Q}$は$o-x_1x_2$から$o-x_1'x_2'$への座標変換マトリクスを表す．
-\item
-	$o-x_1'x_2'$座標系におけるひずみテンソルを
-	\[
-		\fat{\varepsilon}'=\frac{\fat{A}'+\left(\fat{A}'\right)^T}{2}-\fat{I}
-	\]
-	とするとき，座標変換則は
-	\[
-		\fat{\varepsilon}'=\fat{Q}\fat{\varepsilon}\fat{Q}^T
-	\]
-	と表されることを示せ．
 \item
 	$o-x_1'x_2'$座標系におけるひずみテンソルを
 	\[
@@ -177,7 +182,8 @@ $o-x_1'x_2'$座標系で記述するための行列である．
 	\end{array}
 	\right)
 	\]
-	と表すとき，$\varepsilon_{11}'$と$\varepsilon_{12}'$を$\theta$を使って表わせ．
+	と表すとき，$\varepsilon_{11}'$と$\varepsilon_{12}'$を
+	$\cos 2\theta, \, \sin 2\theta$を使って表わせ．
 \item
 	せん断ひずみが0となるときの$\theta$と，そのときの直ひずみ$\varepsilon_{11}'$を求めよ．
 \end{enumerate}
