@@ -1,7 +1,7 @@
 \documentclass[10pt,a4j]{jarticle}
-\usepackage{graphicx,wrapfig}
+\usepackage{graphicx,wrapfig,amsmath}
 \setlength{\topmargin}{-1.5cm}
-\setlength{\textwidth}{15.5cm}
+%\setlength{\textwidth}{15.5cm}
 \setlength{\textheight}{25.2cm}
 \newlength{\minitwocolumn}
 \setlength{\minitwocolumn}{0.5\textwidth}
@@ -49,7 +49,7 @@
 \item
 	$q(x)=\frac{q_0x}{l}$
 \item
-	$\int q(x)dx^2 =\frac{q_0l^2}{6}\left(\frac{x}{l}\right)^3$
+	$\iint q(x)dx^2 =\frac{q_0l^2}{6}\left(\frac{x}{l}\right)^3$
 \item
 	$M''(x)=-q(x)$より，
 	\begin{equation}
@@ -64,8 +64,9 @@
 		C_2
 		\right\}
 	\end{equation}
-	とすれば，$M\left(\pm\frac{l}{2}\right)=0$より，積分定数が$C_1=-\frac{1}{4},C_2=0$と決まる．
-	その結果，
+	と書くことができる．積分定数$C_1,C_2$は，
+	$M\left(\pm\frac{l}{2}\right)=0$より$C_1=-\frac{1}{4},C_2=0$と決まる．
+	よって，
 	\begin{equation}
 		M(x)= 
 		-\frac{q_0l^2}{6}
@@ -74,10 +75,9 @@
 		-
 		\frac{1}{4}	
 		\left(\frac{x}{l}\right)
-		\right\}
+		\right\}.
 		\label{eqn:Mx}
 	\end{equation}
-	となる．
 \item
 	\begin{equation}
 		Q(x)=M'(x)=-\frac{q_0l}{6} \left\{ 
@@ -89,7 +89,7 @@
 \item
 	式(\ref{eqn:Mx})より
 	\begin{equation}
-		\int M(x)dx^2
+		\iint M(x)dx^2
 		=
 		-\frac{q_0l^4}{6}
 		\left\{	
@@ -103,7 +103,7 @@
 	\end{equation}
 	となる．
 \item
-	$EIv''=-M$より，$v$は
+	$EIv''=-M$より，$v$は式(\ref{eqn:vx0})を利用して
 	\begin{equation}
 		v(x)=\frac{q_0l^4}{120EI}
 		\left\{
@@ -118,7 +118,7 @@
 			C_4
 		\right\}
 	\end{equation}
-	と書くことができる．ただし，$C_3，C_4$は積分定数を表す．
+	と書くことができる．ただし$C_3，C_4$は積分定数を表す．
 	部材端におけるたわみの条件$v\left(\pm \frac{l}{2}\right)=0$より，
 	$C_3=\frac{7}{48},C_4=0$となるので，たわみは次のように決まる．
 	\begin{equation}

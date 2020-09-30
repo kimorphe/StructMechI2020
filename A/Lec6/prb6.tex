@@ -1,7 +1,7 @@
 \documentclass[10pt,a4j]{jarticle}
 \usepackage{graphicx,wrapfig}
 \setlength{\topmargin}{-1.5cm}
-\setlength{\textwidth}{15.5cm}
+%\setlength{\textwidth}{15.5cm}
 \setlength{\textheight}{25.2cm}
 \newlength{\minitwocolumn}
 \setlength{\minitwocolumn}{0.5\textwidth}
@@ -46,25 +46,25 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 以下で，$(\cdot)^T$は$(\cdot)$の転置を意味する．例えば，横ベクトル$(a,b)$の
 転置$(a,b)^T$は次のような縦ベクトルと解釈する．
-\begin{equation}
+%\begin{equation}
+\[
 	(a,b)^T=\left(
 	\begin{array}{c}
 		a \\
 		b
 	\end{array}
 	\right)
-	\nonumber
-\end{equation}
+\]
+%\end{equation}
 \subsubsection*{問題}
 2次元空間内の物体が外力を受けて変形し, 当初$\fat{x}$にあった点が
-変形後に$\fat{y}$へ移動したとする．ここで$\fat{y}$が，
+変形後$\fat{y}$へ移動したとする．ここで，$\fat{y}$が，
 \begin{equation}
 	\fat{y}=\fat{A}\fat{x}
 	\label{eqn:disp_fld}
 \end{equation}
 のように$\fat{x}$の関数として与えられる場合を考える．
-ただし，$\fat{x}=(x_1,\, x_2)^T, \fat{y}=(y_1, y_2)^T$で，$\fat{A}$は次の
-2$\times$2行列
+ただし，$\fat{x}=(x_1,\, x_2)^T, \fat{y}=(y_1, y_2)^T$で，$\fat{A}$は
 \begin{equation}
 	\fat{A}=
 	\left(
@@ -94,7 +94,8 @@
 	\end{array}
 	\right)
 \end{equation}
-と表す．以上は全て$o-x_1x_2$直交座標系による表現とするとき，以下の問1$\sim$5に答えよ．
+と表す．なお，以上は全て$o-x_1x_2$直交座標系による表現とする．
+このとき，以下の問1$\sim$5に答えよ．
 \begin{enumerate}
 \item
 	変形前に$(1,0)^T$と$(0,1)^T$にあった2点が，変形後に移る位置をそれぞれ答えよ．
@@ -121,15 +122,16 @@
 		\fat{\varepsilon}=\frac{\fat{A}+\fat{A}^T}{2}-\fat{I}
 		\label{eqn:def_eps}
 	\end{equation}
-	ただし，$\fat{I}$は$2\times 2$の単位行列を意味する。
+	ただし，$\fat{I}$は$2\times 2$の単位行列を意味する．
 \end{enumerate}
+
 
 次に，$o-x_1x_2$座標系を原点を中心に$\theta$だけ反時計回りの方向へ
 回転させて得られる直交座標系$o-x_1'x_2'$を導入する．
 $o-x_1'x_2'$座標系では，式(\ref{eqn:disp_fld})の関係を表すときに，
 ベクトルやマトリクスとその成分に$(\cdot)'$をつけ，
-それらの諸量が依拠する座標系を区別する．
-すなわち，$o-x_1'x_2'$座標系では，式(\ref{eqn:disp_fld})の関係を
+それらの諸量が$o-x_1'x_2'$座標系におけるものであることを示す．
+すなわち，$o-x_1'x_2'$座標系では式(\ref{eqn:disp_fld})の関係を
 \begin{equation}
 	\fat{y}'=\fat{A}'\fat{x}'
 	\label{eqn:disp_fld2}
@@ -142,8 +144,8 @@ $o-x_1'x_2'$座標系では，式(\ref{eqn:disp_fld})の関係を表すときに
 \begin{equation}
 	\fat{x}'=(x_1',\, x_2')^T, \ \ \fat{y}'=(y_1',\, y_2')^T
 \end{equation}
-は位置ベクトルを表す．$\fat{A}'$は，$o-x_1'x_2'$座標系で式(\ref{eqn:disp_fld})と
-同じ変形状態を記述する行列である．
+は$\fat{x}$と$\fat{y}$と同じ位置を指す位置ベクトルを，
+$\fat{A}'$は式(\ref{eqn:disp_fld})と同じ変形状態を記述する行列である．
 いま，$o-x_1x_2$から$o-x_1'x_2'$への座標変換マトリクスを$\fat{Q}$とすれば，
 $\fat{A}$と$\fat{A}'$の間には
 \begin{equation}
@@ -156,18 +158,17 @@ $\fat{A}$と$\fat{A}'$の間には
 \]
 だから，これらを式(\ref{eqn:disp_fld})に代入し，その結果を式(\ref{eqn:disp_fld2})と比べれば，
 式(\ref{eqn:QAQ})が成り立たなければならないことが示されるためでる．
-このことを踏まえれば，$o-x_1'x_2'$座標系におけるひずみテンソルを
+このことを踏まえれば，$o-x_1'x_2'$座標系におけるひずみテンソル
 \begin{equation}
 	\fat{\varepsilon}'=\frac{\fat{A}'+\left(\fat{A}'\right)^T}{2}-\fat{I}
 	\label{eqn:epsd_def}
 \end{equation}
-に対する座標変換則は
+を得るための座標変換則は
 \begin{equation}
 	\fat{\varepsilon}'=\fat{Q}\fat{\varepsilon}\fat{Q}^T
 	\label{eqn:QeQ}
 \end{equation}
-となることが分かる．
-以上の結果を用いて，下記，6,7の問に答えよ．
+となることも分かる．以上の結果を用いて，下記6と7の問に答えよ．
 \begin{enumerate}
 \setcounter{enumi}{5}
 \item
@@ -185,7 +186,7 @@ $\fat{A}$と$\fat{A}'$の間には
 	と表すとき，$\varepsilon_{11}'$と$\varepsilon_{12}'$を
 	$\cos 2\theta, \, \sin 2\theta$を使って表わせ．
 \item
-	せん断ひずみが0となるときの$\theta$と，そのときの直ひずみ$\varepsilon_{11}'$を求めよ．
+	$\varepsilon_{12}'=0$となる$\theta$における，直ひずみ$\varepsilon_{11}'$を求めよ．
 \end{enumerate}
 \end{document}
 

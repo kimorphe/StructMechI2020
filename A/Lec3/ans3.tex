@@ -1,7 +1,7 @@
 \documentclass[10pt,a4j]{jarticle}
 \usepackage{graphicx,wrapfig}
 \setlength{\topmargin}{-1.5cm}
-\setlength{\textwidth}{15.5cm}
+%\setlength{\textwidth}{15.5cm}
 \setlength{\textheight}{25.2cm}
 \newlength{\minitwocolumn}
 \setlength{\minitwocolumn}{0.5\textwidth}
@@ -67,7 +67,7 @@
 	\end{array}
 	\right)
 \end{equation}
-で与えられ、この逆行列を計算すると
+で与えられ，この逆行列を計算すると
 \begin{equation}
 	\fat{N}^{-1}=
 	\frac{1}{\sqrt{3}}
@@ -80,13 +80,13 @@
 \end{equation}
 となる.
 \item
-$\fat{t}^{(n)}=\fat{\sigma}^T \fat{n}$より,
+	$\fat{t}^{(n)}=\fat{\sigma}^T \fat{n}, \fat{\sigma}=\fat{\sigma}^T$より,
 \begin{equation}
 	\fat{t}_1=\fat{\sigma}\fat{n}_1, \ \ 
 	\fat{t}_2=\fat{\sigma}\fat{n}_2 
 \end{equation}
-だから、これらの式を連立して$\fat{\sigma}$を求めれば良い.
-ここで、２つの列ベクトル$\fat{t}_1$と
+だから，これらの式を連立して$\fat{\sigma}$を求めれば良い.
+ここで，２つの列ベクトル$\fat{t}_1$と
 		$\fat{t}_2$を並べた行列を
 \begin{equation}
 	\fat{T}=\left\{ \fat{t}_1\,\, \fat{t}_2 \right\}
@@ -99,8 +99,8 @@ $\fat{t}^{(n)}=\fat{\sigma}^T \fat{n}$より,
 	\end{array}
 	\right)
 \end{equation}
-とすれば、$\fat{\sigma}\fat{N}=\fat{T}$
-より、
+とすれば，$\fat{\sigma}\fat{N}=\fat{T}$
+より，
 		\begin{equation}
 			\fat{\sigma}=\fat{T}\fat{N}^{-1}=
 			\left(
@@ -118,7 +118,7 @@ $\fat{t}^{(n)}=\fat{\sigma}^T \fat{n}$より,
 	=\left(
 		\begin{array}{c}
 			(1-\sqrt{3})\cos\theta + \sin\theta \\
-			\cos\theta +(1+\sqrt{3} \sin\theta
+			\cos\theta +(1+\sqrt{3}) \sin\theta
 		\end{array}
 	\right)
 \]
@@ -154,13 +154,13 @@ $\fat{m}$は，
 	&=&
 	\cos 2\theta + \sqrt{3} \sin 2\theta  \\
 	&=&
-	\sin\left( \frac{5\pi}{6} -2\theta \right)
+	2\sin\left( \frac{5\pi}{6} -2\theta \right)
 	\label{eqn:tau1}
 \end{eqnarray}
 となる
 \item
-式(\ref{eqn:sign})より, $\sigma_n$は$\theta=\frac{5\pi}{12}$で最大値3をとり、
-このとき式(\ref{eqn:tau1})から$\tau=0$となる。
+式(\ref{eqn:sign})より, $\sigma_n$は$\theta=\frac{5\pi}{12}$で最大値3をとり，
+このとき式(\ref{eqn:tau1})から$\tau=0$となる．
 \item
 式(\ref{eqn:sign})と式(\ref{eqn:tau1})から$\theta$を消去すれば，
 \begin{equation}

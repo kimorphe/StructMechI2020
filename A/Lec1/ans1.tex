@@ -1,7 +1,7 @@
 \documentclass[10pt,a4j]{jarticle}
 \usepackage{graphicx,wrapfig}
 \setlength{\topmargin}{-1.5cm}
-\setlength{\textwidth}{16.5cm}
+%\setlength{\textwidth}{16.5cm}
 \setlength{\textheight}{25.2cm}
 \newlength{\minitwocolumn}
 \setlength{\minitwocolumn}{0.5\textwidth}
@@ -39,10 +39,6 @@
    \end{figure}
  }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\vspace*{\baselineskip}
-%\begin{flushright}
-%	修正:2017年10月30日
-%\end{flushright}
 \begin{center}
 {\Large \bf 2020年度 構造力学I及び演習A 演習問題1解答} \\
 \end{center}
@@ -59,9 +55,9 @@
 \begin{equation}
 	\varepsilon(x) = \left\{
 	\begin{array}{cc}
-		\varepsilon_0 \left(1-\frac{6x}{l}\right)& (0<x<l/3) \\
-		-\varepsilon_0 & (l/3<x<2l/3) \\
-		  2\varepsilon_0 & (2l/3<x<l) \\
+		\varepsilon_0 \left(1-\frac{6x}{l}\right)& (0<x \leq \frac{l}{3}) \\
+		-\varepsilon_0 & \left(\frac{l}{3}< x\leq \frac{2l}{3} \right) \\
+		  2\varepsilon_0 & \left(\frac{2l}{3} <x \leq l\right) 
 	\end{array}
 	\right.
 \end{equation}
@@ -77,7 +73,7 @@ $0<x \leq \frac{l}{3}$のとき,
 	\varepsilon_0 l
 	\left\{
 		\frac{x}{l}
-		+
+		-
 		3
 		\left(\frac{x}{l}\right)^2
 	\right\}
@@ -94,7 +90,7 @@ $\frac{l}{3}<x\leq \frac{2l}{3}$のとき,
 		\int_{\frac{l}{3}}^x (-\varepsilon_0 )dx '
 		=
 		-\varepsilon_0 l
-		\left\{ \frac{x}{l}-\frac{1}{3}\right\}
+		\left\{ \left(\frac{x}{l}\right)-\frac{1}{3}\right\}
 	\label{eqn:u2}
 \end{equation}
 \item
@@ -105,7 +101,7 @@ $\frac{2l}{3}<x\leq l$のとき,
 		\varepsilon_0 \left(1-\frac{6x'}{l}\right)
 		dx '
 		+
-		\int_{\frac{l}{3}}^x (-\varepsilon_0 )dx '
+		\int_{\frac{l}{3}}^{\frac{2l}{3}} (-\varepsilon_0 )dx '
 		+
 		\int_{\frac{2l}{3}}^x 2\varepsilon_0 dx '
 		=
@@ -142,7 +138,16 @@ $\frac{2l}{3}<x\leq l$のとき,
 		&=&u(l)-u\left( \frac{2l}{3}\right)=\frac{2}{3}\varepsilon_0l
 	\end{eqnarray*}	
 \end{enumerate}
+%
+%
 \subsubsection*{問題2.}
+図\ref{fig:fig2}-(a)に示すような位置$a-a'$と$b-b'$において部材を仮想的に切断したときの自由物体図を描くと，
+それぞれ, 同図の(c)と(d)のようになる．いずれのケースでも，区間$(x,l)$に作用する外力の合計を
+$P(x,l)$とすれば，釣り合い条件は
+\begin{equation}
+	N-P(x,l)=0
+\end{equation}
+より$N=P(x,l)$となる．そこで，分布荷重$p(x)$を座標$x$を用いて表すと，
 \begin{equation}
 	p(x)=\left\{
 		\begin{array}{cc}
@@ -151,6 +156,7 @@ $\frac{2l}{3}<x\leq l$のとき,
 		\end{array}
 	\right.
 \end{equation}
+となるので，これを用いて合力$P(x,l$を具体的に計算すれば，次のような結果が得られる．
 \begin{equation}
 	P(x,l)=
 	\int_x^{l/2} 2p_0 \frac{x'}{l}dx'
@@ -164,42 +170,18 @@ $\frac{2l}{3}<x\leq l$のとき,
 	P(x,l)=
 	\int_{l/2}^l  p_0 dx'=p_0(l-x), \ \  \left(\frac{l}{2}< x \leq l \right) 
 \end{equation}
-\begin{equation}
-	P(x,l)-N(x)=0 \ \ \Rightarrow \ \ N(x)=P(x,l)
-\end{equation}
+従って，軸力は
 \begin{eqnarray}
 	N(x) &= & -p_0l\left\{ \left( \frac{x}{l}\right)^2 -\frac{3}{4}\right\} , 
 	\ \ \left(0 < x \leq \frac{l}{2}\right)  \\
 	N(x) &= & 
 	p_0(l-x), \ \  \left(\frac{l}{2}< x \leq l \right) 
 \end{eqnarray}
-図\ref{fig:fig1}-(a)に示すような位置$a-a'$と$b-b'$において部材を仮想的に切断したときの自由物体図を描くと，
-それぞれ, 同図の(c)と(d)のようになる．
-ここに$P(a,b)=\int_a^bp(x)dx$は，分布力$p(x)$が区間$a<x<b$に加える合力を表す．
-これらの自由物体図を参照し，部材軸方向の力のつり合い式を立てれば，
-軸力$N$が, 区間毎に次のように求められる．
-\begin{eqnarray}
-	区間BC&:& 
-	P(l-y,l)-N = 0  \\ \nonumber
-	 &\Rightarrow &
-		N = \int_{s=0}^y -\frac{p_0}{l/2}s ds = -\frac{p_0}{l}y^2, \ \ 
-		\left(0< y < \frac{l}{2}\right)
-\end{eqnarray}
-\begin{eqnarray}
-	区間AB &:&
-	P(l-z,l)-N = 0 \nonumber \\
-	&\Rightarrow &
-	N=\int_{s=0}^{\frac{l}{2}}\frac{p_0}{l/2}z'dz' 
-	  \int_{s=l/2}^{z}p_0dz' 
-	=p_0l \left( \frac{z}{l}-\frac{3}{4}\right) , \ \ \left( \frac{l}{2}< z < l \right)
-\end{eqnarray}
-ただし，積分変数$s$は,図\ref{fig:fig2}-(a)に示すように，点Cを原点として左向きを正とする
-座標で，$x$とは$s=l-x$の関係にある．
-以上の結果を図示すれば，軸力図は図\ref{fig:fig2}-(b)のようになる．
+と求められ，軸力図は図\ref{fig:fig2}-(b)のようになる．
 \begin{figure}[h]
 	\vspace{-3mm}
 	\begin{center}
-	\includegraphics[width=1.0\linewidth]{fig2ans.eps} 
+	\includegraphics[width=0.8\linewidth]{fig2ans.eps} 
 	\end{center}
 	\vspace{-5mm}
 	\caption{(a)自由物体図を描くための部材切断位置, (b)軸力図,

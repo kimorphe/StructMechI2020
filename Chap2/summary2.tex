@@ -2,7 +2,7 @@
 %\usepackage{graphicx,wrapfig}
 \usepackage{graphicx}
 \setlength{\topmargin}{-1.5cm}
-\setlength{\textwidth}{16.5cm}
+%\setlength{\textwidth}{16.5cm}
 \setlength{\textheight}{25.2cm}
 \newlength{\minitwocolumn}
 \setlength{\minitwocolumn}{0.5\textwidth}
@@ -49,13 +49,23 @@
 \chapter{応力テンソル}
 以下, 太字は{\bf 成分表示することを前提とした}ベクトルあるいは行列を表す.
 \section{トラクションベクトル}
-位置ベクトル$\fat{x}$で表される物体内の点において, 
-単位ベクトル$\fat{n}$を法線にもつような面$\Pi(\fat{n};\fat{x})$を考える
-(図\ref{fig:fig3_1}-(a))．
-点$\fat{x}$において, 面$\Pi(\fat{n};\fat{x})$に作用する単位面積あたりの
-力のベクトルを$\fat{t}^{(n)}(\fat{x})$と書き, これをトラクションベクトル
-と呼ぶ．
+位置ベクトル$\fat{x}$で表される物体内の点において, 単位ベクトル$\fat{n}$を
+法線にもつような面$\Pi(\fat{n};\fat{x})$を考える(図\ref{fig:fig3_1}-(a),(b))．
+物体を$\Pi(\fat{n};\fat{x})$で仮想的に切断したとき，
+点$\fat{x}$において面$\Pi(\fat{n};\fat{x})$に作用する単位面積あたりの
+力のベクトルを$\fat{t}^{(n)}(\fat{x})$と書き, これを{\rm \bf トラクションベクトル}と呼ぶ．
 
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=0.9\linewidth]{fig3_1.eps} 
+	\end{center}
+	\caption{(a)物体中の着目点$\fat{x}$と仮想的な切断面$\Pi(\fat{n};\fat{x})$．
+	(b),(c) 着目点周辺の拡大図.
+	$x_3$軸は紙面に垂直手前側に伸びる座表軸を，
+	$\fat{e}_3$は$x_3$軸方向の基底ベクトルを表す．(c)は面$\Pi(-\fat{n};\fat{x})$
+	に作用するトラクション$\fat{t}^(-n)$を表す．} 
+	\label{fig:fig3_1}
+\end{figure}
 3次元空間におけるベクトルを表すために$o-x_1x_2x_3$直角直交座標系を
 とり, その基底ベクトルを$\fat{e}_i,\, (i=1,2,3)$と表す.
 ここで，基底ベクトルとは，各座標軸方向を向く単位ベクトルのことと考えて良い．
@@ -71,25 +81,47 @@
 	\right.
 	\label{eqn:ortho}
 \end{equation}
-このことは, 基底ベクトルが互いに直交し, その長さは1であることを表す．
+ここで，$\fat{a} \cdot \fat{b}$は，ベクトル$\fat{a}$と$\fat{b}$の内積を意味する．
+$\fat{a}$と$\fat{b}$のなす角を$\theta_{ab}$とすれば，内積は次の式で定義される．
+\begin{equation}
+	\fat{a}\cdot\fat{b}=
+	\left|\fat{a}\right|
+	\left|\fat{b}\right|
+	\cos \theta_{ab}
+\end{equation}
+従って，式(\ref{eqn:ortho})の関係は， 基底ベクトルが互いに直交してその長さは1であることを意味する．
 式(\ref{eqn:ortho})を満たす基底ベクトルを, 正規直交基底と呼ぶ.
 いま, $\fat{n}=\fat{e}_i,\, (i=1,2,3)$としたときのトラクション
 ベクトルを$\fat{t}^{(i)}$と表し, $\fat{t}^{(i)}$の第$j$成分を$\sigma_{ij}$
 と書く．すなわち
 \begin{eqnarray}
 	\fat{n}=\fat{e}_1 &;& \fat{t}^{(n)}=\fat{t}^{(1)}
-		=\left( \sigma_{11},\, \sigma_{12},\, \sigma_{13}\right)^T \\
+		=\left( \sigma_{11},\, \sigma_{12},\, \sigma_{13}\right)^T 
+		\label{eqn:t1}
+		\\
 	\fat{n}=\fat{e}_2 &;& \fat{t}^{(n)}=\fat{t}^{(2)} 
-		=\left( \sigma_{21},\, \sigma_{22},\, \sigma_{23}\right)^T \\
+		=\left( \sigma_{21},\, \sigma_{22},\, \sigma_{23}\right)^T 
+		\label{eqn:t2}
+		\\
 	\fat{n}=\fat{e}_3 &;& \fat{t}^{(n)}=\fat{t}^{(3)} 
 		=\left( \sigma_{31},\, \sigma_{32},\, \sigma_{33}\right)^T 
+		\label{eqn:t3}
 \end{eqnarray}
 と表現する．ここに$(\cdot)^T$は, $(\cdot)$の転置を意味する．
-これら特別なトラクションベクトルとそれが作用する面の様子を
-２次元空間において図示すると, 図\ref{fig:fig3_3}のようである.なお, この図では, 
+従って，式(\ref{eqn:t1})-(\ref{eqn:t3})はいずれも縦ベクトルを表す．
+図\ref{fig:fig3_3}はこれら特別なトラクションベクトルとそれが作用する面の様子を
+2次元空間において図示したものである．
 $\fat{n}=-\fat{e}_i$に対するトラクションベクトルを$\fat{t}^{(-i)}$と表し, 
 それらが作用する面との関係も示している.
 $\fat{t}^{(-i)}=-\fat{t}^{(i)}$となることの理由は, 第\ref{equib}節で述べる.
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=0.7\linewidth]{fig3_3.eps} 
+	\end{center}
+	\caption{基底ベクトル$\fat{e}_i$を法線ベクトルとする
+	面(座標面)と，各々の面に作用するトラクションベクトル$\fat{t}^{(\pm i)}$.}
+	\label{fig:fig3_3}
+\end{figure}
 \section{応力テンソル}
 \subsection{応力テンソルの定義}
 トラクションベクトル$\fat{t}^{(1)},\, \fat{t}^{(2)},\,\fat{t}^{(3)}$の成分
@@ -104,32 +136,14 @@ $\sigma_{ij},(i,j=1,2,3)$を並べた
 	\end{array}
 	\right)
 \end{equation}
-の行列を応力テンソル, その成分$\sigma_{ij}$を応力成分と呼ぶ．
-９つの応力成分のうち, $\sigma_{11},\sigma_{22},\sigma_{33}$を直応力, 
-それ以外のものをせん断応力成分と呼ぶ. $\sigma_{ij}$の
+の行列を{\rm \bf 応力テンソル}, その成分$\sigma_{ij}$を応力成分と呼ぶ．
+9つの応力成分のうち, $\sigma_{11},\sigma_{22},\sigma_{33}$を{\rm\bf 直応力}, 
+それ以外のものを{\bf \rm せん断応力成分}と呼ぶ. $\sigma_{ij}$の
 第一インデックス$i$は面の向きが$\fat{n}=\fat{e}_i$であることを表す．
 一方, 第二インデックス$j$は, 第$j$方向の単位面積あたりの力を意味している．
 また，図\ref{fig:fig3_5}のような図
 を描くことで, 応力成分の意味を視覚的に表現することがしばしば行われる．
 %%%%%%%%%%%%%%%%%%%%%%%%
-\begin{figure}[h]
-	\begin{center}
-	\includegraphics[width=0.9\linewidth]{fig3_1.eps} 
-	\end{center}
-	\caption{(a)物体中の着目点$\fat{x}$と仮想的な切断面$\Pi(\fat{x};\fat{n})$．
-	(b),(c) 着目点周辺の拡大図.
-	$x_3$軸は紙面に垂直手前側に伸びる座表軸を，
-	$\fat{e}_3$は$x_3$軸方向の基底ベクトルを表す．} 
-	\label{fig:fig3_1}
-\end{figure}
-\begin{figure}[h]
-	\begin{center}
-	\includegraphics[width=0.7\linewidth]{fig3_3.eps} 
-	\end{center}
-	\caption{基底ベクトル$\fat{e}_i$を法線ベクトルとする
-	面(座標面)と，各々の面に作用するトラクションベクトル$\fat{t}^{(\pm i)}$.}
-	\label{fig:fig3_3}
-\end{figure}
 \begin{figure}[h]
 	\begin{center}
 	\includegraphics[width=0.4\linewidth]{fig3_5.eps} 
@@ -146,14 +160,24 @@ $\sigma_{ij},(i,j=1,2,3)$を並べた
 \subsection{釣り合い条件からの帰結}\label{equib}
 \begin{itemize}
 \item
-	図\ref{fig:fig3_2}のように，物体中の着目点$\fat{x}$を含むように微小な薄層領域をとり
-	その釣り合い条件式を立てると, 
+	{\bf 表裏面それぞれに作用するトラクションの関係:}\\
+	図\ref{fig:fig3_2}のように，物体中の着目点$\fat{x}$を含むように微小な薄層領域ABCDをとり
+	その釣り合い条件式を立てる．$\Delta h \rightarrow 0$と$\Delta S\rightarrow 0$の極限を
+	順にとれば，釣り合い式は
 	\begin{equation}
 		\fat{t}^{(n)}+\fat{t}^{(-n)}=\fat{0}
 		\label{eqn:t_pmn}
 	\end{equation}
-	となることが示される．これは, 仮想切断面の表裏では, 大きさが同じで向きが反対の
-	表面力が作用することを意味する．
+	となることが示される．これは, 仮想切断面の表裏$\Pi(\pm \fat{n};\fat{x})$に働く
+	トラクションは, 大きさが等しく方向が反対であることを意味する．
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=0.6\linewidth]{fig3_2.eps} 
+	\end{center}
+	\caption{物体中の着目点$\fat{x}$を含む微小薄膜層ABCDと,その表面に
+	作用するトラクションベクトル. } 
+	\label{fig:fig3_2}
+\end{figure}
 \item
 	図\ref{fig:fig3_4}のように，着目点$\fat{x}$を含む微小な三角形領域
 	(3次元問題の場合は四面体領域)に対して釣り合い条件を考える．
@@ -201,14 +225,6 @@ $\sigma_{ij},(i,j=1,2,3)$を並べた
 	式(\ref{eqn:stress_equib})あるいは(\ref{eqn:stress_equib_compo})で表される
 	連立偏微分方程式は, 応力の釣り合い条件式と呼ばれる．
 \end{itemize}
-\begin{figure}[h]
-	\begin{center}
-	\includegraphics[width=0.5\linewidth]{fig3_2.eps} 
-	\end{center}
-	\caption{物体中の着目点$\fat{x}$を含む微小薄膜層と,その表面に
-	作用するトラクションベクトル. } 
-	\label{fig:fig3_2}
-\end{figure}
 \begin{figure}[h]
 	\begin{center}
 	\includegraphics[width=0.4\linewidth]{fig3_4.eps} 

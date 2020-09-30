@@ -1,7 +1,7 @@
 \documentclass[10pt,a4j]{jarticle}
 \usepackage{graphicx,wrapfig}
 \setlength{\topmargin}{-1.5cm}
-\setlength{\textwidth}{15.5cm}
+%\setlength{\textwidth}{15.5cm}
 \setlength{\textheight}{25.2cm}
 \newlength{\minitwocolumn}
 \setlength{\minitwocolumn}{0.5\textwidth}
@@ -41,19 +41,19 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\vspace*{\baselineskip}
 \begin{center}
-	{\Large \bf 2020年度 構造力学I及び演習A 演習問題}
+	{\Large \bf 2020年度 構造力学I及び演習A 演習問題 3}
 \end{center}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \vspace{5mm}
 物体中の着目点$\fat{x}$におけるトラクション$\fat{t}^{(n)}$と応力$\fat{\sigma}$について考える．
-物体は2次元的な応力状態にあるとし,ベクトルやテンソル成分を表すために, $x_1x_2$直角直交座標系を用いる.
-また,単位法線ベクトル$\fat{n}$の向きは，原点を中心に$x_1$軸から反時計回りの方向を
-正として測った角度$\theta$で表し，この関係を明示的にする際には$\fat{n}(\theta)$と書くことにする.
-さらに,$\theta=\theta_1=\frac{\pi}{3}$としたときのトラクションベクトルを$\fat{t}_1$, 
-単位法線ベクトルを$\fat{n}_1=\fat{n}(\theta_1)$とする．
-同様に，$\theta=\theta_2=\frac{2\pi}{3}$の場合の
-トラクションベクトルと単位法線ベクトルを, それぞれ$\fat{t}_2$および$\fat{n}_2=\fat{n}(\theta_2)$と表す. 
-これらのトラクションベクトルが
+物体は2次元的な応力状態にあるとし,ベクトルやテンソル成分を表すために
+$x_1x_2$直角直交座標系を用いる. また,単位法線ベクトル$\fat{n}$の向きは，
+原点を中心に$x_1$軸から反時計回り方向を正として測った角度$\theta$で表す．
+このことを明示的にする際には$\fat{n}(\theta)$と書く.
+ここで，$\theta=\theta_1=\frac{\pi}{3}$としたときのトラクションベクトルを$\fat{t}_1$, 
+$\fat{n}(\theta_1)=\fat{n}_1$とする．同様に，$\theta=\theta_2=\frac{2\pi}{3}$の場合の
+トラクションベクトルと単位法線ベクトルを, それぞれ$\fat{t}_2$および$\fat{n}(\theta_2)=\fat{n}_2$と表す. 
+$\fat{t}_1$と$\fat{t}_2$が
 \[
 	\fat{t}_1=
 	\frac{1}{2}
@@ -110,7 +110,7 @@
 	一般の単位法線ベクトル$\fat{n}(\theta)$に対するトラクションベクトル
 	$\fat{t}^{(n)}$の，$x_1$および$x_2$方向成分を$\theta$を用いて表わせ．
 \item
-	$\fat{t}^{(n)}$の$\fat{n}$方向成分を$\sigma_n$とするとき,
+	$\fat{t}^{(n)}$の$\fat{n}$方向成分を$\sigma_n$とする．
 	$\sigma_n$を$\cos 2\theta$と$\sin 2\theta$を用いて表せ．
 \item
 	法線ベクトル$\fat{n}$に直交する単位ベクトル$\fat{m}$を
@@ -121,17 +121,16 @@
 	$\theta$の範囲を$0$から$\pi$とするとき，$\sigma_n$の最大値と, 
 	そのときの$\tau$を求めよ．
 \item
-	$\theta$の範囲を$0$から$\pi$するとき，横軸に$\sigma_n$，縦軸に$\tau$をとった平面上で, 点$(\sigma_n, \tau)$が描く曲線を図示せよ．
+	$\theta$の範囲を$0$から$\pi$するとき，横軸に$\sigma_n$，縦軸に$\tau$をとった平面上で点$(\sigma_n, \tau)$が描く曲線を図示せよ．
 \end{enumerate}
 %--------------------
 \begin{figure}[h]
 	\begin{center}
-	\includegraphics[width=0.45\linewidth]{fig1.eps} 
+	\includegraphics[width=0.4\linewidth]{fig1.eps} 
 	\end{center}
 	\caption{
-		2次元空間中の物体内部にとった着目点$\fat{x}$と
-		トラクション$\fat{t}^{(n)}$.
-		破線は, $\fat{t}^{(n)}$に対応する仮想的な切断面を表す．	
+		2次元空間中の物体内部にとった着目点$\fat{x}$とトラクション$\fat{t}^{(n)}$.
+		破線は $\fat{t}^{(n)}$に対応する仮想的な切断面を表す．	
 	} 
 	\label{fig:fig1}
 \end{figure}

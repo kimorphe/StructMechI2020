@@ -51,7 +51,7 @@ $\fat{e}_1=(1,0)^T, \fat{e}_2=(0,1)^T$とすると，
 	\fat{y}_1=\fat{A}\fat{e}_1=
 	\left(
 		\begin{array}{cc}
-			3 & 1 \\
+			3 & 3 \\
 			1 & -1 
 		\end{array}
 	\right)
@@ -204,39 +204,6 @@ $\fat{e}_1=(1,0)^T, \fat{e}_2=(0,1)^T$とすると，
 	\]
 	となることが示される.
 \item
-	座標変換行列$\fat{Q}$を用いれば，
-	\begin{equation}
-		\fat{y}= \fat{Q}^T \fat{y}', \ \ 
-		\fat{x}=\fat{Q}^T \fat{x}'
-	\end{equation}
-	と書くことができる．これより$\fat{y}= \fat{Ax}$の関係は
-	\begin{equation}
-		\fat{Q}^T \fat{y}'
-		=
-		\fat{A}\fat{Q}^T \fat{x}'
-	\end{equation}
-	と表すことができ，この両辺に左から$\fat{Q}=\left(\fat{Q}^T\right)^{-1}$を掛ければ，
-	\begin{equation}
-		\fat{y}'
-		=
-		\fat{Q}\fat{A}\fat{Q}^T \fat{x}'
-	\end{equation}
-	が導かれる．この結果と$\fat{y}' = \fat{A}'\fat{x}'$を比較することで
-	\begin{equation}
-		\fat{A}'=\fat{Q} \fat{A}\fat{Q}^T
-		\label{eqn:F2Fd}
-	\end{equation}
-	が言え，行列$\fat{A}$は応力テンソルと同じ座標変換法則に従うことが示される．
-\item
-	式(\ref{eqn:F2Fd})より, $(\fat{A}')^T=\fat{Q}\fat{A}^T\fat{Q}^T$である．
-	この関係と式(\ref{eqn:F2Fd})を$\fat{\varepsilon}'$の定義に代入し, 
-	$\fat{I}=\fat{Q}\fat{I}\fat{Q}^T$であることを踏まえれば，
-	\begin{equation}
-		\fat{\varepsilon}'=\fat{Q}\fat{\varepsilon}\fat{Q}^T
-	\end{equation}
-	となることが分かる．
-	以上より，ひずみテンソルは応力テンソルと同じ座標変換法則に従うことが示される．
-\item
 	ひずみテンソルは応力テンソルと同じ座標変換法則に従う．よって，
 	\begin{equation}
 		\bar \varepsilon = \frac{\varepsilon_{11}+ \varepsilon_{22}}{2} , \ \ 
@@ -260,17 +227,17 @@ $\fat{e}_1=(1,0)^T, \fat{e}_2=(0,1)^T$とすると，
 	の関係が成り立つことは明らかである.
 	式(\ref{eqn:e11_val})$\sim$(\ref{eqn:e22_val})の計算結果より，
 	\[
-		\bar\varepsilon = \frac{1}{2}, \ \ \Delta \varepsilon =1, \ \ \eta = -\frac{\sqrt{3}}{2}
+		\bar\varepsilon = 0, \ \ \Delta \varepsilon =2, \ \ \eta =2
 	\]
 	だから，
 	\[
 		\varepsilon_{11}'=
-		\frac{1}{2} + \frac{1}{2} \cos 2\theta -\frac{\sqrt{3}}{2} \sin 2\theta 
+		\cos 2\theta +2 \sin 2\theta 
 	\]
 	\[
 		\varepsilon_{12}'=\varepsilon_{21}'
 		=
-		 \frac{1}{2} \sin 2\theta -\frac{\sqrt{3}}{2} \cos 2\theta 
+		 -\sin 2\theta +2 \cos 2\theta 
 	\]
 	となる．
 \item
@@ -295,14 +262,8 @@ $\fat{e}_1=(1,0)^T, \fat{e}_2=(0,1)^T$とすると，
 			L \cos \left( \psi-2\theta  \right)	
 			\label{eqn:e22d2}
 	\end{eqnarray}
-	と書くこともできる．ここでは，
-	\[
-		L=1, \ \ \psi =-\frac{\pi}{3}
-	\]
-	だから，
-	$\theta=\frac{\psi}{2}=-\frac{\pi}{6}$と$\theta=\frac{\psi+\pi}{2}=\frac{\pi}{3}$
-	においてせん断ひずみ$\varepsilon_{12}'=0$となる．このとき，直ひずみ$\varepsilon_{11}'$
-	は，それぞれ$\bar \varepsilon+L=\frac{3}{2}, \bar \varepsilon -L=-\frac{1}{2}$となる．
+	と書くことができる．$\psi-2\theta=0$のとき$\varepsilon_{12}'=0$で，
+	このとき，$\varepsilon_{11}'=L=\sqrt{5}$となる．
 	このように，せん断ひずみがゼロになるときの軸ひずみは主ひずみと呼ばれ，主ひずみを与える
 	方向は主ひずみ方向と呼ばれる．
 \end{enumerate}
