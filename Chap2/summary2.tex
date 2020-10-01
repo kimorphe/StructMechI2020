@@ -40,11 +40,6 @@
    \end{figure}
  }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\vspace*{\baselineskip}
-%\begin{center}
-%	{\Large \bf 構造力学I及び演習A 講義メモ2} \\
-%\end{center}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \setcounter{chapter}{1}
 \chapter{応力テンソル}
 以下, 太字は{\bf 成分表示することを前提とした}ベクトルあるいは行列を表す.
@@ -63,12 +58,12 @@
 	(b),(c) 着目点周辺の拡大図.
 	$x_3$軸は紙面に垂直手前側に伸びる座表軸を，
 	$\fat{e}_3$は$x_3$軸方向の基底ベクトルを表す．(c)は面$\Pi(-\fat{n};\fat{x})$
-	に作用するトラクション$\fat{t}^(-n)$を表す．} 
+	に作用するトラクション$\fat{t}^{(-n)}$を表す．} 
 	\label{fig:fig3_1}
 \end{figure}
 3次元空間におけるベクトルを表すために$o-x_1x_2x_3$直角直交座標系を
 とり, その基底ベクトルを$\fat{e}_i,\, (i=1,2,3)$と表す.
-ここで，基底ベクトルとは，各座標軸方向を向く単位ベクトルのことと考えて良い．
+ここでの基底ベクトルとは，各座標軸方向を向く単位ベクトルのことと考えて良い．
 このとき, $\fat{e}_i\, (i=1,2,3)$は互いに次の関係を満たす．
 \begin{equation}
 	\fat{e}_i\cdot \fat{e}_j=
@@ -110,10 +105,10 @@ $\fat{a}$と$\fat{b}$のなす角を$\theta_{ab}$とすれば，内積は次の�
 と表現する．ここに$(\cdot)^T$は, $(\cdot)$の転置を意味する．
 従って，式(\ref{eqn:t1})-(\ref{eqn:t3})はいずれも縦ベクトルを表す．
 図\ref{fig:fig3_3}はこれら特別なトラクションベクトルとそれが作用する面の様子を
-2次元空間において図示したものである．
-$\fat{n}=-\fat{e}_i$に対するトラクションベクトルを$\fat{t}^{(-i)}$と表し, 
+図示したものである．この図で第3軸($x_3$軸)とその基底ベクトル$\fat{e}_3$は紙面鉛直方向としている．
+また，$\fat{n}=-\fat{e}_i$に対するトラクションベクトルを$\fat{t}^{(-i)}$と表し, 
 それらが作用する面との関係も示している.
-$\fat{t}^{(-i)}=-\fat{t}^{(i)}$となることの理由は, 第\ref{equib}節で述べる.
+$\fat{t}^{(-i)}=-\fat{t}^{(i)}$となることの理由は第\ref{equib}節で説明する.
 \begin{figure}[h]
 	\begin{center}
 	\includegraphics[width=0.7\linewidth]{fig3_3.eps} 
@@ -158,6 +153,13 @@ $\sigma_{ij},(i,j=1,2,3)$を並べた
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{釣り合い条件からの帰結}\label{equib}
+トラクションベクトルと応力テンソルはいずれも力に関する量である．
+そのためこれらは物体が静止しているならば釣り合い条件を満足しなければならない．
+釣り合い条件は，物体全体としてのみならず，物体内部の各点や物体内部の任意の部分領域
+で成り立たなければならない．もしそうでなければ，力の釣り合いが成立しない箇所では
+物体は運動状態にあることになる．
+このことを利用すれば，トラクションや応力が満たすべきいくつかの有用な関係を以下に
+示すようにして導くことができる．
 \begin{itemize}
 \item
 	{\bf 表裏面それぞれに作用するトラクションの関係:}\\
@@ -170,17 +172,18 @@ $\sigma_{ij},(i,j=1,2,3)$を並べた
 	\end{equation}
 	となることが示される．これは, 仮想切断面の表裏$\Pi(\pm \fat{n};\fat{x})$に働く
 	トラクションは, 大きさが等しく方向が反対であることを意味する．
-\begin{figure}[h]
+	\begin{figure}[h]
 	\begin{center}
-	\includegraphics[width=0.6\linewidth]{fig3_2.eps} 
+	\includegraphics[width=0.7\linewidth]{fig3_2.eps} 
 	\end{center}
 	\caption{物体中の着目点$\fat{x}$を含む微小薄膜層ABCDと,その表面に
 	作用するトラクションベクトル. } 
 	\label{fig:fig3_2}
-\end{figure}
+	\end{figure}
 \item
-	図\ref{fig:fig3_4}のように，着目点$\fat{x}$を含む微小な三角形領域
-	(3次元問題の場合は四面体領域)に対して釣り合い条件を考える．
+	{\bf トラクションベクトルと法線ベクトルの関係:}\\
+	図\ref{fig:fig3_4}のような，着目点$\fat{x}$を含む微小三角形領域
+	(3次元問題の場合は四面体領域)に対する釣り合い条件を考える．
 	その結果, 一般のトラクションベクトル$\fat{t}^{(n)}(\fat{x})$と法線ベクトル$\fat{n}$が, 
 	\begin{equation}
 		\fat{t}^{(n)}=\fat{\sigma}^{T}\fat{n}
@@ -190,7 +193,15 @@ $\sigma_{ij},(i,j=1,2,3)$を並べた
 	応力テンソル成分は(座標系には依存するが)法線ベクトル$\fat{n}$, 
 	すなわち切断面の向きに依存しない. このことは, 応力テンソルが内力を表す
 	本質的な量であることを意味する．
+	\begin{figure}[h]
+		\begin{center}
+		\includegraphics[width=0.4\linewidth]{fig3_4.eps} 
+		\end{center}
+		\caption{着目点$\fat{x}$の近傍にとった微小三角形領域の自由物体図.}
+		\label{fig:fig3_4}
+									\end{figure}
 \item
+	{\bf 応力テンソルの対称性:}\\
 	図\ref{fig:fig4_1}に示すように, 着目点$\fat{x}$を含む微小な矩形領域
 	(3次元問題の場合は立方体領域)に対して, トルクの釣り合いを考えることで, 
 	\begin{equation}
@@ -206,7 +217,16 @@ $\sigma_{ij},(i,j=1,2,3)$を並べた
 	の関係がある．よって，独立な応力成分は, 直応力成分3つ, せん断応力成分3つの計6つ
 	であることが分かる．平面内でのモーメント(トルク)の
 	計算方法は図\ref{fig:fig4_2}を参照.
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=1.0\linewidth]{fig4_2.eps} 
+	\end{center}
+	\caption{着目点$\fat{x}$近傍の微小矩形領域に対する自由物体図.
+	(a)トラクションベクトルを用いて表現した場合の図．(b)応力成分を用いて表現した場合の図.} 
+	\label{fig:fig4_1}
+\end{figure}
 \item
+	{\bf 応力成分の釣り合い方程式:}\\
 	図\ref{fig:fig4_1}に示すような，着目点$\fat{x}$を含む微小な矩形領域
 	(3次元問題の場合は立方体領域)に対して, 力の釣り合いを考えることで, 
 	応力成分が満足すべき偏微分方程式が次のように得られる．
@@ -227,21 +247,6 @@ $\sigma_{ij},(i,j=1,2,3)$を並べた
 \end{itemize}
 \begin{figure}[h]
 	\begin{center}
-	\includegraphics[width=0.4\linewidth]{fig3_4.eps} 
-	\end{center}
-	\caption{着目点$\fat{x}$の近傍にとった微小三角形領域の自由物体図.}
-	\label{fig:fig3_4}
-\end{figure}
-\begin{figure}[h]
-	\begin{center}
-	\includegraphics[width=1.0\linewidth]{fig4_2.eps} 
-	\end{center}
-	\caption{着目点$\fat{x}$近傍の微小矩形領域に対する自由物体図.
-	(a)トラクションベクトルを用いて表現した場合の図．(b)応力成分を用いて表現した場合の図.} 
-	\label{fig:fig4_1}
-\end{figure}
-\begin{figure}[h]
-	\begin{center}
 	\includegraphics[width=0.5\linewidth]{fig4_3.eps} 
 	\end{center}
 	\caption{
@@ -257,23 +262,29 @@ $\sigma_{ij},(i,j=1,2,3)$を並べた
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{問題}
-図\ref{fig:ex5_Torque}に関する以下の問に答えよ.
+ニュートンの第二法則によれば，静止状態にある物体に働く力の和(合力)は零となる．
+また，静止状態にある物体に働くモーメントの和(合モーメント)も零でなければならない
+ことを，第二法則から導くことができる．
+これら，合力と合モーメントが零の条件，すなわち力とモーメントの釣り合い条件を
+利用すれば，物体に作用する未知の力が求められる場合がある．
+図\ref{fig:ex5_Torque}に関する以下の問題は，
+このことを理解するとともにモーメントの計算方法を学ぶためのものである．
 \begin{enumerate}
 \item
 図(a)に示すような大きさ$F$の力を受ける棒部材について, 点A,B,CおよびDに関する
 モーメントを求めよ. ただし, モーメントは反時計回りの方向を正とする. 
 \item
-図(b)に示すような力を受けて, 棒部材ACが静止している. このとき, 水平力$H_A$, 
+図(b)に示すような力を受けて棒部材ACが静止している. このとき, 水平力$H_A$, 
 鉛直力$V_A$および$V_C$を$F$を用いて表わせ. 
 \item
-図(c)に示すような荷重を受ける, L型の部材について, 点A,B,C,Dに関するモーメントを求めよ. 
+図(c)に示すような荷重を受けるL字型部材について, 点A,B,C,Dに関するモーメントを求めよ. 
 ただし, モーメントは反時計回りの方向を正とする. 
 \item
 図(d)のように, 長さ$l$，質量$m$の棒部材ACが, 壁に立てかけられて静止している. 
 摩擦力が 壁側では無視できると仮定するとき, 部材が床と
 壁から受ける力$H_A, V_A$と$H_C$を求めよ. また, $\alpha\rightarrow 0$と$\alpha \rightarrow \infty$
 においてこれらの力が取る値を答えよ. なお, 部材には, 壁面と床面からの力に加え, 
-重心位置Bにおいて, 重力$mg$が鉛直下向きに作用するものとする. 
+重力$mg$が鉛直下向きに重心位置Bに集中して作用するものと考えてよい. 
 \end{enumerate}
 \begin{figure}[h]
 	\begin{center}
@@ -284,36 +295,40 @@ $\sigma_{ij},(i,j=1,2,3)$を並べた
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{ベクトルとテンソルの座標変換}
-\subsubsection{座標変換マトリクス}
-原点$o$を共有する２つの直交座標系$o-x_1x_2x_3$と$o-x_1'x_2'x_3'$の間の座標変換について考える．
-ここで, 実体としてのベクトルを$\vec{u},\vec{x}$, それらの特定の座標系における表現を
-$\fat{u},\fat{x}$や$\fat{u}',\fat{x}'$のように太字で表す. 
+\subsection{座標変換マトリクス}
+原点$o$を共有する2つの直交座標系$o-x_1x_2x_3$と$o-x_1'x_2'x_3'$の間で成り立つ
+座標変換法則を導く．図\ref{fig:fig4_3}は原点を共有する2つの座標系の一例を示したもので，
+この例は第3軸は共有($x_3=x_3'$)された特別なケースである．
+以下では断りの無い限り，2つの座標系は各々が直交座標系で，原点位置が互いに一致している
+ということだけを前提として議論を行う．\\
+はじめに, 実体としてのベクトルを$\vec{u},\vec{x}$, それらを特定の座標系で成分表示する
+場合には$\fat{u},\fat{x}$や$\fat{u}',\fat{x}'$のように太字を用いる. 
 なお$()'$を付したものは$o-x_1'x_2'x_3'$系におけるベクトルを表す．
 それ以外のものは$o-x_1x_2x_3$座標系における表現であると解釈し, 
 座標成分を用いてベクトルやテンソルを表する場合，使用する座標系に応じて
 \[
 	\fat{u}=(u_1, u_2, u_3)^T, \ \ \fat{x}'=(x_1', x_2', x_3')^T
 \]
-等と書くこととする.
+等と書く.
 いま, $o-x_1x_2x_3$座標系の基底ベクトルを$\vec{e}_1, \vec{e}_2, \vec{e}_3$, 
 $o-x_1'x_2'x_3'$におけるそれを$\vec{e}_1\,', \vec{e}_2\,', \vec{e}_3 \,'$, 
-とする． これらは
+とする． これらは正規直交系をなし，
 \begin{equation}
 	\vec{e}_i\cdot \vec{e}_j=\delta_{ij}, \ \ 
-	\vec{e}_i\,' \cdot \vec{e}_j\,'=\delta_{ij}
+	\vec{e}_i\,' \cdot \vec{e}_j\,'=\delta_{ij}, \ \ (i,j=1,2,3)
 	\label{eqn:ortho_norm}
 \end{equation}
-で表されるように，正規直交系をなす.ただし, $\delta_{ij}$はクロネッカーデルタ
+を満たす．ただし$\delta_{ij}$はクロネッカーデルタ
 \begin{equation}
 	\delta _{ij}=\left\{
 	\begin{array}{cc}
 		1 & (i=j) \\
 		0 & (i\neq j)
 	\end{array}
-	\right.
+	\right. , \ \ (i,j=1,2,3)
 	\label{eqn:dij}
 \end{equation}
-を意味する．２つの座標系に対する基底ベクトルを用いれば, 任意のベクトル$\vec{u}$は
+を意味する．2つの座標系に対する基底ベクトルを用いれば, 任意のベクトル$\vec{u}$は
 \begin{eqnarray}
 	\vec{u} &=& \sum_{i=1}^3 u_i\vec{e}_i 
 	\label{eqn:u_ei}
@@ -321,20 +336,24 @@ $o-x_1'x_2'x_3'$におけるそれを$\vec{e}_1\,', \vec{e}_2\,', \vec{e}_3 \,'$
 	&=& \sum_{i=1}^3 u'_i\vec{e}_i\,' 
 	\label{eqn:u_eid}
 \end{eqnarray}
-と二通りに表すことができる． 座標成分$u_i$や$u_i'$は式(\ref{eqn:ortho_norm})-(\ref{eqn:u_eid})より
+と二通りに表すことができる． ここで，式(\ref{eqn:u_ei})と$\fat{e}_i$の内積，
+式(\ref{eqn:u_eid})と$\fat{e}'_i$の内積を取れば，ベクトル成分$u_i$と$u_i'$が
+次のように与えられることが示される．
 \begin{eqnarray}
-	u_i &=& \vec{u}\cdot \vec{e}_i \label{eqn:ui}\\
-	u'_i&=& \vec{u}\cdot \vec{e}_i\,' \label{eqn:uid}
+	u_i &=& \vec{u}\cdot \vec{e}_i \label{eqn:ui} , \ \ (i=1,2,3) \\
+	u'_i&=& \vec{u}\cdot \vec{e}_i\,' \label{eqn:uid}, \ \ (i=1,2,3)
 \end{eqnarray}
 と書ける. ここで, 式(\ref{eqn:uid})の右辺に式(\ref{eqn:u_ei})を代入すれば, 
 \begin{equation}
-	u_i'=\sum_{j=1}^3 (\vec{e}_i\,'\cdot \vec{e}_j) u_j 
+	u_i'=\sum_{j=1}^3 (\vec{e}_i\,'\cdot \vec{e}_j) u_j , \ \ (i=1,2,3)
+	\label{eqn:i2id}
 \end{equation}
 が得られる．一方, 式(\ref{eqn:ui})の右辺に, 式(\ref{eqn:u_eid})を代入すれば, 
 \begin{equation}
-	u_i=\sum_{j=1}^3 (\vec{e}_i\cdot \vec{e}_j\, ') u_j' 
+	u_i=\sum_{j=1}^3 (\vec{e}_i\cdot \vec{e}_j\, ') u_j', \ \ (i=1,2,3) 
+	\label{eqn:id2i}
 \end{equation}
-の関係が得られる．ここで，
+の関係が得られる．そこで，3$\times$3行列$\fat{Q}$を
 \begin{equation}
 	\fat{Q}=
 	\left\{
@@ -348,20 +367,24 @@ $o-x_1'x_2'x_3'$におけるそれを$\vec{e}_1\,', \vec{e}_2\,', \vec{e}_3 \,'$
 		\vec{e}_3\,'\cdot \vec{e}_1 & \vec{e}_3\,'\cdot \vec{e}_2 & \vec{e}_3\,'\cdot \vec{e}_3 
 	\end{array}
 	\right)
+	\label{eqn:defQ}
 \end{equation}
-とすれば, 
+とすれば,式(\ref{eqn:i2id})と式(\ref{eqn:id2i})の関係は，それぞれ 
 \begin{equation}
 	\fat{u}'=\fat{Q}\fat{u}, \ \ 
 	\fat{u}=\fat{Q}^T\fat{u}'
+	\label{eqn:u2ud}
 \end{equation}
-となることが示され, これは同時に
+と表すことができる．このことは同時に
 \begin{equation}
 	\fat{Q}^{-1}=\fat{Q}^{T} \ \ \Rightarrow \ \ \fat{QQ}^T=\fat{Q}^T\fat{Q}=\fat{I}
 	\label{eqn:OrthQ}
 \end{equation}
-であることを意味する．$\fat{Q}$は座標変換行列と呼ばれる．
-なお，数学的には，式(\ref{eqn:OrthQ})の関係を満たす行列は直交行列と呼ばれる．
-2次空間におけるベクトルに対する座標変換マトリクスは, 次の$2\times 2$行列で与えられる．
+であることを意味する．式(\ref{eqn:u2ud})は2つの座標系の間の座標変換法則を与えることから，
+$\fat{Q}$は{\bf 座標変換行列}と呼ばれる．
+数学的には，式(\ref{eqn:OrthQ})の関係を満たす行列は直交行列と呼ばれる．
+2次空間におけるベクトルに対する座標変換マトリクスは, 第3軸に関する情報を省略して，
+次の$2\times 2$行列で与えられる．
 \begin{equation}
 	\fat{Q}=
 	\left( 
@@ -371,8 +394,10 @@ $o-x_1'x_2'x_3'$におけるそれを$\vec{e}_1\,', \vec{e}_2\,', \vec{e}_3 \,'$
 	\end{array}
 	\right)
 \end{equation}
-特に, 図\ref{fig:fig4_3}に示すように, $o-x_1'x_2'$座標が, $o-x_1x_2$座標を反時計回りの方向に$\theta$だけ回転させることで
-得られる場合, 座標変換マトリクスは
+特に, 
+$o-x_1'x_2'$座標が $o-x_1x_2$座標を反時計回りの方向に$\theta$だけ回転させて得られる
+図\ref{fig:fig4_3}のようなものであるとき，
+座標変換行列は
 \begin{equation}
 	\fat{Q}=
 	\left( 
@@ -385,8 +410,8 @@ $o-x_1'x_2'x_3'$におけるそれを$\vec{e}_1\,', \vec{e}_2\,', \vec{e}_3 \,'$
 \end{equation}
 と与えられる．
 \subsection{問題}
-２つの座標系$o-x_1x_2$と$o-x_1'x_2'$が, 互いに, 図\ref{fig:Qth_example}
-のような関係にあるときの, 座標変換マトリクス$\fat{Q}$を求めよ. 
+2つの座標系$o-x_1x_2$と$o-x_1'x_2'$が, 互いに, 図\ref{fig:Qth_example}
+のような関係にあるとき, 座標変換マトリクス$\fat{Q}$を求めよ. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[h]
 	\begin{center}
@@ -408,7 +433,8 @@ $o-x_1'x_2'x_3'$におけるそれを$\vec{e}_1\,', \vec{e}_2\,', \vec{e}_3 \,'$
 	\label{fig:Qth_example}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{応力テンソルの座標変換法則}
+\section{応力テンソルの座標変換法則}
+\subsection{座標変換法則の導出}
 応力テンソルを表す行列を，$o-x_1x_2x_3$座標系では$\fat{\sigma}$, 
 $o-x_1'x_2'x_3'$座標系では$\fat{\sigma}'$と表す．このとき，
 トラクションと法線ベクトルの関係は，各々の座標系において
@@ -418,7 +444,8 @@ $o-x_1'x_2'x_3'$座標系では$\fat{\sigma}'$と表す．このとき，
 	\fat{t}'^{(n')} &=& \fat{\sigma}'\fat{n}'
 		\label{eqn:nd2tnd} 
 \end{eqnarray}
-と表される．ここで式(\ref{eqn:n2tn})にベクトルの座標変換法則を適用すれば，
+と表される($\fat{\sigma}=\fat{\sigma}^T$を使った)．
+ここで式(\ref{eqn:n2tn})にベクトルの座標変換法則を適用すれば，
 \begin{equation}
 	\fat{t}^{(n)}=\fat{Q}^T \fat{t}'^{(n')}, \ \ 
 	\fat{n} = \fat{Q}^T \fat{n}'
@@ -428,8 +455,8 @@ $o-x_1'x_2'x_3'$座標系では$\fat{\sigma}'$と表す．このとき，
 \begin{equation}
 	\fat{t}'^{(n')}=\fat{Q} \fat{\sigma} \fat{Q}^T \fat{n}'
 \end{equation}
-これを式(\ref{eqn:nd2tnd})と比較することで, 応力テンソルに対する
-座標変換則：
+これを式(\ref{eqn:nd2tnd})と比較することで, {\bf 応力テンソルに対する
+座標変換則}:
 \begin{equation}
 	\fat{\sigma}'=\fat{Q}\fat{\sigma}\fat{Q}^T
 	\label{eqn:s2sd}
@@ -481,21 +508,59 @@ $o-x_1'x_2'x_3'$座標系では$\fat{\sigma}'$と表す．このとき，
 	\sigma'_{22} &=& \bar{\sigma} - R \cos \left( \phi-2\theta \right) 
 		\label{eqn:s22d_2}
 \end{eqnarray}
+\subsection{モールの応力円}
 式(\ref{eqn:s11d_2})と式(\ref{eqn:s12d_2})から$\theta$を消去すれば, 
 \begin{equation}
 	\left( \sigma'_{11} -\bar{\sigma}\right)^2 + \left(\sigma'_{12}\right)^2 = R^2
 \end{equation}
-が得られる．その結果，$\sigma_{11}'$を横軸に, $\sigma'_{12}$を縦軸とした平面では，
+が得られる．従って，$\sigma_{11}'$を横軸に, $\sigma'_{12}$を縦軸とした平面では，
 $(\sigma'_{11}, \sigma'_{12})$は中心$(\bar{\sigma}, 0)$, 半径$R$の円上の点で
 あることが分かる(図\ref{fig:fig5_1})．このように, 座標系の選び方によるによる応力成分の変化を
-表す円を, モールの応力円と呼ぶ．
-なお, $\theta=0$のとき, $o-x_1x_2$座標系と$o-x_1'x_2'$座標系は一致する.従って, 
-$(\sigma_{11}',\,\sigma_{12}')= (\sigma_{11},\,\sigma_{12})$である.
+表す円を{\bf モールの応力円}と呼ぶ．
+
+$\theta=0$のとき, $o-x_1x_2$座標系と$o-x_1'x_2'$座標系は一致する.
+従って, $(\sigma_{11}',\,\sigma_{12}')= (\sigma_{11},\,\sigma_{12})$である.
 図\ref{fig:fig5_1}ではこの位置を点Aと表している.
+なお，
+\begin{equation}
+	\angle {\rm APQ} 
+	= \tan^{-1}\left(\frac{\overline{\rm AQ}}{\overline{\rm PQ}}\right)
+	=\frac{\sigma_{12}}{\Delta\sigma /2}
+\end{equation}
+だから，式(\ref{eqn:def_R})より
+\begin{equation}
+	\angle {\rm APB} =
+	\angle {\rm APQ} =\phi
+\end{equation}
+であることが分かる．さらに，式(\ref{eqn:s11d_2})と式(\ref{eqn:s12d_2})より，
+$\theta$が零から次第に大きくなるとき，$(\sigma_{11}',\sigma_{12}')$は点Aを
+始点としてモールの応力円上を反時計回るの方向に移動することも分かる．
+特に，点Bと点Cでは$\sigma_{12}'=0$で，それぞれに対応する方向$\theta$と$\sigma_{11}'$は，
+\begin{eqnarray}
+	{\rm B}点 &:& \theta=\frac{\phi}{2}, \ \ \sigma_{11}'=\bar\sigma +R 
+	\label{eqn:th_max}
+	\\
+	{\rm C}点 &:& \theta=\frac{\phi+\pi}{2}, \ \ \sigma_{11}'=\bar\sigma -R
+	\label{eqn:th_min}
+\end{eqnarray}
+となり，これらは直応力$\sigma_{11}'$の最大および最小値となることも明らかである．
+以上より，モールの応力円上で$\angle$APBを図り$\phi$を決定すれば，
+直応力の最大，最小値とそれらを与える方向が求められる．
+最後に，一般の方向$\theta$における$\sigma_{11}'$と$\sigma_{12}'$の値を
+モールの応力円から読み取れば，$\sigma_{22}'$は
+\begin{equation}
+	\sigma_{11}'+\sigma_{22}'=2\bar\sigma \ \ 
+	\Rightarrow 
+	\ \ 
+	\sigma_{22}'=2\bar \sigma- \sigma_{11}'
+\end{equation}
+から得られ，2次元の応力テンソル成分全てを決定することができる．
+この意味で，モールの応力円は2次元応力テンソルが$\theta$に応じてどのように変化する
+かについての情報が全て表現されている．
 %%%%%%
 \begin{figure}[h]
 	\begin{center}
-	\includegraphics[width=0.8\linewidth]{fig5_1.eps} 
+	\includegraphics[width=0.9\linewidth]{fig5_1.eps} 
 	\end{center}
 	\caption{
 		(a)モールの応力円．
@@ -581,7 +646,7 @@ $\bar \sigma,\, \Delta \sigma, \,\tau$および$R$を, 式(\ref{eqn:def_sig_bar}
 \end{equation}
 \item
 式(\ref{eqn:sig_iso})から(\ref{eqn:sig_shear})の３つの応力テンソル
-それぞれについて, モールの応力円を描け. 
+について，それぞれモールの応力円を描け. 
 \item
 	\begin{enumerate}
 	\item
@@ -613,44 +678,82 @@ $\bar \sigma,\, \Delta \sigma, \,\tau$および$R$を, 式(\ref{eqn:def_sig_bar}
 \end{figure}
 %%%%%%
 \section{主応力と主応力方向}
-トラクションベクトル$\fat{t}^{(n)}$のせん断成分がゼロとなるような方向を
-$\fat{n}=\fat{n}_p$とする. このとき, $\fat{t}^{(n_p)}$は法線方向性分のみを持ち, 
+図\ref{fig:fig5_2}-(a)に示すように，一般的な状況ではトラクションベクトル$\fat{t}^{(n)}$と
+法線ベクトル$\fat{n}$は一致しない．
+別の言い方をすれば，$\fat{t}^{(n)}$は垂直成分$\sigma_p$と零でないせん断成分(接線方向成分)$\tau$をもつ．
+しかしながら，特別な法線ベクトルの方向を選べば$t_m=0$とすることができる．
+そのような法線ベクトルを$\fat{n}_p$とすれば，
+図\ref{fig:fig5_2}-(b)に示すように$\fat{t}^{n_p}$は$\fat{n}_p$と同じ方向を向くため，
+トラクションベクトルを
 \begin{equation}
 	\fat{t}^{(n_p)}=\lambda \fat{n}_p
 	\label{eqn:def_np}
 \end{equation}
-が成り立つ(図\ref{fig:fig5_2})．このとき$\lambda$を主応力, $\fat{n}_p$を主応力方向と呼ぶ．
-主応力とその方向は, 式(\ref{eqn:t_as_sign})と(\ref{eqn:def_np})より, 
+と書くことができる．
+%--------------------
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=0.7\linewidth]{fig5_2.eps} 
+	\end{center}
+	\caption{
+	同一の点$\fat{x}$におけるトラクションベクトル. (a)一般の面．(b)主応力面($\fat{n}_p$は主応力方向を
+	表す単位ベクトル)．} 
+	\label{fig:fig5_2}
+\end{figure}
+%--------------------
+このような$\lambda$を{\bf 主応力}, $\fat{n}_p$を{\bf 主応力方向}と呼ぶ．
+主応力とその方向は$\fat{t}^{(np)}=\fat{\sigma}\fat{n}_p$を式\ref{eqn:def_np})に代入して得られる
+次の関係を用いて決定することができる．
 \begin{equation}
-	\fat{t}^{(n)}
-	=\fat{\sigma}^T \fat{n_p} 
-	=\fat{\sigma}\fat{n_p} 
-	=\lambda \fat{n}_p
+	\fat{\sigma}\fat{n_p} 
+	=\lambda \fat{n}_p, \ \ (|\fat{n}_p|=1)
+	\label{eqn:eig_prb}
 \end{equation}
-であることから, それぞれ, 応力テンソル$\fat{\sigma}$の固有値, 
-固有ベクトルとして求めることができる．応力テンソルは実数値対称行列であること
-から, 固有値は実数で, 固有ベクトルは互いに直交する．
+これは，与えられた行列$\fat{\sigma}$に対して，その固有値$\lambda$と
+固有ベクトル$\fat{n}_p$を求める問題である．
+固有値と固有ベクトルは数学的な概念だが，ここではそれらが主応力と
+主応力方向という物理的な対象を表現している．
+応力テンソルは実数値対称行列であることから, 固有値は実数で固有ベクトルは
+互いに直交する．また，固有値は
 $\lambda$は固有方程式：
 \begin{equation}
 	{\rm det} \left( \fat{\sigma}- \lambda \fat{I} \right) =\fat{0} 
 	\label{eqn:eig_eq}
 \end{equation}
-を解くことで得られる．ただし, $\fat{I}$は単位行列を表す．
-2次元問題の場合, 式(\ref{eqn:eig_eq})は次のような2次方程式になり，
-2つの固有値すなわち主応力値が存在する．
+を$\lambda$について解くことで得られる．ただし, $\fat{I}$は単位行列を表す．
+以上の議論は2次元，3次元問題ともに当てはまるものである．
+2次元問題の場合は, 式(\ref{eqn:eig_eq})は次のような2次方程式になり，
+2つの固有値すなわち主応力値を簡単に求めることができる．
 \begin{equation}
 	\lambda^2 -\left( \sigma_{11}+\sigma_{22}\right)\lambda + 
 	\sigma_{11}\sigma_{22}-\sigma_{12}\sigma_{21}=0
 	\label{eqn:eig_eq_2d}
 \end{equation}
-この方程式の根を求め, その結果を
+この方程式の根を求め，式(\ref{eqn:def_sig_bar})と式(\ref{eqn:def_R})を用いて
+整理すれば，その結果は
 \begin{equation}
-	\left( \fat{\sigma} -\lambda \fat{I} \right) \fat{n}=\fat{0}
+	\lambda=\bar \sigma \pm R
+	\label{eqn:lmb_solved}
 \end{equation}
-に代入して対応する固有ベクトルを求めれば, 主応力と主応力方向が決定できる．
+となり，2つの主応力(固有値)は直応力の最大値と最小値に一致する．
+このことから，$\bar \sigma +R$を最大主応力，$\bar \sigma-R$を最小主応力と呼ぶ．
+主応力方向は式(\ref{eqn:lmb_solved})を
+\begin{equation}
+	\left( \fat{\sigma} -\lambda \fat{I} \right) \fat{n}_p=\fat{0}
+	\label{eqn:find_np}
+\end{equation}
+に代入して対応する固有ベクトルを求めることで決定できる．
+このようにして得た主応力方向は，必然的に式(\ref{eqn:th_max}),(\ref{eqn:th_min})に一致する．
+ただし，式(\ref{eqn:find_np})は式(\ref{eqn:th_max})と(\ref{eqn:th_min})に含まれる
+$\phi$が陽に求められない場合にも主応力方向を求めることができるという利点がある．
 
-２次元問題において, 主応力方向$\fat{n}_p$の向きに$x_1'$軸を, それに直交するように
-$x_2$軸をとれば, $o-x_1'x_2'$座標系での応力テンソルは
+最後に，2次元問題において最大主応力方向に$x_1'$軸を, 最小主応力方向に$x_2'$軸を
+とれば, $o-x_1'x_2'$座標系での主応力方向は
+\begin{equation}
+	\fat{n}_p=(1,0)^T \quad {\rm or} \quad (0,1)^T
+\end{equation}
+で，$\fat{\sigma}'\fat{n}_p'=\lambda \fat{n}_p'$より
+応力テンソルが
 \begin{equation}
 	\fat{\sigma}'
 	=
@@ -668,30 +771,16 @@ $x_2$軸をとれば, $o-x_1'x_2'$座標系での応力テンソルは
 	\end{array}
 	\right)
 \end{equation}
-となりせん断応力成分を持たない.ただし, $\sigma_1$と$\sigma_2$は2つの
-主応力値を意味する.モールの応力円上において, せん断応力$\sigma_{12}'=0$と
-なるのは, 図\ref{fig:fig5_1}-(a)の点Bと点Cである.
-点Bは最大主応力値$\bar{\sigma}+R$を与え, そのときの$x_1'$軸の方向, すなわち
-最大主応力方向は, $\phi -2 \theta =0 $より$x_1$軸から反時計回りに$\frac{\phi}{2}$
-の方向である.一方, 点Cは最小主応力値$\bar{\sigma}-R$を与え, そのときの$x_1'$軸の方向, 
-すなわち最小主応力方向は$\phi -2 \theta =- \pi $より$x_1$軸から反時計回りに
-$\frac{\phi+\pi}{2}$の方向である.
-\newpage
+と対角行列になることが分かる．ただし，$\sigma_1$は最大主応力，$\sigma_2$は最小主応力である．
+%ただし, $\sigma_1$と$\sigma_2$は2つの
+%主応力値を意味する.モールの応力円上において, せん断応力$\sigma_{12}'=0$と
+%なるのは, 図\ref{fig:fig5_1}-(a)の点Bと点Cである.
+%点Bは最大主応力値$\bar{\sigma}+R$を与え, そのときの$x_1'$軸の方向, すなわち
+%最大主応力方向は, $\phi -2 \theta =0 $より$x_1$軸から反時計回りに$\frac{\phi}{2}$
+%の方向である.一方, 点Cは最小主応力値$\bar{\sigma}-R$を与え, そのときの$x_1'$軸の方向, 
+%すなわち最小主応力方向は$\phi -2 \theta =- \pi $より$x_1$軸から反時計回りに
+%$\frac{\phi+\pi}{2}$の方向である.
 \subsection{問題}
 式(\ref{eqn:sig_iso})-(\ref{eqn:sig_shear})と, 式(\ref{eqn:sig_num})
-で与えられるそれぞれの応力テンソルについて, 最大および最小主応力と対応する主応力方向を
-求めよ. 
-%%%%%%%%%%%%%%%%%%%%%%
-%--------------------
-\begin{figure}[h]
-	\begin{center}
-	\includegraphics[width=0.7\linewidth]{fig5_2.eps} 
-	\end{center}
-	\caption{
-	同一の点$\fat{x}$におけるトラクションベクトル.
-	(a)一般の面．(b)主応力面($\fat{n}_p$は主応力方向を
-	表す単位ベクトル)．
-	 } 
-	\label{fig:fig5_2}
-\end{figure}
+で与えられるそれぞれの応力テンソルについて, 最大および最小主応力と対応する主応力方向を求めよ. 
 \end{document}
