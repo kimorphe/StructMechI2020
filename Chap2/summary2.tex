@@ -141,7 +141,7 @@ $\sigma_{ij},(i,j=1,2,3)$を並べた
 %%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[h]
 	\begin{center}
-	\includegraphics[width=0.4\linewidth]{fig3_5.eps} 
+	\includegraphics[width=0.7\linewidth]{fig3_5.eps} 
 	\end{center}
 	\caption{着目点$\fat{x}$における応力成分の視覚的な表現.
 	矩形領域は, 応力成分が作用する面を表すために描かれたものであり
@@ -164,8 +164,16 @@ $\sigma_{ij},(i,j=1,2,3)$を並べた
 \item
 	{\bf 表裏面それぞれに作用するトラクションの関係:}\\
 	図\ref{fig:fig3_2}のように，物体中の着目点$\fat{x}$を含むように微小な薄層領域ABCDをとり
-	その釣り合い条件式を立てる．$\Delta h \rightarrow 0$と$\Delta S\rightarrow 0$の極限を
-	順にとれば，釣り合い式は
+	その釣り合い条件式を立てる．トラクションが単位面積あたりの力であることに注意し，
+	$\Delta S$や$\Delta h$は十分小さいとすれば，釣り合い式は
+	\begin{equation}
+		\left(\fat{t}^{(n)}+\fat{t}^{(-n)}\right)\Delta S 
+		+
+		\left(\fat{b}^{l}+\fat{b}^{r}\right)\Delta h 
+		=\fat{0}
+	\end{equation}
+		$\Delta h \rightarrow 0$と$\Delta S\rightarrow 0$の極限を
+	順にとれば，
 	\begin{equation}
 		\fat{t}^{(n)}+\fat{t}^{(-n)}=\fat{0}
 		\label{eqn:t_pmn}
@@ -182,9 +190,21 @@ $\sigma_{ij},(i,j=1,2,3)$を並べた
 	\end{figure}
 \item
 	{\bf トラクションベクトルと法線ベクトルの関係:}\\
-	図\ref{fig:fig3_4}のような，着目点$\fat{x}$を含む微小三角形領域
-	(3次元問題の場合は四面体領域)に対する釣り合い条件を考える．
-	その結果, 一般のトラクションベクトル$\fat{t}^{(n)}(\fat{x})$と法線ベクトル$\fat{n}$が, 
+	図\ref{fig:fig3_4}のような，着目点$\fat{x}$を含む微小三角形領域ABC
+	(3次元問題の場合は四面体領域)に対する釣り合い式は
+	\begin{equation}
+		\fat{t}^{(n)}\Delta S +\fat{t}^{(-1)}\Delta x_2 + \fat{t}^{(-2)}\Delta x_1 =\fat{0}
+		\label{eqn:equib_tri}
+	\end{equation}
+	となる．式(\ref{eqn:t_pmn})と，
+	\begin{equation}
+		\fat{n}= \left(n_1,n_2\right)=\left( \frac{\Delta x_2}{\Delta S}, \frac{\Delta x_1}{\Delta S}\right)^T
+	\end{equation}
+	であることを踏まえれば，式(\ref{eqn:equib_tri})は
+	\begin{equation}
+		\fat{t}^{(n)}=n_1\fat{t}^{(1)}+n_2\fat{t}^{(2)} 
+	\end{equation}
+	よって, 一般のトラクションベクトル$\fat{t}^{(n)}(\fat{x})$と法線ベクトル$\fat{n}$が, 
 	\begin{equation}
 		\fat{t}^{(n)}=\fat{\sigma}^{T}\fat{n}
 		\label{eqn:t_as_sign}
@@ -195,7 +215,7 @@ $\sigma_{ij},(i,j=1,2,3)$を並べた
 	本質的な量であることを意味する．
 	\begin{figure}[h]
 		\begin{center}
-		\includegraphics[width=0.4\linewidth]{fig3_4.eps} 
+		\includegraphics[width=0.7\linewidth]{fig3_4.eps} 
 		\end{center}
 		\caption{着目点$\fat{x}$の近傍にとった微小三角形領域の自由物体図.}
 		\label{fig:fig3_4}
@@ -203,18 +223,38 @@ $\sigma_{ij},(i,j=1,2,3)$を並べた
 \item
 	{\bf 応力テンソルの対称性:}\\
 	図\ref{fig:fig4_1}に示すように, 着目点$\fat{x}$を含む微小な矩形領域
-	(3次元問題の場合は立方体領域)に対して, トルクの釣り合いを考えることで, 
+	(3次元問題の場合は立方体領域)に対してモーメントの釣り合いを考える．
+	いま，図\ref{fig:fig4_1}-(b)を参照し，モーメントの基準点を$\fat{x}$，反時計回りの方向を正とすれば，
+	モーメントの釣り合い式は次のようになる．
+	\begin{eqnarray}
+		&& \left. \sigma_{12}\right|_{x_1+\frac{\Delta x_1}{2},x_2}\Delta x_2  \times \frac{\Delta x_1}{2} 
+		-
+		\left. \sigma_{21}\right|_{x_1,x_2+\frac{\Delta x_2}{2}}\Delta x_1  \times \frac{\Delta x_2}{2} \nonumber \\
+		&&
+		+
+		\left. \sigma_{12}\right|_{x_1-\frac{\Delta x_1}{2},x_2}\Delta x_2  \times \frac{\Delta x_1}{2} 
+		-
+		\left. \sigma_{21}\right|_{x_1,x_2-\frac{\Delta x_2}{2}}\Delta x_1  \times \frac{\Delta x_2}{2}
+		=0
+	\end{eqnarray}
+	この式の両辺を$\Delta x_1\Delta x_2$で割，$\Delta x_1, \Delta x_2\rightarrow 0$の極限を取れば，
+	\begin{equation}
+		\sigma_{12}=\sigma_{21}
+	\end{equation}
+	となることが示される．
+	$x_2x3$および$x_3x_1$平面内でも同じようにしてモーメントの釣り合い式を立てれば，
+	$\sigma_{23}=\sigma_{32}, \sigma_{31}=\sigma_{13}$となることが言え，最終的に
 	\begin{equation}
 		\fat{\sigma}^{T}=\fat{\sigma}
 		\label{eqn:sig_sym}
 	\end{equation}
-	となることが示される．すなわち, 応力テンソルは対称行列で表され, せん断応力成分
-	の間には
+	と，応力テンソルは対称であることが示される．
+	すなわち, 全ての$i,j$の組に対して
 	\begin{equation}
 		\sigma_{ij}=\sigma_{ji}, \ \ (i,j=1,2,3)
 		\label{eqn:sig_sym_comp}
 	\end{equation}
-	の関係がある．よって，独立な応力成分は, 直応力成分3つ, せん断応力成分3つの計6つ
+	の関係があり，このことから独立な応力成分は, 直応力成分が3つ, せん断応力成分3つの計6つ
 	であることが分かる．平面内でのモーメント(トルク)の
 	計算方法は図\ref{fig:fig4_2}を参照.
 \begin{figure}[h]
@@ -226,7 +266,7 @@ $\sigma_{ij},(i,j=1,2,3)$を並べた
 	\label{fig:fig4_1}
 \end{figure}
 \item
-	{\bf 応力成分の釣り合い方程式:}\\
+	{\bf 応力成分の釣り合い方程式(参考):}\\
 	図\ref{fig:fig4_1}に示すような，着目点$\fat{x}$を含む微小な矩形領域
 	(3次元問題の場合は立方体領域)に対して, 力の釣り合いを考えることで, 
 	応力成分が満足すべき偏微分方程式が次のように得られる．
