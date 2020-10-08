@@ -126,7 +126,16 @@ $\alpha$と$\beta$の平均:
 \end{equation}
 で定義する．ここでも，インデックス12と21は対応するせん断応力成分$\sigma_{12}=\sigma_{21}$を
 想起させることを意図したものである．
-$\alpha$と$\beta$は，変位ベクトル成分を用いて
+ここで
+\begin{equation}
+	\alpha \ll 1, \ \ \beta \ll 1
+\end{equation}
+を仮定し，このとき
+\begin{equation}
+	\alpha \approx \tan \alpha, \ \ 
+	\beta \approx \tan \beta 
+\end{equation}
+とできることを踏まえれば，$\alpha$と$\beta$は変位ベクトル成分を用いて
 \begin{equation}
 	\alpha=
 	\lim_{\Delta x_1,\Delta x_2 \rightarrow 0}
@@ -141,7 +150,7 @@ $\alpha$と$\beta$は，変位ベクトル成分を用いて
 	=\frac{\partial u_1}{\partial x_2}
 	\label{eqn:beta}
 \end{equation}
-と表される．$\Delta x_1,\Delta x_2\rightarrow 0$の極限をとる理由は，
+と表すことができる．$\Delta x_1,\Delta x_2\rightarrow 0$の極限をとる理由は，
 局所量としてせん断ひずみを定義するためである．式(\ref{eqn:alpha})と(\ref{eqn:beta})を
 式(\ref{eqn:e12_ab})に代入すれば，
 \begin{equation}
