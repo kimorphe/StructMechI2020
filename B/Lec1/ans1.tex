@@ -1,7 +1,7 @@
 \documentclass[10pt,a4j]{jarticle}
 \usepackage{graphicx,wrapfig}
 \setlength{\topmargin}{-1.5cm}
-\setlength{\textwidth}{15.5cm}
+%\setlength{\textwidth}{15.5cm}
 \setlength{\textheight}{25.2cm}
 \newlength{\minitwocolumn}
 \setlength{\minitwocolumn}{0.5\textwidth}
@@ -41,21 +41,20 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\vspace*{\baselineskip}
 \begin{center}
-{\Large \bf 2019年度 構造力学I及び演習B 演習問題1 解答} \\
+{\Large \bf 2020年度 構造力学I及び演習B 演習問題1 解答} \\
 \end{center}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-問題1, 2とも$EI$が一定のため，
-微分方程式$EIv^{(4)}=q(x)$を，与えられた外力$q(x)$と
+問題1, 2とも$EI$は一定だから，微分方程式$EIv^{(4)}=q(x)$を与えられた外力$q(x)$と
 支持条件の元に解けばよい($v^{(4)}$は$v$の4階微分を表す)．
-曲げモーメントとせん断力は, それぞれ，たわみの2階および3階の導関数から
-求められる．また，支点反力は支点部における断面力の値から得ることができる．
+たわみが求められれば，曲げモーメントとせん断力は, それぞれ，たわみの2階および3階の
+導関数から求められる．また，支点反力は支点部における断面力の値から得ることができる．
 \subsubsection*{問題1. }
 \begin{enumerate}
 \item
-	$q(x)=q_0H\left(\frac{l}{2}-x\right)=q_0H\left(\frac{1}{2}-\frac{x}{l}\right)$より，
+	$q(x)=3q_0H\left(x-\frac{2l}{3}\right)$より，
 \begin{equation}
-	v(x)=\frac{q_0l^4}{24EI}\left\{
-			\left< \frac{1}{2} -\frac{x}{l} \right>^4
+	v(x)=\frac{3q_0l^4}{24EI}\left\{
+			\left< \frac{x}{l} -\frac{2}{3} \right>^4
 			+
 			C_1\left(\frac{x}{l}\right)^3
 			+
@@ -69,29 +68,26 @@
 \end{equation}
 と表すことができる．式(\ref{eqn:gen_sol1})に含まれる積分定数は，支点AとBにおける
 支持条件から，以下のように決まる．\\
-
-支点Bにおける支持条件:
+はじめに，支点Aにおける支持条件:
 \begin{equation}
-	M(l)=-EIv''(l) =0,
-	\ \  
-	Q(l)=-EIv'''(l) =0,
-	\label{eqn:BC1_B}
-\end{equation}
-より，$C_1=C_2=0$となる．\\
-一方，支点Aにおける支持条件:
-\begin{equation}
-	v(0) =0, \, v'(0)=0.
+	v(0)=0, \ \ M(0)=-EIv''(0) =0,
 	\label{eqn:BC1_A}
 \end{equation}
-より, $C_3=\frac{1}{2},\, C_4=-\frac{1}{16}$となり，よってたわみ$v$は
+より，$C_2=C_4=0$となる．支点Bにおける支持条件:
 \begin{equation}
-	v(x)=\frac{q_0l^4}{24EI}\left\{
-			\left< \frac{1}{2} -\frac{x}{l} \right>^4
-			+
-			\frac{1}{2}	
-			\left(\frac{x}{l}\right)
+	v(l) =0, \, M(l)=-EIv''(l)=0.
+	\label{eqn:BC1_B}
+\end{equation}
+からは，$C_1=-\frac{2}{9},\, C_3=-\frac{17}{81}$が得られる．よってたわみ$v$は
+\begin{equation}
+	v(x)=\frac{q_0l^4}{8EI}\left\{
+			\left< \frac{x}{l} -\frac{2}{3} \right>^4
 			-
-			\frac{1}{16}	
+			\frac{2}{9}	
+			\left(\frac{x}{l}\right)^3
+			+
+			\frac{17}{81}	
+			\left(\frac{x}{l}\right)
 			\right\}
 	\label{eqn:v1}
 \end{equation}
@@ -100,12 +96,21 @@
 曲げモーメント$M(x)$とせん断力$Q(x)$は，式(\ref{eqn:v1})より
 \begin{eqnarray}
 	M(x) &=& 
-		-\frac{q_0l^2}{2}
-				\left< \frac{1}{2} -\frac{x}{l} \right>^2
+		-\frac{3q_0l^2}{2}
+		\left\{	
+			\left< \frac{x}{l} -\frac{2}{3} \right>^2
+			-
+			\frac{1}{9}
+			\left(\frac{x}{l}\right)
+		\right\}
 	\label{eqn:M1}
 	\\
 	Q(x) &=&
-		q_0l \left<\frac{1}{2} -\frac{x}{l}\right>
+		-\frac{3q_0l^2}{2}
+		\left\{
+		2 \left<\frac{x}{l} -\frac{2}{3}\right>
+		-\frac{1}{9}
+		\right\}
 	\label{eqn:Q1}
 \end{eqnarray}
 となる．これらを断面力図として示せば図\ref{fig:fig1}の(b)および(c)のようになる．
@@ -121,8 +126,8 @@
 \item
 支点反力の向きを図\ref{fig:fig1}-(a)に示すようにとれば，
 \begin{equation}
-	R_A = Q(0) = \frac{q_0l}{2}, \ \ 
-	M_A = M(0) = -\frac{1}{8}q_0l^2
+	R_A =  Q(0) = \frac{q_0l}{6}, \ \ 
+	R_C = -Q(l) = \frac{5}{6}q_0l
 \end{equation}
 となる．
 \end{enumerate}
@@ -133,13 +138,16 @@
 \item
 外力$q(x)$はディラクのデルタ関数を用いて
 \begin{equation}
-	q(x)=P\delta \left(x-\frac{2l}{3} \right)
+	q(x)=P\delta \left(x-\frac{l}{2} \right)
+	+P\delta \left(x-l \right)
 	\label{eqn:qx_dlt}
 \end{equation}
 と表される．よって，たわみ$v(x)$は，$C_1\sim C_4$を積分定数として
 \begin{equation}
 	v(x)=\frac{Pl^3}{6EI}\left\{
-			\left< \frac{x}{l} -\frac{2}{3}\right>^3
+			\left< \frac{x}{l} -\frac{1}{2}\right>^3
+			+
+			\left< \frac{x}{l} -1\right>^3
 			+
 			C_1\left(\frac{x}{l}\right)^3
 			+
@@ -151,33 +159,41 @@
 		\right\}
 		\label{eqn:gen_sol2}
 \end{equation}
-	と書くことができる．式(\ref{eqn:gen_sol2})より，曲げモーメントは
-\begin{equation}
-	M(x)=-EIv''=-\frac{Pl}{6}\left\{
+	と書くことができる．式(\ref{eqn:gen_sol2})より，曲げモーメントとせん断力は
+\begin{eqnarray}
+	M(x) &=& -EIv''=-\frac{Pl}{6}\left\{
 			6\left< \frac{x}{l} -\frac{2}{3}\right>
 			+
 			6C_1\left(\frac{x}{l}\right)
 			+
 			2C_2
+		\right\} \\
+	Q(x) &=& M'(x) =-P\left\{ 
+		H\left( \frac{x}{l}-\frac{1}{2}\right)
+		+
+		H\left( \frac{x}{l}-1\right)
+		+C_1
 		\right\}
-\end{equation}
-で，点Aにおける支持条件:
+\end{eqnarray}
+で与えられる．ここで，点Aにおける支持条件:
 \begin{equation}
 	v(0)=0,\, v'(0)=0
 \end{equation}
 より$C_3=C_4=0$が, 点Cにおける支持条件
 \begin{equation}
-	v(l)=0,\, M(l)=-EIv''(l)=0
+	M(l)=0,\, Q(l)==0
 \end{equation}
-より，$C_1=-\frac{13}{27}, \, C_2=\frac{4}{9}$ときまる．以上より，
-たわみは
+より，$C_1=-2, \, C_2=\frac{9}{2}$が言える．以上より，
 \begin{equation}
 	v(x)=\frac{Pl^3}{6EI}\left\{
-			\left< \frac{x}{l} -\frac{2}{3}\right>^3
-			-
-			\frac{13}{27}\left(\frac{x}{l}\right)^3
+			\left< \frac{x}{l} -\frac{1}{2}\right>^3
 			+
-			\frac{4}{9}\left( \frac{x}{l} \right)^2
+			\left< \frac{x}{l} -1 \right>^3
+			-
+			2
+			\left(\frac{x}{l}\right)^3
+			+
+			\frac{9}{2}\left( \frac{x}{l} \right)^2
 			\right\}
 	\label{eqn:v2}
 \end{equation}
@@ -186,20 +202,24 @@
 式(\ref{eqn:v2})より，曲げモーメント$M$とせん断力$Q$は以下のようになる．
 \begin{eqnarray}
 	M(x) &=& 
-		-\frac{Pl}{3}
+		-\frac{Pl}{2}
 			\left\{
-				3\left< \frac{x}{l} - \frac{2}{3}\right> 
-				-\frac{13}{9}\left(\frac{x}{l}\right)
-				+\frac{4}{9}
+				2\left< \frac{x}{l} - \frac{1}{2}\right> 
+				+
+				2\left< \frac{x}{l} - 1 \right> 
+				-4\left(\frac{x}{l}\right)
+				+3
 			\right\}
 	\label{eqn:M2}
 	\\
 	Q(x) &=&
-		-\frac{P}{3}
+		-P
 		\left\{
-				3H\left(\frac{x}{l} -\frac{2}{3}\right)
+				H\left(\frac{x}{l} -\frac{1}{2}\right)
+				+
+				H\left(\frac{x}{l} -1 \right)
 				-
-				\frac{13}{9}
+				2
 		\right\}
 	\label{eqn:Q2}
 \end{eqnarray}
@@ -216,9 +236,8 @@
 \item
 支点反力の向きを図\ref{fig:fig2}-(a)のようにとれば，
 \begin{equation}
-	R_A = Q(0) =  \frac{13}{27}P, \ \  
-	M_A = M(0) =  -\frac{4}{27}Pl, \ \  
-	R_C = -Q(l) =  \frac{14}{27}P
+	R_A = Q(0) =  2P, \ \  
+	M_A = M(0) =  -\frac{3}{2}Pl
 \end{equation}
 となる．
 \end{enumerate}
