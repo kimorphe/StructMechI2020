@@ -1,0 +1,101 @@
+﻿\documentclass[10pt,a4j]{jarticle}
+\usepackage{graphicx,wrapfig}
+\setlength{\topmargin}{-1.5cm}
+\setlength{\textwidth}{15.5cm}
+\setlength{\textheight}{25.2cm}
+\newlength{\minitwocolumn}
+\setlength{\minitwocolumn}{0.5\textwidth}
+\addtolength{\minitwocolumn}{-\columnsep}
+%\addtolength{\baselineskip}{-0.1\baselineskip}
+%
+\def\Mmaru#1{{\ooalign{\hfil#1\/\hfil\crcr
+\raise.167ex\hbox{\mathhexbox 20D}}}}
+%
+\begin{document}
+\newcommand{\fat}[1]{\mbox{\boldmath $#1$}}
+\newcommand{\D}{\partial}
+\newcommand{\w}{\omega}
+\newcommand{\ga}{\alpha}
+\newcommand{\gb}{\beta}
+\newcommand{\gx}{\xi}
+\newcommand{\gz}{\zeta}
+\newcommand{\vhat}[1]{\hat{\fat{#1}}}
+\newcommand{\spc}{\vspace{0.7\baselineskip}}
+\newcommand{\halfspc}{\vspace{0.3\baselineskip}}
+\bibliographystyle{unsrt}
+\pagestyle{empty}
+\newcommand{\twofig}[2]
+ {
+   \begin{figure}[h]
+     \begin{minipage}[t]{\minitwocolumn}
+         \begin{center}   #1
+         \end{center}
+     \end{minipage}
+         \hspace{\columnsep}
+     \begin{minipage}[t]{\minitwocolumn}
+         \begin{center} #2
+         \end{center}
+     \end{minipage}
+   \end{figure}
+ }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\vspace*{\baselineskip}
+\begin{center}
+{\Large \bf 2019年度 構造力学I及び演習B 演習問題7 解答} \\
+\end{center}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{問題1.}
+材料$i(=1,2,3)$に発生するひずみは$\varepsilon_i$は，熱ひずみを$\varepsilon_i^T$
+と機械的ひずみ$\varepsilon_i^M$の和として
+\begin{equation}
+	\varepsilon_i =
+	\varepsilon_i^T 
+	+
+	\varepsilon_i^M, \ \ (i=1,2,3) 
+	\label{eqn:eps_sum}
+\end{equation}
+と表される．熱ひずみは，線膨張係数$\alpha_i$と$\Delta T$を用いて
+\begin{equation}
+	\varepsilon_i^T= \alpha_i \Delta T, \ \ (i=1,2,3)
+\end{equation}
+と表される.一方，機械的ひずみは，ヤング率$E_i$と応力$\sigma_i$により，
+\begin{equation}
+	\varepsilon_i^M= \frac{\sigma_i}{E_i}, \ \ (i=1,2,3)
+	\label{eqn:Hooke}
+\end{equation}
+で与えられる．材料$i$に発生する軸力を$N_i=\sigma_i A_i$とすれば，
+中央の剛体壁に作用する軸力は釣り合う必要があることから
+\begin{equation}
+	-N_1-N_2+N_3=0 
+	\label{eqn:equib}
+\end{equation}
+である．ただし，$A_i$は部材$i$の断面積を表す．一方，材料$i$に発生する伸び$\Delta l_i$は，
+部材$i$の長さを$l_i$とすれば，
+\begin{equation}
+	\Delta l_i = \varepsilon_i l_i, \ \ (i=1,2,3) 
+\end{equation}
+で，適合条件:
+\begin{equation}
+	\Delta l_1=\Delta l_2 \ \ \Delta l_1+\Delta l_3=0
+	\label{eqn:compati}
+\end{equation}
+を満足しなければならない．
+ここで，式(\ref{eqn:eps_sum})$\sim$式(\ref{eqn:Hooke})より，
+\begin{equation}
+	N_i=\sigma_i A_i=\sigma_i=E_iA_i\left( \varepsilon_i-\alpha_i \Delta T\right), \ \ (i=1,2,3)
+	\label{eqn:axial_forces}
+\end{equation}
+だから，式(\ref{eqn:axial_forces})と式(\ref{eqn:compati})を用いて，式(\ref{eqn:equib})から
+$\varepsilon_2$と$\varepsilon_3$を消去すれば，
+\begin{equation}
+	\varepsilon_1=\frac{\alpha_1E_1+\alpha_2E_2-2\alpha_3 E_3}{E_1+E_2+E_3} \Delta T
+\end{equation}
+となることが示される．
+$\varepsilon_1>0$のとき，剛体壁2は右方向に移動する．
+よって，剛体壁2が右方向に移動するための条件は，$E_i>0$だから
+\begin{equation}
+	\alpha_1E_1+\alpha_2E_2-2\alpha_3 E_3 >0
+\end{equation}
+と表すことができる．
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
