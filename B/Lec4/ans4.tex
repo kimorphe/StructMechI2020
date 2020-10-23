@@ -1,7 +1,7 @@
 \documentclass[10pt,a4j]{jarticle}
 \usepackage{graphicx,wrapfig}
 \setlength{\topmargin}{-1.5cm}
-\setlength{\textwidth}{15.5cm}
+%\setlength{\textwidth}{15.5cm}
 \setlength{\textheight}{25.2cm}
 \newlength{\minitwocolumn}
 \setlength{\minitwocolumn}{0.5\textwidth}
@@ -41,92 +41,118 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\vspace*{\baselineskip}
 \begin{center}
-{\Large \bf 2019年度 構造力学I及び演習B 演習問題4　解答} \\
+{\Large \bf 2020年度 構造力学I及び演習B 演習問題4　解答} \\
 \end{center}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection*{問題1}
-断面$S$の面積$\left| S \right|$は， 
+断面$S$における$y^m\,(m=0,1,2)$の面積積分を
+\begin{equation}
+	J_m:=\int_S y^m dS, \ \ (m=0,1,2)
+\end{equation}
+とおく．$J_m$は，$k=\frac{\pi}{b}$とすれば，積分変数$x,y$により
 \begin{eqnarray}
-	\left| S\right| &= & 
-	\int _{y=-h/2}^{h/2}\int _{x=0}^{b\cos\left(\frac{\pi y}{h}\right) } dxdy
-	\nonumber
-	\\
+	J_m 
 	&=& 
-	2\int_{0}^{h/2} b\cos \left( \frac{\pi y}{h}\right) dy 
-	\nonumber
-	\\
+	\int_{x=-\frac{b}{2}}^{\frac{b}{2}} \int_{y=0}^{h\cos(kx)}y^m dydx \\
 	&=& 
-	\frac{2bh}{\pi}\left[ \sin \left( \frac{\pi y}{h} \right)\right]_0^{h/2}
-	\nonumber
-	\\
+	2\int_{x=0}^{\frac{b}{2}} \int_{y=0}^{h\cos(kx)}y^m dydx \\
+	&=& 
+	\frac{2h^{m+1}}{m+1}\int_{x=0}^{\frac{b}{2}} \cos^{m+1}(kx)dx \\
+	&=& 
+	\frac{2bh^{m+1}}{(m+1)\pi}\int_{u=0}^{\frac{\pi}{2}} \cos^{m+1}u du
+\end{eqnarray}
+として計算することができる．これを$m=0,1,2$それぞれの場合について具体的に計算すると，
+\begin{equation}
+	J_0=
+	\frac{2bh}{\pi}\int_{u=0}^{\frac{\pi}{2}} \cos u du = \frac{bh}{\pi}
+\end{equation}
+\begin{eqnarray}
+	J_1
 	&=&
-	\frac{2bh}{\pi}
+	\frac{bh^2}{2\pi}\int_{u=0}^{\frac{\pi}{2}} \cos^2 u du \\
+	&=&
+	\frac{bh^2}{2\pi}\int_{u=0}^{\frac{\pi}{2}} \frac{1+\cos(2u)}{2} du \\
+	&=& \frac{bh^2}{8}
 \end{eqnarray}
-となる．一方，$x$軸に関する断面１次モーメント$G$は
 \begin{eqnarray}
-	G &=& 
-	\int _{y=-h/2}^{h/2}\int_{x=0}^{b\cos\left(\frac{\pi y}{h}\right) } ydxdy \\
-	 &=& 
-	\int_{-h/2}^{h/2} by\cos \left( \frac{\pi y}{h}\right) dy 
+	J_2
+	&=&
+	\frac{bh^3}{3\pi}\int_{u=0}^{\frac{\pi}{2}} \cos^3 u du \\
+	&=&
+	\frac{bh^3}{3\pi}\int_{u=0}^{\frac{\pi}{2}} \frac{3\cos u + \cos (3u) }{4} du \\
+	&=&
+	=\frac{bh^3}{4\pi}
 \end{eqnarray}
-だが，$y\cos\left(\frac{\pi y}{h}\right)$は$y$に関する奇関数だから$G=0$となる．
-よって，中立軸位置$\bar Y$は，$\bar Y=0$となる．
-従って，$x$軸に関する断面2次モーメント$I_x$は中立軸に関する断面2次モーメント$I$でもあり，それは
+となる．
+断面$S$の面積$\left| S \right|$は$J_0$で与えられ，
+$x$軸に関する断面１次モーメント$G$は$J_1$で与えられるので，中立軸位置$\bar Y$は，
+\begin{equation}
+	\bar Y =\frac{G}{\left| S\right|}=\frac{J_1}{J_0}=\frac{\pi}{8}h
+\end{equation}
+となる．また，$x$軸に関する断面2次モーメント$I_x=J_2$だから，
+中立軸に関する断面2次モーメント$I$は
 以下のように求められる．
 \begin{eqnarray}
-	I=I_x &= & 
-	\int _{y=-h/2}^{h/2} \int _{x=0}^{b\cos \left(\frac{\pi y }{h}\right)} y^2dxdy   
-	\nonumber \\
-	&=& 
-	2\int _{y=0}^{h/2} b y^2\cos \left(\frac{\pi y }{h}\right) dxdy   
-	\nonumber \\
-	&=& 
-	\frac{2bh^3}{\pi^3}\int_0^{\pi/2}	
-	Y^2 \cos Y dY, \ \ \left(Y=\frac{\pi}{h}y\right)
-	\nonumber \\
-	&=& 
-	\frac{2bh^3}{\pi^3}
-	\left[ \left(Y^2-2\right)\sin Y +2 Y\cos Y \right]_{0}^{\pi/2}
-	\nonumber \\
-	&=& 
-	\frac{bh^3}{\pi^3}\left( \frac{\pi^2}{2}-4 \right)
+	I & =& I_x -\bar Y^2 \left| S\right| \\
+	&=& J_2-\bar Y^2 J_0 \\
+	&=& \left( \frac{1}{4\pi}-\frac{\pi}{64} \right) ah^3
 \end{eqnarray}
-なお，上の計算では，部分積分によって導かれる次の関係を利用した．
-\begin{equation}
-	\int x^2 \cos x dx = (x^2-2)\sin x +2x\cos x
-	\label{eqn:int_idt}
-\end{equation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection*{問題2}
-部分断面$S_1$自体の中立軸は，$S_1$の形状が上下対称であることから
-図\ref{fig:fig1}-(b)の$X$軸に一致する．そのため，$S_1$の中立軸に関する
-断面2次モーメント$I(S_1)$は，図\ref{fig:fig1}-(a)の$X$軸に関する断面2次モーメント
-を$b=\frac{a}{2},\,h=\frac{\sqrt{3}}{2}a$として，4倍することで
+与えられた断面$S$を，図\ref{fig:fig1}-(a)に示す部分断面$S_1,S_2$および$S_3$に分割する．
+ここで，部分断面$S_i$の$x$軸からの距離で測った中立軸位置を$\bar Y_i$，各々の断面の中立軸
+に関する断面2次モーメントを$I(S_i)$と表すことにする．
+$S_1$は幅$b$，高さ$h$の三角形なので，
 \begin{equation}
-	I(S_1) =  4\times \left. \frac{1}{12}bh^3 \right|_{b=\frac{a}{2},h=\frac{\sqrt{3}}{2}a}=\frac{\sqrt{3}}{16}a^4
-	\label{eqn:eq_lbl}
+	\bar Y_1 = \frac{h}{3}, \ \ I(S_1)=\frac{bh^3}{36}
 \end{equation}
-と求められる．
-一方，部分断面$S_2$の中立軸位置は，図\ref{fig:fig1}-(c)の$X$軸に一致し，
-$S_2$の中立軸に関する断面2次モーメント$I(S_2)$は，
+である．$S_2$と$S_3$は，$y$軸について対称なので，中立軸位置や断面2次モーメントは互い一致する．
+そこで，$\bar Y_2$と$I(S_2)$を，図\ref{fig:fig1}-(b)に示した座標を使って計算する．
+$S_2$に関する$m$次のモーメントは
+\begin{eqnarray}
+	J_m 
+	&:=& 
+	\int_{S_2} y^m dS \\
+	&=& 
+	\int_{x=0}^b\int_{y=\frac{h}{b}x}^{\frac{h}{b}x+h} y^m dydx \\
+	&=& 
+	\frac{h^{m+1}}{m+1}
+	\int_{x=0}^b 
+	\left\{ 
+	\left( \frac{h}{b}+1\right)^{m+1} -
+	\left( \frac{h}{b}\right)^{m+1} \right\} 
+	dx  \\
+	&=&
+	\frac{bh^{m+1}}{m+1} \int_0^1 \left\{ (u+1)^{m+1}-u^{m+1}\right\}  du \\
+	&=&
+	\frac{bh^{m+1}}{(m+1)(m+2)} \left[ (u+1)^{m+2}-u^{m+2}\right]_0^1 \\
+	&=&
+	\frac{2^{m+2}-2}{(m+1)(m+2)}bh^{m+1}
+\end{eqnarray}
+と得られるので，
 \begin{equation}
-	I(S_2)= 
-		\frac{a}{12} \times \left( \frac{\sqrt{3}}{2}a \right)^3=\frac{\sqrt{3}}{32}a^4
-	\label{eqn:eq_lbl}
+	\bar Y_2= \frac{J_1}{J_0}=\frac{bh^2}{bh}=h
 \end{equation}
-以上のことと，$S_2$と$S_3$の中立軸位置と中立軸に関する断面2次モーメントが互いに一致することを踏まえれば，
-表\ref{tbl:tbl2}に示すような計算過程を経て，複合断面$S=S_1\cup S_2 \cup S_3$の中立軸位置$\bar Y$と
-断面2次モーメント$I(S)$が，次のように求められる．
+となる．また，
 \begin{equation}
-	\bar Y = \sum_{i=1}^3 \frac{\left|S_i\right|}{\left| S \right|}\bar{Y}_i=0
+	I(S_2) =  J_2-\bar Y_2^2 \left| S_2 \right| = \frac{7}{6}bh^3 -h^2\times bh = \frac{bh^3}{6}
+\end{equation}
+である．
+以上のことを踏まえれば，表\ref{tbl:tbl2}に示すような計算過程を経て，複合断面:
+\begin{equation}
+	S=S_1\cup S_2 \cup S_3
+\end{equation}	
+の中立軸位置$\bar Y$と断面2次モーメント$I(S)$が，次のように求められる．
+\begin{equation}
+	\bar Y = \sum_{i=1}^3 \frac{\left|S_i\right|}{\left| S \right|}\bar{Y}_i=\frac{13}{15}h
 	\label{eqn:Yb2}
 \end{equation}
 \begin{equation}
 	I(S)=\sum_{i=1}^3\left\{
 		I(S_i)+\left( \bar Y_i -\bar Y\right)^2\left| S_i \right|
 	\right\}
-		=\frac{11\sqrt{3}}{16}a^4
+		=\frac{97}{180}bh^3
 	\label{eqn:Iz_2}
 \end{equation}
 \begin{table}
@@ -145,44 +171,44 @@ $S_2$の中立軸に関する断面2次モーメント$I(S_2)$は，
 		\hline 
 		\hline 
 		断面1&	
-		$\frac{\sqrt{3}}{2}a^2$ & 
-		$\frac{1}{3}$  &
-		$\frac{\sqrt{3}}{2}a$ & 
-		$\frac{\sqrt{3}}{6}a$ & 
-		$\frac{\sqrt{3}}{2}a$ & 
-		$\frac{3\sqrt{3}}{8}a^4$ &
-		$\frac{\sqrt{3}}{16}a^4$ 
+		$\frac{1}{2}bh$ & 
+		$\frac{1}{5}$  &
+		$\frac{1}{3}h$ & 
+		$\frac{1}{15}h$ & 
+		$\frac{8}{15}h$ & 
+		$\frac{32}{225}bh^3$ &
+		$\frac{1}{36}bh^3$ 
 		\\
 		\hline
 		断面2&	
-		$\frac{\sqrt{3}}{2}a^2$ & 
-		$\frac{1}{3}$  &
-		$-\frac{\sqrt{3}}{4}a$ & 
-		$-\frac{\sqrt{3}}{12}a $ & 
-		$-\frac{\sqrt{3}}{4}a$ & 
-		$\frac{3\sqrt{3}}{32}a^4$ &
-		$\frac{\sqrt{3}}{32}a^4$ 
+		$bh$ & 
+		$\frac{2}{5}$  &
+		$h$ & 
+		$\frac{2}{5}h $ & 
+		$\frac{2}{15}h$ & 
+		$\frac{4}{225}bh^3$ &
+		$\frac{1}{6}bh^3$ 
 		\\
 		\hline 
 		断面3&	
-		$\frac{\sqrt{3}}{2}a^2$ & 
-		$\frac{1}{3}$  &
-		$-\frac{\sqrt{3}}{4}a$ & 
-		$-\frac{\sqrt{3}}{12}a $ & 
-		$-\frac{\sqrt{3}}{4}a$ & 
-		$\frac{3\sqrt{3}}{32}a^4$ &
-		$\frac{\sqrt{3}}{32}a^4$ 
+		$bh$ & 
+		$\frac{2}{5}$  &
+		$h$ & 
+		$\frac{2}{5}h $ & 
+		$\frac{2}{15}h$ & 
+		$\frac{4}{225}bh^3$ &
+		$\frac{1}{6}bh^3$ 
 		\\
 		\hline 
 		\hline 
 		合計&	
-		$\frac{3\sqrt{3}}{2}a^2$ & 
+		$\frac{5}{2}bh$ & 
 		$1$  &
 		$-$ & 
-		$\bar Y=0 $ & 
+		$\bar Y=\frac{13}{15}h $ & 
 		$-$ & 
-		$\frac{9\sqrt{3}}{16}a^4$ & 
-		$\frac{\sqrt{3}}{8}a^4$ 
+		$\frac{8}{45}bh^3$ &
+		$\frac{13}{36}bh^3$ 
 	\end{tabular}
 \label{tbl:tbl2}
 \end{center}

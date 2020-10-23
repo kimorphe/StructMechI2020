@@ -1,7 +1,7 @@
 \documentclass[10pt,a4j]{jarticle}
 \usepackage{graphicx,wrapfig}
 \setlength{\topmargin}{-1.5cm}
-\setlength{\textwidth}{15.5cm}
+%\setlength{\textwidth}{15.5cm}
 \setlength{\textheight}{25.2cm}
 \newlength{\minitwocolumn}
 \setlength{\minitwocolumn}{0.5\textwidth}
@@ -41,96 +41,99 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\vspace*{\baselineskip}
 \begin{center}
-{\Large \bf 2019年度 構造力学I及び演習B 演習問題3 解答} \\
+{\Large \bf 2020年度 構造力学I及び演習B 演習問題3 解答} \\
 \end{center}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection*{問題}
 \begin{enumerate}
 \item
-図\ref{fig:fig1}-(b$_1$)のように$x$座標をとると，分布荷重$q(x)$は
-$q(x)=q_0H\left(x-l\right)$と表すことができる．
+図\ref{fig:fig1}-(c$_1$)のように$x$座標をとると，分布荷重$q(x)$は
+$q(x)=2q_0H\left(x-l\right)$と表すことができる．
 $q(x)$の4階の不定積分は
 \begin{equation}
 	\int q(x) dx^4
 	= 
-	\frac{q_0l^4}{24}
-	\left< \frac{x}{l} -1\right> ^4
+	\frac{q_0l^4}{12}
+	\left< \frac{x}{l} -\frac{1}{2}\right> ^4
 \end{equation}
 と書けるので，梁(b$_1$)のたわみ$v_1(x)$は，$C_1\sim C_4$を積分定数として
 次のように表すことができる．
 	\begin{equation}
-	v_1(x)=\frac{q_0l^4}{24EI}\left\{
-		\left< \frac{x}{l} -1 \right> ^4
+	v_1(x)=\frac{q_0l^4}{12EI}\left\{
+		\left< \xi -\frac{1}{2} \right> ^4
 		+
-		C_1
-		\left(\frac{x}{l} \right)^3
-		+
-		C_2
-		\left(\frac{x}{l} \right)^2
-		+
-		C_3
-		\left(\frac{x}{l} \right)
-		+
-		C_4,
+		C_1 \xi^3 + C_2 \xi^2 + C_3 \xi + C_4,
 	\right\}
+	\  \	
+		\left(\xi=\frac{x}{l}\right)
 	\end{equation}
-積分定数$C_3$と$C_4$は，$x=0$における支持条件:$v(0)=0,\, v'(0)=0$より$C_3=C_4=0$と決まる．
-一方，$C_1,C_2$は，$x=2l$における支持条件
-$v(2l)=0,\, v'(2l)=0$より，$C_1=-\frac{3}{4},\, C_2=\frac{5}{4}$
+積分定数$C_3$と$C_4$は，$x=0$における支持条件:
+\begin{equation}
+		v(0)=0,\ \  v'(0)=0
+\end{equation}
+より$C_3=C_4=0$と決まる．一方，$C_1$と$C_2$は，$x=l$における支持条件:
+\begin{equation}
+	v(l)=0,\ \  M(l)=0
+\end{equation}
+より，$C_1=-\frac{23}{32},\, C_2=\frac{21}{32}$
 となる．以上より，たわみは
 	\begin{equation}
-	v_1(x)=\frac{q_0l^4}{24EI}\left\{
-		\left< \frac{x}{l} -1\right> ^4
+	v_1(x)=\frac{q_0l^4}{12EI}\left\{
+		\left< \xi -\frac{1}{2}\right> ^4
 		-
-		\frac{3}{4}
-		\left(\frac{x}{l} \right)^3
+		\frac{23}{32}
+		\xi^3
 		+
-		\frac{5}{4}
-		\left(\frac{x}{l} \right)^2
+		\frac{21}{32}
+		\xi^2
 	\right\}
 	\label{eqn:vx1}
 	\end{equation}
-となる．これより，点Bのたわみは
-\begin{equation}
-	v_B=v\left( l \right) 
-	= \frac{1}{48}\frac{q_0l^4}{EI}
-	\label{eqn:vc_q}
-\end{equation}
-と求められる．
+となる．
 %%%%%%%%%%%%%%
 \item
-問題で与えられた梁(b)に作用する鉛直方向の支点反力を図\ref{fig:fig1}-(b)に示すようにとる．
-この梁を同図(b$_1$)と(b$_2$)のような2つの系の重ね合わせとして表現する．
-このとき，梁(b$_1)$のB点におけるたわみは式(\ref{eqn:vc_q})で与えられる．
-一方，梁(b$_2$)のたわみ分布$v_2$は，荷重項を
-\begin{equation}
-	q(x)=-R_B\delta\left(x-l\right)
-\end{equation}
-とし，たわみの方程式を両端固定条件の元で解くことにより，
-\begin{equation}
-	v_2(x)=\frac{(-R_B)l^3}{6EI}\left\{
-		\left< \frac{x}{l}-1\right>^3
-		-
-		\frac{1}{2}
-		\left(\frac{x}{l} \right)^3
+たわみを$v_2$，曲げモーメントとせん断力をそれぞれ$M_2,Q_2$とする．
+外力は$q(x)=P\delta(x-\frac{l}{2})$だから，$v_2$を
+	\begin{equation}
+	v_2(x)=\frac{Pl^3}{6EI}\left\{
+		\left< \xi -\frac{1}{2} \right> ^4
 		+
-		\frac{3}{4}
-		\left(\frac{x}{l} \right)^2
+		C_1 \xi^3 + C_2 \xi^2 + C_3 \xi + C_4,
 	\right\}
-	\label{eqn:vx2}
-\end{equation}
-と与えられる．よって，点Bにおけるたわみは
+	\  \	
+		\left(\xi=\frac{x}{l}\right)
+	\end{equation}
+と表すことができる．
+ここでも，積分定数$C_3$と$C_4$は，$x=0$における支持条件より$C_3=C_4=0$となる．
+$C_1$と$C_2$は，$x=l$における条件から$C_1=-\frac{11}{16},C_2=\frac{9}{16}$
+となるので，
+	\begin{equation}
+	v_2(x)=\frac{Pl^3}{6EI}\left\{
+		\left< \xi -\frac{1}{2} \right> ^4
+		-\frac{11}{16}\xi^3 + \frac{9}{16}\xi^2 
+	\right\}
+		\label{eqn:vx2}
+	\end{equation}
+が得られる．
+
+\item
+問題で与えられた梁(c)に作用する鉛直方向の支点反力を，図\ref{fig:fig1}-(c)に示すようにとる．
+この梁を同図(c$_1$)と(c$_2$)のような2つの系の重ね合わせで表現する．
+このとき，梁(c$_1)$のたわみは，式(\ref{eqn:vx1})で与えられる．
+一方，梁(c$_2$)のたわみは，式(\ref{eqn:vx2})において
+$P=-R_B$とすることで得られる．
+よって，梁(c)の点Bにおけるたわみの適合条件は
 \begin{equation}
-	v_2\left( l \right) 
-	= -\frac{R_Bl^3}{24EI}.
-	\label{eqn:vc_P}
+	v_1\left( \frac{l}{2}\right) 
+	+
+	\left. v_2\left( \frac{l}{2}\right)  \right|_{P=-R_B}=0
 \end{equation}
-である．$v_B$と$v_2(l)$は相殺すべきものであることから，
+と表され，これより支点反力$R_B$が
 \begin{equation}
-	v_B+v_2(l)=0 \ \ \Rightarrow \ \ R_B=\frac{1}{2}q_0l
+	R_B=\frac{19}{28}q_0l
 	\label{eqn:RB}
 \end{equation}
-と，点Bにおける鉛直反力が求められる．\\
+と求められる．\\
 
 一方，支点AとCにおける反力は，曲げモーメントおよびせん断力分布に，式(\ref{eqn:RB})を代入して求めることができる．
 図\ref{fig:fig1}-(b)の梁のたわみ$v(x)$は$v(x)=v_1(x)+v_2(x)$と表されるので，
@@ -147,66 +150,74 @@ $v(2l)=0,\, v'(2l)=0$より，$C_1=-\frac{3}{4},\, C_2=\frac{5}{4}$
 	Q(x)=Q_1(x)+Q_2(x)
 \end{equation}
 と表すことができる．これらは，式(\ref{eqn:vx1})と式(\ref{eqn:vx2})を微分して
-\begin{eqnarray}
-	M_1(x) & =& 
-	-\frac{q_0l^2}{24}\left\{ 
-	12\left<\frac{x}{l}-1\right>^2 - \frac{9}{2}\left(\frac{x}{l}\right) + \frac{5}{2}
+	\begin{equation}
+	M_1(x)=-\frac{q_0l^2}{4}\left\{
+		4\left< \xi -\frac{1}{2}\right> ^2
+		-
+		\frac{23}{16}
+		\xi
+		+
+		\frac{7}{16}
 	\right\}
-	\label{eqn:M1}
-	\\
-	Q_1(x) & =& 
-	-\frac{q_0l}{8}\left\{ 
-	8\left<\frac{x}{l}-1\right> - \frac{3}{2}
+		\label{eqn:Mx1}
+		\end{equation}
+	\begin{equation}
+	Q_1(x)=-\frac{q_0l}{4}\left\{
+		8\left< \xi -\frac{1}{2}\right> 
+		-
+		\frac{23}{16}
 	\right\}
-	\label{eqn:Q1}
-\end{eqnarray}
-\begin{eqnarray}
-	M_2(x) & =& 
-	\frac{R_Bl}{2}\left\{ 
-	2\left<\frac{x}{l} - 1\right> -\frac{x}{l} + \frac{1}{2}
+	\label{eqn:Qx1}
+	\end{equation}
+	\begin{equation}
+	M_2(x)=-Pl\left\{
+		\left< \xi -\frac{1}{2}\right> 
+			-
+			\frac{11}{16} \xi
+			+
+			\frac{3}{16}
+		\right\}
+		\label{eqn:Mx2}
+		\end{equation}
+	\begin{equation}
+	Q_2(x)=-P\left\{
+		H\left( \xi -\frac{1}{2}\right) 
+		-
+		\frac{11}{16}
 	\right\}
-	\label{eqn:M2}
-	\\
-	Q_2(x) & =& 
-	\frac{R_B}{2}\left\{ 
-	2H\left(\frac{x}{l}-1\right)-1
-	\right\}
-	\label{eqn:Q2}
-\end{eqnarray}
-と求められる．これより，
+	\label{eqn:Qx2}
+	\end{equation}
+求められる．
+これより，
 \begin{equation}
-	M_1(0)=-\frac{5}{48}q_0l^2, \ \ M_2(0)=\frac{R_Bl}{4}=\frac{q_0l^2}{8}
+	M_1(0)=-\frac{7}{64}q_0l^2, \ \ M_2(0)=\frac{3}{16}R_Bl=\frac{57}{7\cdot 64}q_0l^2
 \end{equation}
 \begin{equation}
-	M_1(2l)=-\frac{11}{48}q_0l^2, \ \ M_2(2l)=\frac{R_Bl}{4}=\frac{q_0l^2}{8}
+	Q_1(0)=\frac{23}{64}q_0l, \ \ Q_2(0)=-\frac{11}{16}R_B=-\frac{209}{7\cdot 64}q_0l
 \end{equation}
 \begin{equation}
-	Q_1(0)=\frac{3}{16}q_0l, \ \ Q_2(0)=-\frac{R_B}{2}=-\frac{q_0l}{4}
-\end{equation}
-\begin{equation}
-	Q_1(2l)=-\frac{13}{16}q_0l, \ \ Q_2(2l)=\frac{R_B}{2}=\frac{q_0l}{4}
+	Q_1(l)=-\frac{41}{64}q_0l, \ \ Q_2(l)=\frac{5}{16}R_B=\frac{95}{7\cdot 64 }q_0l
 \end{equation}
 となることから，部材端でのせん断力と曲げモーメントが以下のように決まる．
 \begin{equation}
-	R_A=Q_1(0)+Q_2(0)= -\frac{1}{16}q_0l, \ \ R_C=-Q_1(2l)-Q_2(2l)=-\frac{9}{16}q_0l
+	R_A=Q_1(0)+Q_2(0)= -\frac{3}{28}q_0l, \ \ R_C=-Q_1(l)-Q_2(l)=\frac{3}{7}q_0l
 \end{equation}
 \begin{equation}
-	M_A=M_1(0)+M_2(0)= \frac{1}{48}q_0l^2, \ \ M_C=M_1(2l)+M_2(2l)=-\frac{5}{48}q_0l^2
+	M_A=M_1(0)+M_2(0)= \frac{1}{56}q_0l^2
 \end{equation}
 \item
-曲げモーメント$M=M_1+M_2$は，式(\ref{eqn:M1})と式(\ref{eqn:M2})より，
+曲げモーメント$M=M_1+M_2$は，式(\ref{eqn:Mx1})と式(\ref{eqn:Mx2})より，
 \begin{itemize}
 \item
-	$x<l$のとき:
+	$x<\frac{l}{2}$のとき:
 	\begin{equation}
-		M(x)=\frac{q_0l^2}{48}( -3 \xi +1), \ \ \left( \xi=\frac{x}{l}\right)
+		M(x)=\frac{q_0l^2}{56}( -6 \xi +1), \ \ \left( \xi=\frac{x}{l}\right)
 		\label{eqn:M_left}
 	\end{equation}
 \item
-	$x>l$のとき:
+	$x>\frac{l}{2}$のとき:
 	\begin{equation}
-		M(x)=\frac{q_0l^2}{2}\left( -\eta^2 +\frac{7}{8}\eta - \frac{1}{12}\right), \ \ 
-		\left( \eta=\frac{x}{l}-1\right)
+		M(x)=-\frac{q_0l^2}{7}(\xi-1)(7\xi-4)
 		\label{eqn:M_right}
 	\end{equation}
 \end{itemize}
@@ -218,7 +229,7 @@ $v(2l)=0,\, v'(2l)=0$より，$C_1=-\frac{3}{4},\, C_2=\frac{5}{4}$
 	\begin{center}
 	\includegraphics[width=0.6\linewidth]{fig1ans.eps} 
 	\end{center}
-	\caption{2つの系$(b_1)$と$(b_2)$による梁(b)の表現．}
+	\caption{2つの系$(c_1)$と$(c_2)$による梁(c)の表現．}
 	\label{fig:fig1}
 \end{figure}
 %--------------------

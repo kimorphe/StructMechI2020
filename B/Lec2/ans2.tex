@@ -1,7 +1,7 @@
 \documentclass[10pt,a4j]{jarticle}
 \usepackage{graphicx,wrapfig}
 \setlength{\topmargin}{-1.5cm}
-\setlength{\textwidth}{15.5cm}
+%\setlength{\textwidth}{15.5cm}
 \setlength{\textheight}{25.2cm}
 \newlength{\minitwocolumn}
 \setlength{\minitwocolumn}{0.5\textwidth}
@@ -41,45 +41,42 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\vspace*{\baselineskip}
 \begin{center}
-{\Large \bf 2019年度 構造力学I及び演習B 演習問題2 解答} \\
+{\Large \bf 2020年度 構造力学I及び演習B 演習問題2 解答} \\
 \end{center}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection*{問題(1)}
-支点反力の正方向を図\ref{fig:fig1_1}-(a)にあるように定めると，はり全体の力とモーメントの
+支点反力の正方向を図\ref{fig:fig1_1}-(a)にあるように定める．はり全体の力とモーメントの
 釣り合いから，
 \begin{eqnarray}
-	R_A &=& P-2P+3P=2P \\
+	R_A &=& \frac{4}{3}P \\
 	H_A &=&0 \\
-	M_A &=& -P\times l + 2P\times \frac{2}{3}l -3P\times \frac{1}{3}l=-\frac{2}{3}Pl
+	R_D &=& -\frac{P}{3}
 	\label{eqn:Rs_simple}
 \end{eqnarray}
-となる．また，a-a'の位置で梁を切断して自由物体図を描くと，
-図\ref{fig:fig1_1}-(b)のようになる．この図に基づき，力とモーメントの釣り合い条件を立てると，
+となる．ここで，a-a'の位置で梁を切断して自由物体図を描くと，図\ref{fig:fig1_1}-(b)のようになる．
+この図に基づき，力とモーメントの釣り合い条件を立てると，
 \begin{eqnarray}
-	Q(s_1) &=& P \\
-	M(s_1) &=& -Ps_1, \ \ \left(0<s_1 < \frac{l}{3}\right)
+	Q(s_1) &=& -R_D= \frac{P}{3} \\
+	M(s_1) &=& R_D s_1=-\frac{P}{3}s_1
 	\label{eqn:eqlbl}
 \end{eqnarray}
-となる．ただし，$s_1$はは図\ref{fig:fig1_1}-(b)に示すように，点Dから切断位置までの距離を表す．
-一方，b-b'で梁を切断した場合，自由物体図は図\ref{fig:fig1_1}-(c)のようであり，この場合，
+となる．ただし，$s_1$は図\ref{fig:fig1_1}-(b)に示すように，点Dから切断位置までの距離を表す．
+次に，b-b'で梁を切断を行うと，自由物体図は図\ref{fig:fig1_1}-(c)のようになる．この場合，
 釣り合い条件から断面力が
 \begin{eqnarray}
-	Q(s_2) &=& P-2P=-P \\ 
-	M(s_2) &=& -P\left(s_2+\frac{l}{3}\right) +2Ps_2 = P \left( s_2-\frac{l}{3}\right)
+	Q(s_2) &=& -2P-R_D=-\frac{5}{3}P \\ 
+	M(s_2) &=& R_D\left(s_2+\frac{l}{3}\right) +2Ps_2 = \frac{P}{3} \left( 5s_2-\frac{l}{3}\right)
 	\label{eqn:eqlbl}
 \end{eqnarray}
-と求められる．最後に，c-c'の断面における断面力を，図\ref{fig:fig1_1}-(c)を参照して
-求めると，
+と求められる．最後に，c-c'の断面における断面力を，図\ref{fig:fig1_1}-(d)を参照して求めると，
 \begin{eqnarray}
-	Q(s_3) &=&P-2P+3P=2P \\ 
-	M(s_3) &=&-P\left(s_3+\frac{2l}{3}\right) +2P\left(s_3+\frac{l}{3}\right) -3P s_3
-	=-2Ps_3 
+	Q(x) &=&R_A=\frac{4}{3}P \\ 
+	M(x) &=&R_Ax = \frac{4}{3}Px 
 	\label{eqn:eqlbl}
 \end{eqnarray}
-となる．以上の結果を断面力図として示すと，図\ref{fig:fig1_1}-(d)と(e)の
-ようになる．
+となる．以上の結果を断面力図として示すと，図\ref{fig:fig1_1}-(e)と(f)のようになる．
 %--------------------
 \begin{figure}[h]
 	\begin{center}
@@ -92,28 +89,15 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection*{問題(2)}
-支点反力の正方向を図\ref{fig:fig2_1}-(a)のように定め，鉛直力及びC点周りの
-モーメントのつり合い式を立てれば
-\begin{eqnarray}
-	\left\{
-	\begin{array}{ll}
-		R_A+R_C-\left(
-			\frac{1}{2}\times \frac{l}{2}\times q_0 + \frac{l}{2}\times q_0
-			\right)
-			=0
-		\\
-		R_A\times l 
-		+\frac{q_0l}{4}\times \left(\frac{l}{2}+\frac{l}{2}\times \frac{1}{3}\right)
-		+\frac{q_0l}{2}\times \frac{l}{4}
-		=0
-	\end{array}
-	\right.
-\end{eqnarray}
-より，
+支点反力の正方向を図\ref{fig:fig2_1}-(a)のように定める．
+鉛直力のとりあいと，点Aに関するモーメントのつり合い式を立てれば
+これらの支点反力は
 \begin{equation}
-	R_A=\frac{7}{24}q_0l, \ \ R_C=\frac{11}{24}q_0l, \ \ H_A=0
+	H_A=0, \ \
+	R_A=\frac{q_0l}{4}+\frac{q_0l}{2}=\frac{3}{4}q_0l, \ \ 
+	M_A=- \frac{q_0l}{4}\times \frac{l}{3} -\frac{q_0l}{2}\times \frac{3l}{4} =-\frac{11}{24}q_0l^2
 \end{equation}
-となる．
+と求められる．
 次に，図\ref{fig:fig2_1}-(a)のa-a'および b-b'で梁を仮想的に
 切断し, その結果得られる部分構造について自由物体図を描けば, 
 同図(b)と(c)のようになる．また，これらの自由物体図に現れる分布荷重を，
@@ -127,7 +111,7 @@
 		Q(x)=R_A-\frac{x}{2}\times \frac{2q_0}{l}x 
 	\end{equation}
 	\begin{equation}
-		M=R_Ax-
+		M=M_A+R_Ax-
 		\frac{x}{2}\times
 		\frac{2q_0}{l}x \times\frac{x}{3}
 	\end{equation}
@@ -135,32 +119,25 @@
 	\begin{equation}
 		Q(x) =
 		q_0l \left\{ 
-			\frac{7}{24} -\left( \frac{x}{l} \right)^2
+			\frac{3}{4} -\left( \frac{x}{l} \right)^2
 		\right\}
 	\end{equation}
 	\begin{equation}
 		M(x) =
-		\frac{q_0l^2}{3} \left\{ 
-			\frac{7}{8}\left(\frac{x}{l}\right) - \left( \frac{x}{l} \right)^3
+		-\frac{q_0l^2}{24} \left\{ 
+			8\left( \frac{x}{l} \right)^3
+			-18 \left(\frac{x}{l}\right) 
+			+11
 		\right\}
 	\end{equation}
 \item
 	区間BC$\left( 0<y<\frac{l}{2}\right)$:\\
 	\begin{equation}
-		Q(s_)=q_0s-R_C
+		Q(s_)=q_0s
 	\end{equation}
 	\begin{equation}
-		M(s)=R_Cs -\frac{1}{2}q_0s^2 
+		M(s)=-\frac{1}{2}q_0s^2 
 	\end{equation}
-	より，
-	\begin{equation}
-		Q(s) =q_0l\left( \frac{s}{l}-\frac{11}{24}\right)
-	\end{equation}
-	\begin{equation}
-		M(s) =\frac{q_0l^2}{2} 
-		\left\{ \frac{11}{12}\left(\frac{s}{l}\right)-\left(\frac{s}{l}\right)^2 \right\}
-	\end{equation}
-	となる．
 \end{itemize}
 これらの結果を断面力図として示すと，図\ref{fig:fig2_2}のようになる．
 %--------------------
