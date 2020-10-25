@@ -1,7 +1,7 @@
 ﻿\documentclass[10pt,a4j]{jarticle}
 \usepackage{graphicx,wrapfig}
 \setlength{\topmargin}{-1.5cm}
-\setlength{\textwidth}{15.5cm}
+%\setlength{\textwidth}{15.5cm}
 \setlength{\textheight}{25.2cm}
 \newlength{\minitwocolumn}
 \setlength{\minitwocolumn}{0.5\textwidth}
@@ -41,10 +41,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\vspace*{\baselineskip}
 \begin{center}
-{\Large \bf 2019年度 構造力学I及び演習B 演習問題7 解答} \\
+{\Large \bf 2020年度 構造力学I及び演習B 演習問題7 解答} \\
 \end{center}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection*{問題1.}
 材料$i(=1,2,3)$に発生するひずみは$\varepsilon_i$は，熱ひずみを$\varepsilon_i^T$
 と機械的ひずみ$\varepsilon_i^M$の和として
 \begin{equation}
@@ -88,13 +87,13 @@
 だから，式(\ref{eqn:axial_forces})と式(\ref{eqn:compati})を用いて，式(\ref{eqn:equib})から
 $\varepsilon_2$と$\varepsilon_3$を消去すれば，
 \begin{equation}
-	\varepsilon_1=\frac{\alpha_1E_1+\alpha_2E_2-2\alpha_3 E_3}{E_1+E_2+E_3} \Delta T
+	\varepsilon_1=\frac{\alpha_1E_1+\alpha_2E_2-\alpha_3 E_3}{E_1+E_2+2E_3} \Delta T
 \end{equation}
 となることが示される．
 $\varepsilon_1>0$のとき，剛体壁2は右方向に移動する．
 よって，剛体壁2が右方向に移動するための条件は，$E_i>0$だから
 \begin{equation}
-	\alpha_1E_1+\alpha_2E_2-2\alpha_3 E_3 >0
+	\alpha_1E_1+\alpha_2E_2-\alpha_3 E_3 >0
 \end{equation}
 と表すことができる．
 \end{document}

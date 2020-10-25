@@ -1,7 +1,7 @@
 \documentclass[10pt,a4j]{jarticle}
 \usepackage{graphicx,wrapfig}
 \setlength{\topmargin}{-1.5cm}
-\setlength{\textwidth}{15.5cm}
+%\setlength{\textwidth}{15.5cm}
 \setlength{\textheight}{25.2cm}
 \newlength{\minitwocolumn}
 \setlength{\minitwocolumn}{0.5\textwidth}
@@ -41,7 +41,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\vspace*{\baselineskip}
 \begin{center}
-{\Large \bf 2019年度 構造力学I及び演習B 演習問題5 解答} \\
+{\Large \bf 2020年度 構造力学I及び演習B 演習問題5 解答} \\
 \end{center}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -53,15 +53,14 @@
 	力とモーメントの釣り合い式:
 	\begin{eqnarray*}
 		水平 &:& H_A=0 \\
-		鉛直 &:& R_A+R_E-\frac{q_0l}{2}=0 \\
-		モーメント(基準点A) &:& R_E \times \frac{l}{2}-
-		\frac{q_0l}{2}\times \left(\frac{3}{2}+\frac{1}{4}\right)l
+		鉛直 &:& R_A+R_E-q_0l=0 \\
+		モーメント(基準点E) &:& R_A \times \frac{3l}{2}+
+		q_0l\times \frac{l}{2}~0
 	\end{eqnarray*}
 	より，
 	\[
 		H_D=0, \ \ 
-		R_A=-\frac{5}{4}q_0l, \ \
-		R_E=\frac{7}{4}q_0l
+		R_A=-\frac{1}{3}q_0l, \ \ R_E=\frac{4}{3}q_0l
 	\]	
 	と求められる．\\
 
@@ -74,9 +73,9 @@
 	図\ref{fig:fig1}-(b)の自由物体図について, 部材軸および部材軸直角方向の力と, 
 	モーメントのつり合い式を立てればよい．その結果として，
 	\begin{eqnarray}
-		N_1(x_1) & =& -R_A=\frac{5}{4}q_0l \\
-		Q_1(x_1) & =& -H_A=0\\
-		M_1(x_1) & =& -H_Ax_1=0
+		N_1(x_1) & =& -\frac{R_A}{\sqrt{2}}=-\frac{q_0l}{3\sqrt{2}} \\
+		Q_1(x_1) & =& \frac{R_A}{\sqrt{2}}=-\frac{q_0l}{3\sqrt{2}} \\
+		M_1(x_1) & =& \frac{R_A}{\sqrt{2}}x_1 =\frac{q_0l}{3\sqrt{2}}x_1
 	\end{eqnarray}
 	が得られる．
 \item
@@ -85,11 +84,10 @@
 	釣り合い条件から, 断面力は
 	\begin{eqnarray}
 		N_2(x_2) 
-			&=& 
-			-H_A=0\\
+			&=& 0\\
 		Q_2(x_2) 
 			&=&
-			R_A= -\frac{5}{4}q_0l \\
+			R_A= -\frac{q_0l}{3} \\
 		M_2(x_2) 
 			&=&
 			=-H_Al+R_Ax_2
@@ -112,14 +110,14 @@
 	\end{eqnarray}
 \item
 	{\rm 部材4:} \\
-	図\ref{fig:fig1}-(e)に示す自由物体図を用い，部材4の断面力はは次のように求められる．
+	図\ref{fig:fig1}-(e)に示す自由物体図を用い，部材4の断面力が次のように求められる．
 	\begin{eqnarray}
 		N_4(x_4) 
-			&=&  -R_E\cos\frac{\pi}{4}=-\frac{7}{4\sqrt{2}}q_0l \\
+			&=&  -R_E=-\frac{4}{3}q_0l \\
 		Q_4(x_4) 
-			&=&  R_E\cos\frac{\pi}{4}=\frac{7}{4\sqrt{2}}q_0l \\
+			&=&  0 \\
 		M_4(x_4) 
-			&=&  R_E\cos\frac{\pi}{4}x_4 =\frac{7}{4\sqrt{2}}q_0lx_4 
+			&=&  0 
 	\end{eqnarray}
 \end{itemize}
 以上の結果を断面力図として図示すれば，図\ref{fig:fig2}のようになる．
@@ -143,59 +141,60 @@
 トラス全体のつり合い条件:
 \begin{eqnarray}
 	&& P-H_A=0  \\
-	&& R_A+R_B=0 \\  
-	&& -R_B\times l + P \times 3l=0 
+	&& R_A+R_A'=0 \\  
+	&& R_A'\times 3\sqrt{2}l + P \times \frac{3}{\sqrt{2}}l=0 
 \end{eqnarray}
 より
 \begin{equation}
 	H_A=P, \ \ 
-	R_A=-3P, \ \ 
-	R_B=3P
+	R_A=-\frac{P}{2}, \ \ 
+	R_A'=\frac{P}{2}
 \end{equation}
 となる．\\
 
 次に，a-a'でトラス構造を仮想的に切断し，上側の部分構造について自由物体図を描くと，
-図\ref{fig:fig3}-(b)のようになる．これに対して，点Eに関するモーメントのつり合い式を
+図\ref{fig:fig3}-(b)のようになる．これに対して，点Bに関するモーメントのつり合い式を
 立てれば，$N_5$が
 \begin{equation}
-	P\times l +N_5\times l=0
+	-N_{EF}l-P\sqrt{2}l + R_A'\frac{5}{\sqrt{2}}l =0
 	\; \Rightarrow \;
-	N_5=-P
+	N_{EF}=-\frac{\sqrt{2}}{4}P
 \end{equation}
-と求まる．次に，点Gに関するモーメントのつり合いより，
+と求まる．次に，点Dに関するモーメントのつり合いより，
 \begin{equation}
-	N_5\times l -N_4\times \frac{l}{\sqrt{2}}=0
+	-N_{ED}\times \sqrt{2}l -N_{EF}l +R_A'\times \frac{3}{\sqrt{2}}l=0
 	\; \Rightarrow \;
-	N_4=-\sqrt{2}P
-\end{equation}
-と$N_4$が求められる.さらに，部分構造全体の鉛直方向への力の釣り合いを考えれば，
-\begin{equation}
-	N_3+\frac{N_4}{\sqrt{2}}+N_5=0 
-	\; \Rightarrow \;
-	N_3=-\frac{N_4}{\sqrt{2}}-N_5=2P 
+	N_{EB}=P
 \end{equation}
 が得られる．\\
 
-次に，図\ref{fig:fig3}-(c)を参照して節点Gに関する水平力の釣り合い条件を用いれば，
+次に，最後に，b-b'の位置で構造を切断して得られる部分構造について自由物体図を描くと，
+図\ref{fig:fig3}-(c))のようになる．
+そこで，点C'に関するモーメントの釣り合い式を立てると,
 \begin{equation}
-	N_6=-N_4\times \frac{1}{\sqrt{2}}=P
+	N_{EF'}l-P\times \frac{l}{\sqrt{2}}+H_A\times \sqrt{2}l-R_A\times 2\sqrt{2}l =0 \;
+	\Rightarrow \; 
+	N_{EF'}=\frac{P}{\sqrt{2}}
 \end{equation}
-と$N_6$が求められる．\\
+と$N_{EF'}$が求められる.
 
-最後に，c-c'の位置で構造を切断して得られる部分構造について自由物体図を描き(図\ref{fig:fig3}-(d))，$N_1$と$N_2$を求める．
-このとき，鉛直方向の力の釣り合い式より，
+最後に, 図\ref{fig:fig3}-(d)を参照して節点Eに関する力の釣り合いを考えと,
+EC方向の力の釣り合いからは
 \begin{equation}
-	N_3-N_1\frac{1}{\sqrt{2}}+R_A=0 \; \Rightarrow \; N_1=-\sqrt{2}P
+	N_{EC}-N_{EF'}+\frac{N_{EB}}{\sqrt{2}}=0
+	\; \Rightarrow \; N_{EC}=0
 \end{equation}
-が，点Aに関するモーメントの釣り合い式より
+が,EC'方向の釣り合い条件からは
 \begin{equation}
-	N_2l+\frac{N_1}{\sqrt{2}}l =0 \; \Rightarrow \; N_2=-\frac{N_1}{\sqrt{2}}=P
+	N_{EC'}-N_{EF}-\frac{N_{EB}}{\sqrt{2}}=0
+	\; \Rightarrow \;
+	N_{EC'}=\frac{3\sqrt{2}}{4}p
 \end{equation}
-と$N_1$と$N_2$を得ることができる．
+が得られる．
 %--------------------
 \begin{figure}[h]
 	\begin{center}
-	\includegraphics[width=1.0\linewidth]{fig3ans.eps} 
+	\includegraphics[width=0.7\linewidth]{fig3ans.eps} 
 	\end{center}
 	\caption{トラス構造の軸力計算に用いた部分構造と自由物体図.} 
 	\label{fig:fig3}
