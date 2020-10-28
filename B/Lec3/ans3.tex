@@ -47,23 +47,25 @@
 \subsubsection*{問題}
 \begin{enumerate}
 \item
-図\ref{fig:fig1}-(c$_1$)のように$x$座標をとると，分布荷重$q(x)$は
-$q(x)=2q_0H\left(x-l\right)$と表すことができる．
-$q(x)$の4階の不定積分は
+図\ref{fig:fig1}-(c$_1$)のように$x$座標をとると，分布荷重は
+\begin{equation}
+	q(x)=2q_0H\left(x-\frac{l}{2}\right)
+\end{equation}
+と書くことができる．$q(x)$の4階の不定積分は
 \begin{equation}
 	\int q(x) dx^4
 	= 
 	\frac{q_0l^4}{12}
 	\left< \frac{x}{l} -\frac{1}{2}\right> ^4
 \end{equation}
-と書けるので，梁(b$_1$)のたわみ$v_1(x)$は，$C_1\sim C_4$を積分定数として
+と書けるので，梁(c$_1$)のたわみ$v_1(x)$は，$C_1\sim C_4$を積分定数として
 次のように表すことができる．
 	\begin{equation}
 	v_1(x)=\frac{q_0l^4}{12EI}\left\{
 		\left< \xi -\frac{1}{2} \right> ^4
 		+
 		C_1 \xi^3 + C_2 \xi^2 + C_3 \xi + C_4,
-	\right\}
+	\right\},
 	\  \	
 		\left(\xi=\frac{x}{l}\right)
 	\end{equation}
@@ -76,7 +78,7 @@ $q(x)$の4階の不定積分は
 	v(l)=0,\ \  M(l)=0
 \end{equation}
 より，$C_1=-\frac{23}{32},\, C_2=\frac{21}{32}$
-となる．以上より，たわみは
+となる．以上より，
 	\begin{equation}
 	v_1(x)=\frac{q_0l^4}{12EI}\left\{
 		\left< \xi -\frac{1}{2}\right> ^4
@@ -92,50 +94,46 @@ $q(x)$の4階の不定積分は
 となる．
 %%%%%%%%%%%%%%
 \item
-たわみを$v_2$，曲げモーメントとせん断力をそれぞれ$M_2,Q_2$とする．
+求めるべきたわみを$v_2$，曲げモーメントとせん断力をそれぞれ$M_2,Q_2$とする．
 外力は$q(x)=P\delta(x-\frac{l}{2})$だから，$v_2$を
 	\begin{equation}
 	v_2(x)=\frac{Pl^3}{6EI}\left\{
-		\left< \xi -\frac{1}{2} \right> ^4
+		\left< \xi -\frac{1}{2} \right>^3
 		+
 		C_1 \xi^3 + C_2 \xi^2 + C_3 \xi + C_4,
-	\right\}
+	\right\}, 
 	\  \	
 		\left(\xi=\frac{x}{l}\right)
 	\end{equation}
 と表すことができる．
-ここでも，積分定数$C_3$と$C_4$は，$x=0$における支持条件より$C_3=C_4=0$となる．
+ここでも，$x=0$における支持条件より$C_3=C_4=0$となる．
 $C_1$と$C_2$は，$x=l$における条件から$C_1=-\frac{11}{16},C_2=\frac{9}{16}$
 となるので，
 	\begin{equation}
 	v_2(x)=\frac{Pl^3}{6EI}\left\{
-		\left< \xi -\frac{1}{2} \right> ^4
+		\left< \xi -\frac{1}{2} \right>^3
 		-\frac{11}{16}\xi^3 + \frac{9}{16}\xi^2 
 	\right\}
 		\label{eqn:vx2}
 	\end{equation}
 が得られる．
-
 \item
-問題で与えられた梁(c)に作用する鉛直方向の支点反力を，図\ref{fig:fig1}-(c)に示すようにとる．
+問題で与えられた梁(c)に作用する鉛直方向の支点反力を図\ref{fig:fig1}-(c)に示すようにとる．
 この梁を同図(c$_1$)と(c$_2$)のような2つの系の重ね合わせで表現する．
-このとき，梁(c$_1)$のたわみは，式(\ref{eqn:vx1})で与えられる．
-一方，梁(c$_2$)のたわみは，式(\ref{eqn:vx2})において
-$P=-R_B$とすることで得られる．
+このとき，梁(c$_1)$のたわみは式(\ref{eqn:vx1})で与えられる．
+梁(c$_2$)のたわみは，式(\ref{eqn:vx2})において$P=-R_B$とすることで得られる．
 よって，梁(c)の点Bにおけるたわみの適合条件は
 \begin{equation}
 	v_1\left( \frac{l}{2}\right) 
 	+
 	\left. v_2\left( \frac{l}{2}\right)  \right|_{P=-R_B}=0
 \end{equation}
-と表され，これより支点反力$R_B$が
+と表される．これより支点反力$R_B$が
 \begin{equation}
 	R_B=\frac{19}{28}q_0l
 	\label{eqn:RB}
 \end{equation}
-と求められる．\\
-
-一方，支点AとCにおける反力は，曲げモーメントおよびせん断力分布に，式(\ref{eqn:RB})を代入して求めることができる．
+と求められる．一方，支点AとCにおける反力は，曲げモーメントおよびせん断力分布に，式(\ref{eqn:RB})を代入して求めることができる．
 図\ref{fig:fig1}-(b)の梁のたわみ$v(x)$は$v(x)=v_1(x)+v_2(x)$と表されるので，
 \begin{equation}
 	M_1=-EIv_1'', \ \ M_2=-EIv_2''
@@ -211,7 +209,7 @@ $P=-R_B$とすることで得られる．
 \item
 	$x<\frac{l}{2}$のとき:
 	\begin{equation}
-		M(x)=\frac{q_0l^2}{56}( -6 \xi +1), \ \ \left( \xi=\frac{x}{l}\right)
+		M(x)=\frac{q_0l^2}{56}( -6 \xi +1)
 		\label{eqn:M_left}
 	\end{equation}
 \item
@@ -221,8 +219,9 @@ $P=-R_B$とすることで得られる．
 		\label{eqn:M_right}
 	\end{equation}
 \end{itemize}
-である．これを曲げモーメント図として表すと，図\ref{fig:fig2}のようになる．
-なお，支点反力が求められた時点で，断面力は全て釣り合い条件から決定することができるので，
+である．ただし，ここでも$\xi=\frac{x}{l}$とした．
+以上を曲げモーメント図として表すと，図\ref{fig:fig2}のようになる．
+なお，支点反力が求められた時点で，断面力は釣り合い条件から決定することができるので，
 たわみを微分する以外にも，区間毎に釣り合い式を立てて断面力を求めてもよい．
 %--------------------
 \begin{figure}[h]

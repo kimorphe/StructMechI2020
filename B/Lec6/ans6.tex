@@ -45,9 +45,9 @@
 \end{center}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection*{問題1.}
-図\ref{fig:fig1}に示すように$x$座標をとり，$x=a$の位置に単位荷重が加えられたときに，
-支点Bに発生する曲げモーメント$M_B$と鉛直反力$R_B$を求める.
-そのために，荷重項を$q(x)=\tilde P \delta (x-a)$とし， たわみ$v$の微分方程式を指定された
+図\ref{fig:fig1}に示すように$x$座標をとる．$x=a$の位置に単位荷重$\tilde P(=1)$が加えられたとき，
+支点Aに発生する曲げモーメント$M_A$と鉛直反力$R_A$を求める.
+そのために，荷重項を$q(x)=\tilde P \delta (x-a)$とし， たわみ$v$の微分方程式を
 両端固定条件の元で解くと，
 \begin{equation}
 	v=\frac{\tilde Pl^3}{6EI}\left\{
@@ -57,7 +57,7 @@
 \end{equation}
 となる．ただし，
 \begin{equation}
-	\alpha=a/l,\, \beta=b/l, \, \xi=x/l
+	\alpha=\frac{a}{l},\; \beta=\frac{b}{l}=\frac{l-a}{l}, \; \xi=\frac{x}{l}
 \end{equation}
 とした．式(\ref{eqn:vx})より，曲げモーメント$M$とせん断力$Q$は
 \begin{eqnarray}
@@ -67,7 +67,7 @@
 		\left< \xi-\alpha \right> +\beta^2(2\beta -3)\xi+\beta^2(1-\beta)
  	\right\}
 	\\
-	M(x) &=& 
+	Q(x) &=& 
 	-\tilde P
 	\left\{
 		H(\xi-\alpha) +\beta^2(2\beta -3)
@@ -78,7 +78,7 @@
 	M_A=M(0)=-\tilde P l \beta^2(1-\beta), \ \ 
 	R_A=Q(0)=-\tilde P \beta^2 ( 2\beta-3)
 \end{equation}
-この結果を$a$の関数として図示すれば，$M_A$および$R_A$の影響線が図\ref{fig:fig2}のようになることが分かる．
+この結果を$a$の関数として図示すれば，$M_A$および$R_A$の影響線が図\ref{fig:fig2}のようになる．
 %%--------------------
 \begin{figure}[h]
 	\begin{center}
@@ -100,17 +100,16 @@
 %
 %
 \subsubsection*{問題2.}
-支点AとDにおける鉛直反力と，ヒンジBとCで伝達される鉛直力の正方向をそれぞれ図\ref{fig:fig3}-(a)のように定める.
+支点AとDにおける反力と，ヒンジBとCで伝達される鉛直力の正方向をそれぞれ図\ref{fig:fig3}のように定める.
 これらの鉛直力は，区間AB，BC，CDそれぞれの区間における力とモーメントの釣り合いを考えることで決定できる．
 \begin{enumerate}
 \item
 はじめに，区間BCにおける釣り合い条件から，
 \begin{equation}
-	R_B=R_C=\frac{q_0l}{2}
+	R_B=R_C=\frac{q_0l}{2}.
 \end{equation}
-が言える．
 \item
-問1の結果を踏まえて区間ABとDEの釣り合い条件を用いれば，両固定端における反力が以下のように求められる．
+次に，区間ABとDEの釣り合い条件を用いれば，両固定端における反力が以下のように求められる．
 \begin{equation}
 	R_A=\frac{1}{2}q_0l, \ \ M_A=-\frac{1}{4}q_0l^2  
 \end{equation}
@@ -118,8 +117,8 @@
 	R_D=q_0l, \ \ M_D=-\frac{3}{8}q_0l^2
 \end{equation}
 \item
-区間AB，BC，CDの単位で見ると,すべて静定構造となっているため，区間毎に釣り合い条件を適用して
-曲げモーメントを求めることができる.その結果を曲げモーメント図として示せば,図\ref{fig:fig4}のように
+区間AB，BC，CDの単位で見ると,すべて静定構造となっているため，釣り合い条件を適用して
+区間毎に曲げモーメントを求めることができる.その結果は図\ref{fig:fig4}のように
 なる.この図には,曲げモーメント分布は連続で,等分布荷重が加わる区間は2次関数的に,
 荷重が作用しない区間では直線的に曲げモーメント値が変化することが示されている.
 \item
@@ -130,7 +129,7 @@
 \item
 	曲げ応力$\sigma=\frac{M}{I}y$は,曲げモーメントが最大となる断面の上縁$y=-\frac{a}{2}$
 	あるいは下縁$y=\frac{a}{2}$において最大となる.
-	また,一辺の長さが$a$の正方形断面の，中立軸に関する断面2次モーメント$I$は
+	また,一辺の長さが$a$の正方形断面の中立軸に関する断面2次モーメント$I$は
 \begin{equation}
 	I=\frac{a^4}{12}	
 \end{equation}
@@ -142,7 +141,7 @@
 \end{equation}
 となる.
 \item
-	上で求めた$\sigma_{max}$を不等式$\sigma_{max}\leq \sigma_a$に代入し,$a$に関して整理すれば,
+	上で求めた$\sigma_{max}$を不等式$\sigma_{max}\leq \sigma_a$に代入し，$a$に関して整理すれば,
 \begin{equation}
 	a^3 \geq \frac{9}{4}\frac{q_0l^2}{\sigma_a} 
 \end{equation}

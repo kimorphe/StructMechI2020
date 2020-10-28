@@ -43,6 +43,7 @@
 \begin{center}
 {\Large \bf 2020年度 構造力学I及び演習B 演習問題7 解答} \\
 \end{center}
+\vspace{10mm}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 材料$i(=1,2,3)$に発生するひずみは$\varepsilon_i$は，熱ひずみを$\varepsilon_i^T$
 と機械的ひずみ$\varepsilon_i^M$の和として
@@ -72,28 +73,32 @@
 部材$i$の長さを$l_i$とすれば，
 \begin{equation}
 	\Delta l_i = \varepsilon_i l_i, \ \ (i=1,2,3) 
+	\label{eqn:Del_l}
 \end{equation}
 で，適合条件:
 \begin{equation}
 	\Delta l_1=\Delta l_2 \ \ \Delta l_1+\Delta l_3=0
 	\label{eqn:compati}
 \end{equation}
-を満足しなければならない．
-ここで，式(\ref{eqn:eps_sum})$\sim$式(\ref{eqn:Hooke})より，
+を満足しなければならない．よって，式(\ref{eqn:Del_l})と(\ref{eqn:compati})より，
 \begin{equation}
-	N_i=\sigma_i A_i=\sigma_i=E_iA_i\left( \varepsilon_i-\alpha_i \Delta T\right), \ \ (i=1,2,3)
+	\varepsilon_1=\varepsilon_2, \ \ 2\varepsilon_1+\varepsilon_3=0
+\end{equation}
+が言える．ここで，式(\ref{eqn:eps_sum})$\sim$式(\ref{eqn:Hooke})より，
+\begin{equation}
+	N_i=\sigma_i A_i=E_iA_i\left( \varepsilon_i-\alpha_i \Delta T\right), \ \ (i=1,2,3)
 	\label{eqn:axial_forces}
 \end{equation}
 だから，式(\ref{eqn:axial_forces})と式(\ref{eqn:compati})を用いて，式(\ref{eqn:equib})から
 $\varepsilon_2$と$\varepsilon_3$を消去すれば，
 \begin{equation}
-	\varepsilon_1=\frac{\alpha_1E_1+\alpha_2E_2-\alpha_3 E_3}{E_1+E_2+2E_3} \Delta T
+	\varepsilon_1=\frac{\alpha_1E_1+\alpha_2E_2-2\alpha_3 E_3}{E_1+E_2+4E_3} \Delta T
 \end{equation}
 となることが示される．
 $\varepsilon_1>0$のとき，剛体壁2は右方向に移動する．
 よって，剛体壁2が右方向に移動するための条件は，$E_i>0$だから
 \begin{equation}
-	\alpha_1E_1+\alpha_2E_2-\alpha_3 E_3 >0
+	\alpha_1E_1+\alpha_2E_2-2\alpha_3 E_3 >0
 \end{equation}
 と表すことができる．
 \end{document}

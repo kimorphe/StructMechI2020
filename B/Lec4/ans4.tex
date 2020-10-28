@@ -49,7 +49,7 @@
 \begin{equation}
 	J_m:=\int_S y^m dS, \ \ (m=0,1,2)
 \end{equation}
-とおく．$J_m$は，$k=\frac{\pi}{b}$とすれば，積分変数$x,y$により
+とおく．$k=\frac{\pi}{b}$とすれば，$J_m$は
 \begin{eqnarray}
 	J_m 
 	&=& 
@@ -64,24 +64,24 @@
 として計算することができる．これを$m=0,1,2$それぞれの場合について具体的に計算すると，
 \begin{equation}
 	J_0=
-	\frac{2bh}{\pi}\int_{u=0}^{\frac{\pi}{2}} \cos u du = \frac{bh}{\pi}
+	\frac{2bh}{\pi}\int_{u=0}^{\frac{\pi}{2}} \cos u du = \frac{2bh}{\pi}
 \end{equation}
 \begin{eqnarray}
 	J_1
 	&=&
-	\frac{bh^2}{2\pi}\int_{u=0}^{\frac{\pi}{2}} \cos^2 u du \\
+	\frac{bh^2}{\pi}\int_{u=0}^{\frac{\pi}{2}} \cos^2 u du \\
 	&=&
-	\frac{bh^2}{2\pi}\int_{u=0}^{\frac{\pi}{2}} \frac{1+\cos(2u)}{2} du \\
-	&=& \frac{bh^2}{8}
+	\frac{bh^2}{\pi}\int_{u=0}^{\frac{\pi}{2}} \frac{1+\cos(2u)}{2} du \\
+	&=& \frac{bh^2}{4}
 \end{eqnarray}
 \begin{eqnarray}
 	J_2
 	&=&
-	\frac{bh^3}{3\pi}\int_{u=0}^{\frac{\pi}{2}} \cos^3 u du \\
+	\frac{2bh^3}{3\pi}\int_{u=0}^{\frac{\pi}{2}} \cos^3 u du \\
 	&=&
-	\frac{bh^3}{3\pi}\int_{u=0}^{\frac{\pi}{2}} \frac{3\cos u + \cos (3u) }{4} du \\
+	\frac{2bh^3}{3\pi}\int_{u=0}^{\frac{\pi}{2}} \frac{3\cos u + \cos (3u) }{4} du \\
 	&=&
-	=\frac{bh^3}{4\pi}
+	=\frac{4}{9}\frac{bh^3}{\pi}
 \end{eqnarray}
 となる．
 断面$S$の面積$\left| S \right|$は$J_0$で与えられ，
@@ -95,12 +95,12 @@ $x$軸に関する断面１次モーメント$G$は$J_1$で与えられるので
 \begin{eqnarray}
 	I & =& I_x -\bar Y^2 \left| S\right| \\
 	&=& J_2-\bar Y^2 J_0 \\
-	&=& \left( \frac{1}{4\pi}-\frac{\pi}{64} \right) ah^3
+	&=& \left( \frac{4}{9\pi}-\frac{\pi}{32} \right) bh^3
 \end{eqnarray}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection*{問題2}
-与えられた断面$S$を，図\ref{fig:fig1}-(a)に示す部分断面$S_1,S_2$および$S_3$に分割する．
+与えられた断面$S$を図\ref{fig:fig1}-(a)に示す部分断面$S_1,S_2$および$S_3$に分割する．
 ここで，部分断面$S_i$の$x$軸からの距離で測った中立軸位置を$\bar Y_i$，各々の断面の中立軸
 に関する断面2次モーメントを$I(S_i)$と表すことにする．
 $S_1$は幅$b$，高さ$h$の三角形なので，
@@ -175,7 +175,7 @@ $S_2$に関する$m$次のモーメントは
 		$\frac{1}{5}$  &
 		$\frac{1}{3}h$ & 
 		$\frac{1}{15}h$ & 
-		$\frac{8}{15}h$ & 
+		$-\frac{8}{15}h$ & 
 		$\frac{32}{225}bh^3$ &
 		$\frac{1}{36}bh^3$ 
 		\\
