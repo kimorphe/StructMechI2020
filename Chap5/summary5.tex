@@ -2,7 +2,7 @@
 %\usepackage{graphicx,wrapfig}
 \usepackage{graphicx,amsmath}
 \setlength{\topmargin}{-1.5cm}
-\setlength{\textwidth}{16.5cm}
+%\setlength{\textwidth}{16.5cm}
 \setlength{\textheight}{25.2cm}
 \newlength{\minitwocolumn}
 \setlength{\minitwocolumn}{0.5\textwidth}
@@ -44,15 +44,20 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \setcounter{chapter}{4}
 \chapter{集中荷重を受ける梁の解析}
+ここまでに，与えられた分布荷重$q(x)$によって生じるたわみや断面力の計算方法について
+述べてきた．本章では，集中荷重が作用する場合について考える．
+その際，集中荷重をどのような関数を用いて表現するかが問題となる．
+集中荷重は，通常の関数では表現することができず，新たにディラクのデルタ関数
+と呼ばれる特殊な関数を導入する必要がある．
 \section{ディラクのデルタ関数による集中荷重の表現}
-一点に集中して加わる荷重(集中荷重あるいは点荷重)を表現するために，次のような関数を
-導入する．
+一点に集中して加わる荷重(集中荷重あるいは点荷重)を表現するため，次のような
+関数$U(x;a)$の極限を考える．
 \begin{equation}
 	\delta  (x) := \lim _ {a\rightarrow +0} U(x;a)
 	\label{eqn:delta_x}
 \end{equation}
-ただし, $U(x;a)$はパラメータ$a$をもつ，$x$に関する次の矩形関数を意味する
-(図\ref{fig:fig8_2}-(a))．
+ここで，$U(x;a)$はパラメータ$a$を図\ref{fig:fig8_2}-(a)のような，幅$a$をパラメータに持つ
+$x$に関する矩形関数を意味する．
 \begin{equation}
 	U(x;a):=\left\{
 		\begin{array}{cc}
@@ -76,7 +81,7 @@ $\delta(x)$により，大きさ１の単位荷重を表すことができる．
 であることから，$\delta(x)$は$x=0$のみに作用する単位荷重であることも分かる．
 $\delta(x)$は，$x=0$を除き至るところゼロであるにも関わらず, 
 $(-\infty,\infty)$における積分値が1になるという特異な性質を持つ関数で，
-"{\bf ディラクのデルタ関数}"と呼ばれる．
+{\bf ディラクのデルタ関数}と呼ばれる．
 この性質は
 \begin{equation}
 	\int _b^c \delta(x) dx = \left\{
@@ -89,7 +94,7 @@ $(-\infty,\infty)$における積分値が1になるという特異な性質を�
 \end{equation}
 と表すことができる．荷重の作用点位置が$x=s$で大きさが$F$の場合には，
 デルタ関数を$\delta(x)$を$x$座標軸上で$s$だけ平行移動して$F$倍した$F\delta (x-s)$
-で荷重を表現することができる．以下ではデルタ関数を利用して, 集中荷重を受ける梁のたわみや断面力を計算する方法について学ぶ．
+を用いればよい．以下ではデルタ関数を利用して, 集中荷重を受ける梁のたわみや断面力を計算する方法について学ぶ．
 \begin{figure}
 	\begin{center}
 	\includegraphics[width=0.7\linewidth]{fig8_2.eps} 
@@ -132,7 +137,7 @@ $M(x)$，せん断力$Q(x)$も得ることができる．
 	\end{array}
 	\right.
 \end{equation}
-で与えられる単位ステップ関数を表す．また，$\left< \cdot \right>$
+で与えられる{\bf 単位ステップ関数}を表す．また，$\left< \cdot \right>$
 は"{\bf マッコーレーの括弧}"と呼ばれ，任意の関数$f(x)$に対して，次のような
 作用を施すことを意味する．
 \begin{equation}
@@ -159,6 +164,18 @@ $M(x)$，せん断力$Q(x)$も得ることができる．
 図\ref{fig:fig8_2}-(a)に示すように，$U(x;a)$の
 積分$\int_{-\infty}^x U(y;a)dy$を計算し，
 その極限($a\rightarrow +0$)をとることによって得られる．
+具体的には，
+\begin{equation}
+	\int_{-\infty}^x U(x;a)dx=\left\{
+	\begin{array}{cc}
+		0 & \left(x<-\frac{a}{2} \right) \\
+		\frac{1}{a}\left(x+\frac{a}{2}\right) & \left( |x| \leq \frac{a}{2} \right) \\
+		1 & \left(x>\frac{a}{2} \right) 
+	\end{array}
+	\right.
+\end{equation}
+より，図\ref{fig:fig8_2}-(b)左に示した関数が得られる．
+よって，この$a\rightarrow 0$の極限をとれば，単位ステップ関数が与えられる．
 あるいは，式(\ref{eqn:idelta_ab})において，$c=x,b\rightarrow -\infty$
 としても同じ結果が得られる．なお，積分と極限操作の順序は一般に交換可能でないが，ここでは
 その点には立ち入らない．
@@ -166,6 +183,17 @@ $M(x)$，せん断力$Q(x)$も得ることができる．
 $U(x;a)$を所定の回数積分して$a\rightarrow +0$の極限をとったと考えても，
 単位ステップ関数$H(x)$や$\left< x \right>$の積分区間を$x<0$と$x>0$に
 分けて積分を実行したと考えてもよい．
+例えば，$H(x)$の積分は，
+\begin{equation}
+	\int_{-\infty}^x H(x)dx
+	=\left\{
+	\begin{array}{cc}
+		0 & (x<0) \\
+		x & (x>0)
+	\end{array}
+	\right.
+\end{equation}
+と求めることができる．
 \subsection{問題}
 次の関数のグラフを描け．
 \begin{enumerate}
@@ -252,6 +280,7 @@ $\iiiint q(x)dx^4=\frac{q_0x^4}{24}$である．よって，たわみ$v$は
 \begin{equation}
 	Q(x)= 
 	-\left(EIv''(x)\right)'
+	= M'(x)
 	=
 	-\frac{q_0l}{8}\left\{
 		8
@@ -263,12 +292,28 @@ $\iiiint q(x)dx^4=\frac{q_0x^4}{24}$である．よって，たわみ$v$は
 \end{equation}
 と得られる．式(\ref{eqn:Mx_a})と式(\ref{eqn:Qx_a})より
 曲げモーメント図とせん断力図を描けば，図\ref{fig:fig8_4}-(a)のようになる．
-土木分野では，断面力図の縦軸を慣例的に下向きを正方向にとる．
+なお，断面力図の作成時には，以下のことに注意する．
+\begin{itemize}
+\item
+	土木分野では，断面力図の縦軸を慣例的に下向きを正方向にとる．
+\item
+	部材端部での断面力値を記入する．
+\item
+	断面力の値が零となる位置(座標)を記入する．
+\item
+	極大，極小点と極値を記入する．
+\item
+	断面力分布が直線で表されるのか，曲線となるのかが区別できるように描く．
+	曲線の場合は上下どちらに凸な形状となるかに注意を払う．
+\item
+	$Q'=M$より，せん断力分布は曲げモーメントの増減に関する情報を与えていることを利用し，
+	せん断力図と曲げモーメント図が整合的であるかに注意する．
+\end{itemize}
 \item
 外力項はデルタ関数を用いて$q(x)=F\delta\left(x-\frac{l}{2}\right)$
 と表される．$\delta\left(x-\frac{l}{2}\right)$の4階の不定積分は
-$\frac{1}{6}\left<x-\frac{l}{2}\right>^3=\frac{l^3}{6}\left<\frac{x}{l}-\frac{1}{2}\right>^3$
-であるから，たわみ$v(x)$は
+式(\ref{eqn:iiiint_dlt})より$\frac{1}{6}\left<x-\frac{l}{2}\right>^3=\frac{l^3}{6}\left<\frac{x}{l}-\frac{1}{2}\right>^3$
+と書ける．よって，たわみ$v(x)$は
 \begin{equation}
 	v(x)= \frac{Pl^3}{6EI}\left\{
 		\left<\frac{x}{l}-\frac{1}{2}\right>^3
