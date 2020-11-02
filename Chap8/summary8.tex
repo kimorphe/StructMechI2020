@@ -1,8 +1,8 @@
-\documentclass[10pt,a4j]{jbook}
+﻿\documentclass[10pt,a4j]{jbook}
 %\usepackage{graphicx,wrapfig}
 \usepackage{graphicx,amsmath}
 \setlength{\topmargin}{-1.5cm}
-\setlength{\textwidth}{16.5cm}
+%\setlength{\textwidth}{16.5cm}
 \setlength{\textheight}{25.2cm}
 \newlength{\minitwocolumn}
 \setlength{\minitwocolumn}{0.5\textwidth}
@@ -46,7 +46,7 @@
 \chapter{断面係数}
 たわみの支配微分方程式に含まれる曲げ剛性$EI$のうち，ヤング率$E$は
 実験によって求めるべき物性値である．一方，断面2次モーメント$I$は，
-断面の幾何学的な形状によって決まる"{\bf 断面係数}"と呼ばれる量
+断面の幾何学的な形状によって決まる{\bf 断面係数}と呼ばれる量
 の一つである．なお，ここでいう断面2次モーメントとは，
 断面$S$の水平方向の中立軸$z$からの距離を$y$として，
 \begin{equation}
@@ -55,12 +55,12 @@
 \end{equation}
 で与えられる(図\ref{fig:fig11_1})．
 従ってより正確には，$I$は"断面$S$の水平方向の中立軸($z$軸)に関する断面2次モーメント"を指す．
-\subsection{中立軸と断面1次モーメント}
+\section{中立軸と断面1次モーメント}
 断面2次モーメント$I$の計算に先立ち，$S$の中立軸($z$軸)位置を決定する必要がある．
 %中立面は，梁に軸力が作用せず曲げのみが生じるとき，伸びも縮みも生じない面が当初（変形前）
 %に占める平面として定義されていた．
-そのために，軸力$N$に関する条件を用いる．梁長手方向に$x$軸をとり，この方向の直応力を
-$\sigma_{xx}$と書くとき，軸力$N$と曲げモーメント$M$は次の式で定義される．
+そのために，軸力$N$に関する条件を用いる．ここで，梁の長手方向に$x$軸をとり，$x$方向の直応力を
+$\sigma_{xx}$と書く．軸力$N$と曲げモーメント$M$は$\sigma_{xx}$を用いて次の式で定義される．
 \begin{eqnarray}
 	N &= & \int_S \sigma_{xx}dS 
 	\label{eqn:def_N}
@@ -68,56 +68,59 @@ $\sigma_{xx}$と書くとき，軸力$N$と曲げモーメント$M$は次の式�
 	M &= & \int_S y\sigma_{xx}dS 
 	\label{eqn:def_M}
 \end{eqnarray}
-また，梁に軸力が働かず($N\equiv 0$)曲げ変形のみが生じるとき，直応力分布が
-次式で与えられることは既に学んだ通りである．
+また，梁に軸力が作用せず($N\equiv 0$)曲げ変形のみが生じるとき，直応力分布が
 \begin{equation}
 	\sigma_{xx}(x,y)=\frac{M(x)}{I(x)}y
 	\label{eqn:sig_xx}
 \end{equation}
-このとき，軸力が零となるための条件は
+で与えられることは既に学んだ通りである．従って，曲げ問題において軸力が零となるための条件は
 \begin{equation}
-	N =  \int_S \sigma_{xx}dydz = 0 
+	N =  \int_S \sigma_{xx}dS = \frac{M(x)}{I(x)} \int_S ydS = 0 \ \ 
+	\Rightarrow \ \ 
+	\int_S y dS=0
 	\label{eqn:N_is_0}
 \end{equation}
-と表すことができる．ただし，式(\ref{eqn:N_is_0})は中立軸位置($y$軸の原点)が
-未知のため，このままでは式(\ref{eqn:N_is_0})の積分計算を進めることができない．
-そこで，図\ref{fig:fig11_1}のような既知の$YZ$直交座標系を新たに導入する．
-ここで，$YZ$座標系の原点は任意とし，$Y$軸と$Z$軸は，それぞれ
-$y$軸，$z$軸と同じ方向を向くように取る．
-また，$z$軸は$Z$軸から$\bar{Y}$だけ離れているとすれば，2つの座標系の関係は
+と表すことができる．ただし，現時点で中立軸位置($y$軸の原点位置)は未知のため，
+式(\ref{eqn:N_is_0})の積分をこのままの形で実行することはできない．
+そこで，図\ref{fig:fig11_1}のような既知の$YZ$直交座標系を積分計算のために導入する．
+ただし，$YZ$座標系の原点は任意とし，$Y$軸と$Z$軸は，それぞれ$y$軸と$z$軸と同じ方向に取る．
+ここで，$z$軸は$Z$軸から$\bar{Y}$だけ離れているとすれば，2つの座標系間の関係は
 \begin{equation}
 	y=Y-\bar Y, \ \ Z=z
 	\label{eqn:y_shift}
 \end{equation}
-となる．これを，式(\ref{eqn:N_is_0})に用いることで
+となる．これを式(\ref{eqn:N_is_0})に用いれば，
 \begin{equation}
 	N=\frac{M}{I}\int_S \left(Y-\bar Y \right)dS=0 
 	\ \ \Rightarrow \ \
-	\int_S Y dS =\bar Y \left| S \right|
+	\int_S Y dS =
+	\bar Y \int_S dS
+	=
+	\bar Y \left| S \right|
 	\label{eqn:as_Nis0}
 \end{equation}
-の関係が得られる．式(\ref{eqn:as_Nis0})より，
+の関係が得られる．ただし，$\left| S\right|$は$S$の面積:
+\begin{equation}
+	\left| S \right| = \int_S dS
+	\label{eqn:area}
+\end{equation}
+を表す．さらに，
+\begin{equation}
+	G_Z=\int_S YdS 
+	\label{eqn:GZ}
+\end{equation}
+と定義すれば，式(\ref{eqn:as_Nis0})より
 \begin{equation}
 	\bar Y
 	= \frac{\int_S YdS }{\int dS}
 	= \frac{G_Z}{\left| S \right|}
 	\label{eqn:Ybar}
 \end{equation}
-となり，中立軸位置が$Z$座標系において$Z=\bar{Y}$にあり，$\bar{Y}$が
-式(\ref{eqn:Ybar})で与えられることが示される．ただし，$\left| S\right|$は$S$の
-面積:
-\begin{equation}
-	\left| S \right| = \int_S dS
-	\label{eqn:area}
-\end{equation}
-を表し，$G_Z$は
-\begin{equation}
-	G_Z=\int_S YdS 
-	\label{eqn:GZ}
-\end{equation}
-と定義され，断面$S$の$Z$軸に関する"{\bf 断面1次モーメント}"と呼ばれる．
-以上より，中立軸位置を求めるには，断面積と断面1次モーメントを求めればよいことが分かる．
-%--------------------
+となることが示される． 
+$G_Z$は断面$S$の$Z$軸に関する{\bf 断面1次モーメント}と呼ばれ，
+中立軸位置を求めるには$\left|S\right|$と$G_Z$を求めて式(\ref{eqn:Ybar})に
+用いればよいことが分かる．
+ %--------------------
 \begin{figure}[h]
 	\begin{center}
 	\includegraphics[width=0.4\linewidth]{./fig11_1.eps} 
@@ -128,10 +131,10 @@ $y$軸，$z$軸と同じ方向を向くように取る．
 	\label{fig:fig11_1}
 \end{figure}
 \section{断面2次モーメント}
-以上の方法によって中立軸位置が決まれば，式(\ref{eqn:Iz_xy})の積分をそのまま
-$yz$座標系で実行して断面2次モーメント$I$を求めることができる．
-一方，引続き$YZ$座標系で$I$の計算を行う場合は，$y=Y-\bar{Y}$であることを利用して
-式(\ref{eqn:Iz_xy})を次のように書き直す．
+以上の方法によって中立軸位置が決定できれば，式(\ref{eqn:Iz_xy})の積分を$yz$座標系で
+実行して断面2次モーメント$I$を求めることができる．
+あるいは，$y=Y-\bar{Y}$を式(\ref{eqn:Iz_xy})に代入して$I$を次のように書き直し，
+$YZ$座標系で積分計算を行うこともできる．
 \begin{eqnarray}
 	I &= &
 	\int_S y^2 dS 
@@ -152,67 +155,410 @@ $yz$座標系で実行して断面2次モーメント$I$を求めることがで
 	 I_Z-\bar{Y}^2\left| S \right|
 	\label{eqn:IZ2I}
 \end{eqnarray}
-ここで$I_Z$は，
+ここで
 \begin{equation}
 	I_Z=\int_S Y^2 dS
 	\label{eqn:def_IZ}
 \end{equation}
-であり，$S$の{\bf $Z$軸に関する}断面2次モーメントと呼ばれる．
+で定義され，$S$の{\bf $Z$軸に関する}断面2次モーメントと呼ばれる．
 式(\ref{eqn:def_IZ})のように，基準となる軸($Z$軸)を添字で示すならば，
 $z$軸に関する断面2次モーメントである式(\ref{eqn:Iz_xy})の$I$を
 $I_z$と書くことが自然である．
-そこで，以後，$I=I_z$と書き，式(\ref{eqn:IZ2I})を
+そこで，$I=I_z$と書き，式(\ref{eqn:IZ2I})を
 \begin{equation}
 	I_z=I_Z-\bar Y^2 \left| S \right|
 	\label{eqn:IZ2Iz}
 \end{equation}
-と書くことにする．式(\ref{eqn:IZ2Iz})は，$YZ$座標系での計算結果から$I_z$を
-求めるための式として用いることができる。式(\ref{eqn:IZ2Iz})の右辺に現れる$\bar{Y}$と
+とすることで，$z$軸あるいは$Z$軸，いずれに関する2次モーメントであるかを区別する．
+式(\ref{eqn:IZ2Iz})は，$YZ$座標系で$I_z$を求めるための式として用いることができる．
+式(\ref{eqn:IZ2Iz})の右辺に現れる$\bar{Y}$と
 $\left| S\right|$は, $I_z$を$yz$座標系で計算する際にも必要とされる．
 従って，$I_z$を計算する際に必要とされる計算に関して，2つの座標系の間での違いは，
 $I_z$を直接$yz$座標系で積分を行って求めるか，$I_Z$を$YZ$座標系で求めるかの違いにある．
 $YZ$座標系は断面1次モーメント$G_Z$を計算する上で最も都合の座標を選ぶことを考えると，
-$I_Z$の計算が$I_z$を直接求めるより煩雑になることはなく，このことから，式(\ref{eqn:IZ2Iz})
+$I_Z$の計算が$I_z$を直接求めるより煩雑になることはない．このことを踏まえれば式(\ref{eqn:IZ2Iz})
 に基づいて$I_z$を得ることが得策であると言える．
 
-式(\ref{eqn:IZ2Iz})を変形すれば，
+式(\ref{eqn:IZ2Iz})は自明な変形により，
 \begin{equation}
 	I_Z=I_z+\bar Y^2 \left| S \right|
 	\label{eqn:Iz2IZ}
 \end{equation}
-を得る．これは，断面$S$の中立軸($z$軸)位置が既知のとき，任意の位置にとった別の軸
-($Z$軸)に関する断面2次モーメント$I_Z$を求めるために役立つ関係である．
-また，式(\ref{eqn:Iz2IZ})において，$\bar{Y}$を変数とするとき，
-$\bar{Y}=0$で$I_Z$が最小となることを示している．言い換えれば，
-あらゆる軸に関する断面2次モーメントの中で最小値をとるのは，$\bar Y=0 (Z=z)$すなわち中立軸
-に関するものであることを示している．
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%555
+とすることができる．式(\ref{eqn:Iz2IZ})は，$I_z$から任意の位置にとった別の軸($Z$軸)に関する
+断面2次モーメント$I_Z$を求めるために利用することのできる関係である．
+また，式(\ref{eqn:Iz2IZ})において$\bar{Y}$を変数としてみれば，
+$\bar{Y}=0$で$I_Z$は最小値をとることを示している．言い換えれば，
+あらゆる軸に関する断面2次モーメントの中で最小となるのは，$\bar Y=0 (Z=z)$すなわち$S$の
+中立軸に関するものであることを示している．
+%%%%%%%%%%
+\section{逐次積分による二重積分の計算}
+断面係数や中立軸位置を求めるには，面積積分(2重積分)の計算が必要となる．
+そこで本節では，逐次積分法による2重積分の計算方法について述べる．
+図\ref{fig:fig10_1}に示すように，$z=f(x,y)$を$xy$直角直交座標系を持つ2次元平面上で
+定義された2変数関数とし，$f(x,y)$の二重積分:
+\begin{equation}
+	F(S)=\int_S f(x,y) dS
+	\label{eqn:Int2D}
+\end{equation}
+を考える．ここで，$S$は積分範囲を，$dS=dxdy$は微小面積要素を表す．
+積分範囲$S$は$xy$平面内の点$(x,y)$の集合(領域)として指定される．
+2重積分$F(S)$の計算は，幾何学的には領域$S$を底面とし曲面$z=f(x,y)$を上面とする
+柱状領域の体積を求めることに相当する．
+与えられた積分範囲$S$に対して積分$F(S)$を計算するには，積分変数$x$と$y$それぞれについて，
+1変数関数の場合と同様に順次積分を実行すればよい．
+ただしその際には，いずれの変数についての積分を先に行うかを決め，それぞれの変数が動きうる範囲を
+書き下す必要がある．この作業の煩雑さは，積分範囲$S$の形状によってかなり異なる．
+\subsection{長方形の積分範囲}
+例えば，$S$として図\ref{fig:fig10_1}-(b)に示すような長方形領域:
+\begin{equation}
+	S=\left\{(x,y):x_{min}<x<x_{max}, \, y_{min}<y<y_{max} \right\}
+	\label{eqn:Sa}
+\end{equation}
+をとる．この場合，$x$と$y$に関する積分範囲の上限と下限は互いに独立かつ一定で，
+積分範囲を次のように指定することができる．
+\begin{eqnarray}
+	F(S)
+	&=&
+	\int_{x=x_{min}}^{x_{max}}\left\{\int_{y=y_{min}}^{y_{max}} f(x,y)dy\right\} dx
+	\label{eqn:y_then_x}
+	\\
+	&=&
+	\int_{y=y_{min}}^{y_{max}}\left\{\int_{x=x_{min}}^{x_{max}} f(x,y)dx\right\} dy
+	\label{eqn:x_then_y}
+\end{eqnarray}
+ここに，式(\ref{eqn:y_then_x})では最初に$y$で，式(\ref{eqn:x_then_y})では最初に$x$で
+積分を行うことを意味する．なお，一方の変数に関する積分実行時には，もう一方の変数は一定値
+に固定されていると考え，1変数関数の積分と同様に計算を行えばよい．
+\subsection{任意の積分領域}
+一方，$S$が図\ref{fig:fig10_1}-(c)に示すような任意形状の場合，積分変数$x$と$y$の上限と下限は互いに
+独立でなく，$y$の上下限は$x$に依存し，$x$の上下限は$y$に依存する．
+そこで，図\ref{fig:fig10_2}に示すように，$x$を固定したときの$y$の下限，上限をそれぞれ$y_1(x),y_2(x)$とする．
+同様に，$y$を固定したときの$x$の下限と上限を，それぞれ$x_1(y),x_2(y)$と表す．
+このとき，$S$上での2重積分は次のように書くことができる．
+\begin{eqnarray}
+	F(S) &=& 
+	\int_{x=x_{min}}^{x_{max}}\ \left( \int_{y=y_1(x)}^{y_2(x)}f(x,y)dy\right) dx
+	\label{eqn:iint_xy}
+	\\
+	&=& 
+	\int_{y=y_{min}}^{y_{max}}\ \left( \int_{x=x_1(y)}^{x_2(y)}f(x,y)dx\right) dy
+	\label{eqn:iint_yx}
+\end{eqnarray}
+ただし，$x_{min},x_{max}$は$S$における$x$の最小値と最大値を，
+$y_{min},y_{max}$は$S$における$y$の最小値と最大値を表す．
+%--------------------
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=0.8\linewidth]{./fig10_1.eps} 
+	\end{center}
+	\caption{
+		(a) 2変数関数$z=f(x,y)$が矩形領域上に作る曲面. 
+		(b) 矩形および(c)任意の積分領域と, $xy$直角直交座標系における微小面積要素. 
+	} 
+	\label{fig:fig10_1}
+\end{figure}
+%-----------------------------
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=0.8\linewidth]{./fig10_2.eps} 
+	\end{center}
+	\caption{
+		領域$S$において
+		(a) 固定された$y$に対して$x$の取りうる範囲$\left(x_1(y),x_2(y)\right)$, 
+		(b) 固定された$x$に対して$y$の取りうる範囲$\left(y_1(x),y_2(x)\right)$. 
+	} 
+	\label{fig:fig10_2}
+\end{figure}
+\subsection{三角形領域}
+以上の手順を，図\ref{fig:fig10_3}-(b)に示すような三角形領域$S_b$に適用する．
+この場合，$S$における$x$と$y$の下限($x_{min},y_{min}$)，上限($x_{max},y_{max}$)は
+\begin{equation}
+	x_{min}=y_{min}=0, \ \ x_{max}=b, \ \ y_{max}=h
+\end{equation}
+である．また，$x$を固定したときに$y$が動きうる範囲は，
+\begin{equation}
+	\frac{h}{b}x < y < h
+	\label{eqn:ybnd_Sb}
+\end{equation}
+で，$y$を固定したときに$x$が動きうる範囲は，
+\begin{equation}
+	0 < x < \frac{b}{h}y
+	\label{eqn:xbnd_Sb}
+\end{equation}
+である．よって，領域$S_b$における二変数関数$f(x,y)$の面積積分は
+\begin{eqnarray}
+	\int_{S_b} f(x,y) dS
+	&=&
+	\int_{x=0}^b \left\{ \int_{y=\frac{h}{b}x}^h f(x,y)dy\right\} dx 
+	\label{eqn:int_Sb_yx}
+	\\
+	&=&
+	\int_{y=0}^h \left\{ \int_{x=0}^{\frac{b}{h}y} f(x,y)dx\right\}dy
+	\label{eqn:int_Sb_xy}
+\end{eqnarray}
+と表すことができる．
+
+一方，図\ref{fig:fig10_3}-(c)に示すような三角形領域$S_c$であれば，
+$x,y$座標のとりうる範囲を調べれば，$S_c$上での積分が
+\begin{eqnarray}
+	\int_{S_c} f(x,y) dS
+	&=&
+	\int_{x=0}^b \left\{ \int_{y=0}^{h\left(1-\frac{x}{b}\right)} f(x,y)dy\right\}dx 
+	\label{eqn:int_Sc_yx}
+	\\
+	&=&
+	\int_{y=0}^h \left\{ \int_{x=0}^{b\left(1-\frac{y}{h}\right)} f(x,y)dx\right\} dy
+	\label{eqn:int_Sc_xy}
+\end{eqnarray}
+と書けることが分かる．
+\subsection{四分円領域}
+最後に，図\ref{fig:fig10_3}-(d)の領域$S_d$については，極座標:
+\begin{equation}
+	\left(x,\,y\right) = \left(\ r\cos\theta,\, r\sin\theta \right)
+	\label{eqn:cart2pol}
+\end{equation}
+を用いて積分を行えばよい．
+この場合は，微小面積要素が
+\begin{equation}
+	dS=r dr d\theta
+	\label{eqn:dS_rth}
+\end{equation}
+となる.$S$において$r$と$\theta$の動きうる範囲を調べれば,
+$r$の動く範囲は$\theta$に依らず$0<r<a$で,
+$\theta$の動く範囲は$r$に依らず$0<\theta<\frac{\pi}{2}$である．
+よって，
+\begin{equation}
+	\int_{S_d} f(x,y) dS
+	=
+	\int_{r=0}^a \int_{\theta=0}^{\frac{\pi}{2}} 
+	f(r\cos\theta,r\sin\theta)rd\theta dr
+	\label{eqn:int_pol}
+\end{equation}
+となる.なお，$r$と$\theta$それぞれの積分範囲は$r$と$\theta$の積分順序を交換しても同じである．
+\subsection{計算例}
+以上を踏まえて，$f(x,y)=x^my^n$($m,n$は非負整数)の$S_a, S_b$および$S_c$における
+面積積分を行ってみる.その結果は以下のようである．
+\begin{itemize}
+\item 長方形領域$S_a$:
+\begin{eqnarray}
+	F(S_a) &= & 
+	\int_{S_a}x^my^ndS \nonumber \\
+	&= & 
+	\int_0^h \left( \int_0^b x^m y^n dx \right) dy \nonumber \\
+	&= & 
+	\int_0^h y^n \left[ \frac{x^{m+1}}{m+1} \right]_0^b dy \nonumber \\
+	&= & 
+	\frac{b^{m+1}}{m+1}
+	\left[
+		\frac{y^{n+1}}{n+1}
+	\right]_0^h
+	\nonumber
+	\\
+	&= & 
+	\frac{ b^{m+1} h^{n+1}}{(m+1)(n+1)}
+	\label{eqn:int_Sa_xmyn}
+\end{eqnarray}
+\item 三角形領域$S_b$:
+\begin{eqnarray}
+	F(S_b) 
+	&= & 
+	\int_0^h \left(\int_0^{\frac{b}{h}y} x^my^ndx \right) dy
+	\nonumber
+	\\
+	&= & 
+	\int_0^h y^n \left[\frac{x^{m+1}}{m+1}\right]_0^{\frac{b}{h}y}dy 
+	\nonumber
+	\\
+	&= & 
+	\frac{1}{m+1}\left(\frac{b}{h}\right)^{m+1} \int_0^h y^{m+n+1}dy 
+	\nonumber
+	\\
+	&= & 
+	\frac{b^{m+1}h^{n+1}}{(m+1)(m+n+2)}
+	\label{eqn:int_Sb_xmyn}
+\end{eqnarray}
+\item 三角形領域$S_c$:
+\begin{eqnarray}
+	F(S_c)&= & 
+	\int_0^h \left(\int_0^{b\left( 1-\frac{y}{h}\right) } x^my^ndx \right) dy
+	\nonumber
+	\\
+	&=&
+	\int_0^h \left[ \frac{x^{m+1}}{m+1}\right]_0^{b\left(1-\frac{y}{h}\right)} dy \nonumber
+	\\
+	&=&
+	\frac{b^{m+1}}{m+1} \int_0^h \left( 1-\frac{y}{h} \right)^{m+1} y^n dy 
+	\nonumber
+	\\
+	&=&
+	\frac{b^{m+1}}{m+1}h^{n+1} \int_0^1 \left( 1-\xi \right)^{m+1} \xi^n d\xi, \ \ \left(\xi=\frac{y}{h}\right) 
+	\label{eqn:int_Sc_via}
+	\\
+	&=&
+	\frac{m!n!}{(m+n+2)!}b^{m+1}h^{n+1}
+	\label{eqn:int_Sc_xmyn}
+\end{eqnarray}
+なお，式(\ref{eqn:int_Sc_via})の積分は，次に示すように部分積分を$n$回繰り返して行うことで計算することができる．
+\begin{eqnarray}
+	\int_0^1 \left( 1-\xi \right)^{m+1} \xi^n d\xi
+	&=&
+	\left[-\frac{(1-\xi)}{m+2}\xi^n\right]_0^1 + \frac{n}{m+2}\int_0^1 (1-\xi)^{m+2}\xi^{n-1}d\xi
+	\nonumber
+	\\
+	&=&
+	\cdots
+	\nonumber
+	\\
+	&=&
+	\frac{n(n-1)\cdots 1}{(m+2)\cdots (m+n+1)} \int_0^1 (1-\xi)^{m+n+1}d\xi 
+	\nonumber
+	\\
+	&=&
+	\frac{(m+1)! n!}{(m+n+2)!}
+	\label{eqn:int_by_part}
+\end{eqnarray}
+以上は全て$x$に関する積分を先に行った場合の計算過程を示しているが，
+$y$から先に積分を行っても結果に変わりはない．
+\item　四分円領域$S_d$\\
+最後に，$S_d$における積分を$f(x,y)=y$，$f(x,y)=y^2$の場合について計算すると
+以下のようになる．
+\begin{eqnarray}
+	F(S_d) 
+	&=& \int_{S_d} y dS \nonumber \\
+	&=& \int_0^\frac{\pi}{2} \left( \int_0^a r\sin\theta rdr \right)d\theta \nonumber \\
+	&=& \frac{a^3}{3}\int_0^\frac{\pi}{2} \sin\theta  d\theta \nonumber \\
+	&=& \frac{a^3}{3}
+	\label{eqn:int_Sd_y}
+\end{eqnarray}
+\begin{eqnarray}
+	F(S_d) 
+	&=& \int_{S_d} y^2 dS \nonumber \\
+	&=& \int_0^\frac{\pi}{2} \left( \int_0^a r^2\sin^2\theta rdr \right)d\theta \nonumber \\
+	&=& \frac{a^4}{4}\int_0^\frac{\pi}{2} \sin^2\theta d\theta \nonumber \\
+	&=& \frac{a^4}{4} \int_0^\frac{\pi}{2} \frac{1-\cos 2\theta}{2} d\theta 
+	\nonumber
+	\\
+	&=& \frac{\pi}{16}a^4
+	\label{eqn:int_Sd_y2}
+\end{eqnarray}
+\end{itemize}
+この後で見るように,以上に示した面積積分の結果は，四角形や三角形,円形断面の断面係数を計算するために利用することができる．
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=0.5\linewidth]{./fig10_3.eps} 
+	\end{center}
+	\caption{
+		簡単な形状をした積分領域の例. 
+	} 
+	\label{fig:fig10_3}
+\end{figure}
+%--------------------
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=0.8\linewidth]{./fig11_3.eps} 
+	\end{center}
+	\caption{
+		基本的な断面形と断面係数計算のための座標系.
+	} 
+	\label{fig:fig11_3}
+\end{figure}
+\section{長方形，三角形，円の断面係数}
+図\ref{fig:fig11_3}-(1)から(3)に示す３つの断面について断面係数を求める．
+これらの結果は基本的なものであるため，その都度計算するのでなく記憶しておくべきものである．
+\subsection{長方形}
+断面積は$\left|S_1\right|=bh$,断面1次モーメントは
+\begin{equation}
+	G_Z=\int_{S_1} Y dS=\int_0^h\int_0^b Y dZdY=\int_0^h bYdY=\frac{bh^2}{2}
+	\label{eqn:GZ_S1}
+\end{equation}
+であることから，中立軸の位置が
+\begin{equation}
+	\bar Y= \frac{G_Z}{\left| S_1 \right|}=\frac{bh^2/2}{bh}=\frac{h}{2}
+\end{equation}
+と求まる．$Z$軸に関する断面2次モーメントを計算すると
+\begin{equation}
+	I_Z=\int_{S_1} Y^2dZdY
+	=\int_0^h \int_0^b Y^2dZdY 
+	=\int_0^h bY^2dY 
+	=\frac{bh^3}{3}
+	\label{eqn:IZ_S1}
+\end{equation}
+となるので，式(\ref{eqn:IZ2Iz})を用いて,中立軸周りの断面2次モーメントが
+\begin{equation}
+	I_z= I_Z-\bar Y^2 \left| S_1 \right| = \frac{bh^3}{3}-\left(\frac{h}{2}\right)^2\times bh=\frac{bh^3}{12}
+	\label{eqn:Iz_S1}
+\end{equation}
+と得られる．
+\subsection{三角形}
+断面積は$\left|S_2\right|=\frac{bh}{2}$,$Z$軸に関する断面1次および2次モーメント
+\begin{equation}
+	G_Z=\int_{S_2} Y dS, \ \ I_Z=\int_{S_2}Y^2 dS
+\end{equation}
+は，式(\ref{eqn:int_Sb_xmyn})を利用して計算することができる．
+具体的には，式(\ref{eqn:int_Sb_xmyn})において$m=0, n=1$と
+した場合$G_Z$が,$m=0, n=2$とした場合に$I_Z$が得られる．
+その結果，
+\begin{equation}
+	G_Z=\frac{bh^2}{3}, \ \ 
+	I_Z=\frac{bh^3}{4}
+	\label{eqn:GI_S2}
+\end{equation}
+となり，式(\ref{eqn:Ybar})より
+\begin{equation}
+	\bar{Y}=\frac{2h}{3}
+\end{equation}
+が，式(\ref{eqn:IZ2Iz})より
+\begin{equation}
+	I_z=\frac{bh^3}{4}-\left(\frac{2h}{3}\right)^2\times \frac{bh}{2}=\frac{bh^3}{36}
+	\label{eqn:Iz_S2}
+\end{equation}
+が得られる．
+\subsection{円}
+円の面積は$\left|S_3\right|=\pi a^2$で与えられ，$G_Z$は，$S_d$が$Z$軸に関して上下対称，
+被積分関数である$y$が$Z$軸に関して奇関数であることから$G_Z=0$である．
+従って，中立軸の位置は$\bar Y=0$で，この場合$I_Z=I_z$となる．
+また，$I_Z$は式(\ref{eqn:int_Sd_y2})の積分の丁度4倍であることから
+\begin{equation}
+	I_z=I_Z=\int_{S_3}Y^2dS=4\times \frac{\pi a^4}{16}=\frac{\pi a^4}{4}
+	\label{eqn:Iz_S3}
+\end{equation}
+となる．
+\subsubsection{問題}
+図\ref{fig:fig11_3}-(4)から(6)に示す断面$S_4,S_5,S_6$について以下の問に答えよ．
+\begin{enumerate}
+\item
+三角形$S_4$に関する断面係数と中立軸位置を求めよ．
+\item
+平行四辺形$S_5$に関する断面係数と中立軸の位置は，長方形$S_1$の場合と同じになることを示せ．
+\item
+三角形$S_6$に関する断面係数と中立軸の位置は，三角形$S_4$の場合と同じになることを示せ．
+\end{enumerate}
+%%%
 \section{部分断面への分割を利用した断面係数の計算方法}
-断面$S$の,$n$個の互いに共通部分を持たない部分断面$\{ S_i, (i=1,\dots, n)\}$
-への分割:
+断面$S$の$n$個部分断面$\{ S_i, (i=1,\dots, n)\}$への分割:
 \begin{equation}
 	S=S_1\cup S_2 \cup \dots \cup S_n=\cup_{i=1}^n S_i
 	\label{eqn:cup_Si}
 \end{equation}
-かつ
+を考える.ただし,部分断面どうしは互いに共有部分を持たない,すなわち
 \begin{equation}
-	S_i \cap S_j =\phi(空集合), \ \ (i,j=1,2,\dots ,n ) 
+	S_i \cap S_j =\phi(空集合), \ \ (i\neq j,\; i,j=1,2,\dots ,n ) 
 	\label{eqn:cap_Si}
 \end{equation}
-が与えられたとする．いま，部分断面$\left\{ S_i \right\}$は比較的簡単な形状をしており，
-各$S_i$の中立軸位置や断面2次モーメントは既知であるか容易に計算ができると仮定する．
+とする．いま，各々の部分断面$S_i,(i=1,\dots n)$は比較的簡単な形状をしており，
+$S_i$の中立軸位置や断面2次モーメントは既知であるか容易に計算が可能と仮定する．
 図\ref{fig:fig11_2}-(a)は，この状況を$n=2$の場合について示したものである．
 
 
-ここで，断面$S$の断面積$\left| S \right|$は，$S_i$が互いに共通部分を持たないことから
-部分断面の断面積の和で与えられる．
-\begin{equation}
+断面$S$の断面積$\left| S \right|$は，$S_i$が互いに共通部分を持たないことから
+部分断面の断面積の和
+\begin{equation}
 	\left|S\right| = \sum_{i=1}^n \left| S_i \right|
 	\label{eqn:Stot}
 \end{equation}
-また，断面係数を求めるための積分計算を行う座標を$(Y,\,Z)$とし，
+で与えられる．ここで，断面係数を求める際の積分計算を行う座標を$(Y,\,Z)$とし，
 $S_i$の中立軸を$z_i$, $Z$軸と$z_i$軸の距離を$\bar Y_i$と表す(図\ref{fig:fig11_2}-(b))．
-式(\ref{eqn:Ybar})より，$\bar Y_i$は
+式(\ref{eqn:Ybar})より$\bar Y_i$は
 \begin{equation}
 	\bar{Y}_i = \frac{G_Z(S_i)}{\left| S_i \right|}, 
 	\ \ G_Z(S_i)=\int_{S_i}YdS
@@ -228,7 +574,7 @@ $S_i$の中立軸を$z_i$, $Z$軸と$z_i$軸の距離を$\bar Y_i$と表す(図\
 %	= \sum_{i=1}^n \bar{Y}_i\left| S_i \right|
 	\label{eqn:GZ_Stot}
 \end{equation}
-と$G_Z(S_i)$の和で与えられる．よって，式(\ref{eqn:GZ_Stot})と式(\ref{eqn:Y_i})より
+で，$G_Z(S_i)$の和で与えられる．よって，式(\ref{eqn:GZ_Stot})と式(\ref{eqn:Y_i})より
 \begin{equation}
 	\bar Y 
 	= \frac{G_Z(S)}{\left| S \right|}
@@ -267,10 +613,9 @@ $S_i$の中立軸を$z_i$, $Z$軸と$z_i$軸の距離を$\bar Y_i$と表す(図\
 	\label{eqn:IzS_sum}
 \end{equation}
 の関係が得られる．
-式(\ref{eqn:Stot})と式(\ref{eqn:Yi2Y})を用いるならば，式(\ref{eqn:IzS_sum})右辺の量は，
-全て部分断面ごとに計算できるものである．従って，部分断面が簡単な形状をしている場合，
-式(\ref{eqn:IzS_sum})を用いることで，比較的簡単な計算の繰り返しにより断面$S$に関する
-断面2次モーメントを求めることができる．
+式(\ref{eqn:Stot})と式(\ref{eqn:Yi2Y})を用いるとき，式(\ref{eqn:IzS_sum})右辺の量は，
+全て部分断面ごとに計算できる．従って，部分断面が簡単な形状をしている場合，式(\ref{eqn:IzS_sum})を
+用いるれば，比較的簡単な計算の繰り返しで，より複雑な断面$S$に関する断面2次モーメントを求めることができる．
 %--------------------
 \begin{figure}[h]
 	\begin{center}
@@ -283,342 +628,7 @@ $S_i$の中立軸を$z_i$, $Z$軸と$z_i$軸の距離を$\bar Y_i$と表す(図\
 	\label{fig:fig11_2}
 \end{figure}
 %--------------------
-%--------------------
-%%%%%%%%%%
-%%%%%%%%%%
-\section{計算例}
-断面係数や中立軸位置を求めるには，面積積分(2重積分)の計算が必要となる．
-そこで本節では，逐次積分法による2重積分の計算方法についてはじめに述べる．
-次に，基本な断面形に対する断面係数の計算方法と結果を示し，最後に，
-部分断面分割を利用して行った断面係数の計算例を示す．
-\subsection{逐次積分による二重積分の計算方法}
-$z=f(x,y)$を$xy$直角直交座標系を持つ2次元平面上で定義された2変数関数
-とし，$f(x,y)$の二重積分:
-\begin{equation}
-	F(S)=\int_S f(x,y) dS
-	\label{eqn:Int2D}
-\end{equation}
-について考える．ここで，$S$は積分範囲を，$dS=dxdy$は微小面積要素を表し，
-積分範囲$S$は$xy$平面内の点$(x,y)$の集合(領域)として指定される(図\ref{fig:fig10_1})．
-図\ref{fig:fig10_1}-(a)に示すように，2重積分$F(S)$の計算は，幾何学的には領域$S$を底面とし，
-曲面$z=f(x,y)$を上面とする柱状領域の体積を求めることに相当する．
-具体的に与えられた積分範囲$S$に対して積分$F(S)$を計算するには，
-積分変数$x$と$y$のそれぞれについて，1変数関数と同様にして順次積分を実行すればよい．
-ただし，どちらの変数について積分を先に行うかを決め，それぞれの変数が動きうる範囲を
-書き下す必要がある．この作業の煩雑さは，積分範囲$S$の形状によってかなり異なる．
-例えば，$S$として図\ref{fig:fig10_1}-(b)に示すような長方形領域:
-\begin{equation}
-	S=\left\{(x,y):x_{min}<x<x_{max}, \, y_{min}<y<y_{max} \right\}
-	\label{eqn:Sa}
-\end{equation}
-を選べば，$x$と$y$に関する積分範囲の上限と下限は互いに独立かつ一定で，
-次のように単純である．
-\begin{eqnarray}
-	F(S)
-	&=&
-	\int_{x=x_{min}}^{x_{max}}\left\{\int_{y=y_{min}}^{y_{max}} f(x,y)dy\right\} dx
-	\label{eqn:y_then_x}
-	\\
-	&=&
-	\int_{y=y_{min}}^{y_{max}}\left\{\int_{x=x_{min}}^{x_{max}} f(x,y)dx\right\} dy
-	\label{eqn:x_then_y}
-\end{eqnarray}
-ここに，式(\ref{eqn:y_then_x})では最初に$y$について，式(\ref{eqn:x_then_y})は$x$に関する
-積分を先に行うことを意味する．なお，一方の変数に関する積分実行時には，もう一方の変数は一定値
-に固定されていると考え，1変数関数の積分と同様に計算を行えばよい．
-一方，$S$が図\ref{fig:fig10_1}-(c)に示すような任意形状の場合，積分変数$x$と$y$の上限と下限は互いに
-独立でなく，$y$の上下限は$x$に，$x$の上下限は$y$に依存する．
-そこで，図\ref{fig:fig10_2}に示すように，$x$を固定したときの$y$の下限，上限をそれぞれ$y_1(x),y_2(x)$,
-$y$を固定したときの$x$の下限，上限を，それぞれ$x_1(y),x_2(y)$と
-すれば，$S$上での2重積分を次のように書くことができる．
-\begin{eqnarray}
-	F(S) &=& 
-	\int_{x=x_{min}}^{x_{max}}\ \left( \int_{y=y_1(x)}^{y_2(x)}f(x,y)dy\right) dx
-	\label{eqn:iint_xy}
-	\\
-	&=& 
-	\int_{y=y_{min}}^{y_{max}}\ \left( \int_{x=x_1(y)}^{x_2(y)}f(x,y)dx\right) dy
-	\label{eqn:iint_yx}
-\end{eqnarray}
-ただし，$x_{min},x_{max}$は$S$における$x$の最小値，最大値を，
-$y_{min},y_{max}$は$S$における$y$の最小値，最大値を表す．
-%--------------------
-\begin{figure}[h]
-	\begin{center}
-	\includegraphics[width=0.8\linewidth]{./fig10_1.eps} 
-	\end{center}
-	\caption{
-		(a) 2変数関数$z=f(x,y)$が矩形領域上に作る曲面. 
-		(b) 矩形および(c)任意の積分領域と, $xy$直角直交座標系における微小面積要素. 
-	} 
-	\label{fig:fig10_1}
-\end{figure}
-%-----------------------------
-\begin{figure}[h]
-	\begin{center}
-	\includegraphics[width=0.8\linewidth]{./fig10_2.eps} 
-	\end{center}
-	\caption{
-		領域$S$において
-		(a) 固定された$y$に対して$x$の取りうる範囲$\left(x_1(y),x_2(y)\right)$, 
-		(b) 固定された$x$に対して$y$の取りうる範囲$\left(y_1(x),y_2(x)\right)$. 
-	} 
-	\label{fig:fig10_2}
-\end{figure}
-以上の手順を，図\ref{fig:fig10_3}-(b)に示すような三角形領域$S_b$に適用すると，
-\begin{equation}
-	x_{min}=y_{min}=0, \ \ x_{max}=b, \ \ y_{max}=h
-\end{equation}
-で，$x$を固定したときに$y$の動きうる範囲は，
-\begin{equation}
-	\frac{h}{b}x < y < h, 
-	\label{eqn:ybnd_Sb}
-\end{equation}
-$y$を固定したときに$x$の動きうる範囲は，
-\begin{equation}
-	0 < x < \frac{b}{h}y
-	\label{eqn:xbnd_Sb}
-\end{equation}
-である．よって，領域$S_b$における二変数関数$f(x,y)$の面積積分は
-\begin{eqnarray}
-	\int_{S_b} f(x,y) dS
-	&=&
-	\int_{x=0}^b \left\{ \int_{y=\frac{h}{b}x}^h f(x,y)dy\right\} dx 
-	\label{eqn:int_Sb_yx}
-	\\
-	&=&
-	\int_{y=0}^h \left\{ \int_{x=0}^{\frac{b}{h}y} f(x,y)dx\right\}dy
-	\label{eqn:int_Sb_xy}
-\end{eqnarray}
-と表すことができる．
-
-次に，図\ref{fig:fig10_3}-(c)に示す領域$S_c$について，同様にして$x,y$座標のとりうる範囲を調べれば，$S_c$上での積分が
-\begin{eqnarray}
-	\int_{S_c} f(x,y) dS
-	&=&
-	\int_{x=0}^b \left\{ \int_{y=0}^{h\left(1-\frac{x}{b}\right)} f(x,y)dy\right\}dx 
-	\label{eqn:int_Sc_yx}
-	\\
-	&=&
-	\int_{y=0}^h \left\{ \int_{x=0}^{b\left(1-\frac{y}{h}\right)} f(x,y)dx\right\} dy
-	\label{eqn:int_Sc_xy}
-\end{eqnarray}
-と書けることが分かる．
-
-最後に，図\ref{fig:fig10_3}-(d)の領域$S_d$については，極座標:
-\begin{equation}
-	\left(x,\,y\right) = \left(\ r\cos\theta,\, r\sin\theta \right)
-	\label{eqn:cart2pol}
-\end{equation}
-を用いて積分を行えばよい．
-この場合は，微小面積要素が$dS=r dr d\theta $となることに注意し，
-座標$r,\theta$の動きうる範囲を調べればよく，$S_d$において$r$の動きうる
-範囲は$\theta$に依らず$0<r<a$，$\theta$の動きうる範囲は$r$に依らず
-$0<\theta<\frac{\pi}{2}$である．
-よって，
-\begin{equation}
-	\int_{S_d} f(x,y) dS
-	=
-	\int_{r=0}^a \int_{\theta=0}^{\frac{\pi}{2}} f(r\cos\theta,r\sin\theta)rd\theta dr
-	\label{eqn:int_pol}
-\end{equation}
-と表され，積分範囲は$r$と$\theta$の積分順序を交換しても同じである．
-
-
-以上を踏まえて，$f(x,y)=x^my^n$($m,n$は非負整数)として$S_a, S_b$および$S_c$における
-面積積分を行うと，その結果は以下のようになる．
-\begin{eqnarray}
-	F(S_a) &= & 
-	\int_{S_a}x^my^ndS \nonumber \\
-	&= & 
-	\int_0^h \left( \int_0^b x^m y^n dx \right) dy \nonumber \\
-	&= & 
-	\int_0^h y^n \left[ \frac{x^{m+1}}{m+1} \right]_0^b dy \nonumber \\
-	&= & 
-	\frac{b^{m+1}}{m+1}
-	\left[
-		\frac{y^{n+1}}{n+1}
-	\right]_0^h
-	\nonumber
-	\\
-	&= & 
-	\frac{ b^{m+1} h^{n+1}}{(m+1)(n+1)}
-	\label{eqn:int_Sa_xmyn}
-\end{eqnarray}
-\begin{eqnarray}
-	F(S_b) 
-	&= & 
-	\int_0^h \left(\int_0^{\frac{b}{h}y} x^my^ndx \right) dy
-	\nonumber
-	\\
-	&= & 
-	\int_0^h y^n \left[\frac{x^{m+1}}{m+1}\right]_0^{\frac{b}{h}y}dy 
-	\nonumber
-	\\
-	&= & 
-	\frac{1}{m+1}\left(\frac{b}{h}\right)^{m+1} \int_0^h y^{m+n+1}dy 
-	\nonumber
-	\\
-	&= & 
-	\frac{b^{m+1}h^{n+1}}{(m+1)(m+n+2)}
-	\label{eqn:int_Sb_xmyn}
-\end{eqnarray}
-\begin{eqnarray}
-	F(S_c)&= & 
-	\int_0^h \left(\int_0^{b\left( 1-\frac{y}{h}\right) } x^my^ndx \right) dy
-	\nonumber
-	\\
-	&=&
-	\int_0^h \left[ \frac{x^{m+1}}{m+1}\right]_0^{b\left(1-\frac{y}{h}\right)} dy \nonumber
-	\\
-	&=&
-	\frac{b^{m+1}}{m+1} \int_0^h \left( 1-\frac{y}{h} \right)^{m+1} y^n dy 
-	\nonumber
-	\\
-	&=&
-	\frac{b^{m+1}}{m+1}h^{n+1} \int_0^1 \left( 1-\xi \right)^{m+1} \xi^n d\xi, \ \ \left(\xi=\frac{y}{h}\right) 
-	\label{eqn:int_Sc_via}
-	\\
-	&=&
-	\frac{m!n!}{(m+n+2)!}b^{m+1}h^{n+1}
-	\label{eqn:int_Sc_xmyn}
-\end{eqnarray}
-以上において，式(\ref{eqn:int_Sc_via})の積分は，次に示すように部分積分を$n$回繰り返して行うことで計算することができる．
-\begin{eqnarray}
-	\int_0^1 \left( 1-\xi \right)^{m+1} \xi^n d\xi
-	&=&
-	\left[-\frac{(1-\xi)}{m+2}\xi^n\right]_0^1 + \frac{n}{m+2}\int_0^1 (1-\xi)^{m+2}\xi^{n-1}d\xi
-	\nonumber
-	\\
-	&=&
-	\cdots
-	\nonumber
-	\\
-	&=&
-	\frac{n(n-1)\cdots 1}{(m+2)\cdots (m+n+1)} \int_0^1 (1-\xi)^{m+n+1}d\xi 
-	\nonumber
-	\\
-	&=&
-	\frac{(m+1)! n!}{(m+n+2)!}
-	\label{eqn:int_by_part}
-\end{eqnarray}
-なお，これらは全て$x$に関する積分を先に行った場合の過程を示しているが，
-$y$から先に積分を行っても結果に変わりはない．
-
-最後に，$S_d$における積分を$f(x,y)=y$，$f(x,y)=y^2$の場合について計算すると
-以下のようになる．
-\begin{eqnarray}
-	F(S_d) 
-	&=& \int_{S_d} y dS \nonumber \\
-	&=& \int_0^\frac{\pi}{2} \left( \int_0^a r\sin\theta rdr \right)d\theta \nonumber \\
-	&=& \frac{a^3}{3}\int_0^\frac{\pi}{2} \sin\theta  d\theta \nonumber \\
-	&=& \frac{a^3}{3}
-	\label{eqn:int_Sd_y}
-\end{eqnarray}
-\begin{eqnarray}
-	F(S_d) 
-	&=& \int_{S_d} y^2 dS \nonumber \\
-	&=& \int_0^\frac{\pi}{2} \left( \int_0^a r^2\sin^2\theta rdr \right)d\theta \nonumber \\
-	&=& \frac{a^4}{4}\int_0^\frac{\pi}{2} \sin^2\theta d\theta \nonumber \\
-	&=& \frac{a^4}{4} \int_0^\frac{\pi}{2} \frac{1-\cos 2\theta}{2} d\theta 
-	\nonumber
-	\\
-	&=& \frac{\pi}{16}a^4
-	\label{eqn:int_Sd_y2}
-\end{eqnarray}
-ここで示した面積積分の結果は，四角形，三角形および円形断面の断面係数を計算するために
-利用することができる．
-\begin{figure}[h]
-	\begin{center}
-	\includegraphics[width=0.5\linewidth]{./fig10_3.eps} 
-	\end{center}
-	\caption{
-		簡単な形状をした積分領域の例. 
-	} 
-	\label{fig:fig10_3}
-\end{figure}
-%--------------------
-\begin{figure}[h]
-	\begin{center}
-	\includegraphics[width=0.8\linewidth]{./fig11_3.eps} 
-	\end{center}
-	\caption{
-		基本的な断面形と断面係数計算のための座標系.
-	} 
-	\label{fig:fig11_3}
-\end{figure}
-\subsection{長方形，三角形，円の断面係数}
-図\ref{fig:fig11_3}-(1)から(3)に示す３つの断面について断面係数を求める．
-これらの結果は基本的なものであるため，その都度計算するのでなく記憶しておくべきものである．
-\subsubsection{長方形}
-断面積は$\left|S_1\right|=bh$,断面1次モーメントは
-\begin{equation}
-	G_Z=\int_{S_1} Y dS=\int_0^h\int_0^b Y dZdY=\int_0^h bYdY=\frac{bh^2}{2}
-	\label{eqn:GZ_S1}
-\end{equation}
-であることから，中立軸の位置が
-\begin{equation}
-	\bar Y= \frac{G_Z}{\left| S_1 \right|}=\frac{bh^2/2}{bh}=\frac{h}{2}
-\end{equation}
-と求まる．$Z$軸に関する断面2次モーメントを計算すると
-\begin{equation}
-	I_Z=\int_{S_1} Y^2dZdY
-	=\int_0^h \int_0^b Y^2dZdY 
-	=\int_0^h bY^2dY 
-	=\frac{bh^3}{3}
-	\label{eqn:IZ_S1}
-\end{equation}
-となるので，式(\ref{eqn:IZ2Iz})を用いて,中立軸周りの断面2次モーメントが
-\begin{equation}
-	I_z= I_Z-\bar Y^2 \left| S_1 \right| = \frac{bh^3}{3}-\left(\frac{h}{2}\right)^2\times bh=\frac{bh^3}{12}
-	\label{eqn:Iz_S1}
-\end{equation}
-と得られる．
-\subsubsection{三角形}
-断面積は$\left|S_2\right|=\frac{bh}{2}$,$Z$軸に関する断面1次および2次モーメント
-\begin{equation}
-	G_Z=\int_{S_2} Y dS, \ \ I_Z=\int_{S_2}Y^2 dS
-\end{equation}
-は，式(\ref{eqn:int_Sb_xmyn})を利用して計算することができる．
-具体的には，式(\ref{eqn:int_Sb_xmyn})において$m=0, n=1$と
-した場合$G_Z$が,$m=0, n=2$とした場合に$I_Z$が得られる．
-その結果，
-\begin{equation}
-	G_Z=\frac{bh^2}{3}, \ \ 
-	I_Z=\frac{bh^3}{4}
-	\label{eqn:GI_S2}
-\end{equation}
-となり，式(\ref{eqn:Ybar})より
-\begin{equation}
-	\bar{Y}=\frac{2h}{3}
-\end{equation}
-が，式(\ref{eqn:IZ2Iz})より
-\begin{equation}
-	I_z=\frac{bh^3}{4}-\left(\frac{2h}{3}\right)^2\times \frac{bh}{2}=\frac{bh^3}{36}
-	\label{eqn:Iz_S2}
-\end{equation}
-が得られる．
-\subsubsection{円}
-円の面積は$\left|S_3\right|=\pi a^2$で与えられ，$G_Z$は，$S_d$が$Z$軸に関して上下対称，
-被積分関数である$y$が$Z$軸に関して奇関数であることから$G_Z=0$である．
-従って，中立軸の位置は$\bar Y=0$で，この場合$I_Z=I_z$となる．
-また，$I_Z$は式(\ref{eqn:int_Sd_y2})の積分の丁度4倍であることから
-\begin{equation}
-	I_z=I_Z=\int_{S_3}Y^2dS=4\times \frac{\pi a^4}{16}=\frac{\pi a^4}{4}
-	\label{eqn:Iz_S3}
-\end{equation}
-となる．
-\subsubsection{問題}
-図\ref{fig:fig11_3}-(4)から(6)に示す断面$S_4,S_5,S_6$について以下の問に答えよ．
-\begin{enumerate}
-\item
-三角形$S_4$に関する断面係数と中立軸位置を求めよ．
-\item
-平行四辺形$S_5$に関する断面係数と中立軸の位置は，長方形$S_1$の場合と同じになることを示せ．
-\item
-三角形$S_6$に関する断面係数と中立軸の位置は，三角形$S_4$の場合と同じになることを示せ．
-\end{enumerate}
-\subsection{複合断面に関する断面係数の計算例}
+\subsection{部分断面分割を利用した断面係数の計算例}
 \subsubsection{長方形断面}
 図\ref{fig:fig11_4}-(a)のような長方形断面を，2つの長方形$S_1$と$S_2$に分割して計算を行う．
 長方形断面の中立軸位置や断面係数は前節で求めた通りだが，

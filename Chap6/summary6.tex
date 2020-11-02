@@ -2,7 +2,7 @@
 %\usepackage{graphicx,wrapfig}
 \usepackage{graphicx,amsmath}
 \setlength{\topmargin}{-1.5cm}
-\setlength{\textwidth}{16.5cm}
+%\setlength{\textwidth}{16.5cm}
 \setlength{\textheight}{25.2cm}
 \newlength{\minitwocolumn}
 \setlength{\minitwocolumn}{0.5\textwidth}
@@ -61,22 +61,21 @@
 微分して得られる断面力は，必然的に釣り合い条件を満足する．
 一般に，断面力は変形条件と力の釣り合いの両方を考慮しなければ決定することは
 できない．しかしながら，支持条件によっては，力とモーメントの釣り合い条件だけから
-断面力を決定できる場合がある．そのような構造を，"{\bf 静定構造(statically determinate structure)
-}"と呼ぶ．静定でない構造，すなわち，変形と釣り合いの両方を考慮して初めて断面力が
-決定できる構造を"{\bf 不静定構造(statically indeterminate structure)"}と呼ぶ．
+断面力を決定できる場合がある．そのような構造を{\bf 静定構造(statically determinate structure)
+}と呼ぶ．静定でない構造，すなわち，変形と釣り合いの両方を考慮して初めて断面力が
+決定できる構造を{\bf 不静定構造(statically indeterminate structure)}と呼ぶ．
 静定構造では，たわみを経由せず釣り合い条件から直接断面力を決定する方が，
 計算が容易になることが多い．
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{合力と合モーメントの計算}
 釣り合い条件を使った梁の断面力計算において，複数の集中荷重や分布荷重の
-合力と合モーメントを求めることがしばしば必要となる．そこで，梁に鉛直に作用する
+合力と合モーメントを求めることがしばしば必要される．そこで，梁に鉛直に作用する
 力について，合力と合モーメントを計算する方法を以下に述べる．
 \subsection{集中荷重の組}
 図\ref{fig:fig9_1}-(a)に示すように，$n$固の集中荷重が作用する場合を考える．ここで，
 $n$個の荷重のうち第$i$番目の荷重の作用点を$x_i$, 大きさを$F_i$とし，このような
 荷重の組を$\left\{ \left(x_i, F_i\right), i=1,\dots ,n\right\}$あるいは単に$\{F_i\}$と表す．
-このとき，$\{F_i\}$の合力$F$と$x=a$に関する合モーメント$M_a$は，ぞれぞれ以下の式に従って計算
-することができる．
+このとき，$\{F_i\}$の合力$F$と$x=a$に関する合モーメント$M_a$は，ぞれぞれ以下の式で計算できる．
 \begin{eqnarray}
 	F &=& \sum_{i=1}^n F_i 
 	\label{eqn:Ftot}
@@ -84,124 +83,7 @@ $n$個の荷重のうち第$i$番目の荷重の作用点を$x_i$, 大きさを$
 	M_a &=& \sum_{i=1}^n (x_i-a)F_i 
 	\label{eqn:Mtot}
 \end{eqnarray}
-なお，ここではモーメントの正方向を時計回りの方向としている．
-$x=b$に関する合モーメントを$M_b$とすれば，式(\ref{eqn:Ftot})と(\ref{eqn:Mtot})より
-\begin{eqnarray}
-	M_b &=& \sum_{i=1}^n (x_i-b)F_i  \nonumber \\
-	    &=& \sum_{i=1}^n \left\{ (x_i-a)+(a-b)\right\}F_i  \nonumber \\
-	    &=& \sum_{i=1}^n (x_i-a)F_i +(a-b)\sum_{i=1}^n F_i  \nonumber \\
-	    &=& M_a +(a-b)F 
-	\label{eqn:Ma2b}
-\end{eqnarray}
-となる. ここで，原点$x=0$に関する合モーメントを$M_0$とすれば，
-\begin{equation}
-	M_0= \sum_{i=1}^n x_i F_i 
-	\label{eqn:M0}
-\end{equation}
-だから，式(\ref{eqn:Mtot})は
-\begin{equation}
-	M_a = M_0 -aF 
-	\label{eqn:}
-\end{equation}
-と表すことができる．いま，$M_a=0$となるような特別な位置$a$を，特に$a=\bar x$と
-書くことにすれば，$\bar x$は
-\begin{equation}
-	\bar{x} = \frac{M_0}{F}, \ \ (F\neq 0)
-	\label{eqn:xbar}
-\end{equation}
-で与えられる． また，式(\ref{eqn:Ma2b})において$a=\bar x$とすれば，任意の$b$に対して
-\begin{equation}
-	M_b= \left( \bar x - b\right) F
-	\label{eqn:F2M}
-\end{equation}
-となる．式(\ref{eqn:F2M})は，$\{ (x_i, F_i),\, i=1,\dots ,n\}$に対して合力$F$と
-位置$\bar x$を一度求めれば， 全荷重についての和をその都度計算することなく
-任意の位置$x=b$に関する合モーメント$M_b$が得られることを意味している.
-このことは，$\{F_i\}$の合モーメントが，あたかも$x=\bar x$に大きさ$F$の集中荷重が
-作用していると考えて計算ができることを示しており(図\ref{fig:fig9_1}-(c))．
-この意味で，図\ref{fig:fig9_1}-(c)の集中荷重と$\{ F_i\}$は，合力と合モーメントの
-計算において等価とみなすことができる．
-\subsection{分布荷重の合力，合モーメント}
-単位長さ辺りの鉛直力$q(x)$が与えられたとき，その合力$F$と$x=a$に関する合モーメント$M_a$は，
-それぞれ次の式で与えられる.
-\begin{eqnarray}
-	F &= & \int q(x) dx 
-	\label{eqn:Ftot_q}
-	\\
-	M_a &= & \int (x-a)q(x) dx 
-	\label{eqn:Mtot_q}
-\end{eqnarray}
-また，$x=b$に関する合モーメント$M_b$と$M_a$の関係は，
-\begin{equation}
-	M_b = \int (x-b)q(x)dx = \int (x-a)q(x) dx + \int (a-b)q(x)dx = M_a+(a-b) F
-	\label{eqn:Mb_q}
-\end{equation}
-となり，集中荷重の場合と同じ関係が成り立つことが示される．
-そこで，$a=\bar x$に関する合モーメント$M_{\bar x}$がゼロとなるよう,
-\begin{equation}
-	\bar x = \frac{M_0}{F}
-\end{equation}
-を定め，式(\ref{eqn:Mb_q})で$a=\bar x$とおけば，
-\begin{equation}
-	M_b=\left(\bar x - b\right)F
-	\label{eqn:Mb_F}
-\end{equation}
-が得られる．
-その結果，分布荷重$q(x)$と$x=\bar x$に作用する大きさ$F$の集中荷重は，合モーメントの計算において等価
-であることが示される．式(\ref{eqn:Mb_F})を用いれば，積分計算を繰り返し行うこと無く，
-任意の基準点についての合モーメントを得ることができる．
-\subsection{力とモーメントの釣り合い}
-物体に力(集中荷重や分布力)が作用した状態で移動も回転もしないとき，物体は釣り合い状態にある．
-このとき，物体に作用する力の合力と合モーメントはゼロでなければならない．
-すなわち，任意の$a$について
-\begin{eqnarray}
-	F &= &  0 
-	\label{eqn:F_equib}
-	\\
-	M_a &= &  
-	%\sum_{i=1}^n(x_i-a)F_i =
-	0 
-	\label{eqn:M_equib}
-\end{eqnarray}
-が満足されなければならない．なお，$F=0$のとき，式(\ref{eqn:Ma2b})と(\ref{eqn:Mb_q})より任意の$a$と$b$に対して
-$M_a=M_b$となり，合モーメントはどの位置を基準として計算しても結果は変わらない．
-従って，力とモーメントの釣り合い式(\ref{eqn:F_equib}),(\ref{eqn:M_equib})を利用する
-とき，モーメントの基準点$x=a$をどこにおいてもよく，計算上都合の良い位置に取ることができる．
-\subsection{偶力}
-$\{F_i\}$の合力$F$がゼロとのき，式(\ref{eqn:xbar})で$\bar x$を定義することはできず，
-$\{F_i\}$を単一の荷重で代表させることはできない．しかしながら，$F_i >0$となる荷重の
-合力と$x=0$に関する合モーメントを$F^+, M_0^+$, $F_i<0$である荷重の合力と合モーメントを同様に
-$F^-, M_0^-$とすれば，$F^+>0,\; F^-<0$だから，各々の作用点$\bar x^+$と$\bar x^-$は次の
-ように定めることができる．
-\begin{equation}
-	\bar x ^\pm = \frac{M_0^\pm }{F ^\pm} 
-	\label{eqn:xbar_pm}
-\end{equation}
-ただし，
-\begin{eqnarray}
-	F^+ = \sum _{ F_i > 0 } F_i, & & F^- = \sum _{F_i < 0 } F_i 
-	\label{eqn:F_pm}
-	\\
-	M_0^+ = \sum _{F_i > 0 } x_i F_i, & & M_0^- = \sum _{F_i < 0 } x_iF_i 
-	\label{eqn:M_pm}
-\end{eqnarray}
-である．このことは, $\{F_i\}$を単一の集中荷重に置き換えることはできないが，
-位置$x=\bar x ^\pm$に加えられた大きさ$F^\pm$の2つの集中荷重で代用できることを意味する．
-これら2つ荷重の組は，互いに大きさが等しく，向きが反対になっており偶力(couple force)と呼ばれる．
-偶力は，$F=F^++F^-=0, M_0=M_0^+ + M_0^-\neq 0$だから，力の大きさはゼロでモーメントだけを持つ．
-合力がゼロであることから，合モーメントはどの位置について計算をしても同じで，偶力固有の
-作用点位置を定めることはできない(定める必要がない). 
-分布力$q(x)$についても,合力がゼロの場合，一つの集中荷重に置き換えることはできないが，
-偶力に換算することはできる．このことを理解するには，
-$F^\pm, M_0^\pm$を以下のようにおき，上と同じ議論を行えば良い．
-\begin{eqnarray}
-	F^\pm &=& \pm \int \left< \pm q(x) \right>dx
-	\label{eqn:Fpm_q} \\
-	M_0^\pm &=& \pm \int \left< \pm xq(x) \right>dx
-	\label{eqn:Mpm_q}
-\end{eqnarray}
-なお，式(\ref{eqn:Fpm_q}),(\ref{eqn:Mpm_q})の被積分関数$\pm q(x)$につた括弧$\left< \cdot \right>$は，
-マッコーレーの括弧を意味する．
+なお，ここではモーメントの{\bf 正方向を時計回り}の方向としている．
 %--------------------
 \begin{figure}[h]
 	\begin{center}
@@ -216,6 +98,137 @@ $F^\pm, M_0^\pm$を以下のようにおき，上と同じ議論を行えば良�
 	} 
 	\label{fig:fig9_1}
 \end{figure}
+$x=b$に関する合モーメントを$M_b$とすれば，式(\ref{eqn:Ftot})と(\ref{eqn:Mtot})より
+\begin{eqnarray}
+	M_b &=& \sum_{i=1}^n (x_i-b)F_i  \nonumber \\
+	    &=& \sum_{i=1}^n \left\{ (x_i-a)+(a-b)\right\}F_i  \nonumber \\
+	    &=& \sum_{i=1}^n (x_i-a)F_i +(a-b)\sum_{i=1}^n F_i  \nonumber \\
+	    &=& M_a +(a-b)F 
+	\label{eqn:Ma2b}
+\end{eqnarray}
+となる. そこで，原点$x=0$に関する合モーメントを$M_0$とすれば，
+\begin{equation}
+	M_0= \sum_{i=1}^n x_i F_i 
+	\label{eqn:M0}
+\end{equation}
+だから，式(\ref{eqn:Mtot})を
+\begin{equation}
+	M_a = M_0 -aF 
+	\label{eqn:}
+\end{equation}
+と表すことができる．いま，$M_a=0$となるような特別な位置$a$を，特に$a=\bar x$と
+書くことにすれば，$\bar x$は
+\begin{equation}
+	\bar{x} = \frac{M_0}{F}, \ \ (F\neq 0)
+	\label{eqn:xbar}
+\end{equation}
+で与えられる． また，式(\ref{eqn:Ma2b})において$a=\bar x$とすれば，$M_{\bar x}=0$より，
+任意の$b$に対して
+\begin{equation}
+	M_b= \left( \bar x - b\right) F
+	\label{eqn:F2M}
+\end{equation}
+となる．式(\ref{eqn:F2M})は，$\{ (x_i, F_i),\, i=1,\dots ,n\}$に対して合力$F$と
+位置$\bar x$を求めておけば， 
+式(\ref{eqn:Mtot})のように全荷重の和を計算することなく任意の$b$に対する$M_b$を
+求められることを意味する.また，そのための計算では，大きさ$F$の単一の集中荷重が
+$x=\bar x$に作用していると考えてモーメントを求めればよいことを示している．
+この意味で，図\ref{fig:fig9_1}-(c)の集中荷重と同図(a)の$\{ F_i\}$は，合力と
+合モーメントの計算において互いに等価なものとみなしてよい．
+\subsection{分布荷重の合力，合モーメント}
+単位長さ辺りの鉛直力$q(x)$が与えられたとき，その合力$F$と$x=a$に関する合モーメント$M_a$は
+それぞれ次の式で与えられる.
+\begin{eqnarray}
+	F &= & \int q(x) dx 
+	\label{eqn:Ftot_q}
+	\\
+	M_a &= & \int (x-a)q(x) dx 
+	\label{eqn:Mtot_q}
+\end{eqnarray}
+また，$x=b$に関する合モーメント$M_b$と$M_a$の関係は，
+\begin{eqnarray}
+	M_b 
+	&=& \int (x-b)q(x)dx \nonumber \\
+	&=& \int (x-a)q(x) dx + \int (a-b)q(x)dx \nonumber \\
+	&=& M_a+(a-b) F
+	\label{eqn:Mb_q}
+\end{eqnarray}
+となり，集中荷重の場合と同じであることが示される．
+そこで，$a=\bar x$に関する合モーメント$M_{\bar x}$がゼロとなるよう,
+\begin{equation}
+	\bar x = \frac{M_0}{F}
+\end{equation}
+を定め，式(\ref{eqn:Mb_q})で$a=\bar x$とおけば，式(\ref{eqn:Mb_q})より
+\begin{equation}
+	M_b=\left(\bar x - b\right)F
+	\label{eqn:Mb_F}
+\end{equation}
+が得られる．
+これは，分布荷重$q(x)$と$x=\bar x$に作用する大きさ$F$の集中荷重は，
+合力と合モーメントの計算において等価なものと考えていよいことを意味する．
+式(\ref{eqn:Mb_F})を用いれば，式(\ref{eqn:Mtot_q})の積分を繰り返し計算すること無く
+任意の基準点$b$について合モーメントを得ることができる．
+\subsection{力とモーメントの釣り合い}
+物体に力(集中荷重や分布力)が作用した状態で移動も回転もしないとき，物体は釣り合い状態にある．
+このとき，物体に作用する力の合力と合モーメントはゼロでなければならない．
+すなわち，任意の$a$について
+\begin{eqnarray}
+	F &= &  0 
+	\label{eqn:F_equib}
+	\\
+	M_a &= &  
+	%\sum_{i=1}^n(x_i-a)F_i =
+	0 
+	\label{eqn:M_equib}
+\end{eqnarray}
+が満足されなければならない．なお，$F=0$のとき，式(\ref{eqn:Ma2b})と式(\ref{eqn:Mb_q})より任意の$a$と$b$に対して
+$M_a=M_b$となるため，合モーメントはどの位置を基準として計算しても結果は変わらない．
+従って，力とモーメントの釣り合い式(\ref{eqn:F_equib}),(\ref{eqn:M_equib})を利用する
+とき，モーメントの基準点$x=a$をどこにおいてもよく，計算上都合の良い位置に取ることができる．
+\subsection{偶力}
+$\{F_i\}$の合力$F$がゼロとのき，式(\ref{eqn:xbar})で$\bar x$を定義することはできず，
+$\{F_i\}$を単一の荷重で代表させることはできない．しかしながら，$\left\{ F_i \right\}$を
+正の力($F_i >0$)と負の力$(F_i<0)$に分割し，それぞれに対して等価な力を考えることはできる．
+そのためには，
+\begin{eqnarray}
+	F^+ := \sum _{ F_i > 0 } F_i, & & F^- := \sum _{F_i < 0 } F_i 
+	\label{eqn:F_pm}
+	\\
+	M_0^+ := \sum _{F_i > 0 } x_i F_i, & & M_0^- := \sum _{F_i < 0 } x_iF_i 
+	\label{eqn:M_pm}
+\end{eqnarray}
+で，正(負)の力に関する合力$F^+(F^-)$と，$x=0$に関するその合モーメント$M_0^{+}(M_0^{-})$
+を定義する．このとき，$\bar x^+,\, \bar x^-$を
+\begin{equation}
+	\bar x ^\pm = \frac{M_0^\pm }{F ^\pm} 
+	\label{eqn:xbar_pm}
+\end{equation}
+とすれば，$\{F_i\}$を位置$x=\bar x ^\pm$に加えられた大きさ$F^\pm$の2つの集中荷重で代用できる．
+これら2つ荷重の組は，
+\begin{equation}
+	F=F^++F^-=0,
+\end{equation}
+すなわち，互いに大きさが等しく向きが反対になっている．このような集中荷重の対は
+{\bf 偶力(couple force)}と呼ばれる．
+偶力は，$M_0=M_0^+ + M_0^-\neq 0$だから，力の大きさは零でモーメントだけを持つ．
+合力が零であることから合モーメントはどの位置について計算をしても同じで，偶力固有の
+作用点位置を定めることはできない(定める必要がない). 
+同様に，分布力$q(x)$についても合力が零となる場合，一つの集中荷重への置き換えは
+できないが，偶力への換算は可能である．このことを理解するには，
+$q(x)>0$となる部分の合力$F^+$と合モーメント$M^+_0$，
+$q(x)<0$となる部分の合力$F^-$と合モーメント$M^-_0$を求め，
+上に述べた集中荷重の場合と同様な議論を行えば良い．
+マッコーレーの括弧を用いれば， $q(x)>0$となる部分は$\left<q(x)\right>$で，
+$q(x)<0$となる部分は$-\left<-q(x)\right>$で切り出すことができる．
+従って，$F^\pm, M^\pm_0$は，
+\begin{eqnarray}
+	F^\pm &=& \pm \int \left< \pm q(x) \right>dx
+	\label{eqn:Fpm_q} \\
+	M_0^\pm &=& \pm \int x\left< \pm q(x) \right>dx
+	\label{eqn:Mpm_q}
+\end{eqnarray}
+で求められる．これを，式(\ref{eqn:xbar_pm})に用いれば，
+偶力を構成する2つの集中荷重の作用点位置を求めることができる．
 \subsection{例題}
 \begin{enumerate}
 \item
@@ -231,9 +244,8 @@ $F^\pm, M_0^\pm$を以下のようにおき，上と同じ議論を行えば良�
 	\bar x = \frac{M_0}{F}=\frac{F_2l}{F}= \frac{F_2}{F_1+F_2}l
 	\label{eqn:xbar1_1}
 \end{equation}
-となることから，与えられた2つの荷重と等価な荷重は，$x=\bar x = \frac{F_2}{F_1+F_2}l$，
-すなわち2つの荷重$F_1,F_2$の作用点位置を$F_2:F_1$に内分する位置に加えられた，
-大きさ$F_1+F_2$の集中荷重である．
+となる．これは，与えられた2つの荷重は，2つの荷重$F_1,F_2$の作用点位置を$F_2:F_1$に内分する
+位置に加えられた大きさ$F_1+F_2$の集中荷重に等価であることを示している．
 この結果を用いて，$x=l$に関する合モーメント$M_l$を計算すると，
 \begin{equation}
 	M_l=(\bar x- l ) F = -\frac{F_1}{F_1+F_2}l \times (F_1+F_2)= -F_1l
@@ -249,12 +261,12 @@ $x=\frac{l}{2}$と$x=l$に関する$q(x)$の合モーメントを求める．
 	\\
 	M_0 & =& \int _0^l xq(x)dx= \frac{q_0l^2}{2}
 \end{eqnarray}
-よって，
+だから，
 \begin{equation}
 	\bar x= \frac{\frac{q_0l^2}{2}}{q_0l}=\frac{l}{2}
 	\label{eqn:xbar_rec}
 \end{equation}
-となり，大きさ$q_0$の等分布荷重は，その中央に作用する大きさ$q_0l$の集中荷重と等価であることが分かる．
+となる．この結果は，大きさ$q_0$の等分布荷重は，その中央に作用する大きさ$q_0l$の集中荷重と等価であることを示している．
 また，$M_{\frac{l}{2}}$と$M_{l}$は，
 \begin{equation}
 	M_{\frac{l}{2}}=\left(\frac{l}{2}-\frac{l}{2}\right)\times q_0l = 0 ,\ \ 
@@ -264,7 +276,7 @@ $x=\frac{l}{2}$と$x=l$に関する$q(x)$の合モーメントを求める．
 と求めることができる．
 \item
 図\ref{fig:fig9_5}-(2)に示すような三角形分布荷重と等価な集中荷重を求め，その結果を利用して
-$x=\frac{l}{2}$と$x=l$に関する$q(x)$の合モーメントを求める．
+$x=\frac{l}{2}$と$x=l$に関する合モーメントを求める．
 与えられた分布荷重は$q(x)=q_0\frac{x}{l}$と表されるので，
 \begin{eqnarray}
 	F&= & \int _0^l q(x)dx = \int_0^l q_0 \frac{x}{l}dx=\frac{q_0l}{2}
@@ -273,7 +285,7 @@ $x=\frac{l}{2}$と$x=l$に関する$q(x)$の合モーメントを求める．
 	M_0&= & \int _0^l xq(x)dx = \int_0^l q_0 \frac{x^2}{l}dx=\frac{q_0l^2}{3}
 	\label{eqn:}
 \end{eqnarray}
-となり，三角形分布荷重と等価な集中荷重の作用点位置は
+となる．つまり，三角形分布荷重と等価な集中荷重の作用点位置は
 \begin{equation}
 	x=\bar x = \frac{M_0}{F}=\frac{2}{3}l
 	\label{eqn:xbar_tri}
@@ -318,77 +330,76 @@ $x=\frac{l}{2}$と$x=l$に関する$q(x)$の合モーメントを求める．
 \end{enumerate}
 %--------------------
 \section{静定梁の支点反力と断面力の求め方}
-図\ref{fig:fig9_0}に示す4つの構造は，全て静定構造であり，力とモーメントの釣り合い条件から
+図\ref{fig:fig9_0}に示す4つの構造は全て静定構造であり，力とモーメントの釣り合い条件から
 支点反力と断面力を決定することができる．
 このことを，図\ref{fig:fig9_0}-(1)と(2)を例として具体的に見る．
 \subsection{例題}
 \begin{enumerate}
 \item
 図\ref{fig:fig9_0}-(1)に示す単純支持された梁の，支点反力と断面力分布を求める．
-この梁の支点Aは，ピン支持されているため，水平方向と鉛直方向に変位が拘束されている．
+この梁の支点Aはピン支持されているため，水平方向と鉛直方向に変位が拘束されている．
 従って，梁は支点Aから水平反力$H_A$と鉛直反力が$R_A$を受ける．この正方向を図\ref{fig:fig9_2}-(a)
-のようにとる．一方，支点Bはローラー支持のため，鉛直変位だけが拘束される結果，
-梁は支点から鉛直方向の反力$R_B$を受ける．$R_B$も$R_A$と同様，鉛直上向きを正方向にとる．
-ここで，梁全体の力の釣り合い条件を立てると，
+のようにとる．一方，支点Bはローラー支持のため鉛直変位だけが拘束され，
+梁は支点から鉛直反力$R_B$を受ける．$R_B$も鉛直上向きを正として梁全体の力の釣り合い式を立てると，
 \begin{equation}
 	H_A=0(水平方向), \ \ 
 	F-R_A-R_B=0(鉛直方向)
 	\label{eqn:}
 \end{equation}
-となる．さらに，支点Aに関するモーメントの釣り合い式は
+となる．また，支点Aに関するモーメントの釣り合い式は
 \begin{equation}
 	F\times \frac{l}{2}-R_B\times l =0
 	\label{eqn:}
 \end{equation}
-となることから，全ての支点反力が
+となることから，支点反力は
 \begin{equation}
 	H_A=0, \ \ R_A=\frac{F}{2}, \ \ R_B=\frac{F}{2}
 	\label{eqn:}
 \end{equation}
 と求まる．次に，断面力分布を求めるために，図\ref{fig:fig9_2}-(a)に示す
-a-a'の位置で梁を仮想的に切断して自由物体図を描くと同図(b)のようになる．
+a-a'の位置で梁を仮想的に切断し，同図(b)のように自由物体図を描く．
 このような部分構造について水平方向と鉛直方向の力の釣り合い式を立てると，
 \begin{equation}
 	H_A+N=0, \ \ Q-R_A=0
 	\label{eqn:}
 \end{equation}
-となる．また,a-a'断面に関するモーメントの釣り合い式は
+となる．また，a-a'断面に関するモーメントの釣り合い式は
 \begin{equation}
 	M-R_A x=0
 	\label{eqn:}
 \end{equation}
-であることから，$N,\, Q,\, M$は
+であることから，$N,\, Q,\, M$が
 \begin{equation}
 	N(x)=0,\ \ Q(x)=R_A=\frac{F}{2}, \ \ 
 	M(x)= R_Ax =\frac{F}{2}x
 	\label{eqn:}
 \end{equation}
-となる．断面a-a'の位置は，$0< x< \frac{l}{2}$の範囲で任意だから，
+と得られる．断面a-a'の位置は，$0< x< \frac{l}{2}$の範囲で任意だから，
 以上で区間ACにおける断面力分が求められたことになる．
-次に，右半分の区間CBにおける断面力を分布を求める．そのために，図\ref{fig:fig9_2}-(a)の
-b-b'の位置で梁を切断して自由物体図を描くと同図の(c)と(d)が得られる．
+次に，右半分の区間CBにおける断面力分布を求める．そのために，図\ref{fig:fig9_2}-(a)の
+b-b'の位置で梁を切断して自由物体図を描くと，同図(c)と(d)が得られる．
 釣り合い条件式を立てる際，系に作用する荷重の数が少ない方が計算量が少なくて済む．
 そこで，図\ref{fig:fig9_2}-(d)の自由物体図について釣り合い条件式を立てると，
 \begin{equation}
 	N=0, \ \ Q+R_B=0, \ \ M-R_By=0
 	\label{eqn:}
 \end{equation}
-となる．ここで，第３式はb-b'断面に関するモーメントの釣り合い条件である．
-これらの式より，右半分の区間$(0<y<\frac{l}{2})$における断面力分布
+となる．ただし，第3式はb-b'断面に関するモーメントの釣り合い条件である．
+これらの式より，右半分の区間$\left(0<y<\frac{l}{2}\right)$における断面力分布
 \begin{equation}
 	N=0, \ \ Q=-R_B=-\frac{F}{2}, \ \ M=R_By =\frac{F}{2}y
 	\label{eqn:}
 \end{equation}
-と，が得られる．以上の結果を，断面力図として示すと，図\ref{fig:fig9_6}-(a)のようになる．
+と求められる．以上の結果を断面力図として示すと，図\ref{fig:fig9_6}-(a)のようになる．
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \item
-図\ref{fig:fig9_0}-(2)に示す， 片端固定，片端自由の梁(片持梁)について，
+図\ref{fig:fig9_0}-(2)に示すような片端固定，片端自由の梁(片持梁)について，
 支点反力と断面力分布を求める．固定端Aでは，垂直，水平，回転，全ての変位が拘束
-されていることから,点Aで梁は鉛直反力$R_A$,水平反力$H_A$, 曲げモーメント$M_A$を受ける．
-これらの反力の正方向を図\ref{fig:fig9_3}-(a)のようにとる．
+されていることから,点Aで梁は鉛直反力$R_A$と水平反力$H_A$，曲げモーメント$M_A$を受ける．
+これらの正方向を図\ref{fig:fig9_3}-(a)のようにとる．
 一方，支点Bは自由端のため変形に対する拘束は無く，反力も発生しない．
 ここで，区間CBに作用する分布力は，図\ref{fig:fig9_3}-(a')のような集中荷重と等価である
-ことに注意して，梁全体の力の釣り合いと, 点Aに関するモーメントの釣り合い式を立てれば，
+ことに注意して梁全体の力の釣り合いと, 点Aに関するモーメントの釣り合い式を立てれば，
 全ての反力を次にように決定することができる.
 \begin{eqnarray}
 	H_A=0 & &  \\
@@ -415,11 +426,11 @@ a-a'の位置で梁を切断し，その結果得られる部分構造の自由�
 \end{eqnarray}
 と，区間ACにおいて全ての断面力が求まる．
 
-最後に区間CBにおける断面力分布を求めるために，図\ref{fig:fig9_3}-(a)に示した
-b-b'の位置で構造を切断して自由物体図を描く．その結果は，同図の(c)のように
-なるが，釣り合い条件式を書き下すにあたり，矩形分布荷重を(c')の図のような
-集中荷重に置き換えておくと都合が良い．このとき，
-力とモーメントの釣り合い式と，そこから求められる断面力分布は以下のようになる．
+最後に区間CBにおける断面力分布を求める．そのために，図\ref{fig:fig9_3}-(a)に示す
+b-b'の位置で構造を切断して自由物体図を描けば，同図の(c)のようになる．ただし，
+釣り合い条件式を書き下すにあたり，矩形分布荷重は図\ref{fig:fig9_3}-(c')のような集中荷重に
+置き換えておくと計算が容易になる．以上を踏まえ力とモーメントの釣り合い式をたてれば，
+断面力分布が以下のように求められる．
 \begin{eqnarray}
 	N=0 & & 
 	\label{eqn:}
