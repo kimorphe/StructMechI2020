@@ -1,7 +1,7 @@
 \documentclass[10pt,a4j]{jarticle}
 \usepackage{graphicx,wrapfig}
 \setlength{\topmargin}{-1.5cm}
-\setlength{\textwidth}{15.5cm}
+%\setlength{\textwidth}{15.5cm}
 \setlength{\textheight}{25.2cm}
 \newlength{\minitwocolumn}
 \setlength{\minitwocolumn}{0.5\textwidth}
@@ -40,40 +40,50 @@
  }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{center}
-{\Large \bf 2019年度 構造力学I及び演習A 期末試験} \\
+{\Large \bf 2020年度 構造力学I及び演習A 期末試験} \\
 \end{center}
 \begin{flushright}
-	2019年11月26日(火)
+	2020年11月24日(火)
 \end{flushright}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-解答用紙は片面のみ使用してください(各問題2枚). 
-下書き用紙と問題用紙は, 試験終了後, 持ち帰って下さい．
+%解答用紙は片面のみ使用してください(各問題2枚). 
+%下書き用紙と問題用紙は, 試験終了後, 持ち帰って下さい．
 %
 %
 %
 \subsubsection*{問題1.}
-図\ref{fig:fig1}-(a)のような両端が固定された棒部材
-ACついて以下の問に答えよ．なお，棒部材の断面積$A$, ヤング率$E$は
-全断面で一定で，部材軸方向に加えられた分布荷重の大きさ$p$は図\ref{fig:fig1}-(b)に示す通りとする．
+図\ref{fig:fig1}-(a)のような左端が固定され，右端に水平方向の大きさ$F$の
+集中荷重を受ける棒部材ABがある．棒部材の断面積$A$とヤング率$E$は全断面で一定で，
+部材軸方向に加えられた分布荷重の大きさ$p$は図\ref{fig:fig1}-(b)に示す通りとする．
+このとき，以下の問に答えよ．
 \begin{enumerate}
 \item
 	棒部材に発生する軸方向変位を$u(x)$とするとき，$u(x)$が満足すべき
 	微分方程式(支配方程式)と境界条件(支持条件)を$E, A, l$および$p_0$を用いて表わせ．
-	ただし，座標$x$はBを原点とし，BからCの方向を正とする．
 \item
-	区間ACにおける変位分布を求めよ．
+	区間ABにおける変位分布を求めよ．
 \item	
-	区間ACにおける軸力分布を求めよ．
+	区間ABにおける軸力分布を求めよ．
 \item	
-	支点AとCにおいて，棒部材が固定壁から受ける反力の大きさと方向を答えよ．
+	支点Aにおいて棒部材が固定壁から受ける反力の大きさと方向を答えよ．
 \item
-	部材内部で伸びが最大となる区間を示し，その区間に生じる伸びを求めよ．
+	棒部材全体での伸びを求めよ．
+\item
+	ひずみが0となる点をCとする．C点の座標を$x=x_C$とするとき$x_C$を求めよ．
+\end{enumerate}
+集中荷重の大きさ$F$が$x_C=\frac{l}{2}$となるように与えられているとするとき，以下の問に答えよ．
+\begin{enumerate}
+\setcounter{enumi}{6}
+\item
+	区間ABにおける軸力分布を表すグラフを描け．
+\item
+	区間ABにおける変位$u$の分布を表すグラフを描け．
 \end{enumerate}
 \begin{figure}[h]
 	\begin{center}
 	\includegraphics[width=0.5\linewidth]{fig1.eps} 
 	\end{center}
-	\caption{分布力を受ける両端が固定された棒部材AC．}
+	\caption{左端部で固定された棒部材AB．}
 	\label{fig:fig1}
 \end{figure}
 %--------------------
@@ -81,42 +91,66 @@ ACついて以下の問に答えよ．なお，棒部材の断面積$A$, ヤン�
 \subsubsection*{問題2.}
 以下では，$o-x_1x_2$直角直交座標において,トラクションベクトルを$\fat{t}^{(n)}$, 
 応力テンソルを$\fat{\sigma}$，単位法線ベクトルを$\fat{n}$と表す.
-物体中のある着目点$\fat{x}$において$\fat{\sigma}$が
-\[
+平面応力状態にある物体中の着目点$\fat{x}$において$\fat{\sigma}$が
+\begin{equation}
 	\fat{\sigma}=
+	p
 	\left(
 	\begin{array}{cc}
-		q &  r \\
-		r & -q 
+		\sqrt{3} &  1 \\
+		1 & -\sqrt{3} 
 	\end{array}
-	\right), \ \ (q,r \geq 0)
-\]
+	\right), \ \ (p \geq 0)
+	\label{eqn:sig}
+\end{equation}
 で与えられるとき，以下の問に答えよ．
-ただし，$q$と$r$の間には$\tan\phi =r/q$の関係があるとし，解答には角度$\phi$を用いてよい．
 \begin{enumerate}
 \item
-	応力テンソル$\fat{\sigma}$に対するモールの応力円を描け．
+	式(\ref{eqn:sig})の応力テンソル$\fat{\sigma}$に対するモールの応力円を描け．
 \item
-	応力テンソル$\fat{\sigma}$について, 最大および最小主応力と主応力方向を求めよ．
+	式(\ref{eqn:sig})の応力テンソル$\fat{\sigma}$について, 最大および最小主応力と主応力方向を求めよ．
 \item
 	$\fat{n}=(\cos\alpha,\, \sin\alpha)^T$を法線ベクトルとする面に
-	おけるトラクションベクトル$\fat{t}^{(n)}$を求めよ．
+	作用するトラクションベクトル$\fat{t}^{(n)}$を求めよ．
+\item 
+	$\fat{t}^{(n)}$の大きさ，すなわち$\left| \fat{t}^{(n)}\right|$は$\alpha$に依らないことを示せ．
 \item
-	問3で求めたトラクションベクトルの$\fat{n}$方向成分を$t^{(n)}_n$と表す．
-	$0\leq \alpha < 2\pi$における$t^{(n)}_n$の最大値を$t_{max}$，その時の
-	法線ベクトルの方向$\alpha$を$\alpha_{max}$とする．このとき，$t_{max}$と
-	$\alpha_{max}$を求めよ．
+	図\ref{fig:fig2}に示すような$o-x_1'x_2'$直交座標系における応力テンソルを
+	\begin{equation}
+	\fat{\sigma}'=
+	\left(
+	\begin{array}{cc}
+		\sigma_{11}' &  \sigma_{12}' \\
+		\sigma_{21}' &  \sigma_{22}' 
+	\end{array}
+	\right)
+	\label{eqn:sigd}
+	\end{equation}
+		と表す．このとき，$\sigma_{11}',\sigma_{22}'$と$\sigma_{12}'$を$\theta$の関数として求めよ．
 \item
-	物体のヤング率を$E$, ポアソン比を$\nu$とする．物体が平面応力状態にあるとき，
-	応力$\fat{\sigma}$によって生じるひずみテンソルの，
-	直ひずみ成分$\varepsilon_{11}$と$\varepsilon_{22}$を求めよ．
+	$o-x_1'x_2'$直交座標系におけるひずみテンソルを
+	\begin{equation}
+	\fat{\varepsilon}'=
+	\left(
+	\begin{array}{cc}
+		\varepsilon_{11}' &  \varepsilon_{12}' \\
+		\varepsilon_{21}' &  \varepsilon_{22}' 
+	\end{array}
+	\right)
+	\label{eqn:epsd}
+	\end{equation}
+	と表す．このとき，$\varepsilon_{11}',\varepsilon_{22}'$と$\varepsilon_{12}'$を$\theta$の関数として求めよ．
+	ただし，物体のヤング率を$E$, ポアソン比を$\nu$，せん断剛性を$G$とする．
 \item
-	図\ref{fig:fig2}に示すような$o-x_1'x_2'$直交座標系におけるひずみテンソルの
-	直ひずみの成分を$\varepsilon_{11}',\varepsilon_{22}'$と表す．
-	$\theta=\alpha_{max}$のときの，$\varepsilon_{11}'$と$\varepsilon_{22}'$を求めよ．
+	$\theta(x_1$軸)の方向を問2で求めた最大主応力方向にとったときの，$\varepsilon_{11}',\varepsilon_{22}'$と$\varepsilon_{12}'$
+		を求めよ．
 \item
-	問6で求めた$\varepsilon_{11}'$は，$0 \leq \theta < 2\pi$における$\varepsilon_{11}'$
-		の最大値であることを示せ．
+	$\varepsilon_{11}'$を横軸に，$\varepsilon_{12}'$を縦軸とする平面内で$(\varepsilon_{11}',\varepsilon_{12}')$
+	がどのような軌跡(図形)を描くか答えよ．なお，$G,E,\nu$の間に
+	\begin{equation}
+		G=\frac{E}{2(1+\nu)}
+	\end{equation}
+	の関係があることを利用してよい．
 \end{enumerate}
 %--------------------
 \begin{figure}[h]

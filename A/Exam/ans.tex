@@ -1,7 +1,7 @@
 \documentclass[10pt,a4j]{jarticle}
 \usepackage{graphicx,wrapfig}
 \setlength{\topmargin}{-1.5cm}
-\setlength{\textwidth}{15.5cm}
+%\setlength{\textwidth}{15.5cm}
 \setlength{\textheight}{25.2cm}
 \newlength{\minitwocolumn}
 \setlength{\minitwocolumn}{0.5\textwidth}
@@ -41,7 +41,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\vspace*{\baselineskip}
 \begin{center}
-{\Large \bf 2019年度 構造力学I及び演習A(第8回) 期末試験 解答} \\
+{\Large \bf 2020年度 構造力学I及び演習A(第8回) 期末試験 解答} \\
 \end{center}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -51,7 +51,7 @@
 	外力を$p(x)$とする. $p(x)$は
 	\begin{equation}
 		p(x)=\frac{x}{l}p_0 
-		\ \ \left(-l < x < 2l \right)
+		\ \ \left(0 < x < l \right)
 		\label{eqn:px}
 	\end{equation}
 	と表される．よって，軸方向変位$u(x)$の支配方程式は，
@@ -59,13 +59,14 @@
 		\left( EAu' \right)'=-\frac{x}{l}p_0
 		\label{eqn:gv_eq}
 	\end{equation}
-	となる．境界条件は，両端($x=-l,2l$)固定であることから，以下のようである．
+	となる．境界条件は，左端($x=0l$)部が固定，右端部で軸力が与えられていることから，
 	\begin{equation}
-		u(-l)=u(2l)=0
+		u(0)=0, \ \  N(l)=EAu'(l)=-F
 		\label{eqn:bcon}
 	\end{equation}
+	と表される．
 \item
-	$EA$が一定であることから$u''=-p/EA$である．また，式(\ref{eqn:gv_eq})より，
+	$EA$一定のため$u''=-p/EA$である．また，式(\ref{eqn:gv_eq})より，
 	積分定数を$C_1, C_2$とすれば，
 	\begin{equation}
 		u(x)=-\frac{p_0l^2}{6EA}\left\{
@@ -76,52 +77,67 @@
 			C_2
 		\right\}
 	\end{equation}
-	と表すことができる．積分定数は式(\ref{eqn:bcon})より, $C_1=-3, C_2=-2$となる．
-	よって変位分布が
+		と表すことができる．積分定数は式(\ref{eqn:bcon})より, $C_1=\frac{6F}{p_0l}, C_2=0$となる．
 	\begin{equation}
 		u(x)=-\frac{p_0l^2}{6EA}\left\{
 			\left( \frac{x}{l}\right)^3
 			-
 			3
 			\left( \frac{x}{l}\right)
-			-2
 		\right\}
+		-\frac{Fl}{EA}\frac{x}{l}
 		\label{eqn:ux}
 	\end{equation}
 	と求められる．
 \item
-	軸力を$N$は，変位を微分して断面剛性$EI$を乗じ，
+	軸力を$N$は，変位を微分して断面剛性$EA$を乗じ，
 	\begin{equation}
 		N(x)=EAu'=-\frac{p_0l}{2}
 			\left\{
 			\left(\frac{x}{l}\right)^2 -1
 			\right\}
+			-F
 		\label{eqn:Nx}
 	\end{equation}
 	と得られる．
 \item
-	式(\ref{eqn:Nx})より，$N(-l)=0$,
-	$N(2l)=-\frac{3p_0l}{2}$である．よって，支点Aで反力はゼロ，
-	支点Bでは左向きに大きさ$\frac{2p_0l}{3}$の反力を受ける．
+	式(\ref{eqn:Nx})より，$N(0)=\frac{p_0l}{2}-F$(左向き)である．
 \item
-	式(\ref{eqn:ux})より，変位は$x=l$で最大値$\frac{2p_0l^2}{3EA}$をとる．
-	一方，変位の最小値は，部材両端部における値$u(-l)=u(2l)=0$であることから，
-	伸びが最大になる区間は$-l<x<l $で, その区間での伸びは
-	$\frac{2p_0l^2}{3EA}$である．
+	$u(l)-u(0)=\frac{p_0l^2}{3EA}-\frac{Fl}{EA}$.
+\item
+	$\varepsilon=u'=\frac{N}{EA}=0$より$x_C=l\sqrt{1-\frac{2F}{p_0l}}$.
+\item
+	$x_C=\frac{l}{2}$より，$F=\frac{3p_0l}{8}$. このとき，
+	\[
+		N(0)=\frac{p_0l}{8}, \ \ N(l)=-F=-\frac{3}{8}p_0l
+	\]
+	だから，軸力分布は図\ref{fig:fig1}-(a)のようになる.
+\item
+	\[
+		u\left(\frac{l}{2}\right)=\frac{p_0l^2}{24EI}, \ \ 
+		u\left(l \right)=-\frac{p_0l^2}{24EI}
+	\]
+	で，$u'(\frac{l}{2})$だから，変位のグラフは図\ref{fig:fig1}(b)のようになる．
 \end{enumerate}
+\begin{figure}
+	\begin{center}
+	\includegraphics[width=0.6\linewidth]{fig1ans.eps} 
+	\end{center}
+	\caption{軸力および変位分布.} 
+	\label{fig:fig1}
+\end{figure}
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection*{問題2.}
 \begin{enumerate}
 \item
-	$\bar{\sigma}=0, \Delta \sigma=2q, \tau = r$より，モールの応力円の中心は
+	$\bar{\sigma}=0, \Delta \sigma=2\sqrt{3}p, \tau = p$より，モールの応力円の中心は
 	$(\sigma_{11}',\, \sigma_{12}')=(0,\, 0)$, 半径$R$は
 	\begin{equation}
-		R=\sqrt{\left(\frac{\Delta \sigma}{2}\right)^2+\tau ^2}=\sqrt{q^2+r^2}
+		R=\sqrt{\left(\frac{\Delta \sigma}{2}\right)^2+\tau ^2}=2p
 		\label{neq:Radi}
 	\end{equation}
-	である．
-	従って，モールの応力円は図\ref{fig:fig2}のようになる．
+	である．従って，モールの応力円は図\ref{fig:fig2}のようになる．
 \item
 	最大主応力を$\sigma_{max}$, $x_1$軸方向から反時計回りの方向に測った最大
 	主応力方向を$\theta_{max}$とする．同様に，最小主応力を$\sigma_{min}$, 
@@ -130,10 +146,10 @@
 	Aの点で表される．一方，最大および最小主応力は，それぞれ，モールの応力円上の
 	点BとCに相当することから，
 	\begin{equation}
-		\sigma_{max}=R, \ \ \theta_{max}=\frac{\phi}{2}
+		\sigma_{max}=2p, \ \ \theta_{max}=\frac{\pi}{12}
 	\end{equation}
 	\begin{equation}
-		\sigma_{min}=-R, \ \ \theta_{min}=\frac{\phi}{2}+\frac{\pi}{2}
+		\sigma_{min}=-2p, \ \ \theta_{min}=\frac{7\pi}{12}
 	\end{equation}
 	となる．
 \item
@@ -141,83 +157,44 @@
 		\fat{t}^{(n)}
 		=\fat{\sigma}^T\fat{n}
 		=
+		p
 		\left( 
 		\begin{array}{c}
-			q\cos\alpha + r\sin\alpha \\
-			r\cos\alpha - q\sin\alpha 
+			\sqrt{3} \cos\alpha +r\sin\alpha \\
+			\cos\alpha - \sqrt{3} \sin\alpha 
 		\end{array}
 		\right)
 		=
-		R
+		2p
 		\left( 
 		\begin{array}{c}
-			\cos(\phi-\alpha) \\
-			\sin(\phi-\alpha) 
+			\cos\left(\frac{\pi}{6}-\alpha\right) \\
+			\sin\left(\frac{\pi}{6}-\alpha\right) 
 		\end{array}
 		\right)
+		\label{eqn:tn}
 	\end{equation}
 \item
-	$\fat{t}^{(n)}$の$\fat{n}$方向成分は，
-	\begin{equation}
-		t^{(n)}_n=\fat{t}^{(n)}\cdot \fat{n}
-		=
-		R\left\{
-			\cos(\phi-\alpha)\cos\alpha + \sin(\phi-\alpha) \sin\alpha
-		\right\}
-		=R\cos(\phi-2\alpha)
-	\end{equation}
-		だから，$\alpha_{max}=\frac{\phi}{2}$で，$t_{max}=R=\sqrt{q^2+r^2}$．
+	式(\ref{eqn:tn})より$\left| \fat{t}^{(n)}\right|^2=4p^2$で$\alpha$に依存しない.
 \item
-	直ひずみと直応力の関係は
-	\begin{equation}
-		\left(
-		\begin{array}{c}
-			\varepsilon_{11} \\
-			\varepsilon_{22} \\
-			\varepsilon_{33}
-		\end{array}
-		\right)
-		=
-		\frac{1}{E}
-		\left(
-		\begin{array}{ccc}
-			1 & -\nu & -\nu \\
-			-\nu & 1 & -\nu \\
-			-\nu & -\nu & 1 
-		\end{array}
-		\right)
-		\left(
-		\begin{array}{c}
-			\sigma_{11} \\
-			\sigma_{22} \\
-			\sigma_{33}
-		\end{array}
-		\right)
-		\label{eqn:Hooke}
-	\end{equation}
-	で与えられる．これに、
-	\begin{equation}
-		\sigma_{11}=q, \ \ \sigma_{22}=-q, \ \ \sigma_{33}=0
-	\end{equation}
-	を代入すれば，
-	\begin{equation}
-		\varepsilon_{11}=\frac{1+\nu}{E}q, \ \ 
-		\varepsilon_{22}=-\frac{1+\nu}{E}q
-	\end{equation}
-	となる．
+	\begin{eqnarray}
+		\sigma_{11}'
+		&=&\bar \sigma +R \cos \left( \phi- 2\theta \right)
+		= 2p \cos \left( \frac{\pi}{6}-2\theta\right) 
+		\label{eqn:s11d}
+		\\
+		\sigma_{12}'
+		&=& R \sin \left( \phi- 2\theta \right)
+		= 2p \sin \left( \frac{\pi}{6}-2\theta\right) 
+		\label{eqn:s12d}
+		\\
+		\sigma_{22}'
+		&=&\bar \sigma -R \cos \left( \phi- 2\theta \right)
+		= -2p \cos \left( \frac{\pi}{6}-2\theta\right) 
+		\label{eqn:s22d}
+	\end{eqnarray}
 \item
-	$\theta=\alpha_{max}=\frac{\phi}{2}$は最大主応力方向だから，このときの$o-x_1'x_2'$座標系に
-	おける応力テンソル$\fat{\sigma}'$は，
-	\begin{equation}
-		\fat{\sigma}'=\left( 
-		\begin{array}{cc}
-			R & 0 \\
-			0 & -R 
-		\end{array}
-		\right)
-		\label{eqn:sigd}
-	\end{equation}
-	となる．これを，$o-x_1'x_2'$座標系における直ひずみと直応力の関係
+	$o-x_1'x_2'$座標系における直ひずみと直応力の関係
 	\begin{equation}
 		\left(
 		\begin{array}{c}
@@ -244,26 +221,36 @@
 		\right)
 		\label{eqn:Hooke_d}
 	\end{equation}
-	に代入し，$\sigma_{33}'=0$とすれば，
-	\begin{equation}
-		\varepsilon_{11}=\frac{1+\nu}{E}R, \ \ 
-		\varepsilon_{22}=-\frac{1+\nu}{E}R
-	\end{equation}
+	に式(\ref{eqn:s11d})と(\ref{eqn:s22d})を代入し，$\sigma_{33}'=0$とすれば，
+	\begin{eqnarray}
+		\varepsilon_{11}'&=&\frac{2(1+\nu)}{E}p\cos\left(\frac{\pi}{6}-2\theta\right) 
+		\label{eqn:e11d}
+		\\ 
+		\varepsilon_{22}'&=&-\frac{2(1+\nu)}{E}p\cos\left(\frac{\pi}{6}-2\theta\right) 
+		\label{eqn:e22d}
+	\end{eqnarray}
 	が得られる．
+	また,せん断ひずみは
+	\begin{equation}
+		\varepsilon_{12}'=\frac{\sigma_{12}'}{2G}=\frac{p}{G}\sin\left(\frac{\pi}{6}-2\theta \right)
+		\label{eqn:e12d}
+	\end{equation}
+	と求められる.
 \item
-	$o-x_1'x_2'$座標系において直応力$\sigma_{11}',\sigma_{22}'$は，
-	\begin{eqnarray}
-		\sigma_{11}'&=&R\cos(\phi-2\theta) \\ 
-		\sigma_{22}'&=&-R\cos(\phi-2\theta) 
-	\end{eqnarray}
-	だから，
-	これと$\sigma_{33}'=0$を式(\ref{eqn:Hooke_d})に代入すれば，
-	\begin{eqnarray}
-		\varepsilon_{11}'&=&\frac{1+\nu}{E}R\cos(\phi-2\theta) \\ 
-		\varepsilon_{22}'&=&-\frac{1+\nu}{E}R\cos(\phi-2\theta) 
-	\end{eqnarray}
-	となり，$\varepsilon_{11}'$は$\theta=\frac{\phi}{2}=\alpha_{max}$
-	で，最大値$\frac{1+\nu}{E}R$をとることが示される．
+	式(\ref{eqn:e11d})-(\ref{eqn:e12d})に$\theta=\theta_{max}=\frac{\pi}{12}$を代入すれば
+	\[
+		\varepsilon_{11}'=\frac{2(1+\nu)}{E} p,
+		\ \ 
+		\varepsilon_{22}'=-\frac{2(1+\nu)}{E} p
+		\ \ 
+		\varepsilon_{12}'=0
+	\]
+\item
+	式(\ref{eqn:e11d})と(\ref{eqn:e12d})より
+	\[
+		(\varepsilon_{11}')^2 + (\varepsilon_{22}')^2  = \frac{p^2}{G^2}
+	\]
+	より,中心$(0,0)$, 半径$\frac{p}{G}$の円となる.
 \end{enumerate}
 %--------------------
 \begin{figure}
