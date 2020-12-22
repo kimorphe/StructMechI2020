@@ -52,14 +52,14 @@
 %
 %
 \subsubsection*{問題1.}
-図\ref{fig:fig1}-(a)のような左端が固定され，右端に水平方向の大きさ$F$の
-集中荷重を受ける棒部材ABがある．棒部材の断面積$A$とヤング率$E$は全断面で一定で，
+図\ref{fig:fig1}-(a)のように,左端は固定され右端には水平方向に大きさ$F$の
+集中荷重が加えられた棒部材ABがある．棒部材の断面積$A$とヤング率$E$は全断面で一定で，
 部材軸方向に加えられた分布荷重の大きさ$p$は図\ref{fig:fig1}-(b)に示す通りとする．
 このとき，以下の問に答えよ．
 \begin{enumerate}
 \item
 	棒部材に発生する軸方向変位を$u(x)$とするとき，$u(x)$が満足すべき
-	微分方程式(支配方程式)と境界条件(支持条件)を$E, A, l$および$p_0$を用いて表わせ．
+	微分方程式(支配方程式)と境界条件(支持条件)を$E, A, l, F$および$p_0$を用いて表わせ．
 \item
 	区間ABにおける変位分布を求めよ．
 \item	
@@ -69,9 +69,9 @@
 \item
 	棒部材全体での伸びを求めよ．
 \item
-	ひずみが0となる点をCとする．C点の座標を$x=x_C$とするとき$x_C$を求めよ．
+	部材内部でひずみが0となる点をCとする．C点の座標を$x=x_C$とするとき$x_C$を求めよ．
 \end{enumerate}
-集中荷重の大きさ$F$が$x_C=\frac{l}{2}$となるように与えられているとするとき，以下の問に答えよ．
+集中荷重の大きさ$F$が$x_C=\frac{l}{2}$となるように設定されているとき，以下の問に答えよ．
 \begin{enumerate}
 \setcounter{enumi}{6}
 \item
@@ -83,7 +83,7 @@
 	\begin{center}
 	\includegraphics[width=0.5\linewidth]{fig1.eps} 
 	\end{center}
-	\caption{左端部で固定された棒部材AB．}
+	\caption{左端が固定された棒部材AB．}
 	\label{fig:fig1}
 \end{figure}
 %--------------------
@@ -113,7 +113,7 @@
 	$\fat{n}=(\cos\alpha,\, \sin\alpha)^T$を法線ベクトルとする面に
 	作用するトラクションベクトル$\fat{t}^{(n)}$を求めよ．
 \item 
-	$\fat{t}^{(n)}$の大きさ，すなわち$\left| \fat{t}^{(n)}\right|$は$\alpha$に依らないことを示せ．
+	前問で求めた$\fat{t}^{(n)}$の大きさ，すなわち$\left| \fat{t}^{(n)}\right|$は$\alpha$に依らないことを示せ．
 \item
 	図\ref{fig:fig2}に示すような$o-x_1'x_2'$直交座標系における応力テンソルを
 	\begin{equation}
@@ -142,15 +142,17 @@
 	と表す．このとき，$\varepsilon_{11}',\varepsilon_{22}'$と$\varepsilon_{12}'$を$\theta$の関数として求めよ．
 	ただし，物体のヤング率を$E$, ポアソン比を$\nu$，せん断剛性を$G$とする．
 \item
-	$\theta(x_1$軸)の方向を問2で求めた最大主応力方向にとったときの，$\varepsilon_{11}',\varepsilon_{22}'$と$\varepsilon_{12}'$
+	$x_1$軸の方向($\theta$)を問2で求めた最大主応力方向にとったときの，$\varepsilon_{11}',\varepsilon_{22}'$と$\varepsilon_{12}'$
 		を求めよ．
 \item
 	$\varepsilon_{11}'$を横軸に，$\varepsilon_{12}'$を縦軸とする平面内で$(\varepsilon_{11}',\varepsilon_{12}')$
-	がどのような軌跡(図形)を描くか答えよ．なお，$G,E,\nu$の間に
-	\begin{equation}
-		G=\frac{E}{2(1+\nu)}
-	\end{equation}
-	の関係があることを利用してよい．
+	が$0\leq \theta \leq \pi$でどのような軌跡(図形)を描くか答えよ．
+\item
+	問6の結果を踏まえ,
+	応力テンソルとひずみテンソルが同じ座標変換法則に従うときに$G,E$および$\nu$の間に成り立つ関係を導びけ．
+\item
+	問9で導いた$G,E,\nu$に関する関係が成立するとき，$(\varepsilon_{11}',\varepsilon_{12}')$が
+	$\varepsilon_{11}'-\varepsilon_{12}'$平面で$0\leq \theta \leq \pi$において描く図形がどのようなものとなるか答えよ．
 \end{enumerate}
 %--------------------
 \begin{figure}[h]

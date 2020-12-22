@@ -1,7 +1,8 @@
 ﻿\documentclass[10pt,a4j]{jarticle}
 \usepackage{graphicx,wrapfig}
+%,showkeys}
 \setlength{\topmargin}{-1.5cm}
-\setlength{\textwidth}{15.5cm}
+%\setlength{\textwidth}{15.5cm}
 \setlength{\textheight}{25.2cm}
 \newlength{\minitwocolumn}
 \setlength{\minitwocolumn}{0.5\textwidth}
@@ -41,205 +42,145 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\vspace*{\baselineskip}
 \begin{center}
-{\Large \bf 2019年度 構造力学I及び演習B (2月7日) 期末試験 解答} \\
+{\Large \bf 2020年度 構造力学I及び演習B (2月5日) 期末試験 解答} \\
 \end{center}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection*{問題1.}
 \begin{enumerate}
 \item
-	支点反力の正方向を図\ref{fig:fig0}-(a)のように定める．これらの反力は，力とモーメントの釣り合い条件より
+	支点反力の数が6つであるのに対し，釣り合い条件式は3つであるため．
+\item
+	$q(x)=\delta\left(x-\frac{2l}{3}\right)$
+\item
+	梁(a)のたわみ$v(x)$は,たわみの方程式
 	\begin{equation}
-		R_A=F, M_A=-\frac{2}{3}Fl 
-		\label{eqn:re_forces}
+		EIv''''=F\delta\left(x-\frac{2l}{3}\right)
 	\end{equation}
-	となる．
-\item
-	図\ref{fig:fig0}の(b)と(c)に示す通り．
-\item
-	梁(a)のたわみ$v_a(x)$は,たわみの方程式$EIv_a''''=F\delta\left(x-\frac{2l}{3}\right)$を,
-単純支持条件:
-\[
-	v_a(0)=v_a'(0)=0, \ \ -EIv_a''(l)=0, \ \ (-EIv_a'')'(l)=0
-\]
+	を，両端固定支持の条件:
+	\begin{equation}
+		v(0)=0, v'(0)=0, \ \
+		v(l)=0, v'(l)=0
+	\end{equation}
 の元で解くことで，次のように求められる．
 \begin{equation}
-	v_a(x)=
+	v(x)=
 	\frac{Fl^3}{6EI}
-	\left\{ \left<\xi -\frac{2}{3}\right>^3-\xi^3+2\xi^2 \right\}, 
+	\left\{ \left<\xi -\frac{2}{3}\right>^3-\frac{7}{27}\xi^3+\frac{2}{9}2\xi^2 \right\}, 
 	\ \ \left(\xi=\frac{x}{l}\right)
-	\label{eqn:va}
+	\label{eqn:vx}
 \end{equation}
 ただし, $\xi=x/l$で$x$はAを原点として右向きを正とする座標を表す．
 \item
-荷重項を$q(x)=F\delta(x-a)$として，上の問題と同様にしてたわみを求めれば良い．
-このときのたわみを$v_b(x)$とすれば，
-\begin{equation}
-	v_b(x)=
-	\frac{Fl^3}{6EI}
-	\left\{ \left<\xi -\alpha\right>^3-\xi^3+3\alpha\xi^2 \right\}, 
-	\ \ \left(\xi=\frac{x}{l},\, \alpha=\frac{a}{l}\right)
-	\label{eqn:vb}
-\end{equation}
-となる．
+	支点反力の正方向を図\ref{fig:fig1}-(a)のように定める．
+	これらは，
+	\begin{equation}
+		Q(0)=\frac{7}{27}F, \ \ M(0)=-\frac{2}{27}Fl, \ \ 
+		Q(l)=\frac{20}{27}F, \ \ M(l)=-\frac{4}{27}Fl
+	\end{equation}
+	より
+	\begin{equation}
+		V_A=\frac{7}{27}F, \ \ M_A=-\frac{2}{27}Fl, \ \ 
+		V_D=\frac{20}{27}F, \ \ M_D=-\frac{4}{27}Fl
+	\end{equation}
+	で，水平反力は外力が作用しないため$H_A=H_D=0$となる．
 \item
-梁(c)の支点反力の正方向を図\ref{fig:fig1}-(a)のように定める．
-点Dにおけるたわみのうち，外力$F$に起因したものを$v_F$，反力$R_D$によるものを$v_R$とする．
-式(\ref{eqn:vb})より，
-\begin{equation}
-	v_F=\frac{14}{81}\frac{Fl^3}{EI}
-	\label{eqn:vF}
-\end{equation}
-\begin{equation}
-	v_R=-\frac{1}{3}\frac{R_Dl^3}{EI}
-	\label{eqn:vR}
-\end{equation}
-と与えられ，また，$v_F+v_R=0$であることから，
-\begin{equation}
-	R_D=\frac{14}{27}F
-	\label{eqn:RB_c}
-\end{equation}
-と点Dの鉛直反力が決まる．これを踏まえ，梁全体の釣り合い条件を使えば，固定端Aにおける反力が
-\begin{equation}
-	R_A=\frac{14}{27}F, \ \ M_A=-\frac{4}{27}Fl
-	\label{eqn:forces_A_b}
-\end{equation}
-と求められる．
+	\begin{equation}
+		Q(\xi)=-\frac{F}{3}
+		\left\{ 
+			3H\left( \xi-\frac{2}{3}\right) -\frac{7}{9}
+		\right\}
+	\end{equation}
+	より，せん断力図は図\ref{fig:fig1}-(b)のようになる．
 \item
-図\ref{fig:fig1}-(a)に示す通り．
+	\begin{equation}
+		M(\xi)=-\frac{Fl}{3}
+		\left\{ 
+			3\left< \xi-\frac{2}{3}\right> -\frac{7}{9}\xi+\frac{2}{9}
+		\right\}
+	\end{equation}
+	より，曲げモーメント図は図\ref{fig:fig1}-(c)のようになる．
 \item
-梁(d)の支点反力の正方向を図\ref{fig:fig1}-(b)のように定める．
-点Bにおけるたわみのうち，外力$F$に起因したものを$v_F$，反力$R_B$によるものを$v_R$とする．
-式(\ref{eqn:vb})より，
-\begin{equation}
-	v_F=\frac{5}{6\cdot 27}\frac{Fl^3}{EI}
-	\label{eqn:vF_d}
-\end{equation}
-\begin{equation}
-	v_R=-\frac{1}{3\cdot 27}\frac{R_Bl^3}{EI}
-	\label{eqn:vR_d}
-\end{equation}
-と与えられ，また，$v_F+v_R=0$であることから，
-\begin{equation}
-	R_B=\frac{5}{2}F
-	\label{eqn:RB_d}
-\end{equation}
-と点Dの鉛直反力が決まる．これを踏まえ，梁全体の釣り合い条件を使えば，固定端Aにおける反力が
-\begin{equation}
-	R_A=-\frac{3}{2}F, \ \ M_A=\frac{1}{6}Fl
-	\label{eqn:forces_A_d}
-\end{equation}
-と求められる．
-\item
-図\ref{fig:fig1}-(b)に示す通り．
+	点Cに加えられた集中荷重によって生じる曲げモーメントは図\ref{fig:fig1}-(c)
+	に示した通りである．一方，点Bに加えられた集中荷重によって生じる曲げモーメント
+	は，図\ref{fig:fig1}-(c)のグラフを，部材中央($x=l/2$)で左右反転させた
+	ものとして与えられる．よって，求めるべき曲げモーメント図は，それらの重ね合わせ
+	により，左右対象なグラフとして図\ref{fig:fig2}-(b)のようになる．
 \end{enumerate}
 \begin{figure}[h]
 	\begin{center}
-	\includegraphics[width=0.5\linewidth]{fig0ans.eps} 
+	\includegraphics[width=0.6\linewidth]{fig1ans.eps} 
 	\end{center}
-	\caption{支点反力の正方向と曲げモーメント図.}
-	\label{fig:fig0}
+	\caption{支点反力の正方向と断面力図.}
+	\label{fig:fig1}
 \end{figure}
 \begin{figure}[h]
 	\begin{center}
-	\includegraphics[width=0.8\linewidth]{fig1ans.eps} 
+	\includegraphics[width=0.6\linewidth]{fig1ans2.eps} 
 	\end{center}
 	\caption{曲げモーメント図.} 
-	\label{fig:fig1}
+	\label{fig:fig2}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection*{問題2.}
 \begin{enumerate}
 \item
-図\ref{fig:fig2}に示すように支点反力の正方向を定めると,
+図\ref{fig:fig3}に示すように支点反力の正方向を定めると,
 構造系全体のつり合い条件より，これらの反力が次のように求められる．
 \begin{equation}
-	R_A=-\frac{q_0l}{2}, \ \ 
+	R_A=-\frac{q_0l}{3}, \ \ 
 	H_D=q_0l, \ \ 
-	R_D=\frac{q_0l}{2}
+	R_D=\frac{q_0l}{3}
 \end{equation}
 \item
-図\ref{fig:fig2}-(a)に示すa-a'断面で構造を切断して，部材1に関する自由物体図を描くと
+図\ref{fig:fig3}-(a)に示すa-a'断面で構造を切断して，部材1に関する自由物体図を描くと
 同図(b)のようになる．これに基づき，つり合い条件から断面力分布を求めれば，
 \begin{eqnarray}
-	N_1 &=&-R_A=\frac{q_0l}{2} \\
-	Q_1 &=& -q_0x_1 \\ 
+	N_1 &=&-R_A=\frac{q_0l}{3} \\
+	Q_1 &=& 0 \\ 
 	M_1 &=&-\frac{1}{2} q_0x_1^2 
 \end{eqnarray}
-となる.ここに$x_1$は図\ref{fig:fig2}-(b)に示す座標を意味する．
-この結果を断面力図として図示すれば，図\ref{fig:fig3}の区間ABの
+となる.ここに$x_1$は図\ref{fig:fig3}-(b)に示す座標を意味する．
+この結果を断面力図として図示すれば，図\ref{fig:fig4}の区間ABの
 部分に示したようになる．
 \item
-図\ref{fig:fig2}-(a)に示すb-b'断面で構造を切断し, 部材2に関する部分構造の自由物体図を描くと，
+図\ref{fig:fig3}-(a)に示すb-b'断面で構造を切断し, 部材2に関する部分構造の自由物体図を描くと，
 同図(c)のようになる．これを参照してつり合い条件から断面力分布を求めれば，
 \begin{eqnarray}
-	N_2 &=& \frac{R_D-H_A}{\sqrt{2}}=-\frac{q_0l}{2\sqrt{2}} \\
-	Q_2 &=&-\frac{1}{\sqrt{2}}\left(q_0l+\frac{q_0l}{2}\right) = -\frac{3}{2\sqrt{2}}q_0l \\
-	M_2 &=& R_D\times \frac{s_2}{\sqrt{2}} -H_A\times \left(2l-\frac{s_2}{\sqrt{2}}\right)
-	=
-	-q_0l^2 \left( 2-\frac{3}{2\sqrt{2}}\frac{s_2}{l}\right)
+	N_2 &=& -q_0l \\
+	Q_2 &=& R_A= -\frac{1}{3}q_0l \\
+	M_2 &=& R_A\times x_1 -\frac{1}{2}q_0l^2 = -\frac{1}{3}q_0lx_2-\frac{1}{2}q_0l^2
 \end{eqnarray}
-となる．以上を断面力図として示せば，図\ref{fig:fig3}の区間BCの部分に示したようになる．
+となる．以上を断面力図として示せば，図\ref{fig:fig4}の区間BCの部分に示したようになる．
 \item
-図\ref{fig:fig2}-(a)に示すc-c'断面で構造を切断し, 部材3に関する自由物体図を描くと
+図\ref{fig:fig3}-(a)に示すc-c'断面で構造を切断し, 部材3に関する自由物体図を描くと
 同図(d)のようになる．これを参照してつり合い条件から断面力分布を求めれば，
 \begin{eqnarray}
-	N_3 &=&-R_D= -\frac{q_0l}{2} \\
-	Q_3 &=& H_D=q_0l \\
-	M_3 &=& -H_D\times s_3=-q_0ls_3
+	N_3 &=&-\frac{1}{3}q_0l\cos \alpha - q_0l \cos \beta = \frac{\sqrt{5}}{3}q_0l \\
+	Q_3 &=&-\frac{1}{3}q_0l\sin\alpha +q_0l\sin\beta = \frac{\sqrt{5}}{3}q_0l \\
+	M_3 &=&-q_0ls_3\cos\alpha+\frac{1}{3}q_0ls_3\sin\alpha= -\frac{\sqrt{5}}{3}q_0ls_s 
 \end{eqnarray}
 となる．以上を断面力図として示せば，図\ref{fig:fig3}の区間CDの部分に示したようになる．
-\item
-部材断面に発生する直応力$\sigma$のうち，
-軸力に起因する応力を$\sigma_N$, 曲げ応力を$\sigma_M$とすると，
-$\sigma=\sigma_N+\sigma_M$で，$\sigma_N$と$\sigma_M$は，それぞれ
-\begin{equation}
-	\sigma_N(x,y)=\frac{N}{A}=\frac{N}{bh}, \ \
-	\sigma_M(x,y)=\frac{M(x)}{I}y=\frac{12M(x)}{bh^3}y
-	\label{eqn:}
-\end{equation}
-で与えられる．ただし$y$は，梁断面内の点の中立面から距離を意味する．
-この問題では各部材内で軸力が一定のため，$\sigma_N$も部材内で一定値をとる．
-$\sigma_M$は$y$に対して単調に変化することから，$\sigma_M$の最大値は
-\begin{equation}
-	\left| \sigma_M\left(x_{max},\pm \frac{h}{2}\right)\right|=\frac{6M_{max}}{bh^2}
-	\label{eqn:eq_lbl}
-\end{equation}
-と表すことができる．ここに，$M_{max}$と$x_{max}$は，
-それぞれ，曲げモーメントの最大値とそれを与える断面の座標を表す．
-そこで，
-\begin{equation}
-	\gamma(N,M_{max}):=\frac{N}{bh}+\frac{6M_{max}}{bh^2}
-	\label{eqn:cost}
-\end{equation}
-を部材毎に求めると，
-\begin{eqnarray}
-	部材1(節点B) &:& \gamma=\frac{q_0}{b}\left( \frac{1}{2}\frac{l}{h}+3\frac{l^2}{h^2}\right)=305\frac{q_0}{b}\\
-	部材2(節点C) &:& \gamma=\frac{q_0}{b}\left( -\frac{1}{2\sqrt{2}}\frac{l}{h}+12\frac{l^2}{h^2}\right)=
-	\left(1,200-\frac{5}{\sqrt{2}}\right)\frac{q_0}{b}\\
-	部材3(節点C) &:& \gamma=\frac{q_0}{b}\left( -\frac{1}{2}\frac{l}{h}+12\frac{l^2}{h^2}\right)=1,195\frac{q_0}{b}
-	\label{eqn:Hvals}
-\end{eqnarray}
-となる．以上より，最大引張応力は，部材2の節点Cにおいて生じ，その大きさは
-\begin{equation}
-	\sigma=\left(1,200-\frac{5}{\sqrt{2}}\right)\frac{q_0}{b}
-	\label{eqn:sig_max}
-\end{equation}
-であると分かる．
+なお，上の計算では
+	\begin{equation}
+		\cos\alpha=\sin\beta = \frac{2}{\sqrt{5}}, \ \ 
+		\sin\alpha=\cos\beta = \frac{1}{\sqrt{5}}
+	\end{equation}
+を用いた．
 \end{enumerate}
 %--------------------
 \begin{figure}[h]
 	\begin{center}
-	\includegraphics[width=0.7\linewidth]{fig2ans.eps} 
+	\includegraphics[width=0.8\linewidth]{fig2ans.eps} 
 	\end{center}
 	\caption{支点反力の正方向と断面力計算のための自由物体図.} 
-	\label{fig:fig2}
+	\label{fig:fig3}
 \end{figure}
 \begin{figure}[h]
 	\begin{center}
 	\includegraphics[width=1.0\linewidth]{fig3ans.eps} 
 	\end{center}
 	\caption{骨組み構造の断面力図.} 
-	\label{fig:fig3}
+	\label{fig:fig4}
 \end{figure}
 \end{document}

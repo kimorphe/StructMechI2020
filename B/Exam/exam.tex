@@ -1,7 +1,7 @@
 \documentclass[10pt,a4j]{jarticle}
 \usepackage{graphicx,wrapfig}
 \setlength{\topmargin}{-1.5cm}
-\setlength{\textwidth}{15.5cm}
+%\setlength{\textwidth}{15.5cm}
 \setlength{\textheight}{25.2cm}
 \newlength{\minitwocolumn}
 \setlength{\minitwocolumn}{0.5\textwidth}
@@ -40,45 +40,42 @@
  }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{center}
-{\Large \bf 2019年度 構造力学I及び演習B 期末試験} \\
+{\Large \bf 2020年度 構造力学I及び演習B 期末試験} \\
 \end{center}
 \begin{flushright}
-	2019年2月7日(金)
+	2021年2月5日(金)
 \end{flushright}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-問題毎に解答用紙を分け，片面のみ使用すること．
-下書き用紙, 問題用紙は試験終了後, 持ち帰って下さい．
 %
 %
 %
 \subsubsection*{問題1.}
-図\ref{fig:fig1}のような4種類の梁について, 以下の問に答えよ．
+図\ref{fig:fig1}の梁について, 以下の問に答えよ．
 なお，梁の曲げ剛性$EI$は全断面一定とし，$x$は点Aを原点とし
 右方向を正とする座標を表す. 
 \begin{enumerate}
 \item
-	梁(a)の受ける支点反力を全て求めよ．
-	解答には支点反力の正方向を明記すること．
+	梁(a)や(b)の支点反力は，釣り合い条件だけからは決定できない理由を述べよ．
 \item
-	梁(a)のせん断力図と曲げモーメント図を描け．
+	梁(a)に作用する外力$q(x)$をデルタ関数を用いて$x$の関数として表わせ．
 \item
 	梁(a)のたわみ分布を求めよ．
 \item
-	梁(b)のたわみを求めよ．
+	梁(a)に作用する全ての支点反力を求めよ．
+	解答では支点反力の正方向を明記すること．
 \item
-	梁(c)の受ける支点反力を全て求めよ．
+	梁(a)のせん断力図を描け．
 \item
-	梁(c)の曲げモーメント図を描け．
+	梁(a)の曲げモーメント図を描け．
 \item
-	梁(d)の受ける支点反力を全て求めよ．
-\item
-	梁(d)の曲げモーメント図を描け．
+	梁(b)の曲げモーメント図を描け．
+	解答にあたり，これまでの計算結果を適宜利用してよい．
 \end{enumerate}
 \begin{figure}[h]
 	\begin{center}
 	\includegraphics[width=0.5\linewidth]{fig1.eps} 
 	\end{center}
-	\caption{鉛直下向きの集中荷重を受ける4種類の梁．} 
+	\caption{鉛直下向きの集中荷重を集中荷重を受ける梁．} 
 	\label{fig:fig1}
 \end{figure}
 %--------------------
@@ -96,9 +93,6 @@
 	部材2の断面力図(軸力，せん断力, および曲げモーメント図)を描け．
 \item	
 	部材3の断面力図(軸力，せん断力, および曲げモーメント図)を描け．
-\item	
-	部材の断面は, いずれも幅$b$高さ$h$の長方形で$\frac{l}{h}=10$とする．
-	このとき，骨組み構造に生じる引張応力の最大値を求めよ．
 \end{enumerate}
 %--------------------
 \begin{figure}[h]
@@ -106,7 +100,7 @@
 	\includegraphics[width=0.45\linewidth]{fig2.eps} 
 	\end{center}
 	\caption{
-		部材1において水平方向に等分布荷重を受ける骨組み構造．
+		部材1において水平方向に等分布荷重を受ける骨組み構造ABCD．
 	} 
 	\label{fig:fig2}
 \end{figure}

@@ -48,7 +48,7 @@
 \subsubsection*{問題1.}
 \begin{enumerate}
 \item
-	外力を$p(x)$とする. $p(x)$は
+	外力を$p(x)$は
 	\begin{equation}
 		p(x)=\frac{x}{l}p_0 
 		\ \ \left(0 < x < l \right)
@@ -59,7 +59,7 @@
 		\left( EAu' \right)'=-\frac{x}{l}p_0
 		\label{eqn:gv_eq}
 	\end{equation}
-	となる．境界条件は，左端($x=0l$)部が固定，右端部で軸力が与えられていることから，
+	となる．境界条件は，左端($x=0$)が固定，右端($x=l$)で軸力が与えられていることから，
 	\begin{equation}
 		u(0)=0, \ \  N(l)=EAu'(l)=-F
 		\label{eqn:bcon}
@@ -77,7 +77,7 @@
 			C_2
 		\right\}
 	\end{equation}
-		と表すことができる．積分定数は式(\ref{eqn:bcon})より, $C_1=\frac{6F}{p_0l}, C_2=0$となる．
+		と表すことができる．積分定数は式(\ref{eqn:bcon})より, $C_1=\frac{6F}{p_0l}-3, C_2=0$となる．
 	\begin{equation}
 		u(x)=-\frac{p_0l^2}{6EA}\left\{
 			\left( \frac{x}{l}\right)^3
@@ -160,7 +160,7 @@
 		p
 		\left( 
 		\begin{array}{c}
-			\sqrt{3} \cos\alpha +r\sin\alpha \\
+			\sqrt{3} \cos\alpha +\sin\alpha \\
 			\cos\alpha - \sqrt{3} \sin\alpha 
 		\end{array}
 		\right)
@@ -247,10 +247,43 @@
 	\]
 \item
 	式(\ref{eqn:e11d})と(\ref{eqn:e12d})より
+	\begin{equation}
+		\left( \frac{\varepsilon_{11}'}{\frac{2p(1+\nu)}{E}}\right)^2 
+		+ 
+		\left(\frac{\varepsilon_{22}'}{\frac{p}{G}}\right)^2  = 1
+		\label{eqn:ellip}
+	\end{equation}
+	より，楕円を描く．
+\item
+	$\fat{\sigma}'$と$\fat{\varepsilon}'$は同じ座標変換則に従うので，
+	\begin{eqnarray}
+		\bar \varepsilon &:=& \frac{\varepsilon_{11}+\varepsilon_{22}}{2} \\ 
+		\Delta \varepsilon &:=& \varepsilon_{11}-\varepsilon_{22} \\
+		L &:=&\sqrt{\left( \frac{\Delta \varepsilon}{2}\right)^2 + \left( \varepsilon_{12}\right)^2} \\
+		\tan \psi &:=&\frac{\varepsilon_{12}}{\Delta \varepsilon/2}
+	\end{eqnarray}
+	と定義すれば，ここでは$\bar \varepsilon=0$だから，
+	\begin{eqnarray}
+		\varepsilon_{11}' &= &  L \cos (\psi-2\theta) \\
+		\varepsilon_{22}' &= &  -L \cos (\psi-2\theta) \\
+		\varepsilon_{12}' &= &  L \sin (\psi-2\theta) 
+	\end{eqnarray}
+	となることが，応力成分の場合と同様にして示される．
+	よって，
 	\[
-		(\varepsilon_{11}')^2 + (\varepsilon_{22}')^2  = \frac{p^2}{G^2}
+		L=\frac{2p(1+\nu)}{E}=\frac{p}{G}
+		\ \ 
+		\Rightarrow
+		\ \ 
+		G=\frac{E}{2(1+\nu)}
 	\]
-	より,中心$(0,0)$, 半径$\frac{p}{G}$の円となる.
+	の関係が導かれる．
+\item
+	式(\ref{eqn:ellip})は
+	\begin{equation}
+		\left(\varepsilon_{11}'\right)^2 + \left(\varepsilon_{22}'\right)^2  = \frac{p^2}{G^2}
+	\end{equation}
+	となるので，中心$(0,0)$, 半径$\frac{p}{G}$の円となる.
 \end{enumerate}
 %--------------------
 \begin{figure}
